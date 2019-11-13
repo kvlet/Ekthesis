@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Ekthesis
+                    Msc Project Ekthesis
                 </div>
 
                 <div class="links">
