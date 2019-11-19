@@ -11,8 +11,6 @@
     <style>
         body{
             background-image: url("/images/pragm.jpg")
-            background-attachment: fixed;
-            background-position: center;
         }
     </style>
 
