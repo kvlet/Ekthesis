@@ -10,7 +10,7 @@
     <title>@yield('title')</title>
     <style>
         body{
-            background-image: url("public/images/pragm.jpg")
+            background-image: url("/public/images/pragm.jpg")
         }
     </style>
 
