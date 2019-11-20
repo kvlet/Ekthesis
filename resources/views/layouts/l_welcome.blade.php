@@ -12,36 +12,28 @@
         body{
             background-image: url("/images/pragm.jpg");
             background-size: cover;
+           /*opacity: 0.5;*/
         }
+        .footer{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: black;
+            background-color:azure;
+            font-weight: bold;
+            text-align: center;
+        }
+        
     </style>
 
 </head>
 <body>
 
-    <div class="container">
-        @yield('header')
-    </div>
-    <div class="dropdown-menu">
-        @yield('menou')
-    </div>
 
-    <div class="container">
-        @yield('content')
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-    <div class="container">
-        @yield('footer')
-    </div>
+<div class="footer">
+    @yield('footer')
+</div>
     
 </body>
 </html>
