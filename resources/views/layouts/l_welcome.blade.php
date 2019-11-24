@@ -11,9 +11,10 @@
     <title>@yield('title')</title>
     <style>
         body{
-            background-image: url("/images/pragm.jpg");
-            background-size: cover;
-           /*opacity: 0.5;*/
+            position:relative;
+            padding:0px;
+            margin:0px;
+            height: 100vh;
         }
         .footer{
             position: fixed;
@@ -25,13 +26,25 @@
             font-weight: bold;
             text-align: center;
         }
+        .bg-ekthesis{
+            background-image: url("/images/pragm.jpg");
+            background-size: cover;
+            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+        }
         
     </style>
 
 </head>
 <body>
 
-
+    <div class="bg-ekthesis">
+        
+    </div>
     <div class="footer">
         @yield('footer')
     </div>
