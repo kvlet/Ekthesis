@@ -17,5 +17,5 @@
 @endsection
 
 @section('footer')
-© 2019 Copyright: Κωνσταντίνος Χ. Βλέτσης
+    © 2019 Copyright: Κωνσταντίνος Χ. Βλέτσης
 @endsection
