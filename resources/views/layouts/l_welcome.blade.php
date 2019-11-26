@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -26,25 +26,61 @@
             font-weight: bold;
             text-align: center;
         }
+        .header{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            color: black;
+            background-color:azure;
+            font-weight: bold;
+        }
+        .header-left{
+            text-align: left;
+            float: left;
+            width: 33%;
+        }
+        .header-center{
+            text-align: center;
+            float: left;
+            width: 33%;
+        }
+        .header-right{
+            text-align: right; 
+            float: left;
+            width: 33%;
+
+        }
         .bg-ekthesis{
             background-image: url("/images/pragm.jpg");
-            background-size: cover;
+            background-size: 100%;
             opacity: 0.5;
             width: 100%;
             height: 100%;
             top: 0px;
             left: 0px;
-            position: absolute;
+            position: fixed;
         }
-        
     </style>
 
 </head>
 <body>
-
     <div class="bg-ekthesis">
         
     </div>
+
+    <div class="header">
+        <div class="header-left">
+            @yield('header-left')
+        </div>   
+        <div class="header-center">
+            @yield('header-center')
+        </div>
+        <div class="header-right">
+            @yield('header-right')
+        </div>
+    </div>
+
     <div class="footer">
         @yield('footer')
     </div>
