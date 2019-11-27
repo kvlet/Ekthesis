@@ -81,6 +81,10 @@
         </div>
     </div>
 
+    <div>
+        @yield('content')
+    </div>
+
     <div class="footer">
         @yield('footer')
     </div>
