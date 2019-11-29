@@ -62,9 +62,11 @@
             position: fixed;
         }
         .menu{
-            position:fixed;
+            position: relative;
             width:20%;
-            left:0px;
+            left:2px;
+            top: 5%;
+            bottom: 5%;
             float: left;
         }
         .nav-link[data-toggle].collapsed:after {

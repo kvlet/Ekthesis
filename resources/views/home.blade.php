@@ -1,8 +1,9 @@
 @extends('layouts.layout')
 
-<div class="menu">
-    @include('menu')
-</div>
+@include('welcome')
 @section('content')
-    
+    <div class="menu">
+        @include('menu')
+    </div>
 @endsection
+
