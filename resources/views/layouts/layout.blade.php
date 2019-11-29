@@ -75,6 +75,12 @@
         .nav-link[data-toggle]:not(.collapsed):after {
             content: "▴";
         }
+        .login-form{
+            position: relative;
+            top: 430px;
+            bottom:80px;
+            font-weight: bold;
+        }
     </style>
 
 </head>
@@ -95,7 +101,7 @@
         </div>
     </div>
 
-    <div>
+    <div class="login-form">
         @yield('content')
     </div>
 
