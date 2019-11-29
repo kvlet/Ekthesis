@@ -61,11 +61,17 @@
             left: 0px;
             position: fixed;
         }
-        .menou{
+        .menu{
             position:fixed;
             width:20%;
             left:0px;
             float: left;
+        }
+        .nav-link[data-toggle].collapsed:after {
+            content: "▾";
+        }
+        .nav-link[data-toggle]:not(.collapsed):after {
+            content: "▴";
         }
     </style>
 
