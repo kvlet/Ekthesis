@@ -1,4 +1,4 @@
-@extends('layouts.l_welcome')
+@extends('layouts.layout')
 
 @section('title')
     Εκθέσεις Πραγματογνωμοσύνης

@@ -61,6 +61,12 @@
             left: 0px;
             position: fixed;
         }
+        .menou{
+            position:fixed;
+            width:20%;
+            left:0px;
+            float: left;
+        }
     </style>
 
 </head>
