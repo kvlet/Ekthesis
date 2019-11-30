@@ -77,7 +77,7 @@
         }
         .login-form{
             position: relative;
-            top: 430px;
+            top: 230px;
             bottom:80px;
             font-weight: bold;
         }
