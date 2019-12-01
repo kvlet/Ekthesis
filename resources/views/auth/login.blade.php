@@ -7,7 +7,7 @@
         <div class="col-md-10">
             <div class="card border-0 shadow-lg">
                 <div class="card-header text-center">
-                    Είσοδος Χρηστών
+                    Είσοδος Νέων Χρηστών
                 </div>
                 <div class="card-body" >
                     <form method="POST" action="{{ route('login') }}">
