@@ -1,9 +1,10 @@
-@extends('layouts.layout')
+@extends('layouts.outer')
 
-@include('welcome')
+@include('layouts._partials.header')
+
 @section('content')
     <div class="menu">
-        @include('menu')
+        @include('layouts._partials.menu')
     </div>
 @endsection
 

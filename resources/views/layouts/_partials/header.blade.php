@@ -1,5 +1,3 @@
-@extends('layouts.layout')
-
 @section('title')
     Εκθέσεις Πραγματογνωμοσύνης
 @endsection
@@ -9,11 +7,11 @@
 @endsection
 
 @section('header-center')
-     Υποστίρηξη: support@ksoftdev.gr
+    Υποστήριξη: <a href="mailto:support@ksoftdev.gr" alt="send mail to suppport">support@ksoftdev.gr</a>
 @endsection
 
 @section('header-right')
-     Εκθέσεις Πραγματογνωμοσύνης v.4.5
+     Έκδοση: v.1.0
 @endsection
 
 
