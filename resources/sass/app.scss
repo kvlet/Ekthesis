@@ -7,31 +7,14 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Components
+@import 'component';
 
 body{
   position:relative;
   padding:0px;
   margin:0px;
   height: 100vh;
-}
-.footer{
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: black;
-  padding: 0.5rem 1rem;
-  background-color: #eee;
-  font-weight: bold;
-  text-align: center;
-}
-.header{
-  width: 100%;
-  height:auto;
-  color: black;
-  padding: 0.5rem 1rem;
-  background-color: #eee;
-  font-weight: bold;
 }
 
 .bg-ekthesis{
@@ -43,24 +26,4 @@ body{
   opacity: 1;
   width: 100%;
   min-height: 95vh;
-}
-.menu{
-  position: relative;
-  width:20%;
-  left:2px;
-  top: 5%;
-  bottom: 5%;
-  float: left;
-}
-.nav-link[data-toggle].collapsed:after {
-  content: "▾";
-}
-.nav-link[data-toggle]:not(.collapsed):after {
-  content: "▴";
-}
-.login-form{
-  position: relative;
-  top: 230px;
-  bottom:80px;
-  font-weight: bold;
 }

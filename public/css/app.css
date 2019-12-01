@@ -11356,11 +11356,13 @@ a.text-dark:focus {
   }
 }
 
-body {
-  position: relative;
-  padding: 0px;
-  margin: 0px;
-  height: 100vh;
+.header {
+  width: 100%;
+  height: auto;
+  color: black;
+  padding: 0.5rem 1rem;
+  background-color: #eee;
+  font-weight: bold;
 }
 
 .footer {
@@ -11373,26 +11375,6 @@ body {
   background-color: #eee;
   font-weight: bold;
   text-align: center;
-}
-
-.header {
-  width: 100%;
-  height: auto;
-  color: black;
-  padding: 0.5rem 1rem;
-  background-color: #eee;
-  font-weight: bold;
-}
-
-.bg-ekthesis {
-  background-image: url("/images/pragm.jpg");
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: cover;
-  position: relative;
-  opacity: 1;
-  width: 100%;
-  min-height: 95vh;
 }
 
 .menu {
@@ -11413,9 +11395,29 @@ body {
 }
 
 .login-form {
+  -webkit-box-flex: 1;
+          flex: 1;
+}
+
+.login-column {
+  min-height: 85vh;
+}
+
+body {
   position: relative;
-  top: 230px;
-  bottom: 80px;
-  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+}
+
+.bg-ekthesis {
+  background-image: url("/images/pragm.jpg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: cover;
+  position: relative;
+  opacity: 1;
+  width: 100%;
+  min-height: 95vh;
 }
 
