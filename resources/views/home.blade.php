@@ -1,6 +1,4 @@
-@extends('layouts.outer')
-
-@include('layouts._partials.header')
+@extends('layouts.app')
 
 @section('content')
     <div class="menu">

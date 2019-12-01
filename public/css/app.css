@@ -11386,14 +11386,6 @@ a.text-dark:focus {
   float: left;
 }
 
-.nav-link[data-toggle].collapsed:after {
-  content: "\25BE";
-}
-
-.nav-link[data-toggle]:not(.collapsed):after {
-  content: "\25B4";
-}
-
 .login-form {
   -webkit-box-flex: 1;
           flex: 1;
