@@ -40,10 +40,10 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8 d-none d-md-block p-0">
+                <div class="col-md-9 d-none d-md-block p-0">
                     <div class="bg-ekthesis"></div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="login-form">
                         @yield('content')
                     </div>
