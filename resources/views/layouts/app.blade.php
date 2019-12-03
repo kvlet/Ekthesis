@@ -38,7 +38,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-9 d-none d-md-block p-0">
-                    <div class="bg-ekthesis"></div>
+                    <div class="bg-formekthesis"></div>
                 </div>
                 <div class="col-md-3 d-flex justify-content-center align-items-center flex-row login-column">
                     <div class="login-form">
