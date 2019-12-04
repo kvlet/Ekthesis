@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2 collapse show d-md-flex bg-light pt-2 pl-0 min-vh-100" id="sidebar">
+        <div class="col-6 collapse show d-md-flex bg-light pt-2 pl-0 min-vh-100" id="sidebar">
             <ul class="nav flex-column flex-nowrap overflow-hidden">
                 <li class="nav-item">
                     <a class="nav-link text-truncate" href="#"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Overview</span></a>
