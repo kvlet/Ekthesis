@@ -1,8 +1,8 @@
 @section('lmenu')
 <div class="lmenu">
     <div class="container-fluid">
-        <div class="row">
-               <div class="col-md-3 d-flex justify-content-center align-items-center flex-row">
+        <div class="row col-md-12">
+               <div class="col-md-6 d-flex justify-content-center align-items-center flex-row lmenu">
                     <ul class="nav flex-column flex-nowrap overflow-hidden">
                         <li class="nav-item">
                             <a class="nav-link text-truncate" href="#"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Overview</span></a>
