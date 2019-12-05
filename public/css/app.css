@@ -11377,13 +11377,22 @@ a.text-dark:focus {
   text-align: center;
 }
 
-.menu {
+.lmenu {
   position: relative;
   width: 20%;
   left: 2px;
   top: 5%;
   bottom: 5%;
   float: left;
+}
+
+.rmenu {
+  position: relative;
+  width: 20%;
+  left: 2px;
+  top: 5%;
+  bottom: 5%;
+  float: right;
 }
 
 .login-form {
