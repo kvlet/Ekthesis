@@ -36,15 +36,20 @@
     </div>
 
     <main>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-md-2 d-flex justify-content-center align-items-center flex-row lmenu">
+                <div class="col-md-2 d-flex justify-content-center align-items-center flex-row ">
                     <div class="lmenu">
                             
                     </div>
                 </div>               
-                <div class="col-md-10 d-none d-md-block p-0">
+                <div class="col-md-8 d-none d-md-block p-0">
                     <div class="bg-wel-ekthesis"></div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center align-items-center flex-row">
+                    <div class="rmenu">
+
+                    </div>
                 </div>
             </div>
         </div>
