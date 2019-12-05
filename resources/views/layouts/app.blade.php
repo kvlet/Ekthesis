@@ -38,11 +38,11 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-9 d-none d-md-block p-0">
+                <div class="col-md-6 d-none d-md-block p-0">
                     <div class="bg-form-ekthesis"></div>
                 </div>
-                <div class="col-md-2 d-flex justify-content-center align-items-center flex-row login-column">
-                    <div class="login-form">
+                <div class="col-md-6 d-flex justify-content-center align-items-center flex-row login-column">
+                    <div class="menu">
                         @yield('content')
                     </div>
                 </div>
