@@ -11389,7 +11389,7 @@ a.text-dark:focus {
 .rmenu {
   position: relative;
   width: 20%;
-  left: 2px;
+  right: 2px;
   top: 5%;
   bottom: 5%;
   float: right;
