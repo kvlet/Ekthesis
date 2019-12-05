@@ -44,7 +44,7 @@
                     </div>
                 </div>               
                 <div class="col-md-10 d-none d-md-block p-0">
-                    <div class="bg-form-ekthesis"></div>
+                    <div class="bg-wel-ekthesis"></div>
                 </div>
             </div>
         </div>

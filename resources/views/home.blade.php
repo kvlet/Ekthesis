@@ -3,9 +3,9 @@
 @include('layouts._partials.menu')
 
 @section('lmenu')
+<div class="lmenu">
     <div class="container-fluid">
         <div class="row">
-            <div class="lmenu">
                 <div class="col-6 collapse show d-md-flex bg-light pt-2 pl-0 min-vh-100" id="sidebar">
                     <ul class="nav flex-column flex-nowrap overflow-hidden">
                         <li class="nav-item">
@@ -46,7 +46,7 @@
                         <li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-download"></i> <span class="d-none d-sm-inline">Export</span></a></li>
                     </ul>
                 </div>
-            </div>
         </div>
     </div>
+</div>
 @endsection
