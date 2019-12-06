@@ -5,10 +5,44 @@
 @section('lmenu')
     <ul class="nav flex-column flex-nowrap overflow-hidden">
         <li class="nav-item">
-            <a class="nav-link text-truncate" href="#"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Overview</span></a>
+            <a class="nav-link text-truncate" href="/pragmatognomosines"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Πραγματογνωμοσύνες</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Reports</span></a>
+                <a class="nav-link text-truncate" href="/ereunes"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Έρευνες</span></a>
+         </li>
+         <li class="nav-item">
+                <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Πρόσωπα</span></a>
+                    <div class="collapse" id="submenu1" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="#"><span>Orders</span></a></li>
+                             <li class="nav-item">
+                                <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Customers</span></a>
+                                    <div class="collapse" id="submenu1sub1" aria-expanded="false">
+                                        <ul class="flex-column nav pl-4">
+                                            <li class="nav-item">
+                                                 <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-clock-o"></i> Daily </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-dashboard"></i> Dashboard </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                     <i class="fa fa-fw fa-bar-chart"></i> Charts </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-compass"></i> Areas </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                        </ul>
+                    </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Εταιρείες</span></a>
                 <div class="collapse" id="submenu1" aria-expanded="false">
                     <ul class="flex-column pl-2 nav">
                         <li class="nav-item"><a class="nav-link py-0" href="#"><span>Orders</span></a></li>
@@ -38,7 +72,105 @@
                     </ul>
                 </div>
         </li>
-        <li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-bar-chart"></i> <span class="d-none d-sm-inline">Analytics</span></a></li>
-        <li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-download"></i> <span class="d-none d-sm-inline">Export</span></a></li>
+        <li class="nav-item">
+                <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Οχήματα</span></a>
+                    <div class="collapse" id="submenu1" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="#"><span>Orders</span></a></li>
+                             <li class="nav-item">
+                                <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Customers</span></a>
+                                    <div class="collapse" id="submenu1sub1" aria-expanded="false">
+                                        <ul class="flex-column nav pl-4">
+                                            <li class="nav-item">
+                                                 <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-clock-o"></i> Daily </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-dashboard"></i> Dashboard </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                     <i class="fa fa-fw fa-bar-chart"></i> Charts </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-compass"></i> Areas </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                        </ul>
+                    </div>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Διαχείριση Οικονομικών</span></a>
+                    <div class="collapse" id="submenu1" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="#"><span>Orders</span></a></li>
+                             <li class="nav-item">
+                                <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Customers</span></a>
+                                    <div class="collapse" id="submenu1sub1" aria-expanded="false">
+                                        <ul class="flex-column nav pl-4">
+                                            <li class="nav-item">
+                                                 <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-clock-o"></i> Daily </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-dashboard"></i> Dashboard </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                     <i class="fa fa-fw fa-bar-chart"></i> Charts </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-compass"></i> Areas </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                        </ul>
+                    </div>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link text-truncate" href="/pragmatognomosines"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Διαχείριση Κειμένων</span></a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Εκτυπώσεις</span></a>
+                    <div class="collapse" id="submenu1" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="#"><span>Orders</span></a></li>
+                             <li class="nav-item">
+                                <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Customers</span></a>
+                                    <div class="collapse" id="submenu1sub1" aria-expanded="false">
+                                        <ul class="flex-column nav pl-4">
+                                            <li class="nav-item">
+                                                 <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-clock-o"></i> Daily </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-dashboard"></i> Dashboard </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                     <i class="fa fa-fw fa-bar-chart"></i> Charts </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-compass"></i> Areas </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                        </ul>
+                    </div>
+        </li>
     </ul>
+@endsection
+
+@section('rmenu')
+    <p>Εδω τα κουμπια</p>
 @endsection

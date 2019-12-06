@@ -52,9 +52,11 @@
                                 <div class="col-md-4">
                                     <p>Εδώ το logout</p>
                                 </div>
+                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                 @yield('rmenu')
                             </div>
-                        <div class="rmenu">
-                            <p>poy eisai esy</p>
                         </div>
                 </div>
             </div>
