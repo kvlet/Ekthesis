@@ -36,20 +36,26 @@
     </div>
 
     <main>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-2 d-flex justify-content-center align-items-center flex-row ">
-                    <div class="lmenu">
-                            
-                    </div>
+                <div class="col-md-2 d-none d-md-block p-0">
+                    @yield('lmenu')
                 </div>               
                 <div class="col-md-8 d-none d-md-block p-0">
                     <div class="bg-wel-ekthesis"></div>
                 </div>
-                <div class="col-md-2 d-flex justify-content-center align-items-center flex-row">
-                    <div class="rmenu">
-
-                    </div>
+                <div class="col-md-2">
+                        <div class="row">
+                                <div class="col-md-8">
+                                     <p>Εδώ τον user</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>Εδώ το logout</p>
+                                </div>
+                            </div>
+                        <div class="rmenu">
+                            <p>poy eisai esy</p>
+                        </div>
                 </div>
             </div>
         </div>
