@@ -75,7 +75,7 @@
                                                                                 <i class="fa fa-fw fa-clock-o"></i>Εντολή Εταιρείας </a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link p-1" href="#">
+                                                                            <a class="nav-link p-1" href="/reports/checkstats/anathesisesinergati">
                                                                                 <i class="fa fa-fw fa-dashboard"></i> Ανάθεση σε Συνεργάτη </a>
                                                                         </li>
                                                                         <li class="nav-item">
