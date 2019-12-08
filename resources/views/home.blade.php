@@ -79,39 +79,39 @@
                                                                                 <i class="fa fa-fw fa-dashboard"></i> Ανάθεση σε Συνεργάτη </a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link p-1" href="#">
+                                                                            <a class="nav-link p-1" href="/reports/checkstats/anathesisesinergates">
                                                                                  <i class="fa fa-fw fa-bar-chart"></i> Ανάθεση σε Συνεργάτες </a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link p-1" href="#">
+                                                                            <a class="nav-link p-1" href="/reports/checkstats/proselegxo">
                                                                                  <i class="fa fa-fw fa-bar-chart"></i> Προς Έλεγχο </a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link p-1" href="#">
+                                                                            <a class="nav-link p-1" href="/reports/checkstats/prosapostoli">
                                                                                  <i class="fa fa-fw fa-bar-chart"></i> Προς Αποστολή </a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link p-1" href="#">
+                                                                            <a class="nav-link p-1" href="/reports/checkstats/oloklirothike">
                                                                                  <i class="fa fa-fw fa-bar-chart"></i> Ολοκληρώθηκε </a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link p-1" href="#">
+                                                                            <a class="nav-link p-1" href="/reports/checkstats/sinolikesekkremotites">
                                                                                  <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες </a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link p-1" href="#">
+                                                                            <a class="nav-link p-1" href="/reports/checkstats/sinolikesekkremotitesnomou">
                                                                                  <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες ανά Νομό </a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link p-1" href="#">
+                                                                            <a class="nav-link p-1" href="/reports/checkstats/sinolikesekkremotiteseggrafon">
                                                                                  <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες Εγγράφων </a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link p-1" href="#">
+                                                                            <a class="nav-link p-1" href="/reports/checkstats/ekkremotitesdikasimon">
                                                                                  <i class="fa fa-fw fa-bar-chart"></i> Εκκρεμότητες Δικασίμων </a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link p-1" href="#">
+                                                                            <a class="nav-link p-1" href="/reports/checkstats/ekthesisentolea">
                                                                                  <i class="fa fa-fw fa-bar-chart"></i> Εκθέσεις Εντολέα </a>
                                                                         </li>
                                                                     </ul>
