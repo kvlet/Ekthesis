@@ -64,10 +64,60 @@
                                 <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Ελεγκτικές/Στατιστικές</span></a>
                                     <div class="collapse" id="submenu1sub1" aria-expanded="false">
                                         <ul class="flex-column nav pl-4">
-                                            <li class="nav-item">
-                                                 <a class="nav-link p-1" href="#">
-                                                    <i class="fa fa-fw fa-clock-o"></i> Προς διαικπαιρέωση </a>
-                                            </li>
+                                            <!--<li class="nav-item">-->
+                                                 <!--<a class="nav-link p-1" href="#">-->
+                                                   <!-- <li class="nav-item">-->
+                                                            <a class="nav-link collapsed py-1" href="#submenu1sub1_1" data-toggle="collapse" data-target="#submenu1sub1_1"><span>Προς διεκπεραίωση</span></a>
+                                                                <div class="collapse" id="submenu1sub1_1" aria-expanded="false">
+                                                                    <ul class="flex-column nav pl-4">
+                                                                        <li class="nav-item">
+                                                                             <a class="nav-link p-1" href="/reports/checkstats/entolietaireias">
+                                                                                <i class="fa fa-fw fa-clock-o"></i>Εντολή Εταιρείας </a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link p-1" href="#">
+                                                                                <i class="fa fa-fw fa-dashboard"></i> Ανάθεση σε Συνεργάτη </a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link p-1" href="#">
+                                                                                 <i class="fa fa-fw fa-bar-chart"></i> Ανάθεση σε Συνεργάτες </a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link p-1" href="#">
+                                                                                 <i class="fa fa-fw fa-bar-chart"></i> Προς Έλεγχο </a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link p-1" href="#">
+                                                                                 <i class="fa fa-fw fa-bar-chart"></i> Προς Αποστολή </a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link p-1" href="#">
+                                                                                 <i class="fa fa-fw fa-bar-chart"></i> Ολοκληρώθηκε </a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link p-1" href="#">
+                                                                                 <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες </a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link p-1" href="#">
+                                                                                 <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες ανά Νομό </a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link p-1" href="#">
+                                                                                 <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες Εγγράφων </a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link p-1" href="#">
+                                                                                 <i class="fa fa-fw fa-bar-chart"></i> Εκκρεμότητες Δικασίμων </a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link p-1" href="#">
+                                                                                 <i class="fa fa-fw fa-bar-chart"></i> Εκθέσεις Εντολέα </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                   <!--</li>-->
+                                           <!-- </li>-->
                                             <li class="nav-item">
                                                 <a class="nav-link p-1" href="#">
                                                     <i class="fa fa-fw fa-dashboard"></i> Εκπρόθεσμες </a>
