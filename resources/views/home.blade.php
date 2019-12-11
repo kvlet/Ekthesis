@@ -68,47 +68,47 @@
                                             <div class="collapse" id="submenu1sub1_1" aria-expanded="false">
                                                 <ul class="flex-column nav pl-4">
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/entolietaireias">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/entolietaireias">
                                                         <i class="fa fa-fw fa-clock-o"></i>Εντολή Εταιρείας </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/anathesisesinergati">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/anathesisesinergati">
                                                         <i class="fa fa-fw fa-dashboard"></i> Ανάθεση σε Συνεργάτη </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/anathesisesinergates">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/anathesisesinergates">
                                                         <i class="fa fa-fw fa-bar-chart"></i> Ανάθεση σε Συνεργάτες </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/proselegxo">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/proselegxo">
                                                         <i class="fa fa-fw fa-bar-chart"></i> Προς Έλεγχο </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/prosapostoli">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/prosapostoli">
                                                         <i class="fa fa-fw fa-bar-chart"></i> Προς Αποστολή </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/oloklirothike">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/oloklirothike">
                                                         <i class="fa fa-fw fa-bar-chart"></i> Ολοκληρώθηκε </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/sinolikesekkremotites">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/sinolikesekkremotites">
                                                         <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/sinolikesekkremotitesnomou">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/sinolikesekkremotitesnomou">
                                                         <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες ανά Νομό </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/sinolikesekkremotiteseggrafon">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/sinolikesekkremotiteseggrafon">
                                                         <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες Εγγράφων </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/ekkremotitesdikasimon">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/ekkremotitesdikasimon">
                                                         <i class="fa fa-fw fa-bar-chart"></i> Εκκρεμότητες Δικασίμων </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prodiekpereosi/ekthesisentolea">
+                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/ekthesisentolea">
                                                         <i class="fa fa-fw fa-bar-chart"></i> Εκθέσεις Εντολέα </a>
                                                     </li>
                                                 </ul>
