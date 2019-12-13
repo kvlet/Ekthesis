@@ -68,7 +68,7 @@
                                             <div class="collapse" id="submenu1sub1_1" aria-expanded="false">
                                                 <ul class="flex-column nav pl-4">
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href={{url('resources/views/reports/checkstats/prosdiekpereosi/entolietaireias')}}>
+                                                        <a class="nav-link p-1" href={{url('/reports/Entoli_etaireias.pdf')}} target="_blank">
                                                         <i class="fa fa-fw fa-clock-o"></i>Εντολή Εταιρείας</a>
                                                     </li>
                                                     <li class="nav-item">
