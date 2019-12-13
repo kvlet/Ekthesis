@@ -26,8 +26,6 @@
                         <li class="nav-item"><a class="nav-link py-0" href="/company"><span>Εταιρείες</span></a></li>
                         <li class="nav-item"><a class="nav-link py-0" href="/praktoreia"><span>Πρακτορεία</span></a></li>
                         <li class="nav-item"><a class="nav-link py-0" href="/synergeia"><span>Συνεργεία</span></a></li>
-                        <li class="nav-item"><a class="nav-link py-0" href="/reports/diafora/tilephonikoscatetaireion"><span>Τηλεφωνικός Κατάλογος Εταιρειών</span></a></li>
-                        <li class="nav-item"><a class="nav-link py-0" href="/reports/diafora/tilephonikoscatsinergaton"><span>Τηλεφωνικός Κατάλογος Συνεργατών</span></a></li>
                     </ul>
                 </div>
         </li>
@@ -70,7 +68,7 @@
                                             <div class="collapse" id="submenu1sub1_1" aria-expanded="false">
                                                 <ul class="flex-column nav pl-4">
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/entolietaireias">
+                                                        <a class="nav-link p-1" href={{url('reports/checkstats/prosdiekpereosi/entolietaireias')}}>
                                                         <i class="fa fa-fw fa-clock-o"></i>Εντολή Εταιρείας </a>
                                                     </li>
                                                     <li class="nav-item">
