@@ -72,7 +72,7 @@
                                                         <i class="fa fa-fw fa-clock-o"></i>Εντολή Εταιρείας</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/anathesisesinergati">
+                                                        <a class="nav-link p-1" href={{ url('/reports/checkstats/prosdiekpereosi/anathesisesinergati.blade.php') }}>
                                                         <i class="fa fa-fw fa-dashboard"></i> Ανάθεση σε Συνεργάτη </a>
                                                     </li>
                                                     <li class="nav-item">
