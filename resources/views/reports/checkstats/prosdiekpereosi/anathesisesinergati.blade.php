@@ -3,7 +3,7 @@
 
 // The location of the PDF file
 // on the server
-$filename = "/reports/Anathesi_se_sineergati.pdf";
+$filename = "reports/Anathesi_se_sinergati_all.pdf";
 
 // Header content type
 header("Content-type: application/pdf");
