@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-md-2 d-none d-md-block p-0">
                     @yield('lmenu')
-                </div>               
+                </div>
                 <div class="col-md-8 d-none d-md-block p-0">
                     <div class="bg-wel-ekthesis"></div>
                 </div>
@@ -50,7 +50,21 @@
                                      <p>Εδώ τον user</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <p>Εδώ το logout</p>
+                                   <!-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                       {{-- Auth::user()->name --}} <span class="caret"></span>
+                                    </a>-->
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
                                 </div>
                          </div>
                         <div class="row">
