@@ -39,20 +39,45 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 d-none d-md-block p-0">
+                    <ul class="nav flex-column flex-nowrap overflow-hidden">
+                        <li class="nav-item">
+                            <button type="button" onclick="myFunction()" class="btn btn-primary">Απόκρυψη/Επανεμφάνιση μενού</button>
+                        </li>
+                        <script>
+                            function myFunction() {
+                                var x = document.getElementById("myDIV");
+                                if (x.style.display === "none") {
+                                    x.style.display = "block";
+                                } else {
+                                    x.style.display = "none";
+                                }
+                            }
+                        </script>
+                    </ul>
+                </div>
+                <div class="col-md-8">
+                    <p>Εδώ τον user</p>
+                </div>
+                <div class="col-md-2">
+                    <p>Εδώ το logout</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 d-none d-md-block p-0" id="lmenou">
                     @yield('lmenu')
                 </div>
                 <div class="col-md-8 d-none d-md-block p-0">
                     <div class="bg-wel-ekthesis"></div>
                 </div>
                 <div class="col-md-2">
-                        <div class="row">
+                        <!--<div class="row">
                                 <div class="col-md-8">
                                      <p>Εδώ τον user</p>
                                 </div>
                                 <div class="col-md-4">
                                     <p>Εδώ το logout</p>
                                 </div>
-                         </div>
+                         </div>-->
                         <div class="row">
                             <div class="col-md-12">
                                  @yield('rmenu')
