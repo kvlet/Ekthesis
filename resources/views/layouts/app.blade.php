@@ -43,7 +43,7 @@
                         <li class="nav-item">
                             <button type="button" onclick="myFunction()" class="btn btn-primary">Απόκρυψη/Επανεμφάνιση μενού</button>
                         </li>
-                        <script>
+                        <script type="text/javascript">
                             function myFunction() {
                                 var e = document.getElementById("lmenou");
                                 if(e.style.display == null || e.style.display == "none") {
