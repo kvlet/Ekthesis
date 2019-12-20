@@ -45,11 +45,11 @@
                         </li>
                         <script>
                             function myFunction() {
-                                var x = document.getElementById("myDIV");
-                                if (x.style.display === "none") {
-                                    x.style.display = "block";
+                                var e = document.getElementById("lmenou");
+                                if(e.style.display == null || e.style.display == "none") {
+                                    e.style.display = "block";
                                 } else {
-                                    x.style.display = "none";
+                                    e.style.display = "none";
                                 }
                             }
                         </script>
