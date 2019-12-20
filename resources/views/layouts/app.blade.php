@@ -41,7 +41,9 @@
                 <div class="col-md-2 d-none d-md-block p-0">
                     <ul class="nav flex-column flex-nowrap overflow-hidden">
                         <li class="nav-item">
-                            <button type="button" onclick="myFunction()" class="btn btn-primary">Απόκρυψη/Επανεμφάνιση μενού</button>
+                            <label>
+                                <input type="checkbox" checked data-toggle="toggle">
+                            </label>
                         </li>
                         <script type="text/javascript">
                             function myFunction() {
