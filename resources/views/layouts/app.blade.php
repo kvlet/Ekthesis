@@ -40,27 +40,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 d-none d-md-block p-0">
-{{--                    <ul class="nav flex-column flex-nowrap overflow-hidden">
-                        <li class="nav-item">
-                                <input type="checkbox" onclick="myFunction()" checked data-toggle="toggle">
-                        </li>
-                        <script type="text/javascript">
-                            function myFunction() {
-                                var e = document.getElementById("lmenou");
-                                if(e.style.display == null || e.style.display == "none") {
-                                    e.style.display = "block";
-                                } else {
-                                    e.style.display = "none";
-                                }
-                            }
-                        </script>
-                    </ul>--}}
+                    @yield('onoffmenu')
                 </div>
                 <div class="col-md-8">
                     <p>Εδώ τον user</p>
                 </div>
                 <div class="col-md-2">
-                    <p>Εδώ το logout</p>
+                    <button type="submit" class="btn btn-sm btn-primary" style="margin: 4px">Αποσύνδεση</button>
                 </div>
             </div>
             <div class="row">
@@ -68,7 +54,7 @@
                     @yield('lmenu')
                 </div>
                 <div class="col-md-10 d-none d-md-block p-0">
-                    <div class="bg-wel-ekthesis"></div>
+                    @yield('forms')
                 </div>
                 <div class="col-md-2">
                         <div class="row">
