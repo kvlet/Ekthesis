@@ -451,6 +451,6 @@
     </ul>
 @endsection
 
-@section('rmenu')
-    <p>Εδω τα κουμπια</p>
-@endsection
+<!--@section('rmenu')-->
+<!--   <p>Εδω τα κουμπια</p>
+@endsection-->
