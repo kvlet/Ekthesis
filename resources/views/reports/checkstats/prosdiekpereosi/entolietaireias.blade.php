@@ -7,6 +7,6 @@
     <title>Εντολή Εταιρείας</title>
 </head>
 <body>
-    <a href="{{ asset('/reports/Entoli_etaireias.pdf') }}">Open the pdf!</a>
+<a href="{{ asset('/reports/Entoli_etaireias.pdf') }}">Open the pdf!</a>
 </body>
 </html>
