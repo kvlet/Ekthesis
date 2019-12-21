@@ -11,10 +11,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 </head>
 
 <body class="welcome-layout">
@@ -42,9 +42,7 @@
                 <div class="col-md-2 d-none d-md-block p-0">
                     <ul class="nav flex-column flex-nowrap overflow-hidden">
                         <li class="nav-item">
-                            <label>
                                 <input type="checkbox" onclick="myFunction()" checked data-toggle="toggle">
-                            </label>
                         </li>
                         <script type="text/javascript">
                             function myFunction() {
