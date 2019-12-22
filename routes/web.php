@@ -9,7 +9,7 @@ Route::get('/pragmatognomosines', function () {
     return view('pragmatognomosines.pragmatognomosines');
 });
 Route::get('/reports/checkstats/prosdiekpereosi/entolietaireias', function () {
-    return view('entolietaireias');
+    return view('reports.checkstats.prosdiekpereosi.entolietaireias');
 });
 
 Route::get('/reports/checkstats/prosdiekpereosi/anathesisesinergati', function () {

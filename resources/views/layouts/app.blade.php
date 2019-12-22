@@ -50,13 +50,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2 d-none d-md-block p-0" id="lmenou">
+                <div class="col-md-1 d-none d-md-block p-0" id="lmenou">
                     @yield('lmenu')
                 </div>
                 <div class="col-md-10 d-none d-md-block p-0">
                     @yield('forms')
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                         <div class="row">
                             <div class="col-md-12">
                                  @yield('rmenu')

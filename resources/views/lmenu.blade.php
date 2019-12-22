@@ -1,6 +1,6 @@
 <ul class="nav flex-column flex-nowrap overflow-hidden">
     <li class="nav-item">
-        <a class="nav-link text-truncate" href="/pragmatognomosines"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Πραγματογνωμοσύνες</span></a>
+        <a class="nav-link text-truncate" href="/pragmatognomosines"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Εκθέσεις</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-truncate" href="/ereunes"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Έρευνες</span></a>
@@ -35,7 +35,7 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed text-truncate" href="#submenu4" data-toggle="collapse" data-target="#submenu4"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Διαχείριση Οικονομικών</span></a>
+        <a class="nav-link collapsed text-truncate" href="#submenu4" data-toggle="collapse" data-target="#submenu4"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Οικονομικά</span></a>
         <div class="collapse" id="submenu4" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
                 <li class="nav-item"><a class="nav-link py-0" href="/timolcomp"><span>Τιμολόγια Εταιρείας</span></a></li>
@@ -49,7 +49,7 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-truncate" href="/managekeimena"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Διαχείριση Κειμένων</span></a>
+        <a class="nav-link text-truncate" href="/managekeimena"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Κείμενα</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link collapsed text-truncate" href="#submenu5" data-toggle="collapse" data-target="#submenu5"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Εκτυπώσεις</span></a>
@@ -63,7 +63,7 @@
                             <div class="collapse" id="submenu1sub1_1" aria-expanded="false">
                                 <ul class="flex-column nav pl-4">
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href={{url('/reports/Entoli_etaireias.pdf')}} target="_blank">
+                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/entolietaireias" target="_blank">
                                             <i class="fa fa-fw fa-clock-o"></i>Εντολή Εταιρείας</a>
                                     </li>
                                     <li class="nav-item">
