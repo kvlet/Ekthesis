@@ -1,6 +1,6 @@
 <ul class="nav flex-column flex-nowrap overflow-hidden">
     <li class="nav-item">
-        <a class="nav-link text-truncate" href="/pragmatognomosines" target="_blank"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Εκθέσεις</span></a>
+        <a class="nav-link text-truncate" href="/pragmatognomosines"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Εκθέσεις</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-truncate" href="/ereunes"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Έρευνες</span></a>
