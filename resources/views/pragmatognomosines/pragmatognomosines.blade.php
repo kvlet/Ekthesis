@@ -1,5 +1,5 @@
 @include('forms')
 
-@section('forms')
+@section('formsdetails')
   <p>edo h forma</p>
 @endsection

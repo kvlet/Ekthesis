@@ -24,7 +24,7 @@
 
 @section('forms')
     <div class="bg-form-ekthesis">
-            @yield('forms')
+            @yield('formsdetails')
     </div>
 @endsection
 
