@@ -46,7 +46,8 @@
                     <p>Εδώ τον user</p>
                 </div>
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-sm btn-primary" style="margin: 4px">Αποσύνδεση</button>
+                    <!--<button type="submit" class="btn btn-sm btn-primary" style="margin: 4px">Αποσύνδεση</button>-->
+                    <a class="btn btn-sm btn-primary" style="margin: 4px" href="{{ url('/logout') }}"> Αποσύνδεση </a>
                 </div>
             </div>
             <div class="row">
