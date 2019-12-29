@@ -36,7 +36,7 @@
                         <div class="pl-lg-4">
                             <div class="form-group{{ $errors->has('grafeio') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-id">{{ __('ID') }}</label>
-                                <input type="text" name="id" id="input-grafeio" class="form-control form-control-alternative{{ $errors->has('id') ? ' is-invalid' : '' }}" placeholder="{{ __('Id') }}" value="{{ old('grafeio', $pragmatognomosini->id) }}" required autofocus>
+                                <input type="text" name="id" id="input-grafeio" class="form-control form-control-alternative{{ $errors->has('id') ? ' is-invalid' : '' }}" placeholder="{{ __('Id') }}" value="{{ old('grafeio', $pragmatognomosini->id) }}" disabled autofocus>
                                 
                                 <label class="form-control-label" for="input-grafeio">{{ __('Grafeio') }}</label>
                                 <input type="text" name="grafeio" id="input-grafeio" class="form-control form-control-alternative{{ $errors->has('grafeio') ? ' is-invalid' : '' }}" placeholder="{{ __('Grafeio') }}" value="{{ old('grafeio', $pragmatognomosini->grafeio) }}" required autofocus>
