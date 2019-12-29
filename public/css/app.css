@@ -11430,9 +11430,6 @@ body {
   position: relative;
   opacity: 0.5;
   width: 100%;
-  min-height: 95%;
+  min-height: 95vh;
 }
 
-.g-hide {
-  display: none !important;
-}
