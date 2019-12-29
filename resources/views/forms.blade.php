@@ -4,17 +4,18 @@
 @section('onoffmenu')
     <ul class="nav flex-column flex-nowrap overflow-hidden">
         <li class="nav-item">
-            <input type="checkbox" onclick="myFunction()" checked data-toggle="toggle">
+            <input type="checkbox" checked data-toggle="toggle" id="menu_toggle">
         </li>
         <script type="text/javascript">
-            function myFunction() {
+            $("#menu_toggle").change(function() {
                 var e = document.getElementById("lmenou");
-                if(e.style.display == null || e.style.display == "none") {
-                    e.style.display = "block";
-                } else{
-                    e.style.display = "none";
+                
+                if(!this.checked) {
+                    $('#lmenou').addClass('g-hide');
+                } else {
+                    $('#lmenou').removeClass('g-hide');
                 }
-            }
+            });
         </script>
     </ul>
 @endsection
@@ -29,6 +30,6 @@
 @endsection
 
 @section('rmenu')
-  <p>Εδω τα κουμπια</p>
+    <p>Εδω τα κουμπια</p>
 @endsection
 
