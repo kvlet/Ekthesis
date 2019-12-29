@@ -3,7 +3,7 @@
 @section('formsdetails')
 
     <div class="row">
-        <div class="col-2">
+        {{--  <div class="col-2">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab" aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
                 <a class="nav-link" id="v-pills-oikonomika-tab" data-toggle="pill" href="#v-pills-oikonomika" role="tab" aria-controls="v-pills-oikonomika" aria-selected="false">Οικονομικά</a>
@@ -24,10 +24,36 @@
                 <a class="nav-link" id="v-pills-notes-tab" data-toggle="pill" href="#v-pills-notes" role="tab" aria-controls="v-pills-notes" aria-selected="false">Παρατηρήσεις</a>
                 <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#v-pills-eksodasynergati" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Έξοδα συνεργάτη</a>
             </div>
-        </div>
+        </div>  --}}
         <div class="col-10">
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel" aria-labelledby="v-pills-genika-tab"><p> 123 Εδώ μέσα φόρμα που θα πιάνει όλο το col 10 </p></div>
+                <div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel" aria-labelledby="v-pills-genika-tab">
+                    <form method="post" action="{{ route('pragmatognomosines.update', $pragmatognomosini->id) }}" autocomplete="off">
+                        @csrf
+                        {{ method_field('PUT') }}
+                        
+                        <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>
+                        <div class="pl-lg-4">
+                            <div class="form-group{{ $errors->has('grafeio') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-id">{{ __('ID') }}</label>
+                                <input type="text" name="id" id="input-grafeio" class="form-control form-control-alternative{{ $errors->has('id') ? ' is-invalid' : '' }}" placeholder="{{ __('Id') }}" value="{{ old('grafeio', $pragmatognomosini->id) }}" disabled autofocus>
+                                
+                                <label class="form-control-label" for="input-grafeio">{{ __('Grafeio') }}</label>
+                                <input type="text" name="grafeio" id="input-grafeio" class="form-control form-control-alternative{{ $errors->has('grafeio') ? ' is-invalid' : '' }}" placeholder="{{ __('Grafeio') }}" value="{{ old('grafeio', $pragmatognomosini->grafeio) }}" required autofocus>
+
+                                @if ($errors->has('grafeio'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('grafeio') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 {{--  <div class="tab-pane fade" id="v-pills-oikonomika" role="tabpanel" aria-labelledby="v-pills-oikonomika-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-pathon" role="tabpanel" aria-labelledby="v-pills-pathon-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-antikatastasis" role="tabpanel" aria-labelledby="v-pills-antikatastasis-tab">...</div>
