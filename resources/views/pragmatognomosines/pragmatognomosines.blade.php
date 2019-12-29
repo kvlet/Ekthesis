@@ -27,8 +27,8 @@
         </div>
         <div class="col-10">
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel" aria-labelledby="v-pills-genika-tab"><p> Εδώ μέσα φόρμα που θα πιάνει όλο το col 10 </p></div>
-                <div class="tab-pane fade" id="v-pills-oikonomika" role="tabpanel" aria-labelledby="v-pills-oikonomika-tab">...</div>
+                <div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel" aria-labelledby="v-pills-genika-tab"><p> 123 Εδώ μέσα φόρμα που θα πιάνει όλο το col 10 </p></div>
+                {{--  <div class="tab-pane fade" id="v-pills-oikonomika" role="tabpanel" aria-labelledby="v-pills-oikonomika-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-pathon" role="tabpanel" aria-labelledby="v-pills-pathon-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-antikatastasis" role="tabpanel" aria-labelledby="v-pills-antikatastasis-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-epanafores" role="tabpanel" aria-labelledby="v-pills-epanafores-tab">...</div>
@@ -44,7 +44,7 @@
                 <div class="tab-pane fade" id="v-pills-provlepsis" role="tabpanel" aria-labelledby="v-pills-provlepsis-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-praktoreia" role="tabpanel" aria-labelledby="v-pills-praktoreia-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-notes" role="tabpanel" aria-labelledby="v-pills-notes-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-eksodasynergati" role="tabpanel" aria-labelledby="v-pills-eksodasynergati-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-eksodasynergati" role="tabpanel" aria-labelledby="v-pills-eksodasynergati-tab">...</div>  --}}
             </div>
         </div>
     </div>
