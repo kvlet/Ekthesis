@@ -10,6 +10,10 @@
             $("#lmenu_toggle").change(function() {
                 var e = document.getElementById("lmenu");
 
+            $("#menu_toggle").change(function() {
+                var e = document.getElementById("lmenou");
+
+
                 if(!this.checked) {
                     $('#lmenu').addClass('g-hide');
                 } else {
