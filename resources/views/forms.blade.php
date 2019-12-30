@@ -4,7 +4,7 @@
 @section('onofflmenu')
     <ul class="nav flex-column flex-nowrap overflow-hidden">
         <li class="nav-item">
-            <input type="checkbox" checked data-toggle="toggle" id="lmenu_toggle">
+            <input type="checkbox" checked data-toggle="toggle" id="lmenu_toggle" class="btn btn-sm btn-primary" style="margin: 4px;">
         </li>
         <script type="text/javascript">
             $("#lmenu_toggle").change(function() {
@@ -25,9 +25,7 @@
 @endsection
 
 @section('forms')
-    <div>
         @yield('formsdetails')
-    </div>
 @endsection
 
 @section('onoffrmenu')
