@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pragmatognomosini extends Model
 {
-    protected $table = 'keno';
+    protected $table = 'db_ekthesis';
 
     protected $fillable = [
         'grafeio',
