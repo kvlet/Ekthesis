@@ -13,7 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
@@ -42,18 +42,21 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 d-none d-md-block p-0">
-                    @yield('onoffmenu')
+                    @yield('onofflmenu')
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <p>Εδώ τον user</p>
                 </div>
                 <div class="col-md-2">
                     <!--<button type="submit" class="btn btn-sm btn-primary" style="margin: 4px">Αποσύνδεση</button>-->
                     <a class="btn btn-sm btn-primary" style="margin: 4px" href="{{ url('/logout') }}"> Αποσύνδεση </a>
                 </div>
+                <div class="col-md-2 d-none d-md-block p-0">
+                    @yield('onoffrmenu')
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-1 d-none d-md-block p-0" id="lmenou">
+                <div class="col-md-1 d-none d-md-block p-0" id="lmenu">
                     @yield('lmenu')
                 </div>
                 <div class="col-md-10 d-none d-md-block p-0">
@@ -61,7 +64,7 @@
                 </div>
                 <div class="col-md-1">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="rmenu">
                                  @yield('rmenu')
                             </div>
                         </div>

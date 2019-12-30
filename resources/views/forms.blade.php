@@ -1,19 +1,19 @@
 @extends('layouts.app')
 @include('layouts._partials.header')
 
-@section('onoffmenu')
+@section('onofflmenu')
     <ul class="nav flex-column flex-nowrap overflow-hidden">
         <li class="nav-item">
-            <input type="checkbox" checked data-toggle="toggle" id="menu_toggle">
+            <input type="checkbox" checked data-toggle="toggle" id="lmenu_toggle">
         </li>
         <script type="text/javascript">
-            $("#menu_toggle").change(function() {
-                var e = document.getElementById("lmenou");
-                
+            $("#lmenu_toggle").change(function() {
+                var e = document.getElementById("lmenu");
+
                 if(!this.checked) {
-                    $('#lmenou').addClass('g-hide');
+                    $('#lmenu').addClass('g-hide');
                 } else {
-                    $('#lmenou').removeClass('g-hide');
+                    $('#lmenu').removeClass('g-hide');
                 }
             });
         </script>
@@ -24,9 +24,28 @@
 @endsection
 
 @section('forms')
-    <div class="bg-form-ekthesis">
+    <div>
         @yield('formsdetails')
     </div>
+@endsection
+
+@section('onoffrmenu')
+    <ul class="nav flex-column flex-nowrap overflow-hidden">
+        <li class="nav-item">
+            <input type="checkbox" checked data-toggle="toggle" id="rmenu_toggle">
+        </li>
+        <script type="text/javascript">
+            $("#rmenu_toggle").change(function() {
+                var e = document.getElementById("rmenu");
+
+                if(!this.checked) {
+                    $('#rmenu').addClass('g-hide');
+                } else {
+                    $('#rmenu').removeClass('g-hide');
+                }
+            });
+        </script>
+    </ul>
 @endsection
 
 @section('rmenu')
