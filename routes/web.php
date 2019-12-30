@@ -5,13 +5,13 @@ Route::get('/home', function () {
     return view('home');
 });
 
-//routes για τις εκθέσεις
+//routes for pragmatognomisines
 Route::get('pragmatognomosines', 'PragmatognomosinesController@create')->name('pragmatognomosines.create');
 Route::post('pragmatognomosines', 'PragmatognomosinesController@store')->name('pragmatognomosines.store');
 Route::get('pragmatognomosines/{id}', 'PragmatognomosinesController@edit')->name('pragmatognomosines.edit');
 Route::put('pragmatognomosines/{id}', 'PragmatognomosinesController@update')->name('pragmatognomosines.update');
 
-//routes για τα reports
+//routes for reports
 Route::get('/reports/checkstats/prosdiekpereosi/entolietaireias', function () {
     return view('reports.checkstats.prosdiekpereosi.entolietaireias');
 });
