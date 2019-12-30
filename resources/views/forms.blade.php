@@ -10,7 +10,7 @@
             $("#lmenu_toggle").change(function() {
                 var e = document.getElementById("lmenu");
 
-            $("#menu_toggle").change(function() {
+            $("#lmenu_toggle").change(function() {
                 var e = document.getElementById("lmenou");
 
 
@@ -23,6 +23,7 @@
         </script>
     </ul>
 @endsection
+
 @section('lmenu')
     @include('lmenu')
 @endsection
