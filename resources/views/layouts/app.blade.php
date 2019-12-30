@@ -41,33 +41,29 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-2 d-none d-md-block p-0">
+                <div class="col-md-1 d-none d-md-block p-0">
                     @yield('onofflmenu')
                 </div>
-                <div class="col-md-6">
-                    <p>Εδώ τον user</p>
+                <div class="col-md-8">
+                    <h5> Χρήστης: {{ Auth::user()->name }} {{ Auth::user()->email }}</h5>
                 </div>
                 <div class="col-md-2">
                     <!--<button type="submit" class="btn btn-sm btn-primary" style="margin: 4px">Αποσύνδεση</button>-->
                     <a class="btn btn-sm btn-primary" style="margin: 4px" href="{{ url('/logout') }}"> Αποσύνδεση </a>
                 </div>
-                <div class="col-md-2 d-none d-md-block p-0">
+                <div class="col-md-1 d-none d-md-block p-1">
                     @yield('onoffrmenu')
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-1 d-none d-md-block p-0" id="lmenu">
+                <div class="col-md-1 d-none d-md-block p-1" id="lmenu">
                     @yield('lmenu')
                 </div>
-                <div class="col-md-10 d-none d-md-block p-0">
+                <div class="col-md-10 d-none d-md-block p-1">
                     @yield('forms')
                 </div>
-                <div class="col-md-1">
-                        <div class="row">
-                            <div class="col-md-12" id="rmenu">
-                                 @yield('rmenu')
-                            </div>
-                        </div>
+                <div class="col-md-1 d-none d-md-block p-1" id="rmenu">
+                    @yield('rmenu')
                 </div>
             </div>
         </div>
