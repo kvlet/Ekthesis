@@ -3,7 +3,7 @@
 @section('formsdetails')
 
     <div class="row">
-        <div class="col-2">
+        <div class="col-2 menu-text-size">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab" aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
                 <a class="nav-link" id="v-pills-antikatastasis-tab" data-toggle="pill" href="#v-pills-antikatastasis" role="tab" aria-controls="v-pills-antikatastasis" aria-selected="false">Αντικαταστάσεις</a>
@@ -28,7 +28,7 @@
                 <div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel" aria-labelledby="v-pills-genika-tab" style="border: 1px solid black;">
                     <form method="post" action="{{ route('pragmatognomosines.store') }}" autocomplete="off">
                         @csrf
-                        <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>
+                        <h6 class="heading-small text-muted mb-4">{{ __('Γενικά / Οικονομικά / Παθών - Υπαίτιος') }}</h6>
                         <div class="pl-lg-4">
                             <div class="form-group{{ $errors->has('grafeio') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-grafeio">{{ __('Grafeio') }}</label>

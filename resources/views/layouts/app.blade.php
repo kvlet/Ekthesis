@@ -56,10 +56,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-1 d-none d-md-block p-1" id="lmenu">
+                <div class="col-md-2 d-none d-md-block p-1" id="lmenu">
                     @yield('lmenu')
                 </div>
-                <div class="col-md-10 d-none d-md-block p-1">
+                <div class="col-md-9 d-none d-md-block p-1">
                     @yield('forms')
                 </div>
                 <div class="col-md-1 d-none d-md-block p-1" id="rmenu">

@@ -1,3 +1,4 @@
+<div class="menu-text-size">
 <ul class="nav flex-column flex-nowrap overflow-hidden">
     <li class="nav-item">
         <a class="nav-link text-truncate" href="/pragmatognomosines"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Εκθέσεις</span></a>
@@ -444,3 +445,4 @@
         </div>
     </li>
 </ul>
+</div>

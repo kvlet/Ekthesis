@@ -2,7 +2,7 @@
 @include('layouts._partials.header')
 
 @section('lmenu')
-    @include('lmenu')
+         @include('lmenu')
 @endsection
 
 @section('forms')
