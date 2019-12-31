@@ -11436,3 +11436,6 @@ body {
 .g-hide{
     display: none !important;
 }
+.menu-text-size{
+    font-size: 14px;
+}
