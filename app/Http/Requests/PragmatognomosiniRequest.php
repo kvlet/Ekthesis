@@ -31,6 +31,19 @@ class PragmatognomosiniRequest extends FormRequest
             'id'  => 'required',
             'id_company_pathon'   => 'required',
             'id_pathon'   => 'required',
+            'Date_atiximatos' => 'date',
+            'Date_eksetasis' => 'date',
+            'Date_dikasimou' => 'date',
+            'Date_paradosis' => 'date',
+            'Fpa' => 'numeric',
+            'Ekpt_parts' => 'numeric',
+            'Ekpt_jobs' => 'numeric',
+            'value_car_pathon' => 'numeric',
+            'Valid' => 'in:true,false',
+            'Simpliromatiki' => 'in:true,false',
+            'Sap' => 'in:true,false',
+            'partially_lock' => 'in:Ναι,Όχι',
+            'total_lock' => 'in:Ναι,Όχι',
         ];
     }
 }
