@@ -24,7 +24,13 @@ class PragmatognomosiniRequest extends FormRequest
     public function rules()
     {
         return [
-            'grafeio'   => 'required'
+            'id_diakrisi' => 'required',
+            'id_grafeio' => 'required',
+            'id_nomoi'  => 'required',
+            'id_nomoi'  => 'required',
+            'id'  => 'required',
+            'id_company_pathon'   => 'required',
+            'id_pathon'   => 'required',
         ];
     }
 }
