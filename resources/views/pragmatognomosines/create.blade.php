@@ -45,6 +45,7 @@
                             <div class="ektheseis-subheader">
                                 <div class="pl-lg-4">
                                     <div class="form-group{{ $errors->has('Prot_bibliou') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-Prot_bibliou">{{ __('Αρ. Φακέλου') }}</label>
                                         <input type="text" name="Prot_bibliou" id="input-Prot_bibliou" class="form-control form-control-alternative{{ $errors->has('Prot_bibliou') ? ' is-invalid' : '' }}" placeholder="{{ __('Αρ. Φακέλου') }}" value="{{ old('Prot_bibliou') }}" autofocus>
                                         @if ($errors->has('Prot_bibliou'))
                                             <span class="invalid-feedback" role="alert">

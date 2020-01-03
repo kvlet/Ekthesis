@@ -12,11 +12,11 @@ Route::get('pragmatognomosines/{id}', 'PragmatognomosinesController@edit')->name
 Route::put('pragmatognomosines/{id}', 'PragmatognomosinesController@update')->name('pragmatognomosines.update');
 
 //routes for reports
-Route::get('/reports/checkstats/prosdiekpereosi/entolietaireias', function () {
-    return view('reports.checkstats.prosdiekpereosi.entolietaireias');
+Route::get('/reports/check_stats/pros_diekpereosi/entoli_etaireias', function () {
+    return view('reports.check_stats.pros_diekpereosi.entoli_etaireias');
 });
-Route::get('/reports/checkstats/prosdiekpereosi/anathesisesinergati', function () {
-    return view('reports.checkstats.prosdiekpereosi.anathesisesinergati');
+Route::get('/reports/check_stats/pros_diekpereosi/anathesi_se_sinergati', function () {
+    return view('reports.check_stats.pros_diekpereosi.anathesi_se_sinergati');
 });
 
 Auth::routes();

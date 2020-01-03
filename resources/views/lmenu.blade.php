@@ -11,7 +11,7 @@
         <div class="collapse" id="submenu1" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
                 <li class="nav-item"><a class="nav-link py-0" href="/pathon"><span>Παθόντες/Υπαίτιοι</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/usersView"><span>Χρήστες</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/users_view"><span>Χρήστες</span></a></li>
             </ul>
         </div>
     </li>
@@ -39,18 +39,18 @@
         <a class="nav-link collapsed text-truncate" href="#submenu4" data-toggle="collapse" data-target="#submenu4"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Οικονομικά</span></a>
         <div class="collapse" id="submenu4" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
-                <li class="nav-item"><a class="nav-link py-0" href="/timolComp"><span>Τιμολόγια Εταιρείας</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/eisprComp"><span>Είσπραξη Τιμολογίων Εταιρειας</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/corEisprComp"><span>Διόρθωση Εισπραξης Εταιρείας</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/timolPartner"><span>Τιμολόγια Συναργάτη</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/carExpen"><span>Εξόδα Οχήματος</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/carIncome"><span>Έσοδα Οχήματος</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/expenManage"><span>Διαχείριση Εξόδων</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/timol_comp"><span>Τιμολόγια Εταιρείας</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/eispr_comp"><span>Είσπραξη Τιμολογίων Εταιρειας</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/cor_eispr_comp"><span>Διόρθωση Εισπραξης Εταιρείας</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/timol_partner"><span>Τιμολόγια Συναργάτη</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/car_expen"><span>Εξόδα Οχήματος</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/car_income"><span>Έσοδα Οχήματος</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/expen_manage"><span>Διαχείριση Εξόδων</span></a></li>
             </ul>
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-truncate" href="/manageKeimena"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Κείμενα</span></a>
+        <a class="nav-link text-truncate" href="/manage_keimena"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Κείμενα</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link collapsed text-truncate" href="#submenu5" data-toggle="collapse" data-target="#submenu5"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Εκτυπώσεις</span></a>
@@ -64,47 +64,47 @@
                             <div class="collapse" id="submenu1sub1_1" aria-expanded="false">
                                 <ul class="flex-column nav pl-4">
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/entolietaireias" target="_blank">
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/entoli_etaireias" target="_blank">
                                             <i class="fa fa-fw fa-clock-o"></i>Εντολή Εταιρείας</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/anathesisesinergati" target="_blank>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/anathesi_se_sinergati" target="_blank>
                                             <i class="fa fa-fw fa-dashboard"></i> Ανάθεση σε Συνεργάτη </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/anathesisesinergates">
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/anathesi_se_sinergates">
                                             <i class="fa fa-fw fa-bar-chart"></i> Ανάθεση σε Συνεργάτες </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/proselegxo">
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/pros_elegxo">
                                             <i class="fa fa-fw fa-bar-chart"></i> Προς Έλεγχο </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/prosapostoli">
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/pros_apostoli">
                                             <i class="fa fa-fw fa-bar-chart"></i> Προς Αποστολή </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/oloklirothike">
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/oloklirothike">
                                             <i class="fa fa-fw fa-bar-chart"></i> Ολοκληρώθηκε </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/sinolikesekkremotites">
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/sinolikes_ekkremotites">
                                             <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/sinolikesekkremotitesnomou">
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/sinolikes_ekkremotites_nomou">
                                             <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες ανά Νομό </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/sinolikesekkremotiteseggrafon">
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/sinolikes_ekkremotites_eggrafon">
                                             <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες Εγγράφων </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/ekkremotitesdikasimon">
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/ekkremotites_dikasimon">
                                             <i class="fa fa-fw fa-bar-chart"></i> Εκκρεμότητες Δικασίμων </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/prosdiekpereosi/ekthesisentolea">
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/ekthesis_entolea">
                                             <i class="fa fa-fw fa-bar-chart"></i> Εκθέσεις Εντολέα </a>
                                     </li>
                                 </ul>
@@ -113,27 +113,27 @@
                             <div class="collapse" id="submenu1sub1_2" aria-expanded="false">
                                 <ul class="flex-column nav pl-4">
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/ekprothesmes/entolietaireias">
+                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/entoli_etaireias">
                                             <i class="fa fa-fw fa-clock-o"></i>Εντολή Εταιρείας </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/ekprothesmes/anathesisesinergati">
+                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/anathesi_se_sinergati">
                                             <i class="fa fa-fw fa-dashboard"></i> Ανάθεση σε Συνεργάτη </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/ekprothesmes/anathesisesinergates">
+                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/anathesi_se_sinergates">
                                             <i class="fa fa-fw fa-bar-chart"></i> Ανάθεση σε Συνεργάτες </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/ekprothesmes/proselegxo">
+                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/pros_elegxo">
                                             <i class="fa fa-fw fa-bar-chart"></i> Προς Έλεγχο </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/ekprothesmes/prosapostoli">
+                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/pros_apostoli">
                                             <i class="fa fa-fw fa-bar-chart"></i> Προς Αποστολή </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/ekprothesmes/oloklirothike">
+                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/oloklirothike">
                                             <i class="fa fa-fw fa-bar-chart"></i> Ολοκληρώθηκε </a>
                                     </li>
                                 </ul>
@@ -142,51 +142,51 @@
                             <div class="collapse" id="submenu1sub1_3" aria-expanded="false">
                                 <ul class="flex-column nav pl-4">
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/plithosanatypo">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/plithos_ana_typo">
                                             <i class="fa fa-fw fa-clock-o"></i>Πλήθος Εκθέσεων ανά Τύπο </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/plithosanakatastasi">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/plithos_ana_katastasi">
                                             <i class="fa fa-fw fa-dashboard"></i>  Πλήθος Εκθέσεων ανά Κατάσταση </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/plithosanaetaireia">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/plithos_ana_etaireia">
                                             <i class="fa fa-fw fa-bar-chart"></i> Πλήθος Εκθέσεων ανά Εταιρεία </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/posostodiekpereosis">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/pososto_diekpereosis">
                                             <i class="fa fa-fw fa-bar-chart"></i> Ποσοστό Διεκπεραίωσης </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/statistikoereunon">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/statistiko_ereunon">
                                             <i class="fa fa-fw fa-bar-chart"></i> Στατιστικό Ερευνών </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/statistikoektheseon">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/statistiko_ektheseon">
                                             <i class="fa fa-fw fa-bar-chart"></i> Στατιστικό Εκθέσεων </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/sinoloxiliometron">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/sinolo_xiliometron">
                                             <i class="fa fa-fw fa-bar-chart"></i> Σύνολο Χιλιομέτρων </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/listapestalmenon">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/lista_apestalmenon">
                                             <i class="fa fa-fw fa-bar-chart"></i> Λίστα Απεσταλμένων </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/protokolloekserxomenon">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/protokollo_ekserxomenon">
                                             <i class="fa fa-fw fa-bar-chart"></i> Πρωτόκολλο Εξερχομένων </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/moanaekthesianacomp">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/mo_ana_ekthesi_ana_comp">
                                             <i class="fa fa-fw fa-bar-chart"></i> Μ.Ο. ανά Έκθεση ανά Εταιρεία </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/moanaekthesianatipo">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/mo_ana_ekthesi_ana_typo">
                                             <i class="fa fa-fw fa-bar-chart"></i> Μ.Ο. ανά Έκθεση ανά Τύπο </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/checkstats/statistikes/moanasinergati">
+                                        <a class="nav-link p-1" href="/reports/check_stats/statistikes/mo_ana_sinergati">
                                             <i class="fa fa-fw fa-bar-chart"></i> Μ.Ο. ανά Συναργάτη </a>
                                     </li>
                                 </ul>
@@ -204,27 +204,27 @@
                             <div class="collapse" id="submenu1sub2_1" aria-expanded="false">
                                 <ul class="flex-column nav pl-4">
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/prostimologisi/listaprostimologisinoproasf">
+                                        <a class="nav-link p-1" href="/reports/timologisi/pros_timologisi/lista_pros_timologisi_no_proasf">
                                             <i class="fa fa-fw fa-clock-o"></i> Λίστα προς Τιμολόγηση(όχι Προασφ.) </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/prostimologisi/listaprostimologisiproasf">
+                                        <a class="nav-link p-1" href="/reports/timologisi/pros_timologisi/lista_pros_timologisi_proasf">
                                             <i class="fa fa-fw fa-dashboard"></i> Λίστα προς Τιμολόγηση Προασφαλιστικός </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/prostimologisi/timologisiekthesisnoproasf">
+                                        <a class="nav-link p-1" href="/reports/timologisi/pros_timologisi/timologisi_ekthesis_no_proasf">
                                             <i class="fa fa-fw fa-bar-chart"></i> Τιμολόγηση Έκθεσης(όχι Προασφ) </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/prostimologisi/timologisiekthesisproasf">
+                                        <a class="nav-link p-1" href="/reports/timologisi/pros_timologisi/timologisi_ekthesis_proasf">
                                             <i class="fa fa-fw fa-bar-chart"></i> Τιμολόγηση Έκθεσης Προασφαλιστικός </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/prostimologisi/episinaptomenilista">
+                                        <a class="nav-link p-1" href="/reports/timologisi/pros_timologisi/episinaptomeni_lista">
                                             <i class="fa fa-fw fa-bar-chart"></i> Επισυναπτώμενη Λίστα </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/prostimologisi/listaprostimologisinoproasfcomp">
+                                        <a class="nav-link p-1" href="/reports/timologisi/pros_timologisi/lista_pros_timologisi_no_proasf_comp">
                                             <i class="fa fa-fw fa-bar-chart"></i> Λίστα προς Τιμολόγηση(όχι Προασφ) Εταιρείας </a>
                                     </li>
                                 </ul>
@@ -233,23 +233,23 @@
                             <div class="collapse" id="submenu1sub2_2" aria-expanded="false">
                                 <ul class="flex-column nav pl-4">
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/timologimenes/listatimologimenonanalitika">
+                                        <a class="nav-link p-1" href="/reports/timologisi/timologimenes/lista_timologimenon_analitika">
                                             <i class="fa fa-fw fa-clock-o"></i> Λίστα Τιμολογημένων Αναλυτικά </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/timologimenes/listatimologimenonanaetaireiasum">
+                                        <a class="nav-link p-1" href="/reports/timologisi/timologimenes/lista_timologimenon_ana_etaireia_sum">
                                             <i class="fa fa-fw fa-dashboard"></i> Λίστα Τιμολογημένων ανά Εταιρεία Συγκεντρωτικά </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/timologimenes/listatimologimenonanatipo">
+                                        <a class="nav-link p-1" href="/reports/timologisi/timologimenes/lista_timologimenon_ana_typo">
                                             <i class="fa fa-fw fa-bar-chart"></i> Λίστα Τιμολογημένων ανά Τύπο </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/timologimenes/moanatipo">
+                                        <a class="nav-link p-1" href="/reports/timologisi/timologimenes/mo_ana_typo">
                                             <i class="fa fa-fw fa-bar-chart"></i> Μ.Ο ανά Τύπο </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/timologisi/timologimenes/listatimologimenonmefpa">
+                                        <a class="nav-link p-1" href="/reports/timologisi/timologimenes/lista_timologimenon_me_fpa">
                                             <i class="fa fa-fw fa-bar-chart"></i> Λίστα Τιμολογημένων με Ανάλυση Φ.Π.Α. </a>
                                     </li>
                                 </ul>
