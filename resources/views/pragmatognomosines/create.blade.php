@@ -79,10 +79,21 @@
                                 <div  class="pl-lg-4" >
                                     <div class="form-group{{ $errors->has('date_dikasimou') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-date_dikasimou">{{ __('Ημ/νια Δικάσιμου') }}</label>
-                                        <input type="date" name="date_dikasimou" id="input-date_dikasimou" class="form-control form-control-alternative{{ $errors->has('date_dikasimou') ? ' is-invalid' : '' }}" placeholder="{{ __('"dd-mm-yyyy"') }}" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" value="{{ old('date_dikasimou') }}" autofocus>
+                                        <input type="date" name="date_dikasimou" id="input-date_dikasimou" class="form-control form-control-alternative{{ $errors->has('date_dikasimou') ? ' is-invalid' : '' }}" placeholder="{{ __('dd-mm-yyyy') }}"  value="{{ old('date_dikasimou') }}" autofocus>
                                         @if ($errors->has('date_dikasimou'))
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('date_dikasimou') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div  class="pl-lg-4" >
+                                    <div class="form-group{{ $errors->has('Date_paradosis') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-Date_paradosis">{{ __('Ημ/νια Παράδοσης') }}</label>
+                                        <input type="date" name="Date_paradosis" id="input-Date_paradosis" class="form-control form-control-alternative{{ $errors->has('Date_paradosis') ? ' is-invalid' : '' }}" placeholder="{{ __('dd-mm-yyyy') }}"  value="{{ old('Date_paradosis') }}" autofocus>
+                                        @if ($errors->has('Date_paradosis'))
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('Date_paradosis') }}</strong>
                                         </span>
                                         @endif
                                     </div>
