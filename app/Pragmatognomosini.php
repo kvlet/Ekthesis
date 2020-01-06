@@ -50,4 +50,8 @@ class Pragmatognomosini extends Model
         'Flag',
         'to_pay',
     ];
+
+    public function users(){
+        return $this -> hasOne(User::class);
+    }
 }
