@@ -41,12 +41,12 @@
 							<div class="card-body">
 								<div class="row">
 									<div class="col">
-										<div class="form-group{{ $errors->has('Prot_bibliou') ? ' has-danger' : '' }}">
+										<div class="form-group{{ $errors->has('id_ekthesis') ? ' has-danger' : '' }}">
 											<label class="form-control-label"
 												   for="input-id_ekthesis">{{ __('Αρ. Πρωτοκόλλου') }}</label>
-											<input type="text" name="Prot_bibliou" id="input-Prot_bibliou"
-												   class="form-control form-control-alternative{{ $errors->has('Prot_bibliou') ? ' is-invalid' : '' }}"
-												   value="{{ old('Prot_bibliou') }}" disabled autofocus>
+											<input type="text" name="id_ekthesis" id="input-id_ekthesis"
+												   class="form-control form-control-alternative{{ $errors->has('id_ekthesis') ? ' is-invalid' : '' }}"
+												   value="{{ old('id_ekthesis') }}" disabled autofocus>
 										</div>
 									</div>
 									<div class="col">
@@ -96,19 +96,38 @@
 										</div>
 									</div>
 								</div>
-
-								<div class="form-group{{ $errors->has('date_atiximatos') ? ' has-danger' : '' }}">
-									<label class="form-control-label"
-										   for="input-date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}</label>
-									<input type="date" name="date_atiximatos" id="input-date_atiximatos"
-										   class="form-control form-control-alternative{{ $errors->has('date_atiximatos') ? ' is-invalid' : '' }}"
-										   value="{{ old('date_atiximatos') }}" autofocus>
-									@if ($errors->has('date_atiximatos'))
-										<span class="invalid-feedback" role="alert">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group{{ $errors->has('date_atiximatos') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label"
+                                                   for="input-date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}</label>
+                                            <input type="date" name="date_atiximatos" id="input-date_atiximatos"
+                                                   class="form-control form-control-alternative{{ $errors->has('date_atiximatos') ? ' is-invalid' : '' }}"
+                                                   value="{{ old('date_atiximatos') }}" autofocus>
+                                            @if ($errors->has('date_atiximatos'))
+                                                <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('date_atiximatos') }}</strong>
                                                 </span>
-									@endif
-								</div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-control-label"
+                                               for="input-id_nomoi">{{ __('Νομός') }}</label>
+                                        <select class="form-control" id="nomoi">
+                                            @foreach($nomoi as $nomos)
+                                                <option value="{{$nomos->id_nomoi}}">{{ $nomos->Nomos}}</option>
+                                            @endforeach
+                                        </select>
+                                        @if ($errors->has('id_nomoi'))
+                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('id_nomoi') }}</strong>
+                                                </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
 								<div class="form-group{{ $errors->has('date_atiximatos') ? ' has-danger' : '' }}">
 									<label class="form-control-label"
 										   for="input-date_eksetasis">{{ __('Ημ/νια Εξέτασης') }}</label>
@@ -155,18 +174,7 @@
 										<strong>{{ __('Οικονομικά') }}</strong></h6>
 								</div>
 							<div class="card-body">
-								<div class="form-group{{ $errors->has('Date_paradosis') ? ' has-danger' : '' }}">
-									<label class="form-control-label"
-										   for="input-Date_paradosis">{{ __('Ημ/νια Παράδοσης') }}</label>
-									<input type="date" name="Date_paradosis" id="input-Date_paradosis"
-										   class="form-control form-control-alternative{{ $errors->has('Date_paradosis') ? ' is-invalid' : '' }}"
-										   value="{{ old('Date_paradosis') }}" autofocus>
-									@if ($errors->has('Date_paradosis'))
-										<span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('Date_paradosis') }}</strong>
-                                                </span>
-									@endif
-								</div>
+
 							</div>
 							</div>
 						</div>

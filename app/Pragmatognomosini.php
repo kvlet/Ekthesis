@@ -8,7 +8,7 @@ class Pragmatognomosini extends Model
 {
     protected $table = 'db_ekthesis';
 
-    protected $guarded = [];
+    protected $guarded = [id_ekthesis];
 
 
     public function pragmatognomonas(){
@@ -18,5 +18,9 @@ class Pragmatognomosini extends Model
 
     public function grafeio(){
     	return $this->hasOne(Grafeio::class);
+    }
+
+    public  function nomoi(){
+        return $this->hasOne(Nomoi::class);
     }
 }

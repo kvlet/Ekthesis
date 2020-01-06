@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Grafeio;
+use App\Nomoi;
 use App\Pragmatognomosini;
 use Illuminate\Http\Request;
 use App\Http\Requests\PragmatognomosiniRequest;
@@ -27,8 +28,9 @@ class PragmatognomosinesController extends Controller
     public function create()
     {
     	$grafeia = Grafeio::all('id_grafeio','Name');
+    	$nomoi = Nomoi::all('id_nomoi','Nomos');
 
-        return view('pragmatognomosines.create', compact('grafeia'));
+        return view('pragmatognomosines.create', compact(['grafeia','nomoi']));
     }
 
     public function store(PragmatognomosiniRequest $request)

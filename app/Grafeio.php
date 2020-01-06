@@ -8,7 +8,7 @@ class Grafeio extends Model
 {
 	protected $table = 'db_grafeio';
 
-	protected $guarded = [];
+	protected $guarded = ['id_grafeio'];
 
 	protected $primaryKey= 'id_grafeio';
 }
