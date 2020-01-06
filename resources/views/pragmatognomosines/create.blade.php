@@ -110,7 +110,7 @@
                                    <div  class="pl-lg-4" >
                                        <div class="form-group{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}">
                                            <label class="form-control-label" for="input-id_diakrisi">{{ __('Τύπος Έκθεσης') }}</label>
-                                           <input type="text" name="id_diakrisi" id="input-id_diakrisi" class="form-control form-control-alternative{{ $errors->has('id_diakrisi') ? ' is-invalid' : '' }}" placeholder="{{ __('Γραφείο') }}"  value="{{ old('Τύπος Έκθεσης') }}" autofocus>
+                                           <input type="text" name="id_diakrisi" id="input-id_diakrisi" class="form-control form-control-alternative{{ $errors->has('id_diakrisi') ? ' is-invalid' : '' }}" placeholder="{{ __('Τύπος Έκθεσης') }}"  value="{{ old('Τύπος Έκθεσης') }}" autofocus>
                                            @if ($errors->has('id_diakrisi'))
                                                <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('id_diakrisi') }}</strong>
