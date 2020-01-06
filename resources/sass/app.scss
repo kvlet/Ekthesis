@@ -24,7 +24,7 @@ body{
   background-size: cover;
   position: relative;
   opacity: 1;
-  width: 100%; 
+  width: 100%;
   min-height: 95vh;
 }
 
@@ -37,4 +37,18 @@ body{
   opacity: 0.5;
   width: 100%;
   min-height: 95vh;
+}
+-.g-hide{
+     display: none !important;
+ }
+.menu-text-size{
+    font-size: 14px;
+}
+.ektheseis-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* fraction*/
+}
+.ektheseis-subheader {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* fraction*/
 }
