@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Grafeio;
 use App\Pragmatognomosini;
 use Illuminate\Http\Request;
 use App\Http\Requests\PragmatognomosiniRequest;
@@ -25,12 +26,15 @@ class PragmatognomosinesController extends Controller
      */
     public function create()
     {
-        return view('pragmatognomosines.create');
+    	$grafeia = Grafeio::all('id_grafeio','Name');
+
+        return view('pragmatognomosines.create', compact('grafeia'));
     }
 
     public function store(PragmatognomosiniRequest $request)
     {
         $pragmatognomosini = new Pragmatognomosini();
+
         $pragmatognomosini->grafeio = $request->grafeio;
         $pragmatognomosini->save();
 
