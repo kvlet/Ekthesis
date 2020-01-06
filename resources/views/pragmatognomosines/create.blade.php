@@ -47,13 +47,13 @@
                                     <div class="pl-lg-4">
                                         <div class="form-group{{ $errors->has('Prot_bibliou') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-id_ekthesis">{{ __('Αρ. Πρωτοκόλλου') }}</label>
-                                            <input type="text" name="Prot_bibliou" id="input-Prot_bibliou" class="form-control form-control-alternative{{ $errors->has('Prot_bibliou') ? ' is-invalid' : '' }}" placeholder="{{ __('Αρ. Πρωτοκόλλου') }}" value="{{ old('Prot_bibliou') }}" disabled autofocus>
+                                            <input type="text" name="Prot_bibliou" id="input-Prot_bibliou" class="form-control form-control-alternative{{ $errors->has('Prot_bibliou') ? ' is-invalid' : '' }}" value="{{ old('Prot_bibliou') }}" disabled autofocus>
                                         </div>
                                     </div>
                                     <div class="pl-lg-4">
                                         <div class="form-group{{ $errors->has('Prot_bibliou') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-Prot_bibliou">{{ __('Αρ. Φακέλου') }}</label>
-                                            <input type="text" name="Prot_bibliou" id="input-Prot_bibliou" class="form-control form-control-alternative{{ $errors->has('Prot_bibliou') ? ' is-invalid' : '' }}" placeholder="{{ __('Αρ. Φακέλου') }}" value="{{ old('Prot_bibliou') }}" autofocus>
+                                            <input type="text" name="Prot_bibliou" id="input-Prot_bibliou" class="form-control form-control-alternative{{ $errors->has('Prot_bibliou') ? ' is-invalid' : '' }}"  value="{{ old('Prot_bibliou') }}" autofocus>
                                             @if ($errors->has('Prot_bibliou'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('Prot_bibliou') }}</strong>
@@ -64,7 +64,7 @@
                                     <div class="pl-lg-4">
                                         <div class="form-group{{ $errors->has('date_atiximatos') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}</label>
-                                            <input type="date" name="date_atiximatos" id="input-date_atiximatos" class="form-control form-control-alternative{{ $errors->has('date_atiximatos') ? ' is-invalid' : '' }}" placeholder="{{ __('Ημ/νια Ατυχήματος') }}" value="{{ old('date_atiximatos') }}"  autofocus>
+                                            <input type="date" name="date_atiximatos" id="input-date_atiximatos" class="form-control form-control-alternative{{ $errors->has('date_atiximatos') ? ' is-invalid' : '' }}"  value="{{ old('date_atiximatos') }}"  autofocus>
                                             @if ($errors->has('date_atiximatos'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('date_atiximatos') }}</strong>
@@ -75,7 +75,7 @@
                                     <div class="pl-lg-4">
                                         <div class="form-group{{ $errors->has('date_atiximatos') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-date_eksetasis">{{ __('Ημ/νια Εξέτασης') }}</label>
-                                            <input type="date" name="date_eksetasis" id="input-date_eksetasis" class="form-control form-control-alternative{{ $errors->has('date_eksetasis') ? ' is-invalid' : '' }}" placeholder="{{ __('Ημ/νια Εξέτασης') }}" value="{{ old('date_eksetasis') }}" autofocus>
+                                            <input type="date" name="date_eksetasis" id="input-date_eksetasis" class="form-control form-control-alternative{{ $errors->has('date_eksetasis') ? ' is-invalid' : '' }}"  value="{{ old('date_eksetasis') }}" autofocus>
                                             @if ($errors->has('date_eksetasis'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('date_eksetasis') }}</strong>
@@ -86,7 +86,7 @@
                                     <div  class="pl-lg-4" >
                                         <div class="form-group{{ $errors->has('date_dikasimou') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-date_dikasimou">{{ __('Ημ/νια Δικάσιμου') }}</label>
-                                            <input type="date" name="date_dikasimou" id="input-date_dikasimou" class="form-control form-control-alternative{{ $errors->has('date_dikasimou') ? ' is-invalid' : '' }}" placeholder="{{ __('dd-mm-yyyy') }}"  value="{{ old('date_dikasimou') }}" autofocus>
+                                            <input type="date" name="date_dikasimou" id="input-date_dikasimou" class="form-control form-control-alternative{{ $errors->has('date_dikasimou') ? ' is-invalid' : '' }}" value="{{ old('date_dikasimou') }}" autofocus>
                                             @if ($errors->has('date_dikasimou'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('date_dikasimou') }}</strong>
@@ -97,7 +97,7 @@
                                     <div  class="pl-lg-4" >
                                         <div class="form-group{{ $errors->has('Date_paradosis') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-Date_paradosis">{{ __('Ημ/νια Παράδοσης') }}</label>
-                                            <input type="date" name="Date_paradosis" id="input-Date_paradosis" class="form-control form-control-alternative{{ $errors->has('Date_paradosis') ? ' is-invalid' : '' }}" placeholder="{{ __('dd-mm-yyyy') }}"  value="{{ old('Date_paradosis') }}" autofocus>
+                                            <input type="date" name="Date_paradosis" id="input-Date_paradosis" class="form-control form-control-alternative{{ $errors->has('Date_paradosis') ? ' is-invalid' : '' }}"   value="{{ old('Date_paradosis') }}" autofocus>
                                             @if ($errors->has('Date_paradosis'))
                                                 <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('Date_paradosis') }}</strong>
@@ -110,7 +110,7 @@
                                    <div  class="pl-lg-4" >
                                        <div class="form-group{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}">
                                            <label class="form-control-label" for="input-id_diakrisi">{{ __('Τύπος Έκθεσης') }}</label>
-                                           <input type="text" name="id_diakrisi" id="input-id_diakrisi" class="form-control form-control-alternative{{ $errors->has('id_diakrisi') ? ' is-invalid' : '' }}" placeholder="{{ __('Τύπος Έκθεσης') }}"  value="{{ old('Τύπος Έκθεσης') }}" autofocus>
+                                           <input type="text" name="id_diakrisi" id="input-id_diakrisi" class="form-control form-control-alternative{{ $errors->has('id_diakrisi') ? ' is-invalid' : '' }}"  }}"  value="{{ old('Τύπος Έκθεσης') }}" autofocus>
                                            @if ($errors->has('id_diakrisi'))
                                                <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('id_diakrisi') }}</strong>
@@ -165,7 +165,7 @@
                             <div  class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('id_pathon') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-id_pathon">{{ __('Παθών') }}</label>
-                                    <input type="text" name="id_pathon" id="input-id_pathon" class="form-control form-control-alternative{{ $errors->has('id_pathon') ? ' is-invalid' : '' }}" placeholder="{{ __('Παθών') }}" value="{{ old('id_pathon') }}" required autofocus>
+                                    <input type="text" name="id_pathon" id="input-id_pathon" class="form-control form-control-alternative{{ $errors->has('id_pathon') ? ' is-invalid' : '' }}"  value="{{ old('id_pathon') }}" required autofocus>
                                     @if ($errors->has('id_pathon'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('id_pathon') }}</strong>
