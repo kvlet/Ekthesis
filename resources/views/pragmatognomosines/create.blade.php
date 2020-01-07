@@ -112,18 +112,20 @@
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <label class="form-control-label"
-                                                   for="input-id_nomoi">{{ __('Νομός') }}</label>
-                                            <select class="form-control" id="nomoi">
-                                                @foreach($nomoi as $nomos)
-                                                    <option value="{{$nomos->id_nomoi}}">{{ $nomos->Nomos}}</option>
-                                                @endforeach
-                                            </select>
-                                            @if ($errors->has('id_nomoi'))
-                                                <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('id_nomoi') }}</strong>
-                                                    </span>
-                                            @endif
+                                            <div class="form-group{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label"
+                                                       for="input-id_nomoi">{{ __('Νομός') }}</label>
+                                                <select class="form-control" id="nomoi">
+                                                    @foreach($nomoi as $nomos)
+                                                        <option value="{{$nomos->id_nomoi}}">{{ $nomos->Nomos}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @if ($errors->has('id_nomoi'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('id_nomoi') }}</strong>
+                                                        </span>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
