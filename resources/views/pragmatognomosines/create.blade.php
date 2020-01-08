@@ -180,9 +180,9 @@
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <div class="form-group{{ $errors->has('id_accidearxi_ekdosis_eggrafon') ? ' has-danger' : '' }}">
+                                            <div class="form-group{{ $errors->has('id_Arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}">
                                                 <label class="form-control-label"
-                                                       for="input-id_accident_place">{{ __('Αρχή Εγγράφων') }}</label>
+                                                       for="input-id_arxi_ekdosis_eggrafon">{{ __('Αρχή Εγγράφων') }}</label>
                                                 <select class="form-control" id="arxi_ekdosis_eggrafon" required>
                                                     <option value="null">{{ " " }}</option>
                                                     @foreach($arxes_ekdosis_eggrafon as $arxi_ekdosis_eggrafon)
