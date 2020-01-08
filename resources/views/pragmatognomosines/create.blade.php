@@ -213,11 +213,30 @@
                                             </div>
                                         </div>
                                         <div class="col">
+                                            <div class="form-group{{ $errors->has('File_position') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label"
+                                                       for="input-File_position">{{ __('Θέση Αρχείων') }}</label>
+                                                <input type="text" name="id_ekthesis" id="input-File_position"
+                                                       class="form-control form-control-alternative{{ $errors->has('File_position') ? ' is-invalid' : '' }}"
+                                                       value="{{ old('File_position') }}" disabled autofocus>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div {{ $errors->has('Simpliromatiki') ? ' has-danger' : '' }}>
+                                                <label class="form-control-label checkbox-label"
+                                                       for="input-File_position">{{ __('Συμπληρωματική') }}</label>
+                                                <input type="checkbox" data-toggle="toggle" data-size="xs" name="Simpliromatiki" id="input-Simpliromatiki"
+                                                       class="form-control form-control-alternative{{ $errors->has('Simpliromatiki') ? ' is-invalid' : '' }}"
+                                                       value="{{ old('Simpliromatiki') }}" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="col">
 
                                         </div>
                                     </div>
                                 </div>
-
                                 </div>
 							</div>
                             <div class="col-md-3">

@@ -8,7 +8,7 @@ class Pragmatognomosini extends Model
 {
     protected $table = 'db_ekthesis';
 
-    protected $guarded = ['id_ekthesis'];
+    protected $guarded = ['id_ekthesis','File_position'];
 
 
     public function pragmatognomonas(){
