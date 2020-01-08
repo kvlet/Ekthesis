@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Accident_place;
+use App\Arxi_ekdosis_eggrafon;
+use App\Diakrisi;
 use App\Grafeio;
 use App\Nomoi;
 use App\Pragmatognomosini;
@@ -29,8 +32,11 @@ class PragmatognomosinesController extends Controller
     {
     	$grafeia = Grafeio::all('id_grafeio','Name');
     	$nomoi = Nomoi::all('id_nomoi','Nomos');
+    	$diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
+    	$accident_places=Accident_place::where('Mark_del','Όχι')->get();
+    	$arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del','Όχι')->get();
 
-        return view('pragmatognomosines.create', compact(['grafeia','nomoi']));
+        return view('pragmatognomosines.create', compact(['grafeia','nomoi','diakrisis','accident_places','arxes_ekdosis_eggrafon']));
     }
 
     public function store(PragmatognomosiniRequest $request)
