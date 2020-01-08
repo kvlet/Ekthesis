@@ -11414,7 +11414,14 @@ input {
 }
 
 .form-group input {
-  font-size: 12px;
+  font-size: 10px;
+  border: none;
+  margin: 20px 0 10px;
+  outline: 0 !important;
+}
+
+.form-group select {
+  font-size: 10px;
   border: none;
   margin: 20px 0 10px;
   outline: 0 !important;
