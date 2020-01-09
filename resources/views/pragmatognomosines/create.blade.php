@@ -180,18 +180,18 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('id_Arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}">
+                                                <div class="form-group{{ $errors->has('id_arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-id_arxi_ekdosis_eggrafon">{{ __('Αρχή Εγγράφων') }}</label>
-                                                    <select class="form-control" id="arxi_ekdosis_eggrafon" required>
+                                                    <select class="form-control" id="id_arxi_ekdosis_eggrafon" required>
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($arxes_ekdosis_eggrafon as $arxi_ekdosis_eggrafon)
                                                             <option value="{{$arxi_ekdosis_eggrafon->id_Arxi_ekdosis_eggrafon}}">{{ $arxi_ekdosis_eggrafon->Arxi}}</option>
                                                         @endforeach
                                                     </select>
-                                                    @if ($errors->has('id_Arxi_ekdosis_eggrafon'))
+                                                    @if ($errors->has('id_arxi_ekdosis_eggrafon'))
                                                         <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('id_Arxi_ekdosis_eggrafon') }}</strong>
+                                                                <strong>{{ $errors->first('id_arxi_ekdosis_eggrafon') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
