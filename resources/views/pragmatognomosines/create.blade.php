@@ -192,7 +192,7 @@
                                                 @if ($errors->has('id_Arxi_ekdosis_eggrafon'))
                                                     <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('id_Arxi_ekdosis_eggrafon') }}</strong>
-                                                        </span>
+                                                    </span>
                                                 @endif
                                             </div>
                                         </div>
@@ -207,7 +207,7 @@
                                                        value="{{ old('Date_paradosis') }}" autofocus>
                                                 @if ($errors->has('Date_paradosis'))
                                                     <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('Date_paradosis') }}</strong>
+                                                        <strong>{{ $errors->first('Date_paradosis') }}</strong>
                                                     </span>
                                                 @endif
                                             </div>
@@ -233,7 +233,18 @@
                                             </div>
                                         </div>
                                         <div class="col">
-
+                                            <div class="form-group{{ $errors->has('partially_lock') ? ' has-danger' : '' }}">
+                                                <select class="form-control" id="partially_lock">
+                                                    <option value="" disabled selected>Μερικό κλείδωμα</option>
+                                                    <option value="Ναι">Ναι</option>
+                                                    <option value="Όχι">Όχι</option>
+                                                </select>
+                                                @if ($errors->has('partially_lock'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('partially_lock') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
