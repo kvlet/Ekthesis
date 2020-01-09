@@ -353,7 +353,7 @@
                                             <div class="col">
                                                 <div class="form-group{{ $errors->has('id') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id">{{ __('Αρχή Εγγράφων') }}</label>
+                                                           for="input-id">{{ __('Πραγματογνώμονας') }}</label>
                                                     <select class="form-control" id="id" required>
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($arxes_ekdosis_eggrafon as $arxi_ekdosis_eggrafon)
