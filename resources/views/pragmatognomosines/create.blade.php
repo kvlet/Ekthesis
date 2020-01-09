@@ -216,7 +216,7 @@
                                                 <div class="form-group{{ $errors->has('File_position') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-File_position">{{ __('Θέση Αρχείων') }}</label>
-                                                    <input type="text" name="id_ekthesis" id="input-File_position"
+                                                    <input type="text" name="File_position" id="input-File_position"
                                                            class="form-control form-control-alternative{{ $errors->has('File_position') ? ' is-invalid' : '' }}"
                                                            value="{{ old('File_position') }}" disabled autofocus>
                                                 </div>
@@ -316,7 +316,58 @@
                                             <strong>{{ __('Οικονομικά') }}</strong></h6>
                                     </div>
                                     <div class="card-body">
-
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group{{ $errors->has('id_timologio_etaireias') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="input-id_timologio_etaireias">{{ __('Αρ. Τιμολογίου') }}</label>
+                                                    <input type="text" name="id_timologio_etaireias" id="input-id_timologio_etaireias"
+                                                           class="form-control form-control-alternative{{ $errors->has('id_timologio_etaireias') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('id_timologio_etaireias') }}" disabled autofocus>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group{{ $errors->has('Ar_timologio_partner') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="input-Ar_timologio_partner">{{ __('Αρ. Τιμολογίου Συνεργάτη') }}</label>
+                                                    <input type="text" name="Ar_timologio_partner" id="input-Ar_timologio_partner"
+                                                           class="form-control form-control-alternative{{ $errors->has('Ar_timologio_partner') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Ar_timologio_partner') }}" disabled autofocus>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group{{ $errors->has('Ekkatharistike') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="input-Ekkatharistike">{{ __('Εκκαθαρίστηκε') }}</label>
+                                                    <input type="text" name="Ekkatharistike" id="input-Ekkatharistike"
+                                                           class="form-control form-control-alternative{{ $errors->has('Ekkatharistike') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Ekkatharistike') }}" disabled autofocus>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group{{ $errors->has('id') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="input-id">{{ __('Αρχή Εγγράφων') }}</label>
+                                                    <select class="form-control" id="id" required>
+                                                        <option value="null">{{ " " }}</option>
+                                                        @foreach($arxes_ekdosis_eggrafon as $arxi_ekdosis_eggrafon)
+                                                            <option value="{{$arxi_ekdosis_eggrafon->id_Arxi_ekdosis_eggrafon}}">{{ $arxi_ekdosis_eggrafon->Arxi}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @if ($errors->has('id'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('id') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

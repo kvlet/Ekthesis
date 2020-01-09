@@ -36,6 +36,7 @@ class PragmatognomosinesController extends Controller
     	$accident_places=Accident_place::where('Mark_del','Όχι')->get();
     	$arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del','Όχι')->get();
 
+
         return view('pragmatognomosines.create', compact(['grafeia','nomoi','diakrisis','accident_places','arxes_ekdosis_eggrafon']));
     }
 
