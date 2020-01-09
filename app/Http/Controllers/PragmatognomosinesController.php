@@ -8,6 +8,7 @@ use App\Diakrisi;
 use App\Grafeio;
 use App\Nomoi;
 use App\Pragmatognomosini;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\PragmatognomosiniRequest;
 
@@ -35,7 +36,7 @@ class PragmatognomosinesController extends Controller
     	$diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
     	$accident_places=Accident_place::where('Mark_del','Όχι')->get();
     	$arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del','Όχι')->get();
-    	//$users= User::
+        //$prag = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
 
 
         return view('pragmatognomosines.create', compact(['grafeia','nomoi','diakrisis','accident_places','arxes_ekdosis_eggrafon']));

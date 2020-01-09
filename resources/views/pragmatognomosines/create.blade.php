@@ -356,9 +356,9 @@
                                                            for="input-id">{{ __('Πραγματογνώμονας') }}</label>
                                                     <select class="form-control" id="id" required>
                                                         <option value="null">{{ " " }}</option>
-                                                        @foreach($arxes_ekdosis_eggrafon as $arxi_ekdosis_eggrafon)
-                                                            <option value="{{$arxi_ekdosis_eggrafon->id_Arxi_ekdosis_eggrafon}}">{{ $arxi_ekdosis_eggrafon->Arxi}}</option>
-                                                        @endforeach
+{{--                                                        @foreach($prag as $pragmatognomonas)
+                                                            <option value="{{$pragmatognomonas->id}}">{{ $pragmatognomonas->L_name}}</option>
+                                                        @endforeach--}}
                                                     </select>
                                                     @if ($errors->has('id'))
                                                         <span class="invalid-feedback" role="alert">

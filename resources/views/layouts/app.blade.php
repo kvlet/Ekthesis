@@ -45,7 +45,7 @@
                     @yield('onofflmenu')
                 </div>
                 <div class="col-md-8">
-                    <h5> Χρήστης: {{ Auth::user()->name }} {{ Auth::user()->email }}</h5>
+                    <h6> Χρήστης: <strong> {{ Auth::user()->F_name }} {{ Auth::user()->L_name }}</strong></h6>
                 </div>
                 <div class="col-md-2">
                     <!--<button type="submit" class="btn btn-sm btn-primary" style="margin: 4px">Αποσύνδεση</button>-->
