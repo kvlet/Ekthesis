@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Accident_place;
 use App\Arxi_ekdosis_eggrafon;
+use App\Company;
 use App\Diakrisi;
 use App\Grafeio;
 use App\Nomoi;
@@ -36,7 +37,8 @@ class PragmatognomosinesController extends Controller
     	$diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
     	$accident_places=Accident_place::where('Mark_del','Όχι')->get();
     	$arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del','Όχι')->get();
-        //$prag = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+        $prag = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+        $companies = Company::where('Mark_del','Όχι')->get();
 
 
         return view('pragmatognomosines.create', compact(['grafeia','nomoi','diakrisis','accident_places','arxes_ekdosis_eggrafon']));

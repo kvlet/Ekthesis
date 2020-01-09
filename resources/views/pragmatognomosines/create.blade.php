@@ -368,6 +368,25 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group{{ $errors->has('id_company_pathon') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="input-id_company_pathon">{{ __('Εντολέας Ασφλιστική') }}</label>
+                                                    <select class="form-control" id="id_company_pathon" required>
+                                                        <option value="null">{{ " " }}</option>
+                                                       {{-- @foreach($companies as $company)
+                                                            <option value="{{$company->id_company}}">{{ $company->comp_name}}</option>
+                                                        @endforeach--}}
+                                                    </select>
+                                                    @if ($errors->has('id'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('id') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

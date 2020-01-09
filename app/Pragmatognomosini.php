@@ -39,4 +39,8 @@ class Pragmatognomosini extends Model
     public function accident_place(){
         return $this->hasOne(Accident_place::class);
     }
+
+    public function company(){
+        return $this->hasOne(Company::class);
+    }
 }
