@@ -1,7 +1,6 @@
 @extends('forms')
 
 @section('formsdetails')
-
 	<div class="row">
 		<div class="col-2 menu-text-size">
 			<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -356,9 +355,9 @@
                                                            for="input-id">{{ __('Πραγματογνώμονας') }}</label>
                                                     <select class="form-control" id="id" required>
                                                         <option value="null">{{ " " }}</option>
-{{--                                                        @foreach($prag as $pragmatognomonas)
+                                                        @foreach($pragmatognomones as $pragmatognomonas)
                                                             <option value="{{$pragmatognomonas->id}}">{{ $pragmatognomonas->L_name}}</option>
-                                                        @endforeach--}}
+                                                        @endforeach
                                                     </select>
                                                     @if ($errors->has('id'))
                                                         <span class="invalid-feedback" role="alert">
