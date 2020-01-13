@@ -379,9 +379,9 @@
                                                         @endforeach
 {{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
-                                                    @if ($errors->has('id'))
+                                                    @if ($errors->has('id_company_pathon'))
                                                         <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('id') }}</strong>
+                                                                <strong>{{ $errors->first('id_company_pathon') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
@@ -430,7 +430,26 @@
                                             <strong>{{ __('Παθών - Υπαίτιος') }}</strong></h6>
                                     </div>
                                     <div class="card-body">
-
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="input-id_pathon">{{ __('Παθών') }}</label>
+                                                    <select class="form-control form-select" id="id_pathon" required>
+                                                        <option value="null">{{ " " }}</option>
+                                                        @foreach($pathontes as $pathon)
+                                                            <option value="{{$pathon->id_Person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
+                                                        @endforeach
+                                                        {{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                    </select>
+                                                    @if ($errors->has('id_pathon'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('id_pathon') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

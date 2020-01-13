@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nomoi extends Model
+class Nomos extends Model
 {
     protected $table = 'db_nomoi';
 

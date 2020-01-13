@@ -24,7 +24,7 @@ class Pragmatognomosini extends Model
 
     public function nomoi()
     {
-        return $this->hasOne(Nomoi::class);
+        return $this->hasOne(Nomos::class);
     }
 
     public function diakrisi()
@@ -42,5 +42,12 @@ class Pragmatognomosini extends Model
 
     public function company(){
         return $this->hasOne(Company::class);
+    }
+
+    public function pathon(){
+        return $this.$this->hasOne(Person::class);
+    }
+    public function ypaitios(){
+        return $this.$this->hasOne(Person::class);
     }
 }
