@@ -40,7 +40,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('id_ekthesis') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('id_ekthesis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-id_ekthesis">{{ __('Αρ. Πρωτοκόλλου') }}</label>
                                                     <input type="text" name="id_ekthesis" id="input-id_ekthesis"
@@ -49,7 +49,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-id_grafeio">{{ __('Τύπος Έκθεσης') }}</label>
                                                     <select class="form-control" id="diakrisi" required>
@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('Prot_bibliou') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('Prot_bibliou') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-Prot_bibliou">{{ __('Αρ. Φακέλου') }}</label>
                                                     <input type="text" name="Prot_bibliou" id="input-Prot_bibliou"
@@ -81,7 +81,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('id_grafeio') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('id_grafeio') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-id_grafeio">{{ __('Γραφείο') }}</label>
                                                     <select class="form-control" id="grafeio" required>
@@ -99,7 +99,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('date_atiximatos') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('date_atiximatos') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}</label>
                                                     <input type="date" name="date_atiximatos" id="input-date_atiximatos"
@@ -113,7 +113,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-id_nomoi">{{ __('Νομός') }}</label>
                                                     <select class="form-control" id="nomoi" required>
@@ -132,7 +132,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('date_eksetasis') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('date_eksetasis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-date_eksetasis">{{ __('Ημ/νια Εξέτασης') }}</label>
                                                     <input type="date" name="date_eksetasis" id="input-date_eksetasis"
@@ -146,7 +146,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-id_accident_place">{{ __('Τόπος Εξέτασης') }}</label>
                                                     <select class="form-control" id="accident_place" required>
@@ -165,7 +165,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('date_dikasimou') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('date_dikasimou') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-date_dikasimou">{{ __('Ημ/νια Δικάσιμου') }}</label>
                                                     <input type="date" name="date_dikasimou" id="input-date_dikasimou"
@@ -179,7 +179,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('id_arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('id_arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-id_arxi_ekdosis_eggrafon">{{ __('Αρχή Εγγράφων') }}</label>
                                                     <select class="form-control" id="id_arxi_ekdosis_eggrafon" required>
@@ -198,7 +198,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('Date_paradosis') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('Date_paradosis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-Date_paradosis">{{ __('Ημ/νια Παράδοσης') }}</label>
                                                     <input type="date" name="Date_paradosis" id="input-Date_paradosis"
@@ -212,7 +212,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('File_position') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('File_position') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-File_position">{{ __('Θέση Αρχείων') }}</label>
                                                     <input type="text" name="File_position" id="input-File_position"
@@ -223,7 +223,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('Simpliromatiki') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('Simpliromatiki') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-Simpliromatiki">{{ __('Συμπληρωματική') }}</label>
                                                     <select class="form-control" id="Simpliromatiki">
@@ -238,7 +238,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('partially_lock') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('partially_lock') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-partially_lock">{{ __('Μερικό κλείδωμα') }}</label>
                                                     <select class="form-control" id="partially_lock">
@@ -255,7 +255,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('Sap') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('Sap') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-Sap">{{ __('Sap') }}</label>
                                                     <select class="form-control" id="Sap">
@@ -270,7 +270,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('total_lock') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('total_lock') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-total_lock">{{ __('Ολικό κλείδωμα') }}</label>
                                                     <select class="form-control" id="total_lock">
@@ -287,7 +287,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('Valid') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('Valid') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-Valid">{{ __('Έγκυρη') }}</label>
                                                     <select class="form-control" id="Valid">
@@ -317,7 +317,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('id_timologio_etaireias') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('id_timologio_etaireias') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-id_timologio_etaireias">{{ __('Αρ. Τιμολογίου') }}</label>
                                                     <input type="text" name="id_timologio_etaireias" id="input-id_timologio_etaireias"
@@ -328,7 +328,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('Ar_timologio_partner') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('Ar_timologio_partner') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-Ar_timologio_partner">{{ __('Αρ. Τιμολογίου Συνεργάτη') }}</label>
                                                     <input type="text" name="Ar_timologio_partner" id="input-Ar_timologio_partner"
@@ -339,7 +339,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('Ekkatharistike') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('Ekkatharistike') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-Ekkatharistike">{{ __('Εκκαθαρίστηκε') }}</label>
                                                     <input type="text" name="Ekkatharistike" id="input-Ekkatharistike"
@@ -350,13 +350,13 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('id') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('id') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-id">{{ __('Πραγματογνώμονας') }}</label>
                                                     <select class="form-control" id="id" required>
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($pragmatognomones as $pragmatognomonas)
-                                                            <option value="{{$pragmatognomonas->id}}">{{ $pragmatognomonas->L_name}}</option>
+                                                            <option value="{{$pragmatognomonas->id}}">{{$pragmatognomonas->L_name.' '.$pragmatognomonas->F_name }}</option>
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('id'))
@@ -369,20 +369,54 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-group{{ $errors->has('id_company_pathon') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('id_company_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="input-id_company_pathon">{{ __('Εντολέας Ασφλιστική') }}</label>
                                                     <select class="form-control" id="id_company_pathon" required>
                                                         <option value="null">{{ " " }}</option>
-                                                       {{-- @foreach($companies as $company)
-                                                            <option value="{{$company->id_company}}">{{ $company->comp_name}}</option>
-                                                        @endforeach--}}
+                                                        @foreach($companies as $company)
+                                                            <option value="{{$company->id_company}}">{{$company->comp_name}}</option>
+                                                        @endforeach
+{{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
                                                     @if ($errors->has('id'))
                                                         <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $errors->first('id') }}</strong>
                                                         </span>
                                                     @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('Fpa') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="input-Fpa">{{ __('Φ.Π.Α.') }}</label>
+                                                    <input type="text" name="Fpa" id="input-Fpa"
+                                                           class="form-control form-control-alternative{{ $errors->has('Fpa') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Fpa') }}" autofocus>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('Ekpt_parts') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="input-Ekpt_parts">{{ __('Έκπτωση ανταλλακτικών') }}</label>
+                                                    <input type="text" name="Ekpt_parts" id="input-Ekpt_parts"
+                                                           class="form-control form-control-alternative{{ $errors->has('Ekpt_parts') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Ekpt_parts') }}" autofocus>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label $errors->has('Ekpt_jobs') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="input-Ekpt_jobs">{{ __('Έκτπωση Εργασιών') }}</label>
+                                                    <input type="text" name="Ekpt_jobs" id="input-Ekpt_jobs"
+                                                           class="form-control form-control-alternative{{ $errors->has('Ekpt_jobs') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Ekpt_jobs') }}" autofocus>
                                                 </div>
                                             </div>
                                         </div>

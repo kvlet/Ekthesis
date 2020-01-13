@@ -46,7 +46,8 @@ class PragmatognomosinesController extends Controller
             'diakrisis',
             'accident_places',
             'arxes_ekdosis_eggrafon',
-            'pragmatognomones'
+            'pragmatognomones',
+            'companies'
             ]));
     }
 
