@@ -45,9 +45,18 @@ class Pragmatognomosini extends Model
     }
 
     public function pathon(){
-        return $this.$this->hasOne(Person::class);
+        return $this->hasOne(Person::class);
     }
+
     public function ypaitios(){
-        return $this.$this->hasOne(Person::class);
+        return $this->hasOne(Person::class);
+    }
+
+    public function oxima_pathon(){
+        return $this->hasOne(Oxima::class);
+    }
+
+    public function oxima_ypatiou(){
+        return $this->hasOne(Oxima::class);
     }
 }
