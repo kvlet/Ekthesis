@@ -33,8 +33,9 @@
 						<div class="row">
 						    <div class="col-md-6">
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h6 class="heading-small text-center text-muted"><strong>{{ __('Γενικά') }}</strong>
+                                    <div class="card-header-cust">
+                                        <h6 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Γενικά') }}</strong>
                                         </h6>
                                     </div>
                                     <div class="card-body">
@@ -51,8 +52,8 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id_grafeio">{{ __('Τύπος Έκθεσης') }}</label>
-                                                    <select class="form-control form-select" id="diakrisi" required>
+                                                           for="id_diakrisi">{{ __('Τύπος Έκθεσης') }}</label>
+                                                    <select class="form-control form-select" id="id_diakrisi" required>
                                                         @foreach($diakrisis as $diakrisi)
                                                             <option value="{{$diakrisi->id_diakrisi}}">{{ $diakrisi->Diakrisi }}</option>
                                                         @endforeach
@@ -83,8 +84,8 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_grafeio') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id_grafeio">{{ __('Γραφείο') }}</label>
-                                                    <select class="form-control form-select" id="grafeio" required>
+                                                           for="id_grafeio">{{ __('Γραφείο') }}</label>
+                                                    <select class="form-control form-select" id="id_grafeio" required>
                                                         @foreach($grafeia as $grafeio)
                                                             <option value="{{$grafeio->id_grafeio}}">{{ $grafeio->Name }}</option>
                                                         @endforeach
@@ -115,8 +116,8 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id_nomoi">{{ __('Νομός') }}</label>
-                                                    <select class="form-control form-select" id="nomoi" required>
+                                                           for="id_nomoi">{{ __('Νομός') }}</label>
+                                                    <select class="form-control form-select" id="id_nomoi" required>
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($nomoi as $nomos)
                                                             <option value="{{$nomos->id_nomoi}}">{{ $nomos->Nomos}}</option>
@@ -148,8 +149,8 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id_accident_place">{{ __('Τόπος Εξέτασης') }}</label>
-                                                    <select class="form-control form-select" id="accident_place" required>
+                                                           for="id_accident_place">{{ __('Τόπος Εξέτασης') }}</label>
+                                                    <select class="form-control form-select" id="id_accident_place" required>
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($accident_places as $accident_place)
                                                             <option value="{{$accident_place->id_accident_place}}">{{ $accident_place->Place}}</option>
@@ -181,7 +182,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id_arxi_ekdosis_eggrafon">{{ __('Αρχή Εγγράφων') }}</label>
+                                                           for="id_arxi_ekdosis_eggrafon">{{ __('Αρχή Εγγράφων') }}</label>
                                                     <select class="form-control form-select" id="id_arxi_ekdosis_eggrafon" required>
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($arxes_ekdosis_eggrafon as $arxi_ekdosis_eggrafon)
@@ -225,7 +226,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('Simpliromatiki') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-Simpliromatiki">{{ __('Συμπληρωματική') }}</label>
+                                                           for="Simpliromatiki">{{ __('Συμπληρωματική') }}</label>
                                                     <select class="form-control form-select" id="Simpliromatiki">
                                                         <option value="true">Ναι</option>
                                                         <option value="false" selected="selected">Όχι</option>
@@ -240,7 +241,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('partially_lock') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-partially_lock">{{ __('Μερικό κλείδωμα') }}</label>
+                                                           for="partially_lock">{{ __('Μερικό κλείδωμα') }}</label>
                                                     <select class="form-control form-select" id="partially_lock">
                                                         <option value="Ναι">Ναι</option>
                                                         <option value="Όχι" selected="selected">Όχι</option>
@@ -257,7 +258,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('Sap') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-Sap">{{ __('Sap') }}</label>
+                                                           for="Sap">{{ __('Sap') }}</label>
                                                     <select class="form-control form-select" id="Sap">
                                                         <option value="true">Ναι</option>
                                                         <option value="false" selected="selected">Όχι</option>
@@ -272,7 +273,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('total_lock') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-total_lock">{{ __('Ολικό κλείδωμα') }}</label>
+                                                           for="total_lock">{{ __('Ολικό κλείδωμα') }}</label>
                                                     <select class="form-control form-select" id="total_lock">
                                                         <option value="Ναι">Ναι</option>
                                                         <option value="Όχι" selected="selected">Όχι</option>
@@ -289,7 +290,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('Valid') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-Valid">{{ __('Έγκυρη') }}</label>
+                                                           for="Valid">{{ __('Έγκυρη') }}</label>
                                                     <select class="form-control form-select" id="Valid">
                                                         <option value="true" selected="selected">Ναι</option>
                                                         <option value="false">Όχι</option>
@@ -310,9 +311,10 @@
 							</div>
                             <div class="col-md-3">
                                 <div class="card">
-                                    <div class="card-header">
+                                    <div class="card-header-cust">
                                         <h6 class="heading-small text-center text-muted">
-                                            <strong>{{ __('Οικονομικά') }}</strong></h6>
+                                            <strong>{{ __('Οικονομικά') }}</strong>
+                                        </h6>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -352,7 +354,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id">{{ __('Πραγματογνώμονας') }}</label>
+                                                           for="id">{{ __('Πραγματογνώμονας') }}</label>
                                                     <select class="form-control form-select" id="id" required>
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($pragmatognomones as $pragmatognomonas)
@@ -371,7 +373,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_company_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id_company_pathon">{{ __('Εντολέας Ασφλιστική') }}</label>
+                                                           for="id_company_pathon">{{ __('Εντολέας Ασφλιστική') }}</label>
                                                     <select class="form-control form-select" id="id_company_pathon" required>
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($companies as $company)
@@ -395,6 +397,11 @@
                                                     <input type="text" name="Fpa" id="input-Fpa"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Fpa') ? ' is-invalid' : '' }}"
                                                            value="{{ old('Fpa') }}" autofocus>
+                                                    @if ($errors->has('Fpa'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Fpa') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -406,6 +413,11 @@
                                                     <input type="text" name="Ekpt_parts" id="input-Ekpt_parts"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Ekpt_parts') ? ' is-invalid' : '' }}"
                                                            value="{{ old('Ekpt_parts') }}" autofocus>
+                                                    @if ($errors->has('Ekpt_parts'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Ekpt_parts') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -417,6 +429,11 @@
                                                     <input type="text" name="Ekpt_jobs" id="input-Ekpt_jobs"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Ekpt_jobs') ? ' is-invalid' : '' }}"
                                                            value="{{ old('Ekpt_jobs') }}" autofocus>
+                                                    @if ($errors->has('Ekpt_jobs'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Ekpt_jobs') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -425,22 +442,23 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="card">
-                                    <div class="card-header">
+                                    <div class="card-header-cust">
                                         <h6 class="heading-small text-center text-muted">
-                                            <strong>{{ __('Παθών - Υπαίτιος') }}</strong></h6>
+                                            <strong>{{ __('Παθών') }}</strong>
+                                        </h6>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id_pathon">{{ __('Παθών') }}</label>
+                                                           for="id_pathon">{{ __('Παθών') }}</label>
                                                     <select class="form-control form-select" id="id_pathon" required>
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($pathontes as $pathon)
                                                             <option value="{{$pathon->id_Person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
                                                         @endforeach
-                                                        {{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+{{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
                                                     @if ($errors->has('id_pathon'))
                                                         <span class="invalid-feedback" role="alert">
@@ -454,13 +472,13 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_oximatos_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id_oximatos_pathon">{{ __('Αρ. Κυκλοφορίας') }}</label>
+                                                           for="id_oximatos_pathon">{{ __('Αρ. Κυκλοφορίας') }}</label>
                                                     <select class="form-control form-select" id="id_oximatos_pathon">
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($oximata_pathon as $oxima_pathon)
                                                             <option value="{{$oxima_pathon->id_oximata}}">{{$oxima_pathon->Ar_kyklo}}</option>
                                                         @endforeach
-                                                        {{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+{{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
                                                     @if ($errors->has('$id_oximatos_pathon'))
                                                         <span class="invalid-feedback" role="alert">
@@ -478,6 +496,11 @@
                                                     <input type="text" name="Object" id="input-Object"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Object') ? ' is-invalid' : '' }}"
                                                            value="{{ old('Ekpt_jobs') }}" autofocus>
+                                                    @if ($errors->has('Object'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Object') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -485,13 +508,13 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_company_pathon_real') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-id_company_pathon_real">{{ __('Ασφλιστική') }}</label>
+                                                           for="id_company_pathon_real">{{ __('Ασφλιστική') }}</label>
                                                     <select class="form-control form-select" id="id_company_pathon_real">
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($companies as $company)
                                                             <option value="{{$company->id_company}}">{{$company->comp_name}}</option>
                                                         @endforeach
-                                                        {{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+{{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
                                                     @if ($errors->has('id_company_pathon_real'))
                                                         <span class="invalid-feedback" role="alert">
@@ -509,39 +532,157 @@
                                                     <input type="text" name="Entoleas" id="Entoleas"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Entoleas') ? ' is-invalid' : '' }}"
                                                            value="{{ old('Entoleas') }}" autofocus>
+                                                    @if ($errors->has('Entoleas'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Entoleas') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-label {{$errors->has('Object') ? ' has-danger' : '' }}">
+                                                <div class="form-label {{$errors->has('Xiliometra') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-Object">{{ __('Χιλιόμετρα') }}</label>
-                                                    <input type="text" name="Object" id="input-Object"
-                                                           class="form-control form-input form-control-alternative{{ $errors->has('Object') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Ekpt_jobs') }}" autofocus>
+                                                           for="input-Xiliometra">{{ __('Χιλιόμετρα') }}</label>
+                                                    <input type="text" name="Xiliometra" id="input-Xiliometra"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Xiliometra') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Xiliometra') }}" autofocus>
+                                                    @if ($errors->has('Xiliometra'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Xiliometra') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-label {{$errors->has('Object') ? ' has-danger' : '' }}">
+                                                <div class="form-label {{$errors->has('value_car_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-Object">{{ __('Εμπορική Αξία') }}</label>
-                                                    <input type="text" name="Oject" id="input-Object"
-                                                           class="form-control fborm-input form-control-alternative{{ $errors->has('Object') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Ekpt_jobs') }}" autofocus>
+                                                           for="input-value_car_pathon">{{ __('Εμπορική Αξία') }}</label>
+                                                    <input type="text" name="value_car_pathon" id="input-value_car_pathon"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('value_car_pathon') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('value_car_pathon') }}" autofocus>
+                                                    @if ($errors->has('value_car_pathon'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('value_car_pathon') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-label {{$errors->has('Object') ? ' has-danger' : '' }}">
+                                                <div class="form-label {{$errors->has('driver_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-Object">{{ __('Οδηγός) }}</label>
-                                                    <input type="text" name="Object" id="input-Object"
-                                                           class="form-control form-input form-control-alternative{{ $errors->has('Object') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Ekpt_jobs') }}" autofocus>
+                                                           for="input-driver_pathon">{{ __('Οδηγός') }}</label>
+                                                    <input type="text" name="driver_pathon" id="input-driver_pathon"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('driver_pathon') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('driver_pathon') }}" autofocus>
+                                                    @if ($errors->has('driver_pathon'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('driver_pathon') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label ">
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label ">
+                                                    <div class="card">
+                                                        <div class="card-header-cust">
+                                                            <h6 class="heading-small text-center text-muted">
+                                                                <strong>{{ __('Υπαίτιος') }}</strong>
+                                                            </h6>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-label{{ $errors->has('id_ypaitiou') ? ' has-danger' : '' }}">
+                                                                        <label class="form-control-label"
+                                                                               for="id_ypaitiou">{{ __('Υπαίτιος') }}</label>
+                                                                        <select class="form-control form-select" id="id_ypaitiou">
+                                                                            <option value="null">{{ " " }}</option>
+                                                                            @foreach($pathontes as $pathon)
+                                                                                <option value="{{$pathon->id_Person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
+                                                                            @endforeach
+                   {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                                        </select>
+                                                                        @if ($errors->has('id_ypaitiou'))
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $errors->first('id_ypaitiou') }}</strong>
+                                                                            </span>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-label{{ $errors->has('id_oximatos_ypaitiou') ? ' has-danger' : '' }}">
+                                                                        <label class="form-control-label"
+                                                                               for="id_oximatos_ypaitiou">{{ __('Αρ. Κυκλοφορίας') }}</label>
+                                                                        <select class="form-control form-select" id="id_oximatos_ypaitiou">
+                                                                            <option value="null">{{ " " }}</option>
+                                                                            @foreach($oximata_pathon as $oxima_pathon)
+                                                                                <option value="{{$oxima_pathon->id_oximata}}">{{$oxima_pathon->Ar_kyklo}}</option>
+                                                                            @endforeach
+                   {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                                        </select>
+                                                                        @if ($errors->has('$id_oximatos_ypaitiou'))
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $errors->first('$id_oximatos_ypaitiou') }}</strong>
+                                                                            </span>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-label{{ $errors->has('id_company_ypaitiou') ? ' has-danger' : '' }}">
+                                                                        <label class="form-control-label"
+                                                                               for="id_company_ypaitiou">{{ __('Ασφλιστική') }}</label>
+                                                                        <select class="form-control form-select" id="id_company_ypaitiou">
+                                                                            <option value="null">{{ " " }}</option>
+                                                                            @foreach($companies as $company)
+                                                                                <option value="{{$company->id_company}}">{{$company->comp_name}}</option>
+                                                                            @endforeach
+                    {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                                        </select>
+                                                                        @if ($errors->has('id_company_ypaitiou'))
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $errors->first('id_company_ypaitiou') }}</strong>
+                                                                            </span>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-label {{$errors->has('Driver_ypaitiou') ? ' has-danger' : '' }}">
+                                                                        <label class="form-control-label"
+                                                                               for="input-Driver_ypaitiou">{{ __('Οδηγός') }}</label>
+                                                                        <input type="text" name="driver_pathon" id="input-Driver_ypaitiou"
+                                                                               class="form-control form-input form-control-alternative{{ $errors->has('Driver_ypaitiou') ? ' is-invalid' : '' }}"
+                                                                               value="{{ old('Driver_ypaitiou') }}" autofocus>
+                                                                        @if ($errors->has('Driver_ypaitiou'))
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                    <strong>{{ $errors->first('Driver_ypaitiou') }}</strong>
+                                                                            </span>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
