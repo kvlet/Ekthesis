@@ -15,6 +15,8 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\PragmatognomosiniRequest;
 
+
+
 class PragmatognomosinesController extends Controller
 {
     /**
@@ -62,6 +64,7 @@ class PragmatognomosinesController extends Controller
         $pragmatognomosini = new Pragmatognomosini();
 
         $pragmatognomosini = $request->all();
+        dd($pragmatognomosini);
         $pragmatognomosini->save();
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id);

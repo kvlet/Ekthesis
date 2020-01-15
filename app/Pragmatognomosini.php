@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Pragmatognomosini extends Model
 {
     protected $table = 'db_ekthesis';
@@ -11,9 +12,18 @@ class Pragmatognomosini extends Model
     protected $guarded = ['id_ekthesis', 'File_position'];
 
     protected $attributes=[
-        'Fpa' => 24.0,
-        'Ekpt_parts' => 0,
-        'Ekpt_jobs' => 0
+        'Fpa' => '24.0',
+        'Ekpt_parts' => '0.0',
+        'Ekpt_jobs' => '0.0',
+        'partially_lock'=>'Όχι',
+        'total_lock'=>'Όχι'
+    ];
+
+    protected $casts = [
+        'Fpa' => 'real',
+        'Ekpt_parts' => 'float',
+        'Ekpt_jobs' => 'float',
+        'value_car_pathon'=>'float'
     ];
 
 
