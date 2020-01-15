@@ -10,6 +10,12 @@ class Pragmatognomosini extends Model
 
     protected $guarded = ['id_ekthesis', 'File_position'];
 
+    protected $attributes=[
+        'Fpa' => 24.0,
+        'Ekpt_parts' => 0,
+        'Ekpt_jobs' => 0
+    ];
+
 
     public function pragmatognomonas()
     {

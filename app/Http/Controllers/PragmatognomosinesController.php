@@ -61,7 +61,7 @@ class PragmatognomosinesController extends Controller
     {
         $pragmatognomosini = new Pragmatognomosini();
 
-        $pragmatognomosini->grafeio = $request->grafeio;
+        $pragmatognomosini = $request->all();
         $pragmatognomosini->save();
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id);
@@ -78,7 +78,7 @@ class PragmatognomosinesController extends Controller
 
         $pragmatognomosini = Pragmatognomosini::find($id);
 
-        $pragmatognomosini->grafeio = $request->grafeio;
+        $pragmatognomosini = $request->all();
         $pragmatognomosini->update();
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id);
