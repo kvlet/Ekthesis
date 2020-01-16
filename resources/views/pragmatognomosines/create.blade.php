@@ -309,8 +309,9 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="text-center">
-                                                    <button type="submit" class="btn btn-danger mt-4"
-                                                            style="margin: 4px">{{ __('Καταχώρηση') }} </button>
+                                                    <button type="submit" class="btn btn-danger mt-4" src="/images/save2.png"
+                                                            style="margin: 4px">{{ __('Καταχώρηση') }}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
