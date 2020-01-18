@@ -10,6 +10,10 @@ Route::get('pragmatognomosines', 'PragmatognomosinesController@create')->name('p
 Route::post('pragmatognomosines', 'PragmatognomosinesController@store')->name('pragmatognomosines.store');
 Route::get('pragmatognomosines/{id}', 'PragmatognomosinesController@edit')->name('pragmatognomosines.edit');
 Route::put('pragmatognomosines/{id}', 'PragmatognomosinesController@update')->name('pragmatognomosines.update');
+/*Route::get('pragmatognomosines', 'PragmatognomosinesController@create');
+Route::post('pragmatognomosines', 'PragmatognomosinesController@store');
+Route::get('pragmatognomosines/{id}', 'PragmatognomosinesController@edit');
+Route::put('pragmatognomosines/{id}', 'PragmatognomosinesController@update');*/
 
 //routes for reports
 Route::get('/reports/check_stats/pros_diekpereosi/entoli_etaireias', function () {
