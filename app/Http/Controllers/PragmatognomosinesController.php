@@ -66,6 +66,7 @@ class PragmatognomosinesController extends Controller
 
         $pragmatognomosini->Date_atiximatos = $request->Date_atiximatos;
         $pragmatognomosini->Date_dikasimou = $request->Date_dikasimou;
+        $pragmatognomosini->Date_eksetasis = $request->Date_eksetasis;
 
         dd($pragmatognomosini);
         $pragmatognomosini->save();
