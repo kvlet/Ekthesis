@@ -699,15 +699,6 @@
                                 </div>
                             </div>
                         </div>
-{{--                        <div class="row">
-                            <div class="col">
-                                <div class="text-center">
---}}{{--                                    <button type="submit" class="btn btn-danger mt-4"
-                                            style="margin: 4px">{{ __('Καταχώρηση') }} </button>--}}{{--
-                                    <input type="image" width="50" value="submit" src="/images/add_rec.jpg" alt="Καταχώρηση" > --}}{{----}}{{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'"--}}{{--
-                                </div>
-                            </div>
-                        </div>--}}
 					</form>
 				</div>
 				{{--                <div class="tab-pane fade" id="v-pills-antikatastasis" role="tabpanel" aria-labelledby="v-pills-antikatastasis-tab">...</div>
