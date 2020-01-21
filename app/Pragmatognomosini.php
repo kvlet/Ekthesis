@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Pragmatognomosini extends Model
 {
     protected $table = 'db_ekthesis';
-
     protected $guarded = ['id_ekthesis', 'File_position'];
+    protected $primaryKey= 'id_ekthesis';
 
     protected $attributes=[
         'Fpa' => '24.0',

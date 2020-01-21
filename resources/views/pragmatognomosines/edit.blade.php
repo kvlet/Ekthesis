@@ -28,7 +28,7 @@
                 <div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel"
                      aria-labelledby="v-pills-genika-tab">
 
-                    <form method="post" action="{{ route('pragmatognomosines.update', $pragmatognomosini->id) }}" autocomplete="off">
+                    <form method="post" action="{{ route('pragmatognomosines.update', $pragmatognomosini->id_ekthesis) }}" autocomplete="off">
                         @csrf
                         {{ method_field('PUT') }}
                         <div class="row">
