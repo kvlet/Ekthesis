@@ -85,15 +85,23 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-label{{ $errors->has('date_atiximatos') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('Date_atiximatos') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}</label>
-                                                    <input type="date" name="date_atiximatos" id="input-date_atiximatos"
-                                                           class="form-control form-input form-control-alternative{{ $errors->has('date_atiximatos') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('date_atiximatos') }}" autofocus>
-                                                    @if ($errors->has('date_atiximatos'))
+                                                           for="Date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}</label>
+                                                    <input type="text" name="Date_atiximatos" id="Date_atiximatos" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Date_atiximatos') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Date_atiximatos') }}" autofocus>
+                                                    <script type="text/javascript">
+                                                        $('#Date_atiximatos').datepicker({
+                                                            autoclose: true,
+                                                            format: 'dd-mm-yyyy',
+                                                            language: 'gr',
+                                                            todayHighlight: true,
+                                                        });
+                                                    </script>
+                                                    @if ($errors->has('Date_atiximatos'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('date_atiximatos') }}</strong>
+                                                            <strong>{{ $errors->first('Date_atiximatos') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
@@ -118,15 +126,23 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-label{{ $errors->has('date_eksetasis') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('Date_eksetasis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-date_eksetasis">{{ __('Ημ/νια Εξέτασης') }}</label>
-                                                    <input type="date" name="date_eksetasis" id="input-date_eksetasis"
-                                                           class="form-control form-input form-control-alternative{{ $errors->has('date_eksetasis') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('date_eksetasis') }}" autofocus>
-                                                    @if ($errors->has('date_eksetasis'))
+                                                           for="Date_eksetasis">{{ __('Ημ/νια Εξέτασης') }}</label>
+                                                    <input type="text" name="Date_eksetasis" id="Date_eksetasis" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Date_eksetasis') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Date_eksetasis') }}" autofocus>
+                                                    <script type="text/javascript">
+                                                        $('#Date_eksetasis').datepicker({
+                                                            autoclose: true,
+                                                            format: 'dd-mm-yyyy',
+                                                            language: 'gr',
+                                                            todayHighlight: true,
+                                                        });
+                                                    </script>
+                                                    @if ($errors->has('Date_eksetasis'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('date_eksetasis') }}</strong>
+                                                            <strong>{{ $errors->first('Date_eksetasis') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
@@ -151,15 +167,23 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="form-label{{ $errors->has('date_dikasimou') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('Date_dikasimou') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-date_dikasimou">{{ __('Ημ/νια Δικάσιμου') }}</label>
-                                                    <input type="date" name="date_dikasimou" id="input-date_dikasimou"
-                                                           class="form-control form-input form-control-alternative{{ $errors->has('date_dikasimou') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('date_dikasimou') }}" autofocus>
-                                                    @if ($errors->has('date_dikasimou'))
+                                                           for="Date_dikasimou">{{ __('Ημ/νια Δικάσιμου') }}</label>
+                                                    <input type="text" name="date_dikasimou" id="Date_dikasimou" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Date_dikasimou') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Date_dikasimou') }}" autofocus>
+                                                    <script type="text/javascript">
+                                                        $('#Date_dikasimou').datepicker({
+                                                            autoclose: true,
+                                                            format: 'dd-mm-yyyy',
+                                                            language: 'gr',
+                                                            todayHighlight: true,
+                                                        });
+                                                    </script>
+                                                    @if ($errors->has('Date_dikasimou'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('date_dikasimou') }}</strong>
+                                                            <strong>{{ $errors->first('Date_dikasimou') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
@@ -186,10 +210,19 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('Date_paradosis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="input-Date_paradosis">{{ __('Ημ/νια Παράδοσης') }}</label>
-                                                    <input type="date" name="Date_paradosis" id="input-Date_paradosis"
+                                                           for="Date_paradosis">{{ __('Ημ/νια Παράδοσης') }}
+                                                    </label>
+                                                    <input type="text" name="Date_paradosis" id="Date_paradosis" data-provide="datepicker" placeholder="HH-MM-YYYY"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_paradosis') ? ' is-invalid' : '' }}"
                                                            value="{{ old('Date_paradosis') }}" autofocus>
+                                                    <script type="text/javascript">
+                                                        $('#Date_paradosis').datepicker({
+                                                            autoclose: true,
+                                                            format: 'dd-mm-yyyy',
+                                                            language: 'gr',
+                                                            todayHighlight: true,
+                                                        });
+                                                    </script>
                                                     @if ($errors->has('Date_paradosis'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('Date_paradosis') }}</strong>
