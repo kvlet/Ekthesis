@@ -95,7 +95,7 @@
                                                         $('#Date_atiximatos').datepicker({
                                                             autoclose: true,
                                                             format: 'dd-mm-yyyy',
-                                                            language: 'gr',
+                                                            language: 'el',
                                                             todayHighlight: true,
                                                         });
                                                     </script>
@@ -136,7 +136,7 @@
                                                         $('#Date_eksetasis').datepicker({
                                                             autoclose: true,
                                                             format: 'dd-mm-yyyy',
-                                                            language: 'gr',
+                                                            language: 'el',
                                                             todayHighlight: true,
                                                         });
                                                     </script>
@@ -177,7 +177,7 @@
                                                         $('#Date_dikasimou').datepicker({
                                                             autoclose: true,
                                                             format: 'dd-mm-yyyy',
-                                                            language: 'gr',
+                                                            language: 'el',
                                                             todayHighlight: true,
                                                         });
                                                     </script>
@@ -219,7 +219,7 @@
                                                         $('#Date_paradosis').datepicker({
                                                             autoclose: true,
                                                             format: 'dd-mm-yyyy',
-                                                            language: 'gr',
+                                                            language: 'el',
                                                             todayHighlight: true,
                                                         });
                                                     </script>
