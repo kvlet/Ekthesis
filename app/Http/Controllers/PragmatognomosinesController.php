@@ -61,7 +61,7 @@ class PragmatognomosinesController extends Controller
 
     public function store(PragmatognomosiniRequest $request)
     {
-
+        dd($request);
         $pragmatognomosini = new Pragmatognomosini();
 
         $pragmatognomosini->Date_atiximatos = $request->Date_atiximatos;

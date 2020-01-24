@@ -13,6 +13,7 @@
 				<div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel"
 					 aria-labelledby="v-pills-genika-tab">
 
+{{--                        <form method="post" action="/pragmatognomosines" autocomplete="off">--}}
 					<form method="post" action="{{ route('pragmatognomosines.store') }}" autocomplete="off">
 						@csrf
 						<div class="row">
@@ -216,14 +217,12 @@
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_paradosis') ? ' is-invalid' : '' }}"
                                                            value="{{ old('Date_paradosis') }}" autofocus>
                                                     <script type="text/javascript">
-                                                        function f($jQuery_1_9_1) {(
-
-                                                        $('#Date_paradosis').datepicker({
+                                                        $jQuery_1_9_1('#Date_paradosis').datepicker({
                                                             autoclose: true,
                                                             format: 'dd-mm-yyyy',
                                                             language: 'el',
                                                             todayHighlight: true,
-                                                        }));}
+                                                        });
                                                     </script>
                                                     @if ($errors->has('Date_paradosis'))
                                                         <span class="invalid-feedback" role="alert">
@@ -328,10 +327,10 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="text-center">
-                                                    <button type="submit" class="btn btn-danger mt-4" src="/images/save2.png"
+{{--                                                    <button type="submit" class="btn btn-danger mt-4" src="/images/save2.png"
                                                             style="margin: 4px">{{ __('Καταχώρηση') }}
-                                                    </button>
-{{--                                                    <input type="image" width="50" value="submit" src="/images/add_rec.jpg" alt="Καταχώρηση" > --}}{{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
+                                                    </button>--}}
+                                                    <input type="image" width="50" value="submit" src="/images/add_rec.jpg" alt="Καταχώρηση" > {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
                                                 </div>
                                             </div>
                                         </div>
