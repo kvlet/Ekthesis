@@ -103,23 +103,23 @@ class PragmatognomosinesController extends Controller
         dd($pragmatognomosini);
         $pragmatognomosini->save();
 
-        return redirect('pragmatognomosines/'.$pragmatognomosini->id);
+        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
     }
 
-    public function edit($id)
+    public function edit($id_ekthesis)
     {
-        $pragmatognomosini = Pragmatognomosini::find($id);
+        $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
 
         return view('pragmatognomosines.edit', compact('pragmatognomosini'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id_ekthesis) {
 
-        $pragmatognomosini = Pragmatognomosini::find($id);
+        $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
 
         $pragmatognomosini = $request->all();
         $pragmatognomosini->update();
 
-        return redirect('pragmatognomosines/'.$pragmatognomosini->id);
+        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
     }
 }
