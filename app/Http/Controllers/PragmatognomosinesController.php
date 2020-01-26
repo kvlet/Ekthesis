@@ -61,7 +61,7 @@ class PragmatognomosinesController extends Controller
 
     public function store(PragmatognomosiniRequest $request)
     {
-        dd($request);
+        //dd($request);
         $pragmatognomosini = new Pragmatognomosini();
 
         $pragmatognomosini->Date_atiximatos = $request->Date_atiximatos;
@@ -100,7 +100,7 @@ class PragmatognomosinesController extends Controller
         $pragmatognomosini->driver_pathon = $request->driver_pathon;
 
 
-        dd($pragmatognomosini);
+//        dd($pragmatognomosini);
         $pragmatognomosini->save();
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);

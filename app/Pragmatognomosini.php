@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Pragmatognomosini extends Model
 {
     protected $table = 'db_ekthesis';
-    protected $guarded = ['id_ekthesis', 'File_position'];
+
+    protected $guarded = [
+        'id_ekthesis',
+        'File_position',
+        'Ekkatharistike',
+        'Ar_timologio_partner',
+        'id_timologio_etaireias'
+    ];
+
     protected $primaryKey= 'id_ekthesis';
 
     protected $attributes=[
