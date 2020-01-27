@@ -4,8 +4,8 @@
 	<div class="row">
 		<div class="col-2 menu-text-size">
 			<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-				<a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab"
-				   aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
+				<a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab" aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
+                <a class="nav-link" id="v-pills-antikatastasis-tab" data-toggle="pill" href="#v-pills-antikatastasis" role="tab" aria-controls="v-pills-antikatastasis" aria-selected="false">Αντικαταστάσεις</a>
 			</div>
 		</div>
 		<div class="col-10">
@@ -112,7 +112,7 @@
                                                     <label class="form-control-label"
                                                            for="id_nomoi">{{ __('Νομός') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_nomoi" required>
-                                                        <option value="null">{{ " " }}</option>
+{{--                                                        <option value="null">{{ " " }}</option>--}}
                                                         @foreach($nomoi as $nomos)
                                                             <option value="{{$nomos->id_nomoi}}">{{ $nomos->Nomos}}</option>
                                                         @endforeach
@@ -720,6 +720,7 @@
                         </div>
 					</form>
 				</div>
+                <div class="tab-pane fade" id="v-pills-antikatastasis" role="tabpanel" aria-labelledby="v-pills-antikatastasis-tab">...</div>
 			</div>
 		</div>
 	</div>
