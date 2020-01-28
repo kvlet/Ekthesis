@@ -14,9 +14,13 @@ use App\Pragmatognomosini;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\PragmatognomosiniRequest;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 
-
+/**
+ * Class PragmatognomosinesController
+ * @package App\Http\Controllers
+ */
 class PragmatognomosinesController extends Controller
 {
     /**
@@ -62,6 +66,9 @@ class PragmatognomosinesController extends Controller
     public function store(PragmatognomosiniRequest $request)
     {
         //dd($request);
+        $out = new ConsoleOutput();
+        $out->writeln("Hello from Terminal");
+
         $pragmatognomosini = new Pragmatognomosini();
 
         $pragmatognomosini->Date_atiximatos = $request->Date_atiximatos;
