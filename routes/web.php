@@ -6,14 +6,14 @@ Route::get('/home', function () {
 });
 
 //routes for pragmatognomisines
-Route::get('pragmatognomosines', 'PragmatognomosinesController@create')->name('pragmatognomosines.create');
-Route::post('pragmatognomosines', 'PragmatognomosinesController@store')->name('pragmatognomosines.store');
-Route::get('pragmatognomosines/{id}', 'PragmatognomosinesController@edit')->name('pragmatognomosines.edit');
-Route::put('pragmatognomosines/{id}', 'PragmatognomosinesController@update')->name('pragmatognomosines.update');
-/*Route::get('/pragmatognomosines', 'PragmatognomosinesController@create');
-Route::post('/pragmatognomosines', 'PragmatognomosinesController@store');
-Route::get('/pragmatognomosines/{id}', 'PragmatognomosinesController@edit');
-Route::put('/pragmatognomosines/{id}', 'PragmatognomosinesController@update');*/
+Route::get('pragmatognomosines', 'PragmController@create')->name('pragmatognomosines.create');
+Route::post('pragmatognomosines', 'PragmController@store')->name('pragmatognomosines.store');
+Route::get('pragmatognomosines/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
+Route::put('pragmatognomosines/{id}', 'PragmController@update')->name('pragmatognomosines.update');
+/*Route::get('/pragmatognomosines', 'PragmController@create');
+Route::post('/pragmatognomosines', 'PragmController@store');
+Route::get('/pragmatognomosines/{id}', 'PragmController@edit');
+Route::put('/pragmatognomosines/{id}', 'PragmController@update');*/
 
 //routes for reports
 Route::get('/reports/check_stats/pros_diekpereosi/entoli_etaireias', function () {

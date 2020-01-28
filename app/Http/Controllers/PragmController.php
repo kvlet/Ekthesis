@@ -13,15 +13,15 @@ use App\Person;
 use App\Pragmatognomosini;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\PragmatognomosiniRequest;
+use App\Http\Requests\PragmRequest;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 
 /**
- * Class PragmatognomosinesController
+ * Class PragmController
  * @package App\Http\Controllers
  */
-class PragmatognomosinesController extends Controller
+class PragmController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -63,7 +63,7 @@ class PragmatognomosinesController extends Controller
             ]));
     }
 
-    public function store(PragmatognomosiniRequest $request)
+    public function store(PragmRequest $request)
     {
         //dd($request);
         $out = new ConsoleOutput();
