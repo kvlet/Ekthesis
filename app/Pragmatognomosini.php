@@ -17,7 +17,7 @@ class Pragmatognomosini extends Model
         'id_timologio_etaireias'
     ];
 
-    protected $primaryKey= 'id_ekthesis';
+    protected $primaryKey= ['id_ekthesis'];
 
     protected $attributes=[
         'Fpa' => '24.0',
