@@ -17,14 +17,15 @@ class Pragmatognomosini extends Model
         'id_timologio_etaireias'
     ];
 
-    protected $primaryKey= ['id_ekthesis'];
+    protected $primaryKey= 'id_ekthesis';
 
     protected $attributes=[
         'Fpa' => '24.0',
         'Ekpt_parts' => '0.0',
         'Ekpt_jobs' => '0.0',
         'partially_lock'=>'Όχι',
-        'total_lock'=>'Όχι'
+        'total_lock'=>'Όχι',
+        'File_position'=> null
     ];
 
     protected $casts = [

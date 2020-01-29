@@ -11,4 +11,7 @@ class Arxi_ekdosis_eggrafon extends Model
     protected $guarded = ['id_Arxi_ekdosis_eggrafon'];
 
     protected $primaryKey= 'id_Arxi_ekdosis_eggrafon';
+
+
+
 }

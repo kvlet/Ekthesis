@@ -17,6 +17,7 @@ use App\Http\Requests\PragmRequest;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 
+
 /**
  * Class PragmController
  * @package App\Http\Controllers
@@ -63,13 +64,21 @@ class PragmController extends Controller
             ]));
     }
 
+    /**
+     * @param PragmRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(PragmRequest $request)
     {
         //dd($request);
-        $out = new ConsoleOutput();
-        $out->writeln("Hello from Terminal");
+/*        $out = new ConsoleOutput();
+        $out->writeln($request);*/
 
         $pragmatognomosini = new Pragmatognomosini();
+
+/*        $request->partially_lock = 'Όχι';
+        $request->total_lock = 'Όχι';*/
+
 
         $pragmatognomosini->Date_atiximatos = $request->Date_atiximatos;
         $pragmatognomosini->Date_dikasimou = $request->Date_dikasimou;
@@ -94,7 +103,7 @@ class PragmController extends Controller
         $pragmatognomosini->Ekpt_jobs = $request->Ekpt_jobs;
         $pragmatognomosini->Date_paradosis = $request->Date_paradosis;
         $pragmatognomosini->Object = $request->Object;
-        $pragmatognomosini->id = $request->id;
+        $pragmatognomosini->id = $request->id_users;
         $pragmatognomosini->id_arxi_ekdosis_eggrafon = $request->id_arxi_ekdosis_eggrafon;
         $pragmatognomosini->Fpa = $request->Fpa;
         $pragmatognomosini->partially_lock = $request->partially_lock;

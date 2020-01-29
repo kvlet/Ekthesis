@@ -102,10 +102,10 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('Date_atiximatos') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
-                                                           for="Date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}</label>
+                                                           for="Date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <input type="text" name="Date_atiximatos" id="Date_atiximatos" data-provide="datepicker" placeholder="HH-MM-YYYY"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_atiximatos') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Date_atiximatos') }}" autofocus>
+                                                           value="{{ old('Date_atiximatos') }}" required autofocus>
                                                     <script type="text/javascript">
                                                         $('#Date_atiximatos').datepicker({
                                                             autoclose: true,
@@ -166,7 +166,7 @@
                                                 <div class="form-label{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_accident_place">{{ __('Τόπος Εξέτασης') }}</label>
-                                                    <select class="form-control form-select" id="id_accident_place" name="id_accident_place" required>
+                                                    <select class="form-control form-select" id="id_accident_place" name="id_accident_place">
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($accident_places as $accident_place)
                                                             <option value="{{$accident_place->id_accident_place}}">{{ $accident_place->Place}}</option>
@@ -207,7 +207,7 @@
                                                 <div class="form-label{{ $errors->has('id_arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_arxi_ekdosis_eggrafon">{{ __('Αρχή Εγγράφων') }}</label>
-                                                    <select class="form-control form-select" id="id_arxi_ekdosis_eggrafon" name="id_arxi_ekdosis_eggrafon" required>
+                                                    <select class="form-control form-select" id="id_arxi_ekdosis_eggrafon" name="id_arxi_ekdosis_eggrafon" >
                                                         <option value="null">{{ " " }}</option>
                                                         @foreach($arxes_ekdosis_eggrafon as $arxi_ekdosis_eggrafon)
                                                             <option value="{{$arxi_ekdosis_eggrafon->id_Arxi_ekdosis_eggrafon}}">{{ $arxi_ekdosis_eggrafon->Arxi}}</option>
