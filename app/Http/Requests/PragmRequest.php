@@ -45,6 +45,7 @@ class PragmRequest extends FormRequest
             'Sap' => 'in:true,false',
             'partially_lock' => 'in:Ναι,Όχι',
             'total_lock' => 'in:Ναι,Όχι',
+            'id_ypaitiou'=>'nullable',
         ];
     }
 }

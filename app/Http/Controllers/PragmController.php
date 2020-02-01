@@ -76,8 +76,10 @@ class PragmController extends Controller
 
         $pragmatognomosini = new Pragmatognomosini();
 
-/*        $request->partially_lock = 'Όχι';
-        $request->total_lock = 'Όχι';*/
+        $request->partially_lock = 'Όχι';
+        $request->total_lock = 'Όχι';
+        $request->Amibi_partner='0';
+        $request->Flag='1';
 
 
         $pragmatognomosini->Date_atiximatos = $request->Date_atiximatos;
@@ -114,6 +116,8 @@ class PragmController extends Controller
         $pragmatognomosini->value_car_pathon = $request->value_car_pathon;
         $pragmatognomosini->billing_notes = $request->billing_notes;
         $pragmatognomosini->driver_pathon = $request->driver_pathon;
+        $pragmatognomosini->Amibi_partner =$request->Amibi_partner;
+        $pragmatognomosini->Flag = $request->Flag;
 
 
 //        dd($pragmatognomosini);

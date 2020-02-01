@@ -23,6 +23,7 @@ class Pragmatognomosini extends Model
         'Fpa' => '24.0',
         'Ekpt_parts' => '0.0',
         'Ekpt_jobs' => '0.0',
+        'Amibi_partner'=>'0.0',
         'partially_lock'=>'Όχι',
         'total_lock'=>'Όχι',
         'File_position'=> null
@@ -32,7 +33,8 @@ class Pragmatognomosini extends Model
         'Fpa' => 'real',
         'Ekpt_parts' => 'float',
         'Ekpt_jobs' => 'float',
-        'value_car_pathon'=>'float'
+        'value_car_pathon'=>'float',
+        'Amibi_partner'=>'float'
     ];
 
 
