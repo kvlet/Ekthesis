@@ -38,7 +38,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_diakrisi">{{ __('Τύπος Έκθεσης') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                    <select class="form-control form-select" id="id_diakrisi" name="id_diakrisi" value="Π" required>
+                                                    <select class="form-control form-select" id="id_diakrisi" name="id_diakrisi" required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Τύπο Έκθεσης " }}</option>
                                                         @foreach($diakrisis as $diakrisi)
                                                             <option value="{{$diakrisi->id_diakrisi}}">{{ $diakrisi->Diakrisi }}</option>
@@ -69,7 +69,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_grafeio') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_grafeio">{{ __('Γραφείο') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                    <select class="form-control form-select" id="id_grafeio" name="id_grafeio" required>
+                                                    <select class="form-control form-select" id="id_grafeio" name="id_grafeio"  required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Γραφείο " }}</option>
                                                         @foreach($grafeia as $grafeio)
                                                             <option value="{{$grafeio->id_grafeio}}">{{ $grafeio->Name }}</option>
@@ -89,7 +89,7 @@
                                                     <label class="form-control-label" for="Date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <input type="text" name="Date_atiximatos" id="Date_atiximatos" data-provide="datepicker" placeholder="HH-MM-YYYY"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_atiximatos') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Date_atiximatos') }}" required autofocus>
+                                                           value="{{ old('Date_atiximatos') }}"  required autofocus>
                                                     <script type="text/javascript">
                                                         $('#Date_atiximatos').datepicker({
                                                             autoclose: true,
@@ -108,7 +108,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_nomoi">{{ __('Νομός') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                    <select class="form-control form-select" id="id_nomoi"  name="id_nomoi" required>
+                                                    <select class="form-control form-select" id="id_nomoi"  name="id_nomoi"  required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Νομό " }}</option>
                                                         @foreach($nomoi as $nomos)
                                                             <option value="{{$nomos->id_nomoi}}">{{ $nomos->Nomos}}</option>
@@ -378,7 +378,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id">{{ __('Πραγματογνώμονας') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                    <select class="form-control form-select" id="id" name="id" required>
+                                                    <select class="form-control form-select" id="id" name="id"  required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Πραγματογνώμονα " }}</option>
                                                         @foreach($pragmatognomones as $pragmatognomonas)
                                                             <option value="{{$pragmatognomonas->id}}">{{$pragmatognomonas->L_name.' '.$pragmatognomonas->F_name }}</option>
@@ -396,7 +396,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_company_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_company_pathon">{{ __('Εντολέας Ασφλιστική') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                    <select class="form-control form-select" id="id_company_pathon" name="id_company_pathon" required>
+                                                    <select class="form-control form-select" id="id_company_pathon" name="id_company_pathon"  required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Εντολέα Ασφαλιστική " }}</option>
                                                         @foreach($companies as $company)
                                                             <option value="{{$company->id_company}}">{{$company->comp_name}}</option>
@@ -474,7 +474,7 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"  for="id_pathon">{{ __('Παθών') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                    <select class="form-control form-select" id="id_pathon" name="id_pathon" required>
+                                                    <select class="form-control form-select" id="id_pathon" name="id_pathon"  required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Παθών " }}</option>
                                                         @foreach($pathontes as $pathon)
                                                             <option value="{{$pathon->id_Person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
