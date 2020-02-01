@@ -14,9 +14,6 @@ use App\Pragmatognomosini;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\PragmRequest;
-use Symfony\Component\Console\Output\ConsoleOutput;
-
-
 
 /**
  * Class PragmController
@@ -41,13 +38,13 @@ class PragmController extends Controller
      */
     public function create()
     {
-    	$grafeia = Grafeio::all('id_grafeio','Name');
-    	$nomoi = Nomos::all('id_nomoi','Nomos');
-    	$diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
-    	$accident_places=Accident_place::where('Mark_del','Όχι')->get();
-    	$arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del','Όχι')->get();
+        $grafeia = Grafeio::all('id_grafeio', 'Name');
+        $nomoi = Nomos::all('id_nomoi', 'Nomos');
+        $diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
+        $accident_places=Accident_place::where('Mark_del', 'Όχι')->get();
+        $arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del', 'Όχι')->get();
         $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
-        $companies = Company::where('Mark_del','Όχι')->get();
+        $companies = Company::where('Mark_del', 'Όχι')->get();
         $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
         $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
 
@@ -70,10 +67,6 @@ class PragmController extends Controller
      */
     public function store(PragmRequest $request)
     {
-        //dd($request);
-/*        $out = new ConsoleOutput();
-        $out->writeln($request);*/
-
         $pragmatognomosini = new Pragmatognomosini();
 
         $request->partially_lock = 'Όχι';
@@ -81,7 +74,7 @@ class PragmController extends Controller
         $request->Amibi_partner='0';
         $request->Flag='1';
 
-
+        $pragmatognomosini->id = auth()->user()->id;
         $pragmatognomosini->Date_atiximatos = $request->Date_atiximatos;
         $pragmatognomosini->Date_dikasimou = $request->Date_dikasimou;
         $pragmatognomosini->Date_eksetasis = $request->Date_eksetasis;
@@ -105,7 +98,6 @@ class PragmController extends Controller
         $pragmatognomosini->Ekpt_jobs = $request->Ekpt_jobs;
         $pragmatognomosini->Date_paradosis = $request->Date_paradosis;
         $pragmatognomosini->Object = $request->Object;
-        $pragmatognomosini->id = $request->id_users;
         $pragmatognomosini->id_arxi_ekdosis_eggrafon = $request->id_arxi_ekdosis_eggrafon;
         $pragmatognomosini->Fpa = $request->Fpa;
         $pragmatognomosini->partially_lock = $request->partially_lock;
@@ -118,9 +110,6 @@ class PragmController extends Controller
         $pragmatognomosini->driver_pathon = $request->driver_pathon;
         $pragmatognomosini->Amibi_partner =$request->Amibi_partner;
         $pragmatognomosini->Flag = $request->Flag;
-
-
-//        dd($pragmatognomosini);
         $pragmatognomosini->save();
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
@@ -129,12 +118,11 @@ class PragmController extends Controller
     public function edit($id_ekthesis)
     {
         $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
-
         return view('pragmatognomosines.edit', compact('pragmatognomosini'));
     }
 
-    public function update(Request $request, $id_ekthesis) {
-
+    public function update(Request $request, $id_ekthesis)
+    {
         $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
 
         $pragmatognomosini = $request->all();

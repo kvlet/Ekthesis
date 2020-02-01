@@ -12,8 +12,6 @@
 			<div class="tab-content" id="v-pills-tabContent">
 				<div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel"
 					 aria-labelledby="v-pills-genika-tab">
-
-{{--                        <form method="post" action="/pragmatognomosines" autocomplete="off">--}}
 					<form method="post" action="{{ route('pragmatognomosines.store') }}" autocomplete="off">
 						@csrf
 						<div class="row">
@@ -133,7 +131,7 @@
                                                     <script type="text/javascript">
                                                         $('#Date_eksetasis').datepicker({
                                                             autoclose: true,
-                                                            format: 'dd-mm-yyyy',
+                                                            format: 'yyyy-mm-dd',
                                                             language: 'el',
                                                             todayHighlight: true,
                                                         });
@@ -174,7 +172,7 @@
                                                     <script type="text/javascript">
                                                         $('#Date_dikasimou').datepicker({
                                                             autoclose: true,
-                                                            format: 'dd-mm-yyyy',
+                                                            format: 'yyyy-mm-dd',
                                                             language: 'el',
                                                             todayHighlight: true,
                                                         });
@@ -215,7 +213,7 @@
                                                     <script type="text/javascript">
                                                         $('#Date_paradosis').datepicker({
                                                             autoclose: true,
-                                                            format: 'dd-mm-yyyy',
+                                                            format: 'yyyy-mm-dd',
                                                             language: 'el',
                                                             todayHighlight: true,
                                                         });
@@ -475,9 +473,9 @@
                                                 <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"  for="id_pathon">{{ __('Παθών') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_pathon" name="id_pathon" required>
-                                                        <option selected value value=-1>{{ " Επιλέξτε Παθών " }}</option>
+                                                        <option selected  value="-1">{{ " Επιλέξτε Παθών " }}</option>
                                                         @foreach($pathontes as $pathon)
-                                                            <option value="{{$pathon->id_Person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
+                                                            <option value="{{$pathon->id_person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
                                                         @endforeach
 {{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
