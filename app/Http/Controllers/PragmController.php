@@ -72,7 +72,7 @@ class PragmController extends Controller
         $request->partially_lock = 'Όχι';
         $request->total_lock = 'Όχι';
         $request->Amibi_partner='0';
-        $request->Flag='1';
+        $request->Flag='2';
 
         $pragmatognomosini->id = auth()->user()->id;
         $pragmatognomosini->Date_atiximatos = $request->Date_atiximatos;
@@ -111,6 +111,7 @@ class PragmController extends Controller
         $pragmatognomosini->Amibi_partner =$request->Amibi_partner;
         $pragmatognomosini->Flag = $request->Flag;
         $pragmatognomosini->save();
+
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
     }
