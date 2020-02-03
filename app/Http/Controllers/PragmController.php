@@ -35,8 +35,10 @@ class PragmController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+
+
     public function create()
     {
         $grafeia = Grafeio::all('id_grafeio', 'Name');
@@ -59,7 +61,7 @@ class PragmController extends Controller
             'companies',
             'pathontes',
             'oximata_pathon'
-            ]));
+        ]));
     }
 
     /**
@@ -75,11 +77,24 @@ class PragmController extends Controller
         $request->Amibi_partner='0';
         $request->Flag='2';
 
+        if ($request->Fpa==null){
+            $request->Fpa='24';
+        }
+        if ($request->Ekpt_parts==null){
+            $request->Ekpt_parts='0';
+        }
+        if ($request->Ekpt_jobs==null){
+            $request->Ekpt_jobs='0';
+        }
+
+
+
         //$dateAtiximatos = Carbon::createFromFormat('d/m/Y', $request->Date_atiximatos)->format('Y-m-d');
         //dd($dateAtiximatos);
 
-        $pragmatognomosini->id = auth()->user()->id;
-        //$pragmatognomosini->Date_atiximatos = $dateAtiximatos;
+//        $pragmatognomosini->id = auth()->user()->id;
+//        $pragmatognomosini->Date_atiximatos = $dateAtiximatos;
+        $pragmatognomosini->id = $request->id;
         $pragmatognomosini->Date_atiximatos = $request->Date_atiximatos;
         $pragmatognomosini->Date_dikasimou = $request->Date_dikasimou;
         $pragmatognomosini->Date_eksetasis = $request->Date_eksetasis;

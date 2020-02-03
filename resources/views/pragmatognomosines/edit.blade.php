@@ -24,9 +24,7 @@
         </div>
         <div class="col-10">
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel"
-                     aria-labelledby="v-pills-genika-tab">
-
+                <div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel" aria-labelledby="v-pills-genika-tab">
                     <form method="post" action="{{ route('pragmatognomosines.update', $pragmatognomosini->id_ekthesis) }}" autocomplete="off">
                         @csrf
                         {{ method_field('PUT') }}
@@ -46,13 +44,15 @@
                                                            for="id_ekthesis">{{ __('Αρ. Πρωτοκόλλου') }}</label>
                                                     <input type="text" name="id_ekthesis" id="id_ekthesis"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('id_ekthesis') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('id_ekthesis') }}" disabled autofocus>
+                                                           value="{{ $pragmatognomosini->id_ekthesis }}" disabled autofocus>
+{{--                                                           value="{{ old('id_ekthesis') }}" disabled autofocus>--}}
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_diakrisi">{{ __('Τύπος Έκθεσης') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_diakrisi" name="id_diakrisi" required>
+{{--                                                        <option value="{{$pragmatognomosini->id_diakrisi}}"></option>--}}
                                                         @foreach($diakrisis as $diakrisi)
                                                             <option value="{{$diakrisi->id_diakrisi}}">{{ $diakrisi->Diakrisi }}</option>
                                                         @endforeach
@@ -72,7 +72,7 @@
                                                            for="Prot_bibliou">{{ __('Αρ. Φακέλου') }}</label>
                                                     <input type="text" name="Prot_bibliou" id="Prot_bibliou"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Prot_bibliou') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Prot_bibliou') }}" autofocus>
+                                                           value="{{ $pragmatognomosini->Prot_bibliou }}" autofocus>
                                                     @if ($errors->has('Prot_bibliou'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('Prot_bibliou') }}</strong>
