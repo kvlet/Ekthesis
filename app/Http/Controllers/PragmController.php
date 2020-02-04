@@ -77,14 +77,8 @@ class PragmController extends Controller
         $request->Amibi_partner='0';
         $request->Flag='2';
 
-        if ($request->Fpa==null){
-            $request->Fpa='24';
-        }
-        if ($request->Ekpt_parts==null){
-            $request->Ekpt_parts='0';
-        }
-        if ($request->Ekpt_jobs==null){
-            $request->Ekpt_jobs='0';
+        if ($request->Object != null){
+            $request->id_oximatos_pathon='1';
         }
 
 
@@ -114,12 +108,12 @@ class PragmController extends Controller
         $pragmatognomosini->Prot_bibliou = $request->Prot_bibliou;
         $pragmatognomosini->Sap = $request->Sap;
         $pragmatognomosini->id_diakrisi = $request->id_diakrisi;
-        $pragmatognomosini->Ekpt_parts = $request->Ekpt_parts;
-        $pragmatognomosini->Ekpt_jobs = $request->Ekpt_jobs;
+        $pragmatognomosini->Ekpt_parts = $request->Ekpt_parts ?? '0.0';
+        $pragmatognomosini->Ekpt_jobs = $request->Ekpt_jobs ?? '0.0';
         $pragmatognomosini->Date_paradosis = $request->Date_paradosis;
         $pragmatognomosini->Object = $request->Object;
         $pragmatognomosini->id_arxi_ekdosis_eggrafon = $request->id_arxi_ekdosis_eggrafon;
-        $pragmatognomosini->Fpa = $request->Fpa;
+        $pragmatognomosini->Fpa = $request->Fpa ?? '24.0';
         $pragmatognomosini->partially_lock = $request->partially_lock;
         $pragmatognomosini->total_lock = $request->total_lock;
         $pragmatognomosini->Notes = $request->Notes;
@@ -150,6 +144,21 @@ class PragmController extends Controller
         $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
 
         $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
+
+        // calculate file position
+        foreach ($oximata_pathon as $oxima){
+            if($pragmatognomosini->id_oximatos_pathon == $oxima->id_oximata){
+                 $pinakida=$oxima->Ar_kyklo;
+            }
+        }
+        if ($pragmatognomosini->Object == null){
+            $pragmatognomosini->File_position = 'oximata\\'.$pinakida.'\\'.$pragmatognomosini->id_ekthesis;
+        }else{
+            $pragmatognomosini->File_position = 'oximata\\'.'object'.'\\'.$pragmatognomosini->id_ekthesis;
+        }
+        $pragmatognomosini->update();
+        //end calculate file position
+
         return view('pragmatognomosines.edit', compact([
             'pragmatognomosini',
             'grafeia',

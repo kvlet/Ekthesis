@@ -38,7 +38,7 @@
                                                     <select class="form-control form-select" id="id_diakrisi" name="id_diakrisi" required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Τύπο Έκθεσης " }}</option>
                                                         @foreach($diakrisis as $diakrisi)
-                                                            <option value="{{$diakrisi->id_diakrisi}}">{{ $diakrisi->Diakrisi }}</option>
+                                                            <option value="{{$diakrisi->id_diakrisi}}" @if(old('id_diakrisi') == $diakrisi->id_diakrisi) selected @endif>{{ $diakrisi->Diakrisi }}</option>
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('id_diakrisi'))
@@ -69,7 +69,7 @@
                                                     <select class="form-control form-select" id="id_grafeio" name="id_grafeio"  required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Γραφείο " }}</option>
                                                         @foreach($grafeia as $grafeio)
-                                                            <option value="{{$grafeio->id_grafeio}}">{{ $grafeio->Name }}</option>
+                                                            <option value="{{$grafeio->id_grafeio}}" @if(old('id_grafeio') == $grafeio->id_grafeio) selected @endif>{{ $grafeio->Name }}</option>
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('id_grafeio'))
@@ -108,7 +108,7 @@
                                                     <select class="form-control form-select" id="id_nomoi"  name="id_nomoi"  required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Νομό " }}</option>
                                                         @foreach($nomoi as $nomos)
-                                                            <option value="{{$nomos->id_nomoi}}">{{ $nomos->Nomos}}</option>
+                                                            <option value="{{$nomos->id_nomoi}}" @if(old('id_nomoi') == $nomos->id_nomoi) selected @endif>{{ $nomos->Nomos}}</option>
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('id_nomoi'))
@@ -130,7 +130,7 @@
                                                     <script type="text/javascript">
                                                         $('#Date_eksetasis').datepicker({
                                                             autoclose: true,
-                                                            format: 'dd-mm-yyyy',
+                                                            format: 'yyyy-mm-dd',
                                                             language: 'el',
                                                             todayHighlight: true,
                                                         });
@@ -147,9 +147,8 @@
                                                     <label class="form-control-label" for="id_accident_place">{{ __('Τόπος Εξέτασης') }}</label>
                                                     <select class="form-control form-select" id="id_accident_place" name="id_accident_place" >
                                                         <option selected value value=-1>{{ " Επιλέξτε Τόπο Ατυχήματος " }}</option>
-                                                        <option value="null">{{ " " }}</option>
                                                         @foreach($accident_places as $accident_place)
-                                                            <option value="{{$accident_place->id_accident_place}}">{{ $accident_place->Place}}</option>
+                                                            <option value="{{$accident_place->id_accident_place}}" @if(old('id_accident_place') == $accident_place->id_accident_place) selected @endif>{{ $accident_place->Place}}</option>
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('id_accident_place'))
@@ -165,13 +164,13 @@
                                                 <div class="form-label{{ $errors->has('Date_dikasimou') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Date_dikasimou">{{ __('Ημ/νια Δικάσιμου') }}</label>
-                                                    <input type="text" name="date_dikasimou" id="Date_dikasimou" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                                    <input type="text" name="Date_dikasimou" id="Date_dikasimou" data-provide="datepicker" placeholder="HH-MM-YYYY"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_dikasimou') ? ' is-invalid' : '' }}"
                                                            value="{{ old('Date_dikasimou') }}" autofocus>
                                                     <script type="text/javascript">
                                                         $('#Date_dikasimou').datepicker({
                                                             autoclose: true,
-                                                            format: 'dd-mm-yyyy',
+                                                            format: 'yyyy-mm-dd',
                                                             language: 'el',
                                                             todayHighlight: true,
                                                         });
@@ -189,7 +188,7 @@
                                                     <select class="form-control form-select" id="id_arxi_ekdosis_eggrafon" name="id_arxi_ekdosis_eggrafon" >
                                                         <option selected value value=-1>{{ " Επιλέξτε Αρχή Εγγράφων " }}</option>
                                                         @foreach($arxes_ekdosis_eggrafon as $arxi_ekdosis_eggrafon)
-                                                            <option value="{{$arxi_ekdosis_eggrafon->id_Arxi_ekdosis_eggrafon}}">{{ $arxi_ekdosis_eggrafon->Arxi}}</option>
+                                                            <option value="{{$arxi_ekdosis_eggrafon->id_Arxi_ekdosis_eggrafon}}" @if(old('id_arxi_ekdosis_eggrafon') == $arxi_ekdosis_eggrafon->id_Arxi_ekdosis_eggrafon) selected @endif>{{ $arxi_ekdosis_eggrafon->Arxi}}</option>
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('id_arxi_ekdosis_eggrafon'))
@@ -212,7 +211,7 @@
                                                     <script type="text/javascript">
                                                         $('#Date_paradosis').datepicker({
                                                             autoclose: true,
-                                                            format: 'dd-mm-yyyy',
+                                                            format: 'yyyy-mm-dd',
                                                             language: 'el',
                                                             todayHighlight: true,
                                                         });
@@ -378,7 +377,7 @@
                                                     <select class="form-control form-select" id="id" name="id"  required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Πραγματογνώμονα " }}</option>
                                                         @foreach($pragmatognomones as $pragmatognomonas)
-                                                            <option value="{{$pragmatognomonas->id}}">{{$pragmatognomonas->L_name.' '.$pragmatognomonas->F_name }}</option>
+                                                            <option value="{{$pragmatognomonas->id}}" @if(old('id') == $pragmatognomonas->id) selected @endif>{{$pragmatognomonas->L_name.' '.$pragmatognomonas->F_name }}</option>
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('id'))
@@ -396,7 +395,7 @@
                                                     <select class="form-control form-select" id="id_company_pathon" name="id_company_pathon"  required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Εντολέα Ασφαλιστική " }}</option>
                                                         @foreach($companies as $company)
-                                                            <option value="{{$company->id_company}}">{{$company->comp_name}}</option>
+                                                            <option value="{{$company->id_company}}" @if(old('id_company_pathon') == $company->id_company) selected @endif>{{$company->comp_name}}</option>
                                                         @endforeach
 {{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
@@ -472,9 +471,9 @@
                                                 <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"  for="id_pathon">{{ __('Παθών') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_pathon" name="id_pathon" required>
-                                                        <option selected  value="-1">{{ " Επιλέξτε Παθών " }}</option>
+                                                        <option selected value value=-1>{{ " Επιλέξτε Παθών " }}</option>
                                                         @foreach($pathontes as $pathon)
-                                                            <option value="{{$pathon->id_person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
+                                                            <option value="{{$pathon->id_person}}" @if(old('id_pathon') == $pathon->id_person) selected @endif>{{$pathon->L_name. ' '.$pathon->F_name}}</option>
                                                         @endforeach
 {{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
@@ -493,7 +492,7 @@
                                                     <select class="form-control form-select" id="id_oximatos_pathon" name="id_oximatos_pathon">
                                                         <option selected value value=-1>{{ " Επιλέξτε Όχημα Παθών " }}</option>
                                                         @foreach($oximata_pathon as $oxima_pathon)
-                                                            <option value="{{$oxima_pathon->id_oximata}}">{{$oxima_pathon->Ar_kyklo}}</option>
+                                                            <option value="{{$oxima_pathon->id_oximata}}" @if(old('id_oximatos_pathon') == $oxima_pathon->id_oximata) selected @endif>{{$oxima_pathon->Ar_kyklo}}</option>
                                                         @endforeach
 {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
@@ -508,11 +507,10 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-label {{$errors->has('Object') ? ' has-danger' : '' }}">
-                                                    <label class="form-control-label"
-                                                           for="Object">{{ __('Αντικείμενο') }}</label>
+                                                    <label class="form-control-label" for="Object">{{ __('Αντικείμενο') }}</label>
                                                     <input type="text" name="Object" id="Object"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Object') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Ekpt_jobs') }}" autofocus>
+                                                           value="{{ old('Object') }}" autofocus>
                                                     @if ($errors->has('Object'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('Object') }}</strong>
@@ -528,7 +526,7 @@
                                                     <select class="form-control form-select" id="id_company_pathon_real" name="id_company_pathon_real">
                                                         <option selected value value=-1>{{ " Επιλέξτε Ασφαλιστική " }}</option>
                                                         @foreach($companies as $company)
-                                                            <option value="{{$company->id_company}}">{{$company->comp_name}}</option>
+                                                            <option value="{{$company->id_company}}" @if(old('id_company_pathon_real') == $company->id_company) selected @endif>{{$company->comp_name}}</option>
                                                         @endforeach
 {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
@@ -628,7 +626,7 @@
                                                                         <select class="form-control form-select" id="id_ypaitiou" name="id_ypaitiou">
                                                                             <option selected value value=-1>{{ " Επιλέξτε Υπαίτιο " }}</option>
                                                                             @foreach($pathontes as $pathon)
-                                                                                <option value="{{$pathon->id_Person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
+                                                                                <option value="{{$pathon->id_Person}}" @if(old('id_ypaitiou') == $pathon->id_Person) selected @endif>{{$pathon->L_name. ' '.$pathon->F_name}}</option>
                                                                             @endforeach
                    {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                                         </select>
@@ -647,7 +645,7 @@
                                                                         <select class="form-control form-select" id="id_oximatos_ypaitiou" name="id_oximatos_ypaitiou">
                                                                             <option selected value value=-1>{{ " Επιλέξτε Όχημα Υπαιτίου " }}</option>
                                                                             @foreach($oximata_pathon as $oxima_pathon)
-                                                                                <option value="{{$oxima_pathon->id_oximata}}">{{$oxima_pathon->Ar_kyklo}}</option>
+                                                                                <option value="{{$oxima_pathon->id_oximata}}" @if(old('id_oximatos_ypaitiou') == $oxima_pathon->id_oximata) selected @endif>{{$oxima_pathon->Ar_kyklo}}</option>
                                                                             @endforeach
                    {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                                         </select>
@@ -666,7 +664,7 @@
                                                                         <select class="form-control form-select" id="id_company_ypaitiou" name="id_company_ypaitiou">
                                                                             <option selected value value=-1>{{ " Επιλέξτε Ασφαλιστική " }}</option>
                                                                             @foreach($companies as $company)
-                                                                                <option value="{{$company->id_company}}">{{$company->comp_name}}</option>
+                                                                                <option value="{{$company->id_company}}" @if(old('id_company_ypaitiou') == $company->id_company) selected @endif>{{$company->comp_name}}</option>
                                                                             @endforeach
                     {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                                         </select>
