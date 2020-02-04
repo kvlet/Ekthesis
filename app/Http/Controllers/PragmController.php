@@ -15,6 +15,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\PragmRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Filesystem\Filesystem;
 use \Carbon\Carbon;
 
 /**
@@ -161,12 +162,19 @@ class PragmController extends Controller
         //end calculate file position
 
         // make windows dir
-        $path='X:\\'.$pragmatognomosini->File_position;
+/*        $path='X:\\'.$pragmatognomosini->File_position;
         if(!Storage::exists($path)) {
 
             Storage::makeDirectory($path, 0775, true); //creates directory
 
+        }*/
+        $newdir = new Filesystem();
+        $path='X:\\'.$pragmatognomosini->File_position;
+        if ( !$newdir->isDirectory(storage_path($path)) )
+        {
+            $newdir->makeDirectory(storage_path($path), 755, true, true);
         }
+
         // end make windows dir
 
         return view('pragmatognomosines.edit', compact([
