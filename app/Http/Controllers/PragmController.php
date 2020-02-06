@@ -197,7 +197,8 @@ class PragmController extends Controller
         $dateParadosis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_paradosis)->format('d-m-Y');
         $pragmatognomosini->Date_paradosis = $dateParadosis;
 //        end fix date format for display in form
-        
+
+
         return view('pragmatognomosines.edit', compact([
             'pragmatognomosini',
             'grafeia',
