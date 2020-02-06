@@ -87,12 +87,18 @@ class PragmController extends Controller
 //        fix date format for DB
         $dateAtiximatos = Carbon::createFromFormat('d-m-Y', $request->Date_atiximatos)->format('Y-m-d');
         $request->Date_atiximatos = $dateAtiximatos;
-        $dateDikasimou = Carbon::createFromFormat('d-m-Y', $request->Date_dikasimou)->format('Y-m-d');
-        $request->Date_dikasimou = $dateDikasimou;
-        $dateEksetasis = Carbon::createFromFormat('d-m-Y', $request->Date_eksetasis)->format('Y-m-d');
-        $request->Date_eksetasis = $dateEksetasis;
-        $datePAradosis = Carbon::createFromFormat('d-m-Y', $request->Date_paradosis)->format('Y-m-d');
-        $request->Date_paradosis = $datePAradosis;
+        if ($request->Date_dikasimou != null){
+            $dateDikasimou = Carbon::createFromFormat('d-m-Y', $request->Date_dikasimou)->format('Y-m-d');
+            $request->Date_dikasimou = $dateDikasimou;
+        }
+        if ($request->Date_eksetasis != null){
+            $dateEksetasis = Carbon::createFromFormat('d-m-Y', $request->Date_eksetasis)->format('Y-m-d');
+            $request->Date_eksetasis = $dateEksetasis;
+        }
+        if ($request->Date_paradosis != null){
+            $dateParadosis = Carbon::createFromFormat('d-m-Y', $request->Date_paradosis)->format('Y-m-d');
+            $request->Date_paradosis = $dateParadosis;
+        }
 //        end fix date format for DB
 
         $pragmatognomosini->id = $request->id;
@@ -190,12 +196,19 @@ class PragmController extends Controller
 //        fix date format for display in form
         $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_atiximatos)->format('d-m-Y');
         $pragmatognomosini->Date_atiximatos = $dateAtiximatos;
-        $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_dikasimou)->format('d-m-Y');
-        $pragmatognomosini->Date_dikasimou = $dateDikasimou;
-        $dateEksetasis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_eksetasis)->format('d-m-Y');
-        $pragmatognomosini->Date_eksetasis = $dateEksetasis;
-        $dateParadosis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_paradosis)->format('d-m-Y');
-        $pragmatognomosini->Date_paradosis = $dateParadosis;
+        if ($pragmatognomosini->Date_dikasimou != null){
+            $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_dikasimou)->format('d-m-Y');
+            $pragmatognomosini->Date_dikasimou = $dateDikasimou;
+        }
+        if ($pragmatognomosini->Date_eksetasis != null){
+            $dateEksetasis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_eksetasis)->format('d-m-Y');
+            $pragmatognomosini->Date_eksetasis = $dateEksetasis;
+        }
+        if ($pragmatognomosini->Date_paradosis != null){
+            $dateParadosis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_paradosis)->format('d-m-Y');
+            $pragmatognomosini->Date_paradosis = $dateParadosis;
+        }
+
 //        end fix date format for display in form
 
 
