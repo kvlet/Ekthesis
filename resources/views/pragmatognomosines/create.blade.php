@@ -626,9 +626,9 @@
                                                                         <select class="form-control form-select" id="id_ypaitiou" name="id_ypaitiou">
                                                                             <option selected value value=-1>{{ " Επιλέξτε Υπαίτιο " }}</option>
                                                                             @foreach($pathontes as $pathon)
-                                                                                <option value="{{$pathon->id_Person}}" @if(old('id_ypaitiou') == $pathon->id_Person) selected @endif>{{$pathon->L_name. ' '.$pathon->F_name}}</option>
+                                                                                <option value="{{$pathon->id_Person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
                                                                             @endforeach
-                   {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                                            {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                                         </select>
                                                                         @if ($errors->has('id_ypaitiou'))
                                                                             <span class="invalid-feedback" role="alert">

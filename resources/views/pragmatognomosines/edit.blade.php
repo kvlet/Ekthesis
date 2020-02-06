@@ -53,7 +53,7 @@
                                                     <select class="form-control form-select" id="id_diakrisi" name="id_diakrisi" required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Τύπο Έκθεσης " }}</option>
                                                         @foreach($diakrisis as $diakrisi)
-                                                            <option value="{{$diakrisi->id_diakrisi}}" @if(old('id_diakrisi') == $diakrisi->id_diakrisi) selected @endif>{{ $diakrisi->Diakrisi }}</option>
+                                                            <option value="{{$diakrisi->id_diakrisi}}" @if(old($pragmatognomosini->id_diakrisi))== $diakrisi->id_diakrisi) selected @endif>{{ $diakrisi->Diakrisi }}</option>
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('id_diakrisi'))
@@ -391,8 +391,7 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id') ? ' has-danger' : '' }}">
-                                                    <label class="form-control-label"
-                                                           for="id">{{ __('Πραγματογνώμονας') }}<span style="color:red;font-weight:bold">*</span></label>
+                                                    <label class="form-control-label" for="id">{{ __('Πραγματογνώμονας') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id" name="id" required>
                                                         <option selected value value=-1>{{ " Επιλέξτε Πραγματογνώμονα " }}</option>
                                                         @foreach($pragmatognomones as $pragmatognomonas)
