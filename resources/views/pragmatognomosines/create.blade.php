@@ -90,7 +90,7 @@
                                                     <script type="text/javascript">
                                                         $('#Date_atiximatos').datepicker({
                                                             autoclose: true,
-                                                            format: 'yyyy-mm-dd',
+                                                            format: 'dd-mm-yyyy',
                                                             language: 'el',
                                                             todayHighlight: true,
                                                         });
@@ -105,12 +105,12 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_nomoi">{{ __('Νομός') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                    <select class="form-control form-select" id="id_nomoi"  name="id_nomoi"  required>
-                                                        <option selected value value=-1>{{ " Επιλέξτε Νομό " }}</option>
-                                                        @foreach($nomoi as $nomos)
-                                                            <option value="{{$nomos->id_nomoi}}" @if(old('id_nomoi') == $nomos->id_nomoi) selected @endif>{{ $nomos->Nomos}}</option>
-                                                        @endforeach
-                                                    </select>
+                                                        <select class="form-control form-select" id="id_nomoi"  name="id_nomoi"  required>
+                                                            <option selected value value=-1>{{ " Επιλέξτε Νομό " }}</option>
+                                                            @foreach($nomoi as $nomos)
+                                                                <option value="{{$nomos->id_nomoi}}" @if(old('id_nomoi') == $nomos->id_nomoi) selected @endif>{{ $nomos->Nomos}}</option>
+                                                            @endforeach
+                                                        </select>
                                                     @if ($errors->has('id_nomoi'))
                                                         <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $errors->first('id_nomoi') }}</strong>

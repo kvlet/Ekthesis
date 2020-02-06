@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Filesystem\Filesystem;
 use \Carbon\Carbon;
 
+
 /**
  * Class PragmController
  * @package App\Http\Controllers
@@ -83,13 +84,17 @@ class PragmController extends Controller
             $request->id_oximatos_pathon='1';
         }
 
+//        fix date format for DB
+        $dateAtiximatos = Carbon::createFromFormat('d-m-Y', $request->Date_atiximatos)->format('Y-m-d');
+        $request->Date_atiximatos = $dateAtiximatos;
+        $dateDikasimou = Carbon::createFromFormat('d-m-Y', $request->Date_dikasimou)->format('Y-m-d');
+        $request->Date_dikasimou = $dateDikasimou;
+        $dateEksetasis = Carbon::createFromFormat('d-m-Y', $request->Date_eksetasis)->format('Y-m-d');
+        $request->Date_eksetasis = $dateEksetasis;
+        $datePAradosis = Carbon::createFromFormat('d-m-Y', $request->Date_paradosis)->format('Y-m-d');
+        $request->Date_paradosis = $datePAradosis;
+//        end fix date format for DB
 
-
-        //$dateAtiximatos = Carbon::createFromFormat('d/m/Y', $request->Date_atiximatos)->format('Y-m-d');
-        //dd($dateAtiximatos);
-
-//        $pragmatognomosini->id = auth()->user()->id;
-//        $pragmatognomosini->Date_atiximatos = $dateAtiximatos;
         $pragmatognomosini->id = $request->id;
         $pragmatognomosini->Date_atiximatos = $request->Date_atiximatos;
         $pragmatognomosini->Date_dikasimou = $request->Date_dikasimou;
@@ -160,6 +165,11 @@ class PragmController extends Controller
         }
         $pragmatognomosini->update();
         //end calculate file position
+        foreach ($diakrisis as $diakrisi){
+            if($pragmatognomosini->id_diakrisis == $diakrisi->id_diakrisi){
+                $ekth_type=$diakrisi->Diakrisi;
+            }
+        }
 
         // make windows dir
 /*        $path='X:\\'.$pragmatognomosini->File_position;
@@ -177,6 +187,17 @@ class PragmController extends Controller
 
         // end make windows dir
 
+//        fix date format for display in form
+        $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_atiximatos)->format('d-m-Y');
+        $pragmatognomosini->Date_atiximatos = $dateAtiximatos;
+        $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_dikasimou)->format('d-m-Y');
+        $pragmatognomosini->Date_dikasimou = $dateDikasimou;
+        $dateEksetasis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_eksetasis)->format('d-m-Y');
+        $pragmatognomosini->Date_eksetasis = $dateEksetasis;
+        $dateParadosis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_paradosis)->format('d-m-Y');
+        $pragmatognomosini->Date_paradosis = $dateParadosis;
+//        end fix date format for display in form
+        
         return view('pragmatognomosines.edit', compact([
             'pragmatognomosini',
             'grafeia',
