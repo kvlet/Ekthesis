@@ -130,7 +130,7 @@
                                                     <script type="text/javascript">
                                                         $('#Date_eksetasis').datepicker({
                                                             autoclose: true,
-                                                            format: 'yyyy-mm-dd',
+                                                            format: 'dd-mm-yyyy',
                                                             language: 'el',
                                                             todayHighlight: true,
                                                         });
@@ -143,12 +143,12 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="form-label{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}">
-                                                    <label class="form-control-label" for="id_accident_place">{{ __('Τόπος Εξέτασης') }}</label>
-                                                    <select class="form-control form-select" id="id_accident_place" name="id_accident_place" >
+                                                <div class="form-label{{ $errors->has('id_accedent_place') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label" for="id_accedent_place">{{ __('Τόπος Εξέτασης') }}</label>
+                                                    <select class="form-control form-select" id="id_accedent_place" name="id_accedent_place" >
                                                         <option selected value value=-1>{{ " Επιλέξτε Τόπο Ατυχήματος " }}</option>
                                                         @foreach($accident_places as $accident_place)
-                                                            <option value="{{$accident_place->id_accident_place}}" @if(old('id_accident_place') == $accident_place->id_accident_place) selected @endif>{{ $accident_place->Place}}</option>
+                                                            <option value="{{$accident_place->id_accident_place}}" @if(old('id_accedent_place') == $accident_place->id_accident_place) selected @endif>{{ $accident_place->Place}}</option>
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('id_accident_place'))
@@ -170,7 +170,7 @@
                                                     <script type="text/javascript">
                                                         $('#Date_dikasimou').datepicker({
                                                             autoclose: true,
-                                                            format: 'yyyy-mm-dd',
+                                                            format: 'dd-mm-yyyy',
                                                             language: 'el',
                                                             todayHighlight: true,
                                                         });
@@ -211,7 +211,7 @@
                                                     <script type="text/javascript">
                                                         $('#Date_paradosis').datepicker({
                                                             autoclose: true,
-                                                            format: 'yyyy-mm-dd',
+                                                            format: 'dd-mm-yyyy',
                                                             language: 'el',
                                                             todayHighlight: true,
                                                         });
@@ -626,7 +626,7 @@
                                                                         <select class="form-control form-select" id="id_ypaitiou" name="id_ypaitiou">
                                                                             <option selected value value=-1>{{ " Επιλέξτε Υπαίτιο " }}</option>
                                                                             @foreach($pathontes as $pathon)
-                                                                                <option value="{{$pathon->id_Person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
+                                                                                <option value="{{$pathon->id_person}}">{{$pathon->L_name. ' '.$pathon->F_name}}</option>
                                                                             @endforeach
                                                                             {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                                         </select>

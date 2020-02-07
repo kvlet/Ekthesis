@@ -171,11 +171,7 @@ class PragmController extends Controller
         }
         $pragmatognomosini->update();
         //end calculate file position
-        foreach ($diakrisis as $diakrisi){
-            if($pragmatognomosini->id_diakrisis == $diakrisi->id_diakrisi){
-                $ekth_type=$diakrisi->Diakrisi;
-            }
-        }
+
 
         // make windows dir
 /*        $path='X:\\'.$pragmatognomosini->File_position;
