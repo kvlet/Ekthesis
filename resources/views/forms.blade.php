@@ -47,7 +47,7 @@
     </ul>
 @endsection
 
-@section('rmenu')
+{{--@section('rmenu')
     <p>Εδω τα κουμπια</p>
-@endsection
+@endsection--}}
 
