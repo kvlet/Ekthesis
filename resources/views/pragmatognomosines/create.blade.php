@@ -14,12 +14,12 @@
 					<form method="post" action="{{ route('pragmatognomosines.store') }}" autocomplete="off">
 						@csrf
 						<div class="row">
-						    <div class="col-md-6">
+						    <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header-cust">
-                                        <h6 class="heading-small text-center text-muted">
+                                        <h3 class="heading-small text-center text-muted">
                                             <strong>{{ __('Γενικά') }}</strong>
-                                        </h6>
+                                        </h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -316,25 +316,25 @@
                                             <div class="col">
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="text-center">
-{{--                                                    <button type="submit" class="btn btn-danger mt-4" src="/images/save2.png"
-                                                            style="margin: 4px">{{ __('Καταχώρηση') }}
-                                                    </button>--}}
-                                                    <input type="image" width="50" value="submit" src="/images/add_rec.jpg" alt="Καταχώρηση" > {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
 							</div>
-                            <div class="col-md-3">
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-label ">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header-cust">
-                                        <h6 class="heading-small text-center text-muted">
+                                        <h3 class="heading-small text-center text-muted">
                                             <strong>{{ __('Οικονομικά') }}</strong>
-                                        </h6>
+                                        </h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -458,12 +458,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-label ">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header-cust">
-                                        <h6 class="heading-small text-center text-muted">
+                                        <h3 class="heading-small text-center text-muted">
                                             <strong>{{ __('Παθών') }}</strong>
-                                        </h6>
+                                        </h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -614,9 +623,9 @@
                                                 <div class="form-label ">
                                                     <div class="card">
                                                         <div class="card-header-cust">
-                                                            <h6 class="heading-small text-center text-muted">
+                                                            <h3 class="heading-small text-center text-muted">
                                                                 <strong>{{ __('Υπαίτιος') }}</strong>
-                                                            </h6>
+                                                            </h3>
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="row">
@@ -689,6 +698,16 @@
                                                                                     <strong>{{ $errors->first('Driver_ypaitiou') }}</strong>
                                                                             </span>
                                                                         @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="text-center">
+                                                                        {{--                                                    <button type="submit" class="btn btn-danger mt-4" src="/images/save2.png"
+                                                                                                                                    style="margin: 4px">{{ __('Καταχώρηση') }}
+                                                                                                                            </button>--}}
+                                                                        <input type="image" width="50" value="submit" src="/images/add_rec.jpg" alt="Καταχώρηση" > {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
                                                                     </div>
                                                                 </div>
                                                             </div>
