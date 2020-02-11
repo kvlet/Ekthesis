@@ -17,9 +17,9 @@
 						    <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header-cust">
-                                        <h3 class="heading-small text-center text-muted">
+                                        <h4 class="heading-small text-center text-muted">
                                             <strong>{{ __('Γενικά') }}</strong>
-                                        </h3>
+                                        </h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -332,9 +332,9 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header-cust">
-                                        <h3 class="heading-small text-center text-muted">
+                                        <h4 class="heading-small text-center text-muted">
                                             <strong>{{ __('Οικονομικά') }}</strong>
-                                        </h3>
+                                        </h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -470,9 +470,9 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header-cust">
-                                        <h3 class="heading-small text-center text-muted">
+                                        <h4 class="heading-small text-center text-muted">
                                             <strong>{{ __('Παθών') }}</strong>
-                                        </h3>
+                                        </h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -623,9 +623,9 @@
                                                 <div class="form-label ">
                                                     <div class="card">
                                                         <div class="card-header-cust">
-                                                            <h3 class="heading-small text-center text-muted">
+                                                            <h4 class="heading-small text-center text-muted">
                                                                 <strong>{{ __('Υπαίτιος') }}</strong>
-                                                            </h3>
+                                                            </h4>
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="row">
