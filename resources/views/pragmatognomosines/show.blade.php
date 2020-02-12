@@ -29,7 +29,7 @@
                         @csrf
                         {{ method_field('PUT') }}
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header-cust">
                                         <h6 class="heading-small text-center text-muted">
@@ -44,7 +44,7 @@
                                                     <input type="text" name="id_ekthesis" id="id_ekthesis"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('id_ekthesis') ? ' is-invalid' : '' }}"
                                                            value="{{ $pragmatognomosini->id_ekthesis }}" disabled autofocus>
-{{--                                                           value="{{ old('id_ekthesis') }}" disabled autofocus>--}}
+                                                    {{--                                                           value="{{ old('id_ekthesis') }}" disabled autofocus>--}}
                                                 </div>
                                             </div>
                                             <div class="col">
@@ -336,300 +336,297 @@
                                             <div class="col">
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                               <div class="form-label ">
-                                      <hr>
-                               </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="card-header-cust">
-                                            <h6 class="heading-small text-center text-muted">
-                                                <strong>{{ __('Οικονομικά') }}</strong>
-                                            </h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label{{ $errors->has('id_timologio_etaireias') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="id_timologio_etaireias">{{ __('Αρ. Τιμολογίου') }}</label>
-                                                        <input type="text" name="id_timologio_etaireias" id="id_timologio_etaireias"
-                                                               class="form-control form-input form-control-alternative{{ $errors->has('id_timologio_etaireias') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->id_timologio_etaireias }}" disabled autofocus>
-                                                    </div>
+                                        <div class="row">
+                                            <div class="col">
+
+                                            </div>
+                                            <div class="col">
+                                                <div class="text-center">
+                                                    <a href="{{ route('pragmatognomosines.store') }}"><img width="50" src="/images/add_rec.jpg" /></a> {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label{{ $errors->has('Ar_timologio_partner') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="Ar_timologio_partner">{{ __('Αρ. Τιμολογίου Συνεργάτη') }}</label>
-                                                        <input type="text" name="Ar_timologio_partner" id="Ar_timologio_partner"
-                                                               class="form-control form-input form-control-alternative{{ $errors->has('Ar_timologio_partner') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->Ar_timologio_partner }}" disabled autofocus>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label{{ $errors->has('Ekkatharistike') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="Ekkatharistike">{{ __('Εκκαθαρίστηκε') }}</label>
-                                                        <input type="text" name="Ekkatharistike" id="Ekkatharistike"
-                                                               class="form-control form-input form-control-alternative{{ $errors->has('Ekkatharistike') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->Ekkatharistike }}" disabled autofocus>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label{{ $errors->has('id') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label" for="id">{{ __('Πραγματογνώμονας') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                        <select class="form-control form-select" id="id" name="id" required>
-                                                            <option selected value value=-1>{{ " Επιλέξτε Πραγματογνώμονα " }}</option>
-                                                            @foreach($pragmatognomones as $pragmatognomonas)
-                                                                <option value="{{$pragmatognomonas->id}}" @if($pragmatognomosini->id == $pragmatognomonas->id) selected @endif>{{$pragmatognomonas->L_name.' '.$pragmatognomonas->F_name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @if ($errors->has('id'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $errors->first('id') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label{{ $errors->has('id_company_pathon') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="id_company_pathon">{{ __('Εντολέας Ασφλιστική') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                        <select class="form-control form-select" id="id_company_pathon" name="id_company_pathon" required>
-                                                            <option selected value value=-1>{{ " Επιλέξτε Εντολέα Ασφαλιστική " }}</option>
-                                                            @foreach($companies as $company)
-                                                                <option value="{{$company->id_company}}"  @if($pragmatognomosini->id_company_pathon == $company->id_company) selected @endif>{{$company->comp_name}}</option>
-                                                            @endforeach
-                                                            {{--<option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
-                                                        </select>
-                                                        @if ($errors->has('id_company_pathon'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $errors->first('id_company_pathon') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label{{ $errors->has('Fpa') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="Fpa">{{ __('Φ.Π.Α.') }}</label>
-                                                        <input type="number" name="Fpa" id="Fpa" class="form-control form-input form-control-alternative{{ $errors->has('Fpa') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->Fpa }}" autofocus>
-                                                        @if ($errors->has('Fpa'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('Fpa') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label{{ $errors->has('Ekpt_parts') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label" for="Ekpt_parts">{{ __('Έκπτωση ανταλλακτικών') }}</label>
-                                                        <input type="number" name="Ekpt_parts" id="Ekpt_parts"
-                                                               class="form-control form-input form-control-alternative{{ $errors->has('Ekpt_parts') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->Ekpt_parts }}" autofocus>
-                                                        @if ($errors->has('Ekpt_parts'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('Ekpt_parts') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label {{$errors->has('Ekpt_jobs') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label" for="Ekpt_jobs">{{ __('Έκτπωση Εργασιών') }}</label>
-                                                        <input type="number" name="Ekpt_jobs" id="Ekpt_jobs"
-                                                               class="form-control form-input form-control-alternative{{ $errors->has('Ekpt_jobs') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->Ekpt_jobs }}" autofocus>
-                                                        @if ($errors->has('Ekpt_jobs'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('Ekpt_jobs') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
+                                            <div class="col">
+                                                <div class="text-center">
+                                                    <input type="image" width="50" value="submit" src="/images/save.png" alt="Καταχώρηση" > {{-- onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                         </div>
-                         <div class="row">
-                             <div class="col">
-                                 <div class="form-label ">
-                                      <hr>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="card-header-cust">
-                                            <h6 class="heading-small text-center text-muted">
-                                                <strong>{{ __('Παθών') }}</strong>
-                                            </h6>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-header-cust">
+                                        <h6 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Οικονομικά') }}</strong>
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('id_timologio_etaireias') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="id_timologio_etaireias">{{ __('Αρ. Τιμολογίου') }}</label>
+                                                    <input type="text" name="id_timologio_etaireias" id="id_timologio_etaireias"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('id_timologio_etaireias') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->id_timologio_etaireias }}" disabled autofocus>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label" for="id_pathon">{{ __('Παθών') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                        <select class="form-control form-select" id="id_pathon" name="id_pathon" required>
-                                                            <option selected value value=-1>{{ " Επιλέξτε Παθών " }}</option>
-                                                            @foreach($pathontes as $pathon)
-                                                                <option value="{{$pathon->id_person}}" @if($pragmatognomosini->id_pathon == $pathon->id_person) selected @endif>{{$pathon->L_name. ' '.$pathon->F_name}}</option>
-                                                            @endforeach
-                                                            {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
-                                                        </select>
-                                                        @if ($errors->has('id_pathon'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('id_apthon') }}</strong>
-                                                </span>
-                                                        @endif
-                                                    </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('Ar_timologio_partner') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="Ar_timologio_partner">{{ __('Αρ. Τιμολογίου Συνεργάτη') }}</label>
+                                                    <input type="text" name="Ar_timologio_partner" id="Ar_timologio_partner"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Ar_timologio_partner') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->Ar_timologio_partner }}" disabled autofocus>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label{{ $errors->has('id_oximatos_pathon') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="id_oximatos_pathon">{{ __('Αρ. Κυκλοφορίας') }}</label>
-                                                        <select class="form-control form-select" id="id_oximatos_pathon" name="id_oximatos_pathon">
-                                                            <option selected value value=-1>{{ " Επιλέξτε Όχημα Παθών " }}</option>
-                                                            @foreach($oximata_pathon as $oxima_pathon)
-                                                                <option value="{{$oxima_pathon->id_oximata}}" @if($pragmatognomosini->id_oximatos_pathon == $oxima_pathon->id_oximata) selected @endif>{{$oxima_pathon->Ar_kyklo}}</option>
-                                                            @endforeach
-                                                            {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
-                                                        </select>
-                                                        @if ($errors->has('$id_oximatos_pathon'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $errors->first('$id_oximatos_pathon') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('Ekkatharistike') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="Ekkatharistike">{{ __('Εκκαθαρίστηκε') }}</label>
+                                                    <input type="text" name="Ekkatharistike" id="Ekkatharistike"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Ekkatharistike') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->Ekkatharistike }}" disabled autofocus>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label {{$errors->has('Object') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label" for="Object">{{ __('Αντικείμενο') }}</label>
-                                                        <input type="text" name="Object" id="Object"
-                                                               class="form-control form-input form-control-alternative{{ $errors->has('Object') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->Object }}" autofocus>
-                                                        @if ($errors->has('Object'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('Object') }}</strong>
-                                                </span>
-                                                        @endif
-                                                    </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('id') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label" for="id">{{ __('Πραγματογνώμονας') }}<span style="color:red;font-weight:bold">*</span></label>
+                                                    <select class="form-control form-select" id="id" name="id" required>
+                                                        <option selected value value=-1>{{ " Επιλέξτε Πραγματογνώμονα " }}</option>
+                                                        @foreach($pragmatognomones as $pragmatognomonas)
+                                                            <option value="{{$pragmatognomonas->id}}" @if($pragmatognomosini->id == $pragmatognomonas->id) selected @endif>{{$pragmatognomonas->L_name.' '.$pragmatognomonas->F_name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @if ($errors->has('id'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('id') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label{{ $errors->has('id_company_pathon_real') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="id_company_pathon_real">{{ __('Ασφλιστική') }}</label>
-                                                        <select class="form-control form-select" id="id_company_pathon_real" name="id_company_pathon_real">
-                                                            <option selected value value=-1>{{ " Επιλέξτε Ασφαλιστική " }}</option>
-                                                            @foreach($companies as $company)
-                                                                <option value="{{$company->id_company}}" @if($pragmatognomosini->id_company_pathon_real == $company->id_company) selected @endif>{{$company->comp_name}}</option>
-                                                            @endforeach
-                                                            {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
-                                                        </select>
-                                                        @if ($errors->has('id_company_pathon_real'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                 <strong>{{ $errors->first('id_company_pathon_real') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('id_company_pathon') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="id_company_pathon">{{ __('Εντολέας Ασφλιστική') }}<span style="color:red;font-weight:bold">*</span></label>
+                                                    <select class="form-control form-select" id="id_company_pathon" name="id_company_pathon" required>
+                                                        <option selected value value=-1>{{ " Επιλέξτε Εντολέα Ασφαλιστική " }}</option>
+                                                        @foreach($companies as $company)
+                                                            <option value="{{$company->id_company}}"  @if($pragmatognomosini->id_company_pathon == $company->id_company) selected @endif>{{$company->comp_name}}</option>
+                                                        @endforeach
+                                                        {{--<option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                    </select>
+                                                    @if ($errors->has('id_company_pathon'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('id_company_pathon') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label {{$errors->has('Entoleas') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="Entoleas">{{ __('Εντολέας') }}</label>
-                                                        <input type="text" name="Entoleas" id="Entoleas"
-                                                               class="form-control form-input form-control-alternative{{ $errors->has('Entoleas') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->Entoleas }}" autofocus>
-                                                        @if ($errors->has('Entoleas'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('Entoleas') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('Fpa') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="Fpa">{{ __('Φ.Π.Α.') }}</label>
+                                                    <input type="number" name="Fpa" id="Fpa" class="form-control form-input form-control-alternative{{ $errors->has('Fpa') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->Fpa }}" autofocus>
+                                                    @if ($errors->has('Fpa'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Fpa') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label {{$errors->has('Xiliometra') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="Xiliometra">{{ __('Χιλιόμετρα') }}</label>
-                                                        <input type="text" name="Xiliometra" id="Xiliometra"
-                                                               class="form-control form-input form-control-alternative{{ $errors->has('Xiliometra') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->Xiliometra  }}" autofocus>
-                                                        @if ($errors->has('Xiliometra'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('Xiliometra') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('Ekpt_parts') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label" for="Ekpt_parts">{{ __('Έκπτωση ανταλλακτικών') }}</label>
+                                                    <input type="number" name="Ekpt_parts" id="Ekpt_parts"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Ekpt_parts') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->Ekpt_parts }}" autofocus>
+                                                    @if ($errors->has('Ekpt_parts'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Ekpt_parts') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label {{$errors->has('value_car_pathon') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="value_car_pathon">{{ __('Εμπορική Αξία') }}</label>
-                                                        <input type="number" name="value_car_pathon" id="value_car_pathon"
-                                                               class="form-control form-input form-control-alternative{{ $errors->has('value_car_pathon') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->value_car_pathon }}" autofocus>
-                                                        @if ($errors->has('value_car_pathon'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('value_car_pathon') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label {{$errors->has('Ekpt_jobs') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label" for="Ekpt_jobs">{{ __('Έκτπωση Εργασιών') }}</label>
+                                                    <input type="number" name="Ekpt_jobs" id="Ekpt_jobs"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Ekpt_jobs') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->Ekpt_jobs }}" autofocus>
+                                                    @if ($errors->has('Ekpt_jobs'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Ekpt_jobs') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-label {{$errors->has('driver_pathon') ? ' has-danger' : '' }}">
-                                                        <label class="form-control-label"
-                                                               for="driver_pathon">{{ __('Οδηγός') }}</label>
-                                                        <input type="text" name="driver_pathon" id="driver_pathon"
-                                                               class="form-control form-input form-control-alternative{{ $errors->has('driver_pathon') ? ' is-invalid' : '' }}"
-                                                               value="{{ $pragmatognomosini->driver_pathon }}" autofocus>
-                                                        @if ($errors->has('driver_pathon'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('driver_pathon') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-header-cust">
+                                        <h6 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Παθών') }}</strong>
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label" for="id_pathon">{{ __('Παθών') }}<span style="color:red;font-weight:bold">*</span></label>
+                                                    <select class="form-control form-select" id="id_pathon" name="id_pathon" required>
+                                                        <option selected value value=-1>{{ " Επιλέξτε Παθών " }}</option>
+                                                        @foreach($pathontes as $pathon)
+                                                            <option value="{{$pathon->id_person}}" @if($pragmatognomosini->id_pathon == $pathon->id_person) selected @endif>{{$pathon->L_name. ' '.$pathon->F_name}}</option>
+                                                        @endforeach
+                                                        {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                    </select>
+                                                    @if ($errors->has('id_pathon'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('id_apthon') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('id_oximatos_pathon') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="id_oximatos_pathon">{{ __('Αρ. Κυκλοφορίας') }}</label>
+                                                    <select class="form-control form-select" id="id_oximatos_pathon" name="id_oximatos_pathon">
+                                                        <option selected value value=-1>{{ " Επιλέξτε Όχημα Παθών " }}</option>
+                                                        @foreach($oximata_pathon as $oxima_pathon)
+                                                            <option value="{{$oxima_pathon->id_oximata}}" @if($pragmatognomosini->id_oximatos_pathon == $oxima_pathon->id_oximata) selected @endif>{{$oxima_pathon->Ar_kyklo}}</option>
+                                                        @endforeach
+                                                        {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                    </select>
+                                                    @if ($errors->has('$id_oximatos_pathon'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('$id_oximatos_pathon') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label {{$errors->has('Object') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label" for="Object">{{ __('Αντικείμενο') }}</label>
+                                                    <input type="text" name="Object" id="Object"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Object') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->Object }}" autofocus>
+                                                    @if ($errors->has('Object'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Object') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label{{ $errors->has('id_company_pathon_real') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="id_company_pathon_real">{{ __('Ασφλιστική') }}</label>
+                                                    <select class="form-control form-select" id="id_company_pathon_real" name="id_company_pathon_real">
+                                                        <option selected value value=-1>{{ " Επιλέξτε Ασφαλιστική " }}</option>
+                                                        @foreach($companies as $company)
+                                                            <option value="{{$company->id_company}}" @if($pragmatognomosini->id_company_pathon_real == $company->id_company) selected @endif>{{$company->comp_name}}</option>
+                                                        @endforeach
+                                                        {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                    </select>
+                                                    @if ($errors->has('id_company_pathon_real'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('id_company_pathon_real') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label {{$errors->has('Entoleas') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="Entoleas">{{ __('Εντολέας') }}</label>
+                                                    <input type="text" name="Entoleas" id="Entoleas"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Entoleas') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->Entoleas }}" autofocus>
+                                                    @if ($errors->has('Entoleas'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Entoleas') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label {{$errors->has('Xiliometra') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="Xiliometra">{{ __('Χιλιόμετρα') }}</label>
+                                                    <input type="text" name="Xiliometra" id="Xiliometra"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Xiliometra') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->Xiliometra  }}" autofocus>
+                                                    @if ($errors->has('Xiliometra'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Xiliometra') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label {{$errors->has('value_car_pathon') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="value_car_pathon">{{ __('Εμπορική Αξία') }}</label>
+                                                    <input type="number" name="value_car_pathon" id="value_car_pathon"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('value_car_pathon') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->value_car_pathon }}" autofocus>
+                                                    @if ($errors->has('value_car_pathon'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('value_car_pathon') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-label {{$errors->has('driver_pathon') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="driver_pathon">{{ __('Οδηγός') }}</label>
+                                                    <input type="text" name="driver_pathon" id="driver_pathon"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('driver_pathon') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->driver_pathon }}" autofocus>
+                                                    @if ($errors->has('driver_pathon'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('driver_pathon') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-label ">
@@ -722,23 +719,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <hr>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <div class="text-center">
-                                                                        <a href="{{ route('pragmatognomosines.store') }}"><img width="50" src="/images/add_rec.jpg" /></a> {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="text-center">
-                                                                        <input type="image" width="50" value="submit" src="/images/save.png" alt="Καταχώρηση" > {{-- onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -771,3 +751,4 @@
 
 
 @endsection
+

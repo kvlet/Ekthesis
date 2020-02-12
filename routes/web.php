@@ -10,6 +10,8 @@ Route::get('pragmatognomosines', 'PragmController@create')->name('pragmatognomos
 Route::post('pragmatognomosines', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('pragmatognomosines/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
 Route::put('pragmatognomosines/{id}', 'PragmController@update')->name('pragmatognomosines.update');
+//Route::get('pragmatognomosines/{id}', 'PragmController@show')->name('pragmatognomosines.show');
+
 /*Route::get('/pragmatognomosines', 'PragmController@create');
 Route::post('/pragmatognomosines', 'PragmController@store');
 Route::get('/pragmatognomosines/{id}', 'PragmController@edit');

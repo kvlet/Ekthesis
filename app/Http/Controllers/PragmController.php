@@ -230,4 +230,12 @@ class PragmController extends Controller
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
     }
+
+    public function show($id_ekthesis)
+    {
+        $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
+
+
+        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+    }
 }
