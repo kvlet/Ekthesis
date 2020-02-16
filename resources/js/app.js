@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+require('./forms');
+
 $(document).ready(function(){
 
     let inputFields = $('.form-group input');

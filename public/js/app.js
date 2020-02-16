@@ -37011,6 +37011,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./forms */ "./resources/js/forms.js");
+
 $(document).ready(function () {
   var inputFields = $('.form-group input');
   inputFields.each(function (index, element) {
@@ -37065,6 +37067,37 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/forms.js":
+/*!*******************************!*\
+  !*** ./resources/js/forms.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $('#create_diakrisis_form').on('submit', function (e) {
+    e.preventDefault();
+    var id_diakrisis = $("#id_diakrisis").val();
+    var Diakrisi = $("#Diakrisi").val();
+    var Mark_del = $("#Mark_del").val();
+    var Group_diakr = $("#Group_diakr").val();
+    window.axios.post('/diakrisis', {
+      'id_diakrisi': id_diakrisis,
+      'Diakrisi': Diakrisi,
+      'Mark_del': Mark_del,
+      'Group_diakr': Group_diakr
+    }).then(function (response) {
+      var data = response.data;
+      var row = "<td>" + data.id_diakrisi + "</td>" + "<td>" + data.Diakrisi + "</td>" + "<td>" + data.Mark_del + "</td>" + "<td" + data.Group_diakr + "</td>";
+      var rowElement = document.createElement('tr');
+      $('#create_diakrisis_form table tbody').append(rowElement);
+      $('#create_diakrisis_form table tbody').lastChild('tr').html(row);
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -37083,8 +37116,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\ekthesis\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\ekthesis\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/vkolorizos/Documents/code/Ekthesis/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/vkolorizos/Documents/code/Ekthesis/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

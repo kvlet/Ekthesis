@@ -57,35 +57,11 @@
                                                     @endif
                                                 </div>
                                             </div>
- {{--                                           <div class="col-md-2">
-                                                <div class="form-label">
-                                                <!-- Button trigger modal -->
-                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος Έκθεσης') }}</label>
-                                                <button id="newrec" type="button" class=" btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
-                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                                </button>
-                                                <!-- Modal -->
-                                                <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title" id="exampleModalLabel" align="center">Τύπος Έκθεσης</h4>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
---}}{{--                                                                @include('diakrisis.create')--}}{{--
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Κλείσιμο</button>
-                                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}{{-- end modal code --}}{{--
-                                                </div>
-                                            </div>--}}
+                                            <!-- Button trigger modal -->
+                                            <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος Έκθεσης') }}</label>
+                                            <button id="newrec" type="button" class=" btn btn-primary btn-lg" data-toggle="modal" data-target="#diakrisisModal">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                            </button>
                                         </div>
                                         <div class="row">
                                             <div class="col">
@@ -767,6 +743,7 @@
 			</div>
 		</div>
 	</div>
-
+@include('_modals.diakrisisModal', [ 'diakrisis' => $diakrisis])
 
 @endsection
+

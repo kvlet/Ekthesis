@@ -17,23 +17,21 @@ class DiakrisiController extends Controller
 
         $diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
 
-        return view('diakrisis.create',compact([
-            'diakrisis'
-        ]));
+        return view('diakrisis.create',compact('diakrisis'));
     }
 
     /**
      * @param DiakrisiRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(DiakrisiRequest $request){
+    public function store(Request $request){
 
-        $diakrisi = new Diakrisi();
+        if($request->expectsJson()){
+            $data = $request->all();
+            $value = Diakrisi::create($data);
+            return response()->json([
+                'data' => $value
+            ],200);
+        }
 
-        $diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
-
-/*        return view('diakrisis.create',compact([
-            'diakrisis'
-        ]));*/
     }
 }

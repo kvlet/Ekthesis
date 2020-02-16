@@ -13,7 +13,7 @@ Route::put('pragmatognomosines/{id}', 'PragmController@update')->name('pragmatog
 //Route::get('pragmatognomosines/{id}', 'PragmController@show')->name('pragmatognomosines.show');
 
 Route::get('diakrisis', 'DiakrisiController@create')->name('diakrisis.create');
-//Route::post('diakrisis', 'DiakrisiController@store')->name('diakrisis.store');
+Route::post('diakrisis', 'DiakrisiController@store')->name('diakrisis.store');
 /*Route::get('/pragmatognomosines', 'PragmController@create');
 Route::post('/pragmatognomosines', 'PragmController@store');
 Route::get('/pragmatognomosines/{id}', 'PragmController@edit');
