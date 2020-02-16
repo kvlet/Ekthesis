@@ -49,7 +49,7 @@ class Pragmatognomosini extends Model
         return $this->hasOne(Grafeio::class);
     }
 
-    public function nomoi()
+    public function nomooi()
     {
         return $this->hasOne(Nomos::class);
     }

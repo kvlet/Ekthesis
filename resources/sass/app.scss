@@ -56,4 +56,10 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;  /* fraction*/
 }
+.btn-for-dropdown{
+    height:30px;
+    width:30px;
+    border-radius: 12px;
+    font-size: 12px;
+}
 

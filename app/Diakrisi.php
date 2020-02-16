@@ -13,4 +13,8 @@ class Diakrisi extends Model
     protected $primaryKey= 'id_diakrisi';
     public $incrementing = false;
     protected $keyType = 'string';
+
+    public function pragmatognomosini(){
+        return $this->belongsToMany(Pragmatognomosini::class);
+    }
 }
