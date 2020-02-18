@@ -15,6 +15,7 @@
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+{{--    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>--}}
 {{--    <script src="assets/js/moment.js"></script>--}}
 
 {{--    Styles--}}

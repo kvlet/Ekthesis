@@ -1,5 +1,3 @@
-
-
 $(document).ready( function(){
     $('#create_diakrisis_form').on('submit', function(e) {
         e.preventDefault();

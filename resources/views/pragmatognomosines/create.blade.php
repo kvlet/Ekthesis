@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_ekthesis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_ekthesis">{{ __('Αρ. Πρωτοκόλλου') }}</label>
@@ -32,7 +32,7 @@
                                                            value="{{ old('id_ekthesis') }}" disabled autofocus>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_diakrisi">{{ __('Τύπος Έκθεσης') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_diakrisi" name="id_diakrisi" required >
@@ -40,16 +40,7 @@
                                                         @foreach($diakrisis as $diakrisi)
                                                             <option value="{{$diakrisi->id_diakrisi}}" @if(old('id_diakrisi') == $diakrisi->id_diakrisi) selected @endif>{{ $diakrisi->Diakrisi }}</option>
                                                         @endforeach
-                                                        <option value="href={{URL::route('diakrisis.create')}}" target="_blank">Προσθήκη νέου</option>
                                                     </select>
-{{--                                                    <script >
-                                                        document.getElementById("id_diakrisi").onchange = function() {
-                                                            if (this.value == '7') {
-                                                                location.href = this.children[this.selectedIndex].getAttribute('href');
-
-                                                            }
-                                                        };
-                                                    </script>--}}
                                                     @if ($errors->has('id_diakrisi'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('id_diakrisi') }}</strong>
@@ -57,11 +48,19 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <!-- Button trigger modal -->
-                                            <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος Έκθεσης') }}</label>
-                                            <button id="newrec" type="button" class=" btn btn-primary btn-lg" data-toggle="modal" data-target="#diakrisisModal">
-                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                            </button>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newrec') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}" style="margin: auto">
+        {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
+                                                        <button id="newrec" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#diakrisisModal">
+        {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
