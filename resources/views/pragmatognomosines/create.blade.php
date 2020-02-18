@@ -13,8 +13,8 @@
 					 aria-labelledby="v-pills-genika-tab">
 					<form method="post" action="{{ route('pragmatognomosines.store') }}" autocomplete="off">
 						@csrf
-						<div class="row">
-						    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header-cust">
                                         <h4 class="heading-small text-center text-muted">
@@ -53,9 +53,9 @@
                                                     <!-- Button trigger modal -->
                                                     <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>
                                                     <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}" style="margin: auto">
-        {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
+                                                        {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
                                                         <button id="newrec" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#diakrisisModal">
-        {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
+                                                            {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
 
                                                         </button>
                                                     </div>
@@ -118,12 +118,12 @@
                                             <div class="col">
                                                 <div class="form-label{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_nomoi">{{ __('Νομός') }}<span style="color:red;font-weight:bold">*</span></label>
-                                                        <select class="form-control form-select" id="id_nomoi"  name="id_nomoi"  required>
-                                                            <option selected value value=-1>{{ " Επιλέξτε Νομό " }}</option>
-                                                            @foreach($nomoi as $nomos)
-                                                                <option value="{{$nomos->id_nomoi}}" @if(old('id_nomoi') == $nomos->id_nomoi) selected @endif>{{ $nomos->Nomos}}</option>
-                                                            @endforeach
-                                                        </select>
+                                                    <select class="form-control form-select" id="id_nomoi"  name="id_nomoi"  required>
+                                                        <option selected value value=-1>{{ " Επιλέξτε Νομό " }}</option>
+                                                        @foreach($nomoi as $nomos)
+                                                            <option value="{{$nomos->id_nomoi}}" @if(old('id_nomoi') == $nomos->id_nomoi) selected @endif>{{ $nomos->Nomos}}</option>
+                                                        @endforeach
+                                                    </select>
                                                     @if ($errors->has('id_nomoi'))
                                                         <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $errors->first('id_nomoi') }}</strong>
@@ -330,7 +330,7 @@
 
                                     </div>
                                 </div>
-							</div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col">
@@ -408,7 +408,7 @@
                                                         @foreach($companies as $company)
                                                             <option value="{{$company->id_company}}" @if(old('id_company_pathon') == $company->id_company) selected @endif>{{$company->comp_name}}</option>
                                                         @endforeach
-{{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                        {{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
                                                     @if ($errors->has('id_company_pathon'))
                                                         <span class="invalid-feedback" role="alert">
@@ -495,7 +495,7 @@
                                                         @foreach($pathontes as $pathon)
                                                             <option value="{{$pathon->id_person}}" @if(old('id_pathon') == $pathon->id_person) selected @endif>{{$pathon->L_name. ' '.$pathon->F_name}}</option>
                                                         @endforeach
-{{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                        {{--                                                        <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
                                                     @if ($errors->has('id_pathon'))
                                                         <span class="invalid-feedback" role="alert">
@@ -514,7 +514,7 @@
                                                         @foreach($oximata_pathon as $oxima_pathon)
                                                             <option value="{{$oxima_pathon->id_oximata}}" @if(old('id_oximatos_pathon') == $oxima_pathon->id_oximata) selected @endif>{{$oxima_pathon->Ar_kyklo}}</option>
                                                         @endforeach
-{{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                        {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
                                                     @if ($errors->has('$id_oximatos_pathon'))
                                                         <span class="invalid-feedback" role="alert">
@@ -548,7 +548,7 @@
                                                         @foreach($companies as $company)
                                                             <option value="{{$company->id_company}}" @if(old('id_company_pathon_real') == $company->id_company) selected @endif>{{$company->comp_name}}</option>
                                                         @endforeach
-{{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                        {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                     </select>
                                                     @if ($errors->has('id_company_pathon_real'))
                                                         <span class="invalid-feedback" role="alert">
@@ -667,7 +667,7 @@
                                                                             @foreach($oximata_pathon as $oxima_pathon)
                                                                                 <option value="{{$oxima_pathon->id_oximata}}" @if(old('id_oximatos_ypaitiou') == $oxima_pathon->id_oximata) selected @endif>{{$oxima_pathon->Ar_kyklo}}</option>
                                                                             @endforeach
-                   {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                                            {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                                         </select>
                                                                         @if ($errors->has('$id_oximatos_ypaitiou'))
                                                                             <span class="invalid-feedback" role="alert">
@@ -686,7 +686,7 @@
                                                                             @foreach($companies as $company)
                                                                                 <option value="{{$company->id_company}}" @if(old('id_company_ypaitiou') == $company->id_company) selected @endif>{{$company->comp_name}}</option>
                                                                             @endforeach
-                    {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
+                                                                            {{--                                                    <option> <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false">Προσθήκη νέου</a> </option>--}}
                                                                         </select>
                                                                         @if ($errors->has('id_company_ypaitiou'))
                                                                             <span class="invalid-feedback" role="alert">
