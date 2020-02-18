@@ -37089,9 +37089,9 @@ $(document).ready(function () {
     }).then(function (response) {
       var data = response.data;
       var row = "<td>" + data.id_diakrisi + "</td>" + "<td>" + data.Diakrisi + "</td>" + "<td>" + data.Mark_del + "</td>" + "<td" + data.Group_diakr + "</td>";
-      var rowElement = document.createElement('tr');
+      var rowElement = document.createElement("tr");
       $('#create_diakrisis_form table tbody').append(rowElement);
-      $('#create_diakrisis_form table tbody').lastChild('tr').html(row);
+      $('#create_diakrisis_form table tbody').append(last('tr').html(row));
     });
   });
 });

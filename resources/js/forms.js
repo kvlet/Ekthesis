@@ -17,11 +17,11 @@ $(document).ready( function(){
 
             let  row = "<td>" + data.id_diakrisi + "</td>" + "<td>" + data.Diakrisi + "</td>" + "<td>" + data.Mark_del + "</td>" + "<td" + data.Group_diakr  + "</td>";
 
-            let rowElement = document.createElement('tr');
+            let rowElement = document.createElement("tr");
 
             $('#create_diakrisis_form table tbody').append(rowElement);
 
-            $('#create_diakrisis_form table tbody').lastChild('tr').html(row);
+            $('#create_diakrisis_form table tbody').append(last('tr').html(row));
 
         })
     })
