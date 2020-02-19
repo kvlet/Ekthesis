@@ -11488,9 +11488,10 @@ input[type=date] {
 }
 
 .newdroprec {
-  background-image: url("/images/plus-24.png");
-  padding: 12px;
+  background-image: url("/images/add_xs.png");
+  padding: 14px;
   background-repeat: no-repeat;
+  size: 10px;
 }
 
 body {

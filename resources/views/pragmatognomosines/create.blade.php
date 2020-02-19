@@ -49,12 +49,12 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
-                                                <div class="form-label{{ $errors->has('newrec') ? ' has-danger' : '' }}">
+                                                <div class="form-label{{ $errors->has('newrecdiak') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
-                                                    <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>
+                                                    <label class="form-control-label" for="newrecdiak">{{ __('Νέος Τύπος') }}</label>
                                                     <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}" style="margin: auto">
                                                         {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
-                                                        <button id="newrec" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#diakrisisModal">
+                                                        <button id="newrecdiak" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#diakrisisModal">
                                                             {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
 
                                                         </button>
@@ -63,7 +63,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Prot_bibliou') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="Prot_bibliou">{{ __('Αρ. Φακέλου') }}</label>
                                                     <input type="text" name="Prot_bibliou" id="Prot_bibliou"
@@ -76,7 +76,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_grafeio') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_grafeio">{{ __('Γραφείο') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_grafeio" name="id_grafeio"  required>
@@ -92,9 +92,12 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Date_atiximatos') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="Date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <input type="text" name="Date_atiximatos" id="Date_atiximatos" data-provide="datepicker" placeholder="HH-MM-YYYY"
@@ -115,7 +118,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_nomoi">{{ __('Νομός') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_nomoi"  name="id_nomoi"  required>
@@ -129,6 +132,19 @@
                                                                 <strong>{{ $errors->first('id_nomoi') }}</strong>
                                                             </span>
                                                     @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newrecnom') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newrecnom">{{ __('Νέος Νομός') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
+                                                        <button id="newrecnom" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#nomoiModal">
+                                                            {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
+
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

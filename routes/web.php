@@ -16,6 +16,8 @@ Route::get('ereunes/{id}', 'PragmController@edit')->name('pragmatognomosines.edi
 
 Route::get('diakrisis', 'DiakrisiController@create')->name('diakrisis.create');
 Route::post('diakrisis', 'DiakrisiController@store')->name('diakrisis.store');
+Route::get('nomoi', 'NomoiController@create')->name('nomoi.create');
+Route::post('nomoi', 'NomoiController@store')->name('nomoi.store');
 /*Route::get('/pragmatognomosines', 'PragmController@create');
 Route::post('/pragmatognomosines', 'PragmController@store');
 Route::get('/pragmatognomosines/{id}', 'PragmController@edit');
