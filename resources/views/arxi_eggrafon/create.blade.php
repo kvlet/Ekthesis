@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-label{{ $errors->has('Tel1') ? ' has-danger' : '' }}">
-                            <label class="form-control-label" for="Tel1">{{ __(' Τηλέφωνο-1') }} <span style="color:red;font-weight:bold">*</span></label>
+                            <label class="form-control-label" for="Tel1">{{ __(' Τηλέφωνο-1') }} </label>
                             <input type="text" name="Tel1" id="Tel1"
                                    class="form-control form-input form-control-alternative{{ $errors->has('Arxi') ? ' is-invalid' : '' }}"
                                    value="{{ old('Arxi') }}" autofocus>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-label{{ $errors->has('Tel2') ? ' has-danger' : '' }}">
-                            <label class="form-control-label" for="Tel2">{{ __(' Τηλέφωνο-2') }} <span style="color:red;font-weight:bold">*</span></label>
+                            <label class="form-control-label" for="Tel2">{{ __(' Τηλέφωνο-2') }}</label>
                             <input type="text" name="Tel2" id="Tel2"
                                    class="form-control form-input form-control-alternative{{ $errors->has('Tel2') ? ' is-invalid' : '' }}"
                                    value="{{ old('Tel2') }}" autofocus>
