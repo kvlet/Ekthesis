@@ -149,7 +149,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Date_eksetasis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Date_eksetasis">{{ __('Ημ/νια Εξέτασης') }}</label>
@@ -171,7 +171,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_accedent_place') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_accedent_place">{{ __('Τόπος Εξέτασης') }}</label>
                                                     <select class="form-control form-select" id="id_accedent_place" name="id_accedent_place" >
@@ -185,6 +185,19 @@
                                                                 <strong>{{ $errors->first('id_accident_place') }}</strong>
                                                             </span>
                                                     @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newrecplace') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newrecplace">{{ __('Νέος Τόπος') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
+                                                        <button id="newrecplace" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#placeModal">
+                                                            {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
+
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

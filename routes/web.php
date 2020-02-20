@@ -18,6 +18,8 @@ Route::get('diakrisis', 'DiakrisiController@create')->name('diakrisis.create');
 Route::post('diakrisis', 'DiakrisiController@store')->name('diakrisis.store');
 Route::get('nomoi', 'NomoiController@create')->name('nomoi.create');
 Route::post('nomoi', 'NomoiController@store')->name('nomoi.store');
+Route::get('place', 'PlaceController@create')->name('accident_place.create');
+Route::post('place', 'PlaceController@store')->name('accident_place.store');
 /*Route::get('/pragmatognomosines', 'PragmController@create');
 Route::post('/pragmatognomosines', 'PragmController@store');
 Route::get('/pragmatognomosines/{id}', 'PragmController@edit');

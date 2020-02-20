@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\NomoiRequest;
-use App\Nomos;
+use App\Accident_place;
 use Illuminate\Http\Request;
 
-class NomoiController extends Controller
+class PlaceController extends Controller
 {
     public function __construct()
     {
@@ -15,18 +14,18 @@ class NomoiController extends Controller
 
     public function create(){
 
-        $nomoi = Nomos::all('id_nomoi', 'Nomos');
+        $accident_places=Accident_place::where('Mark_del', 'Όχι')->get();
 
-        return view('nomoi.create',compact('nomoi'));
+        return view('accident_place.create',compact('accident_places'));
     }
     /**
-     * @param NomoiRequest $request
+     * @param PlaceRequest $request
      */
     public function store(Request $request){
 
         if($request->expectsJson()){
             $data = $request->all();
-            $value = Nomos::create($data);
+            $value = Accident_place::create($data);
             return response()->json([
                 'data' => $value
             ],200);
