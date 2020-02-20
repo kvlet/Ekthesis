@@ -166,9 +166,11 @@ class PragmController extends Controller
         $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
 
         // calculate file position
-        foreach ($oximata_pathon as $oxima){
-            if($pragmatognomosini->id_oximatos_pathon == $oxima->id_oximata){
-                 $pinakida=$oxima->Ar_kyklo;
+        if ($pragmatognomosini->id_oximatos_pathon != null){
+            foreach ($oximata_pathon as $oxima){
+                if($pragmatognomosini->id_oximatos_pathon == $oxima->id_oximata){
+                     $pinakida=$oxima->Ar_kyklo;
+                }
             }
         }
         if ($pragmatognomosini->Object == null){

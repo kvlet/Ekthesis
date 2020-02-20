@@ -202,7 +202,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Date_dikasimou') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Date_dikasimou">{{ __('Ημ/νια Δικάσιμου') }}</label>
@@ -224,7 +224,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_arxi_ekdosis_eggrafon">{{ __('Αρχή Εγγράφων') }}</label>
                                                     <select class="form-control form-select" id="id_arxi_ekdosis_eggrafon" name="id_arxi_ekdosis_eggrafon" >
@@ -240,9 +240,22 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newrecarxi') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newrecarxi">{{ __('Νέα Αρχή') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_Arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
+                                                        <button id="newrecarxi" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#arxiModal">
+                                                            {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Date_paradosis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Date_paradosis">{{ __('Ημ/νια Παράδοσης') }}
@@ -265,7 +278,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('File_position') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="File_position">{{ __('Θέση Αρχείων') }}</label>
@@ -276,7 +289,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Simpliromatiki') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Simpliromatiki">{{ __('Συμπληρωματική') }}</label>
@@ -291,7 +304,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('partially_lock') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="partially_lock">{{ __('Μερικό κλείδωμα') }}<span style="color:red;font-weight:bold">*</span></label>
@@ -308,7 +321,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Sap') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="Sap">{{ __('Sap') }}</label>
                                                     <select class="form-control form-select" id="Sap" name="Sap">
@@ -322,7 +335,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('total_lock') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="total_lock">{{ __('Ολικό κλείδωμα') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="total_lock" name="total_lock" disabled >
@@ -338,7 +351,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Valid') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Valid">{{ __('Έγκυρη') }}</label>

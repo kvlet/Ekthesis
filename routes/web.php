@@ -11,7 +11,9 @@ Route::post('pragmatognomosines', 'PragmController@store')->name('pragmatognomos
 Route::get('pragmatognomosines/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
 Route::put('pragmatognomosines/{id}', 'PragmController@update')->name('pragmatognomosines.update');
 Route::get('ereunes', 'PragmController@create')->name('pragmatognomosines.create');
+Route::post('ereunes', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('ereunes/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
+Route::put('ereunes/{id}', 'PragmController@update')->name('pragmatognomosines.update');
 //Route::get('pragmatognomosines/{id}', 'PragmController@show')->name('pragmatognomosines.show');
 
 Route::get('diakrisis', 'DiakrisiController@create')->name('diakrisis.create');
@@ -20,6 +22,8 @@ Route::get('nomoi', 'NomoiController@create')->name('nomoi.create');
 Route::post('nomoi', 'NomoiController@store')->name('nomoi.store');
 Route::get('place', 'PlaceController@create')->name('accident_place.create');
 Route::post('place', 'PlaceController@store')->name('accident_place.store');
+Route::get('arxi', 'ArxiController@create')->name('arxi_eggrafon.create');
+Route::post('arxi', 'ArxiController@store')->name('arxi_eggrafon.store');
 /*Route::get('/pragmatognomosines', 'PragmController@create');
 Route::post('/pragmatognomosines', 'PragmController@store');
 Route::get('/pragmatognomosines/{id}', 'PragmController@edit');
