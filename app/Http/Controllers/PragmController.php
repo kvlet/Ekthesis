@@ -45,7 +45,7 @@ class PragmController extends Controller
     public function create()
     {
         $grafeia = Grafeio::all('id_grafeio', 'Name');
-        $nomoi = Nomos::all('id_nomoi', 'Nomos');
+        $nomoi = Nomos::where([['Mark_del','Όχι']])->get();
         if (\Request::is('pragmatognomosines')) {
             $diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
         }elseif (\Request::is('ereunes')){
@@ -154,7 +154,7 @@ class PragmController extends Controller
     public function edit($id_ekthesis)
     {
         $grafeia = Grafeio::all('id_grafeio', 'Name');
-        $nomoi = Nomos::all('id_nomoi', 'Nomos');
+        $nomoi = Nomos::where([['Mark_del','Όχι']])->get();
         $diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
         $accident_places=Accident_place::where('Mark_del', 'Όχι')->get();
         $arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del', 'Όχι')->get();

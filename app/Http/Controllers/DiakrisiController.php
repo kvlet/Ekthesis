@@ -15,7 +15,7 @@ class DiakrisiController extends Controller
 
     public function create(){
 
-        $diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
+        $diakrisis = Diakrisi::where([['Mark_del','Όχι']])->get();
 
         return view('diakrisis.create',compact('diakrisis'));
     }

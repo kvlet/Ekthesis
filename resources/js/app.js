@@ -32,5 +32,9 @@ $(document).ready(function(){
 
 });
 
+$(document).ready(function() {
+    $("#diakr_view").DataTable();
+});
+
 
 

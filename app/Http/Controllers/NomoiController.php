@@ -15,7 +15,7 @@ class NomoiController extends Controller
 
     public function create(){
 
-        $nomoi = Nomos::all('id_nomoi', 'Nomos');
+        $nomoi = Nomos::where([['Mark_del','Όχι']])->get();
 
         return view('nomoi.create',compact('nomoi'));
     }

@@ -53,6 +53,17 @@
         <a class="nav-link text-truncate" href="/manage_keimena"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Κείμενα</span></a>
     </li>
     <li class="nav-item">
+        <a class="nav-link collapsed text-truncate" href="#submenu6" data-toggle="collapse" data-target="#submenu6"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Βοηθητικά</span></a>
+        <div class="collapse" id="submenu6" aria-expanded="false">
+            <ul class="flex-column pl-2 nav">
+                <li class="nav-item"><a class="nav-link py-0" href="/diakrisis"><span>Τύπος Έκθεσης</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/nomoi"><span>Νομοί</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/place"><span>Τόπος Ατυχήματος</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/arxi"><span>Αρχή Εγγράφων</span></a></li>
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item">
         <a class="nav-link collapsed text-truncate" href="#submenu5" data-toggle="collapse" data-target="#submenu5"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Εκτυπώσεις</span></a>
         <div class="collapse" id="submenu5" aria-expanded="false">
             <ul class="flex-column pl-2 nav">

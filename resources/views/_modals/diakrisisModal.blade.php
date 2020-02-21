@@ -11,12 +11,12 @@
             </div>
             <div class="modal-body">
 
-                @include('diakrisis.create')
+                @include('diakrisis.formCreate')
 
                 <div class="container-fluid mt-4">
                     <div class="row">
                         <div class="col">
-                            <table class="table" id="diakr_view">
+                            <table class="display" id="diakr_view" style="width:100%">
                                 <thead>
                                 <tr>
                                     <th scope="col">Κωδικός</th>

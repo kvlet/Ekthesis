@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
 
-                @include('nomoi.create')
+                @include('nomoi.formCreate')
 
                 <div class="container-fluid mt-4">
                     <div class="row">
