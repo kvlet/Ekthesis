@@ -5,7 +5,7 @@
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col">
-                <table class="display" id="diakr_view" style="width:100%">
+                <table class="table table-hover" id="diakr_view" style="width:100%">
                     <thead>
                     <tr>
                         <th scope="col">Κωδικός</th>
