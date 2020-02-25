@@ -48,6 +48,6 @@
 @endsection
 
 @section('rmenu')
-    <p>Εδω τα κουμπια</p>
+   @include('rmenu')
 @endsection
 
