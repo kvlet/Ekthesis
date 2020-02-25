@@ -5,7 +5,7 @@
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col">
-                <table class="table" id="nomoi_view">
+                <table class="table table-hover" id="nomoi_view">
                     <thead>
                     <tr>
                         <th scope="col">Κωδικός</th>
