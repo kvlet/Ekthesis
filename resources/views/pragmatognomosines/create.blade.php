@@ -51,7 +51,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-label{{ $errors->has('newrecdiak') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
-                                                    <label class="form-control-label" for="newrecdiak">{{ __('Νέος Τύπος') }}</label>
+                                                    <label class="form-control-label" for="newrecdiak">{{ __(' Νέος Τύπος ') }} </label>
                                                     <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}" style="margin: auto">
                                                         {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
                                                         <button id="newrecdiak" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#diakrisisModal">

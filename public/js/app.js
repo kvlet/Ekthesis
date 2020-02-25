@@ -37098,6 +37098,25 @@ $(document).ready(function () {
     });
   });
 });
+$(document).ready(function () {
+  $('#create_nomoi_form').on('submit', function (e) {
+    e.preventDefault();
+    var id_nomoi = $("#id_nomoi").val();
+    var Nomos = $("#Nomos").val();
+    var Mark_del = $("#Mark_del").val();
+    window.axios.post('/nomoi', {
+      'id_nomoi': id_nomoi,
+      'Nomos': Nomos,
+      'Mark_del': Mark_del
+    }).then(function (response) {
+      var data = response.data;
+      var row = "<td>" + data.id_nomoi + "</td>" + "<td>" + data.Nomos + "</td>" + "<td>" + data.Mark_del + "</td>";
+      var rowElement = document.createElement("tr");
+      $('#create_nomoi_form table tbody').append(rowElement);
+      $('#create_nomoi_form table tbody').append(last('tr').html(row));
+    });
+  });
+});
 
 /***/ }),
 

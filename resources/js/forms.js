@@ -23,7 +23,35 @@ $(document).ready( function(){
 
             $('#create_diakrisis_form table tbody').append(last('tr').html(row));
 
-        })
-    })
+        });
+    });
 });
 
+$(document).ready( function(){
+    $('#create_nomoi_form').on('submit', function(e) {
+        e.preventDefault();
+        let id_nomoi = $("#id_nomoi").val();
+        let Nomos = $("#Nomos").val();
+        let Mark_del = $("#Mark_del").val();
+
+
+
+        window.axios.post('/nomoi', {
+            'id_nomoi' : id_nomoi,
+            'Nomos': Nomos,
+            'Mark_del': Mark_del
+        }).then(response => {
+
+            let data = response.data;
+
+            let  row = "<td>" + data.id_nomoi + "</td>" + "<td>" + data.Nomos + "</td>" + "<td>" + data.Mark_del + "</td>";
+
+            let rowElement = document.createElement("tr");
+
+            $('#create_nomoi_form table tbody').append(rowElement);
+
+            $('#create_nomoi_form table tbody').append(last('tr').html(row));
+
+        });
+    });
+});
