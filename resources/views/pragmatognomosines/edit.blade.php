@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_ekthesis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_ekthesis">{{ __('Αρ. Πρωτοκόλλου') }}</label>
                                                     <input type="text" name="id_ekthesis" id="id_ekthesis"
@@ -47,7 +47,7 @@
                                                     {{--                                                           value="{{ old('id_ekthesis') }}" disabled autofocus>--}}
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_diakrisi">{{ __('Τύπος Έκθεσης') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_diakrisi" name="id_diakrisi" required>
@@ -63,9 +63,22 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newrecdiak') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newrecdiak">{{ __(' Νέος Τύπος ') }} </label>
+                                                    <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
+                                                        <button id="newrecdiak" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#diakrisisModal">
+                                                            {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Prot_bibliou') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Prot_bibliou">{{ __('Αρ. Φακέλου') }}</label>
@@ -79,7 +92,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_grafeio') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_grafeio">{{ __('Γραφείο') }}<span style="color:red;font-weight:bold">*</span></label>
@@ -96,9 +109,12 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Date_atiximatos') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Date_atiximatos">{{ __('Ημ/νια Ατυχήματος') }}<span style="color:red;font-weight:bold">*</span></label>
@@ -120,7 +136,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_nomoi">{{ __('Νομός') }}<span style="color:red;font-weight:bold">*</span></label>
@@ -137,9 +153,22 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newrecnom') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newrecnom">{{ __('Νέος Νομός') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
+                                                        <button id="newrecnom" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#nomoiModal">
+                                                            {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Date_eksetasis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Date_eksetasis">{{ __('Ημ/νια Εξέτασης') }}</label>
@@ -161,7 +190,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_accedent_place') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_accedent_place">{{ __('Τόπος Εξέτασης') }}</label>
                                                     <select class="form-control form-select" id="id_accedent_place" name="id_accident_place">
@@ -177,9 +206,22 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newrecplace') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newrecplace">{{ __('Νέος Τόπος') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
+                                                        <button id="newrecplace" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#placeModal">
+                                                            {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Date_dikasimou') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Date_dikasimou">{{ __('Ημ/νια Δικάσιμου') }}</label>
@@ -201,7 +243,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_arxi_ekdosis_eggrafon">{{ __('Αρχή Εγγράφων') }}</label>
@@ -218,9 +260,22 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newrecarxi') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newrecarxi">{{ __('Νέα Αρχή') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_Arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
+                                                        <button id="newrecarxi" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#arxiModal">
+                                                            {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Date_paradosis') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Date_paradosis">{{ __('Ημ/νια Παράδοσης') }}
@@ -243,7 +298,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('File_position') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="File_position">{{ __('Θέση Αρχείων') }}</label>
@@ -254,7 +309,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Simpliromatiki') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Simpliromatiki">{{ __('Συμπληρωματική') }}</label>
@@ -269,7 +324,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('partially_lock') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="partially_lock">{{ __('Μερικό κλείδωμα') }}<span style="color:red;font-weight:bold">*</span></label>
@@ -286,7 +341,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Sap') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Sap">{{ __('Sap') }}</label>
@@ -301,7 +356,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('total_lock') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="total_lock">{{ __('Ολικό κλείδωμα') }}<span style="color:red;font-weight:bold">*</span></label>
@@ -318,7 +373,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Valid') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Valid">{{ __('Έγκυρη') }}</label>
@@ -357,7 +412,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_timologio_etaireias') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_timologio_etaireias">{{ __('Αρ. Τιμολογίου') }}</label>
@@ -366,9 +421,7 @@
                                                            value="{{ $pragmatognomosini->id_timologio_etaireias }}" disabled autofocus>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Ar_timologio_partner') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Ar_timologio_partner">{{ __('Αρ. Τιμολογίου Συνεργάτη') }}</label>
@@ -379,7 +432,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Ekkatharistike') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Ekkatharistike">{{ __('Εκκαθαρίστηκε') }}</label>
@@ -388,9 +441,7 @@
                                                            value="{{ $pragmatognomosini->Ekkatharistike }}" disabled autofocus>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id">{{ __('Πραγματογνώμονας') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id" name="id" required>
@@ -408,7 +459,20 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
+                                                <div class="form-label{{ $errors->has('Fpa') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="Fpa">{{ __('Φ.Π.Α.') }}</label>
+                                                    <input type="number" name="Fpa" id="Fpa" class="form-control form-input form-control-alternative{{ $errors->has('Fpa') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->Fpa }}" autofocus>
+                                                    @if ($errors->has('Fpa'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('Fpa') }}</strong>
+                                                            </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_company_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_company_pathon">{{ __('Εντολέας Ασφλιστική') }}<span style="color:red;font-weight:bold">*</span></label>
@@ -426,24 +490,20 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="form-label{{ $errors->has('Fpa') ? ' has-danger' : '' }}">
-                                                    <label class="form-control-label"
-                                                           for="Fpa">{{ __('Φ.Π.Α.') }}</label>
-                                                    <input type="number" name="Fpa" id="Fpa" class="form-control form-input form-control-alternative{{ $errors->has('Fpa') ? ' is-invalid' : '' }}"
-                                                           value="{{ $pragmatognomosini->Fpa }}" autofocus>
-                                                    @if ($errors->has('Fpa'))
-                                                        <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('Fpa') }}</strong>
-                                                            </span>
-                                                    @endif
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newreccomp') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newreccomp">{{ __('Νέα Εταιρεία') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_company') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compModal">
+
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Ekpt_parts') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="Ekpt_parts">{{ __('Έκπτωση ανταλλακτικών') }}</label>
                                                     <input type="number" name="Ekpt_parts" id="Ekpt_parts"
@@ -456,9 +516,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label {{$errors->has('Ekpt_jobs') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="Ekpt_jobs">{{ __('Έκτπωση Εργασιών') }}</label>
                                                     <input type="number" name="Ekpt_jobs" id="Ekpt_jobs"
@@ -493,7 +551,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-4">
                                                 <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_pathon">{{ __('Παθών') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_pathon" name="id_pathon" required>
@@ -510,9 +568,18 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newrecperson') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newrecperson">{{ __('Νέος Παθών') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        <button id="newrecperson" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#personModal">
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
                                                 <div class="form-label{{ $errors->has('id_oximatos_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_oximatos_pathon">{{ __('Αρ. Κυκλοφορίας') }}</label>
@@ -530,9 +597,20 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newrecoxima') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newrecoxima">{{ __('Νέο Όχημα') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_oximatos_pathon') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        <button id="newrecoxima" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#oximaModal">
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-4">
                                                 <div class="form-label {{$errors->has('Object') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="Object">{{ __('Αντικείμενο') }}</label>
                                                     <input type="text" name="Object" id="Object"
@@ -545,9 +623,10 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-2">
+
+                                            </div>
+                                            <div class="col-md-4">
                                                 <div class="form-label{{ $errors->has('id_company_pathon_real') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_company_pathon_real">{{ __('Ασφλιστική') }}</label>
@@ -565,9 +644,20 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newreccomp') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newreccomp">{{ __('Νέα Εταιρεία') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_company_pathon_real') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compModal">
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-4">
                                                 <div class="form-label {{$errors->has('Entoleas') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Entoleas">{{ __('Εντολέας') }}</label>
@@ -581,9 +671,10 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-2">
+
+                                            </div>
+                                            <div class="col-md-4">
                                                 <div class="form-label {{$errors->has('Xiliometra') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Xiliometra">{{ __('Χιλιόμετρα') }}</label>
@@ -599,7 +690,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-4">
                                                 <div class="form-label {{$errors->has('value_car_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="value_car_pathon">{{ __('Εμπορική Αξία') }}</label>
@@ -613,9 +704,10 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-2">
+
+                                            </div>
+                                            <div class="col-md-4">
                                                 <div class="form-label {{$errors->has('driver_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="driver_pathon">{{ __('Οδηγός') }}</label>
@@ -648,7 +740,7 @@
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="row">
-                                                                <div class="col">
+                                                                <div class="col-md-4">
                                                                     <div class="form-label{{ $errors->has('id_ypaitiou') ? ' has-danger' : '' }}">
                                                                         <label class="form-control-label" for="id_ypaitiou">{{ __('Υπαίτιος') }}</label>
                                                                         <select class="form-control form-select" id="id_ypaitiou" name="id_ypaitiou">
@@ -665,9 +757,18 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col">
+                                                                <div class="col-md-2">
+                                                                    <div class="form-label{{ $errors->has('newrecperson') ? ' has-danger' : '' }}">
+                                                                        <!-- Button trigger modal -->
+                                                                        <label class="form-control-label" for="newrecperson">{{ __('Νέος Υπαίτιος') }}</label>
+                                                                        <div class="form-label{{ $errors->has('id_ypaitiou') ? ' has-danger' : '' }}" style="margin: auto">
+                                                                            <button id="newrecperson" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#personModal">
+
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
                                                                     <div class="form-label{{ $errors->has('id_oximatos_ypaitiou') ? ' has-danger' : '' }}">
                                                                         <label class="form-control-label"
                                                                                for="id_oximatos_ypaitiou">{{ __('Αρ. Κυκλοφορίας') }}</label>
@@ -685,9 +786,20 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-md-2">
+                                                                    <div class="form-label{{ $errors->has('newrecoxima') ? ' has-danger' : '' }}">
+                                                                        <!-- Button trigger modal -->
+                                                                        <label class="form-control-label" for="newrecoxima">{{ __('Νέο Όχημα') }}</label>
+                                                                        <div class="form-label{{ $errors->has('id_oximatos_ypaitiou') ? ' has-danger' : '' }}" style="margin: auto">
+                                                                            <button id="newrecoxima" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#oximaModal">
+
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col">
+                                                                <div class="col-md-4">
                                                                     <div class="form-label{{ $errors->has('id_company_ypaitiou') ? ' has-danger' : '' }}">
                                                                         <label class="form-control-label"
                                                                                for="id_company_ypaitiou">{{ __('Ασφλιστική') }}</label>
@@ -705,9 +817,18 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col">
+                                                                <div class="col-md-2">
+                                                                    <div class="form-label{{ $errors->has('newreccomp') ? ' has-danger' : '' }}">
+                                                                        <!-- Button trigger modal -->
+                                                                        <label class="form-control-label" for="newreccomp">{{ __('Νέα Εταιρεία') }}</label>
+                                                                        <div class="form-label{{ $errors->has('id_company_ypaitiou') ? ' has-danger' : '' }}" style="margin: auto">
+                                                                            <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compModal">
+
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
                                                                     <div class="form-label {{$errors->has('Driver_ypaitiou') ? ' has-danger' : '' }}">
                                                                         <label class="form-control-label"
                                                                                for="Driver_ypaitiou">{{ __('Οδηγός') }}</label>
@@ -771,6 +892,10 @@
             @include('rmenu')
         </div>
     </div>
+    @include('_modals.diakrisisModal', [ 'diakrisis' => $diakrisis])
+    @include('_modals.nomoiModal',['nomoi'=>$nomoi])
+    @include('_modals.placeModal',['place'=> $accident_places])
+    @include('_modals.arxiModal',['arxi'=> $arxes_ekdosis_eggrafon])
 
 
 @endsection

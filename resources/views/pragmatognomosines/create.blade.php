@@ -368,7 +368,6 @@
                                             <div class="col">
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

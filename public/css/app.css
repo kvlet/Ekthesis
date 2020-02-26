@@ -11494,6 +11494,18 @@ input[type=date] {
   size: 10px;
 }
 
+.card-header-cust-rmenu {
+  padding: 0.3rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  background-color: #12128d;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-header-cust-rmenu .text-muted {
+  color: #f5f8ff !important;
+}
+
 body {
   position: relative;
   padding: 0px;
