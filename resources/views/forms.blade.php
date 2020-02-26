@@ -47,7 +47,4 @@
     </ul>
 @endsection
 
-@section('rmenu')
-   @include('rmenu')
-@endsection
 

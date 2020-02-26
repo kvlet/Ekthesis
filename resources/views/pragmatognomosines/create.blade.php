@@ -7,7 +7,7 @@
 				<a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab" aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
 			</div>
 		</div>
-		<div class="col-10">
+		<div class="col-8">
 			<div class="tab-content" id="v-pills-tabContent">
 				<div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel"
 					 aria-labelledby="v-pills-genika-tab">
@@ -391,7 +391,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_timologio_etaireias') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_timologio_etaireias">{{ __('Αρ. Τιμολογίου') }}</label>
@@ -402,7 +402,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Ar_timologio_partner') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Ar_timologio_partner">{{ __('Αρ. Τιμολογίου Συνεργάτη') }}</label>
@@ -413,7 +413,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('Ekkatharistike') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Ekkatharistike">{{ __('Εκκαθαρίστηκε') }}</label>
@@ -424,7 +424,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id">{{ __('Πραγματογνώμονας') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id" name="id"  required>
@@ -442,7 +442,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_company_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_company_pathon">{{ __('Εντολέας Ασφλιστική') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_company_pathon" name="id_company_pathon"  required>
@@ -457,6 +457,17 @@
                                                                 <strong>{{ $errors->first('id_company_pathon') }}</strong>
                                                         </span>
                                                     @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-label{{ $errors->has('newreccomp') ? ' has-danger' : '' }}">
+                                                    <!-- Button trigger modal -->
+                                                    <label class="form-control-label" for="newreccomp">{{ __('Νέα Εταιρεία') }}</label>
+                                                    <div class="form-label{{ $errors->has('id_company') ? ' has-danger' : '' }}" style="margin: auto">
+                                                        <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compModal">
+
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -783,8 +794,15 @@
 				</div>
 			</div>
 		</div>
+        <div class="col-2" id="rmenu">
+            @include('rmenu')
+        </div>
 	</div>
+
 @include('_modals.diakrisisModal', [ 'diakrisis' => $diakrisis])
+@include('_modals.nomoiModal',['nomoi'=>$nomoi])
+@include('_modals.placeModal',['place'=> $accident_places])
+@include('_modals.arxiModal',['arxi'=> $arxes_ekdosis_eggrafon])
 
 @endsection
 

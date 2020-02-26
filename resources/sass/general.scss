@@ -74,4 +74,15 @@ input[type=date] {
     background-repeat: no-repeat;
     size: 10px;
 }
+.card-header-cust-rmenu {
+    padding: 0.5rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    background-color: #12128d;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 
+    .text-muted {
+        color: #f5f8ff !important;
+
+    }
+}

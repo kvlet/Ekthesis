@@ -74,12 +74,12 @@
                 <div class="col-md-2 d-none d-md-block p-1" id="lmenu">
                     @yield('lmenu')
                 </div>
-                <div class="col-md-8 d-none d-md-block p-2">
+                <div class="col-md-10 d-none d-md-block p-2">
                     @yield('forms')
                 </div>
-                <div class="col-md-2 d-none d-md-block p-1" id="rmenu">
+{{--                <div class="col-md-2 d-none d-md-block p-1" id="rmenu">
                     @yield('rmenu')
-                </div>
+                </div>--}}
             </div>
         </div>
     </main>
