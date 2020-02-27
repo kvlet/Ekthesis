@@ -892,10 +892,12 @@
             @include('rmenu')
         </div>
     </div>
+
     @include('_modals.diakrisisModal', [ 'diakrisis' => $diakrisis])
     @include('_modals.nomoiModal',['nomoi'=>$nomoi])
     @include('_modals.placeModal',['place'=> $accident_places])
     @include('_modals.arxiModal',['arxi'=> $arxes_ekdosis_eggrafon])
+    @include('_modals.compModal',['company'=> $company])
 
 
 @endsection

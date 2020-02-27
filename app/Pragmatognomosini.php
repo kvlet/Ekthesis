@@ -67,7 +67,13 @@ class Pragmatognomosini extends Model
         return $this->hasOne(Accident_place::class);
     }
 
-    public function company(){
+    public function company_ypaitiou(){
+        return $this->hasOne(Company::class);
+    }
+    public function company_pathon_real(){
+        return $this->hasOne(Company::class);
+    }
+    public function company_pathon(){
         return $this->hasOne(Company::class);
     }
 
