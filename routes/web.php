@@ -28,6 +28,8 @@ Route::get('arxi', 'ArxiController@create')->name('arxi_eggrafon.create');
 Route::post('arxi', 'ArxiController@store')->name('arxi_eggrafon.store');
 Route::get('company', 'CompanyController@create')->name('company.create');
 Route::post('company', 'CompanyController@store')->name('company.store');
+Route::get('company/{id}', 'CompanyController@edit')->name('company.edit');
+Route::put('company/{id}', 'CompanyController@update')->name('company.update');
 // end routes for look up tables
 
 /*Route::get('/pragmatognomosines', 'PragmController@create');

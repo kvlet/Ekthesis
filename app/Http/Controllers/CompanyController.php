@@ -17,9 +17,42 @@ class CompanyController extends Controller
 
         return view('company.create');
     }
-
+    /**
+     * @param CompanyRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(CompanyRequest $request){
 
         $company = new Company();
+        $request->Flag='2';
+        $request->Mark_del='Όχι';
+
+        $company->comp_name = $request->comp_name;
+        $company->afm = $request->afm;
+        $company->address = $request->address;
+        $company->tk = $request->tk;
+        $company->Fax = $request->Fax;
+        $company->Email = $request->Email;
+
+        $company->save();
+
+        return redirect('company/'.$company->id_company);
+    }
+
+    public function edit($id_company){
+
+        $company = Company::find(id_company);
+        return view('company.edit');
+
+    }
+
+    public function update(Request $request, $id_company)
+    {
+        $company = Company::find($id_company);
+
+        $company = $request->all();
+        $company->update();
+
+        return redirect('company/'.$company->$id_company);
     }
 }
