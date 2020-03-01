@@ -1,7 +1,7 @@
 @extends('forms')
 
 @section('formsdetails')
-    <form id="create_company_form" method="post" action="{{'company.store'}}" autocomplete="off">
+    <form id="create_company_form" method="post" action="{{ 'company.store'}}" autocomplete="off">
         @csrf
         <div class="row">
             <div class="col-md-12">
@@ -15,10 +15,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('id_company') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="id_company">{{ __('Κωδικός') }} <span style="color:red;font-weight:bold">*</span></label>
+                                    <label class="form-control-label" for="id_company">{{ __('Κωδικός') }} </label>
                                     <input type="text" name="id_company" id="id_company"
                                            class="form-control form-input form-control-alternative{{ $errors->has('id_company') ? ' is-invalid' : '' }}"
-                                           value="{{ old('id_company') }}" autofocus disabled>
+                                           value="{{ old('id_company') }}"   autofocus>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -90,30 +90,21 @@
                                 </div>
                             </div>
                         </div>
-{{--                        <div class="row mt-4">
-                            <div class="col d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Αποθήκευση</button>
-                            </div>
-                        </div>--}}
                         <div class="row">
                             <div class="col">
                                 <hr>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="text-center">
-{{--                                    <button type="submit" class="btn btn-danger mt-4" src="/images/save2.png"
-                                            style="margin: 4px">{{ __('Καταχώρηση') }}
-                                    </button>--}}
-                                        <input type="image" width="50" value="submit" src="/images/add_rec.jpg" alt="Καταχώρηση" > {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'"--}}
-                                </div>
+                        <div class="row mt-4">
+                            <div class="col d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        @include('errors')
     </form>
 @endsection
 

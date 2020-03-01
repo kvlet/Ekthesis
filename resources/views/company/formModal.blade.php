@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-label{{ $errors->has('id_company') ? ' has-danger' : '' }}">
-                            <label class="form-control-label" for="id_company">{{ __('Κωδικός') }} <span style="color:red;font-weight:bold">*</span></label>
+                            <label class="form-control-label" for="id_company">{{ __('Κωδικός') }} </label>
                             <input type="text" name="id_company" id="id_company"
                                    class="form-control form-input form-control-alternative{{ $errors->has('id_company') ? ' is-invalid' : '' }}"
                                    value="{{ old('id_company') }}" autofocus disabled>

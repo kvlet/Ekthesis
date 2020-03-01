@@ -67,7 +67,9 @@
                     <a class="btn btn-sm btn-primary" style="margin: 4px" href="{{ url('/logout') }}"> Αποσύνδεση </a>
                 </div>
                 <div class="col-md-1 d-none d-md-block p-1">
-                    @yield('onoffrmenu')
+                    @if ((\Request::is('pragmatognomosines') ||  (\Request::is('ereunes'))))
+                        @yield('onoffrmenu')
+                    @endif
                 </div>
             </div>
             <div class="row">

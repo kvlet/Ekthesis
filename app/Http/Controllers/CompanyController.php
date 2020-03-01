@@ -22,6 +22,7 @@ class CompanyController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(CompanyRequest $request){
+        dd($request);
 
         $company = new Company();
         $request->Flag='2';
@@ -33,6 +34,8 @@ class CompanyController extends Controller
         $company->tk = $request->tk;
         $company->Fax = $request->Fax;
         $company->Email = $request->Email;
+        $company->Flag = $request->Flag;
+        $company->Mark_del = $request->Mark_del;
 
         $company->save();
 
@@ -41,7 +44,7 @@ class CompanyController extends Controller
 
     public function edit($id_company){
 
-        $company = Company::find(id_company);
+        $company = Company::find($id_company);
         return view('company.edit');
 
     }

@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
 
-                @include('diakrisis.formCreate')
+                @include('diakrisis.formModal')
 
                 <div class="container-fluid mt-4">
                     <div class="row">

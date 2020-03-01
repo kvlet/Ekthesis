@@ -823,12 +823,17 @@
                                                                     <hr>
                                                                 </div>
                                                             </div>
-                                                            <div class="row">
+{{--                                                            <div class="row">
                                                                 <div class="col">
                                                                     <div class="text-center">
 
-                                                                        <input type="image" width="50" value="submit" src="/images/add_rec.jpg" alt="Καταχώρηση" > {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
+                                                                        <input type="image" width="50" value="submit" src="/images/add_rec.jpg" alt="Καταχώρηση" > --}}{{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}{{--
                                                                     </div>
+                                                                </div>
+                                                            </div>--}}
+                                                            <div class="row mt-4">
+                                                                <div class="col d-flex justify-content-end">
+                                                                    <button type="submit" class="btn btn-primary">Καταχώρηση</button>
                                                                 </div>
                                                             </div>
                                                         </div>

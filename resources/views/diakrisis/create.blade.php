@@ -1,7 +1,7 @@
 @extends('forms')
 
 @section('formsdetails')
-    @include('diakrisis.formCreate')
+    @include('diakrisis.formModal')
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col">

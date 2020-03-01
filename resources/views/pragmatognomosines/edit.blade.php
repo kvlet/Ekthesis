@@ -854,11 +854,14 @@
                                                                         <a href="{{ route('pragmatognomosines.store') }}"><img width="50" src="/images/add_rec.jpg" /></a> {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
                                                                     </div>
                                                                 </div>
-                                                                <div class="col">
+{{--                                                                <div class="col">
                                                                     <div class="text-center">
-                                                                        <input type="image" width="50" value="submit" src="/images/save.png" alt="Καταχώρηση" > {{-- onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
+                                                                        <input type="image" width="50" value="submit" src="/images/save.png" alt="Καταχώρηση" > --}}{{-- onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}{{--
                                                                     </div>
-                                                                </div>
+                                                                </div>--}}
+                                                                    <div class="col d-flex justify-content-end">
+                                                                        <button type="submit" class="btn btn-primary">Αποθήκευση</button>
+                                                                    </div>
                                                             </div>
                                                         </div>
                                                     </div>
