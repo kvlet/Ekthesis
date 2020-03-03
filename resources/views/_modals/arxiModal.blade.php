@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
 
-                @include('arxi_eggrafon.formCreate')
+                @include('arxi_eggrafon.formModal')
 
                 <div class="container-fluid mt-4">
                     <div class="row">

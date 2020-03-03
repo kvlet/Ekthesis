@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
 
-                @include('accident_place.formCreate')
+                @include('accident_place.formModal')
 
                 <div class="container-fluid mt-4">
                     <div class="row">
