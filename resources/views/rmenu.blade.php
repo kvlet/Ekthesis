@@ -17,7 +17,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <a class="btn btn-sm btn-warning" style="margin: 4px" href="#"> Αίτηση Δικογραφίας </a>
+                        <button id="aitisiDik" type="button" class=" btn btn-sm btn-warning" data-toggle="modal" data-target="#aitisiDikModal">
+                            Αίτηση Δικογραφίας
+                        </button>
+{{--                        <a class="btn btn-sm btn-warning" style="margin: 4px" href="#"> Αίτηση Δικογραφίας </a>--}}
                     </div>
                     <div class="col-md-12">
                         <a class="btn btn-sm btn-warning" style="margin: 4px" href="#"> Αίτηση Εισαγγελίας </a>
@@ -82,5 +85,6 @@
             </div>
         </div>
     </div>
+    @include('_modals.aitisiDik')
 </div>
 
