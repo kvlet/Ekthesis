@@ -18,7 +18,7 @@
                                     <label class="form-control-label" for="id_company">{{ __('Κωδικός') }} </label>
                                     <input type="text" name="id_company" id="id_company"
                                            class="form-control form-input form-control-alternative{{ $errors->has('id_company') ? ' is-invalid' : '' }}"
-                                           value="{{ old('id_company') }}"   autofocus>
+                                           value="{{ old('id_company') }}"   autofocus disabled>
                                 </div>
                             </div>
                             <div class="col-md-6">
