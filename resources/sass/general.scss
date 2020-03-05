@@ -85,4 +85,17 @@ input[type=date] {
         color: #f5f8ff !important;
 
     }
+.input-ait-dik{
+/*        -webkit-box-shadow: none;
+        ////border-color: Transparent;
+        //overflow: auto;
+        outline:none;*/
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    }
+ .no-outline:focus {
+        outline: none;
+    }
 }

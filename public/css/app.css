@@ -11506,6 +11506,21 @@ input[type=date] {
   color: #f5f8ff !important;
 }
 
+.card-header-cust-rmenu .input-ait-dik {
+  /*        -webkit-box-shadow: none;
+          ////border-color: Transparent;
+          //overflow: auto;
+          outline:none;*/
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+}
+
+.card-header-cust-rmenu .no-outline:focus {
+  outline: none;
+}
+
 body {
   position: relative;
   padding: 0px;

@@ -85,6 +85,6 @@
             </div>
         </div>
     </div>
-    @include('_modals.aitisiDik')
+    @include('_modals.aitisiDikModal')
 </div>
 
