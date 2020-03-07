@@ -9,7 +9,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <a class="btn btn-sm btn-warning" style="margin: 4px" href="#"> Έκθεση Ζημιών </a>
+                        <a class="btn btn-sm btn-warning" style="margin: 4px" href="/pdf"> Έκθεση Ζημιών </a>
                     </div>
                     <div class="col-md-12">
                         <a class="btn btn-sm btn-warning" style="margin: 4px" href="#"> Έκθεση Κειμένου </a>

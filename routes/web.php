@@ -17,6 +17,11 @@ Route::put('ereunes/{id}', 'PragmController@update')->name('pragmatognomosines.u
 //Route::get('pragmatognomosines/{id}', 'PragmController@show')->name('pragmatognomosines.show');
 // end routes for pragmatognomisines
 
+// Route for pdf
+Route::get('pdf', 'PdfReportController@generate_pdf')->name('pdf.generate_pdf');
+// end Route for pdf
+
+
 // routes for look up tables
 Route::get('diakrisis', 'DiakrisiController@create')->name('diakrisis.create');
 Route::post('diakrisis', 'DiakrisiController@store')->name('diakrisis.store');
