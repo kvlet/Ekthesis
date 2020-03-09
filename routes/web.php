@@ -18,7 +18,7 @@ Route::put('ereunes/{id}', 'PragmController@update')->name('pragmatognomosines.u
 // end routes for pragmatognomisines
 
 // Route for pdf
-Route::get('pdf', 'PdfReportController@generate_pdf')->name('pdf.generate_pdf');
+Route::get('pdf/aitisiDikografias', 'PdfReportController@aitisiDikografias_pdf')->name('pdf.aitisiDikografias_pdf');
 // end Route for pdf
 
 

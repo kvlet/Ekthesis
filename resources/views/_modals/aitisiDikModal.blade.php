@@ -4,9 +4,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title text-center w-100" id="aitisiDikModal"> Αίτηση Δικογραφίας</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+{{--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                </button>--}}
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -59,14 +59,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="printdoc()">Εκτύπωση</button>
-                <script>
-                    function printdoc() {
-                        $mpdf = new vendor.mpdf.mpdf.Mpdf();
-                        $mpdf=>output();
-                    }
-                </script>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Κλείσιμο</button>
+{{--                <button type="button" class="btn btn-primary" data-dismiss="modal">Εκτύπωση</button>--}}
+                <a class="btn btn-primary" style="margin: 4px" target="_blank" href="/pdf/aitisiDikografias"> Εκτύπωση </a>
+{{--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Κλείσιμο</button>--}}
             </div>
         </div>
     </div>
