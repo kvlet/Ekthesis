@@ -37078,7 +37078,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  $('#create_diakrisis_form').on('submit', function (e) {
+  var row_number = 1;
+  $('#addRow').on('submit', function (e) {
     e.preventDefault();
     var id_diakrisis = $("#id_diakrisis").val();
     var Diakrisi = $("#Diakrisi").val();

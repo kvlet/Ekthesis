@@ -1,5 +1,6 @@
 $(document).ready( function(){
-    $('#create_diakrisis_form').on('submit', function(e) {
+    let row_number = 1;
+    $('#addRow').on('submit', function(e) {
         e.preventDefault();
         let id_diakrisis = $("#id_diakrisis").val();
         let Diakrisi = $("#Diakrisi").val();

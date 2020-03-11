@@ -12,7 +12,7 @@ class PdfReportController extends Controller
         $data = [
             'foo' => 'bar'
         ];
-        $pdf = PDF::loadView('_modals.aitisiDikModal', ['foo'=>'bar'],[],['title' => 'Αίτηση Δικογραφίας',
+        $pdf = PDF::loadView('_modals.aitisiDikModal', $data,[],['title' => 'Αίτηση Δικογραφίας',
             'margin_top' => 0]);
         return $pdf->stream('Αίτηση Δικογραφίας.pdf');
     }

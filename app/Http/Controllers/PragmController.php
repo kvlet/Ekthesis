@@ -17,6 +17,7 @@ use App\Http\Requests\PragmRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Filesystem\Filesystem;
 use \Carbon\Carbon;
+use File;
 
 
 /**
@@ -184,6 +185,13 @@ class PragmController extends Controller
         }else{
             $pragmatognomosini->File_position = 'oximata\\'.'object'.'\\'.$pragmatognomosini->id_ekthesis;
         }
+        // create folder
+        $dir='X:'.'\\'.$pragmatognomosini->File_position;
+        if( is_dir($dir) === false )
+        {
+            File::makeDirectory($dir,$mode = 0777, true, true);
+        }
+        //end create folder
         $pragmatognomosini->update();
         //end calculate file position
 

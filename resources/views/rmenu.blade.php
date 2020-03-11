@@ -79,7 +79,16 @@
                         <a class="btn btn-sm btn-primary" style="margin: 4px" href="#"> Εκθέσεις Φακέλου </a>
                     </div>
                     <div class="col-md-12">
-                        <a class="btn btn-sm btn-primary" style="margin: 4px" href="#"> Αρχεία Έκθεσεις </a>
+{{--                        <button type="button" class="btn btn-sm btn-primary" onclick="openFolder()">Αρχεία Έκθεσεις</button>
+
+                        <script type="text/javascript">
+                            function openFolder() {
+                                var path = document.getElementById("dir");
+                                exec("EXPLORER /E,path");
+                            }
+                        </script>--}}
+{{--                        <input type="text"  value="{{ 'X:'.'\\'.$pragmatognomosini->File_position }}" id="dir">--}}
+                        <a class="btn btn-sm btn-primary" style="margin: 4px" href="{{ 'X:'.'\\'.$pragmatognomosini->File_position }}" target="_explorer.exe"> Αρχεία Έκθεσεις </a>
                     </div>
                 </div>
             </div>
