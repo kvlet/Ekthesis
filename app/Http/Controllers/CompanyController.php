@@ -21,7 +21,7 @@ class CompanyController extends Controller
      * @param CompanyRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(CompanyRequest $request){
+    public function store(Request $request){
         dd($request);
 
         $company = new Company();
