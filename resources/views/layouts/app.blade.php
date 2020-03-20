@@ -73,22 +73,17 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2 d-none d-md-block p-1" id="lmenu">
-                    @yield('lmenu')
-                </div>
-                <div class="col-md-10 d-none d-md-block p-2">
-                    @yield('forms')
-                </div>
-{{--                <div class="col-md-2 d-none d-md-block p-1" id="rmenu">
-                    @yield('rmenu')
-                </div>--}}
+                    <div class="col-md-2 d-none d-md-block p-1 flex-item" id="lmenu">
+                        @yield('lmenu')
+                    </div>
+                    <div class="col-md-10 d-none d-md-block p-2 flex-item">
+                        @yield('forms')
+                    </div>
             </div>
         </div>
     </main>
-
     <div class="footer">
         @yield('footer')
     </div>
-
 </body>
 </html>

@@ -2,10 +2,10 @@ $(document).ready( function(){
     let row_number = 1;
     $('#addRow').on('submit', function(e) {
         e.preventDefault();
-        let id_diakrisis = $("#id_diakrisis").val();
-        let Diakrisi = $("#Diakrisi").val();
-        let Mark_del = $("#Mark_del").val();
-        let Group_diakr = $("#Group_diakr").val();
+         let id_diakrisis = $("#id_diakrisis").val();
+         let Diakrisi = $("#Diakrisi").val();
+         let Mark_del = $("#Mark_del").val();
+         let Group_diakr = $("#Group_diakr").val();
 
         window.axios.post('/diakrisis', {
             'id_diakrisi' : id_diakrisis,
