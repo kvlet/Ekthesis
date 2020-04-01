@@ -7,7 +7,7 @@
 				<a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab" aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
 			</div>
 		</div>
-		<div class="col-9">
+		<div class="col-10">
 			<div class="tab-content" id="v-pills-tabContent">
 				<div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel" aria-labelledby="v-pills-genika-tab">
                     <form method="post" action="{{ route('pragmatognomosines.store') }}" autocomplete="off">

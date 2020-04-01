@@ -72,11 +72,11 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                    <div class="col-md-2 d-none d-md-block p-1 flex-item" id="lmenu">
+            <div class="row flex-container">
+                    <div class="col-md-2 d-none d-md-block p-1 flex-item flex-item-grow1" id="lmenu">
                         @yield('lmenu')
                     </div>
-                    <div class="col-md-10 d-none d-md-block p-2 flex-item">
+                    <div class="col-md-10 d-none d-md-block p-2 flex-item flex-item-grow2">
                         @yield('forms')
                     </div>
             </div>

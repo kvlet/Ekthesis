@@ -99,11 +99,32 @@ input[type=date] {
         outline: none;
     }
 }
-.container{
+.flex-container {
+    /* We first create a flex layout context */
     display: flex;
+
+    /* Then we define the flow direction
+       and if we allow the items to wrap
+     * Remember this is the same as:
+     * flex-direction: row;
+     * flex-wrap: wrap;
+     */
+    flex-flow: row wrap;
+
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
-.flex-item:nth-of-type(1) { flex-grow: 1; }
-.flex-item:nth-of-type(2) { flex-grow: 2; }
-.flex-item:nth-of-type(3) { flex-grow: 1; }
-.flex-item:nth-of-type(4) { flex-grow: 1; }
-.flex-item:nth-of-type(5) { flex-grow: 1; }
+.flex-item-grow1{
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0;
+}
+.flex-item-grow2{
+    flex-grow: 2;
+    flex-shrink: 2;
+    padding: 0;
+}
