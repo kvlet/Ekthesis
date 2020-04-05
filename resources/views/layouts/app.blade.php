@@ -19,6 +19,9 @@
 {{--    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>--}}
 {{--    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>--}}
 {{--    <script src="assets/js/moment.js"></script>--}}
+{{--    editor--}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+{{--    editor--}}
 
 {{--    Styles--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -30,8 +33,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap&subset=greek" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:500&display=swap" rel="stylesheet">
-
-
+{{--    editor--}}
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+{{--    end editor--}}
 </head>
 
 <body class="welcome-layout">
