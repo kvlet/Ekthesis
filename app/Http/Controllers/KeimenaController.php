@@ -45,12 +45,12 @@ class KeimenaController extends Controller
 
         $keimena->update();
 
-        return view('keimena.edit');
+        return view('keimena.edit',compact(['keimena']));
     }
 
-    public function update(Request $request,$id_keimena){
+    public function update(KeimenaRequest $request,$id_keimena){
         $keimena = Keimena::find($id_keimena);
-        $keimena = $request->all();
+        $keimena = $request->all()->get();
         $keimena->update();
         return redirect('manage_keimena/'.$keimena->id_keimena);
     }
