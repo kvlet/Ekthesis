@@ -35,6 +35,10 @@ Route::get('company', 'CompanyController@create')->name('company.create');
 Route::post('company', 'CompanyController@store')->name('company.store');
 Route::get('company/{id}', 'CompanyController@edit')->name('company.edit');
 Route::put('company/{id}', 'CompanyController@update')->name('company.update');
+Route::get('manage_keimena', 'KeimenaController@create')->name('keimena.create');
+Route::post('manage_keimena', 'KeimenaController@store')->name('keimena.store');
+Route::get('manage_keimena/{id}', 'KeimenaController@edit')->name('keimena.edit');
+Route::put('manage_keimena/{id}', 'KeimenaController@update')->name('keimena.update' );
 // end routes for look up tables
 
 /*Route::get('/pragmatognomosines', 'PragmController@create');

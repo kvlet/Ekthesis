@@ -11,4 +11,8 @@ class Keimena extends Model
     public $timestamps = false;
     protected $primaryKey = 'id_keimena';
 
+    public function pragmatognomosini()
+    {
+        return $this->belongsToMany(Pragmatognomosini::class);
+    }
 }
