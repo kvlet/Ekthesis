@@ -21,7 +21,7 @@ class KeimenaController extends Controller
         return view('keimena.create',compact('keimena'));
     }
 
-    public function store(Request $request){
+    public function store(KeimenaRequest $request){
 
         $keimena = new Keimena();
 
