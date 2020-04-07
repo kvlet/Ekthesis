@@ -49,7 +49,7 @@ class Pragmatognomosini extends Model
         return $this->hasOne(Grafeio::class);
     }
 
-    public function nomooi()
+    public function nomoi()
     {
         return $this->hasOne(Nomos::class);
     }
@@ -91,5 +91,9 @@ class Pragmatognomosini extends Model
 
     public function oxima_ypatiou(){
         return $this->hasOne(Oxima::class);
+    }
+
+    public function keimena(){
+        return $this->hasMany(Keimena::class);
     }
 }

@@ -148,8 +148,11 @@ class PragmController extends Controller
 
         $pragmatognomosini->save();
 
-
-        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        if (\Request::is('ereunes')){
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        }else{
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        }
     }
 
     public function edit($id_ekthesis)
@@ -169,6 +172,7 @@ class PragmController extends Controller
         $companies = Company::where('Mark_del', 'Όχι')->get();
         $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
         $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+        $keimena = Keimena::where('Mark_del', 'Όχι')->get();
 
         $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
 
@@ -241,7 +245,8 @@ class PragmController extends Controller
             'pragmatognomones',
             'companies',
             'pathontes',
-            'oximata_pathon']));
+            'oximata_pathon',
+            'keimena']));
     }
 
     public function update(Request $request, $id_ekthesis)
