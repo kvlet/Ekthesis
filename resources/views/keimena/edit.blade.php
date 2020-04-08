@@ -55,7 +55,6 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <textarea id="Note" name="Note">
-<!--                                    --><?php //if(isset($_POST['froala_editor_keimena'])) {  echo htmlentities ($_POST['froala_editor_keimena']); }?>
                                     {{ $keimena->Note }}
                                 </textarea>
                                 <script>

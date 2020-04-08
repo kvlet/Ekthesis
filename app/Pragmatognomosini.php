@@ -94,6 +94,6 @@ class Pragmatognomosini extends Model
     }
 
     public function keimena(){
-        return $this->hasMany(Keimena::class);
+        return $this->belongsToMany(Keimena::class);
     }
 }

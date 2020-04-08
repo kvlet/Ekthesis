@@ -7,6 +7,7 @@ use App\Arxi_ekdosis_eggrafon;
 use App\Company;
 use App\Diakrisi;
 use App\Grafeio;
+use App\Keimena;
 use App\Nomos;
 use App\Oxima;
 use App\Person;
@@ -172,7 +173,7 @@ class PragmController extends Controller
         $companies = Company::where('Mark_del', 'Όχι')->get();
         $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
         $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
-        $keimena = Keimena::where('Mark_del', 'Όχι')->get();
+        $keimena = Keimena::where([['Mark_del','Όχι']])->get();
 
         $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
 

@@ -88,7 +88,7 @@
                             }
                         </script>--}}
 {{--                        <input type="text"  value="{{ 'X:'.'\\'.$pragmatognomosini->File_position }}" id="dir">--}}
-                        <a class="btn btn-sm btn-primary" style="margin: 4px" href="{{ 'X:'.'\\'.$pragmatognomosini->File_position }}" target="_explorer.exe"> Αρχεία Έκθεσεις </a>
+{{--                        <a class="btn btn-sm btn-primary" style="margin: 4px" href="{{ 'X:'.'\\'.$pragmatognomosini->File_position }}" target="_explorer.exe"> Αρχεία Έκθεσεις </a>--}}
                     </div>
                 </div>
             </div>
