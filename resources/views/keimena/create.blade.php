@@ -61,8 +61,8 @@
                                 <script>
                                     tinymce.init({
                                         selector:'textarea.note',
-                                        width:900,
-                                        hight:300
+                                        width:1050,
+                                        hight:900
 
                                     });
                                     // new FroalaEditor('textarea#Note',{
