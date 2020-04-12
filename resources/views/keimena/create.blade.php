@@ -53,22 +53,11 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <textarea class="note" name="Note">
+                                <textarea class="note" name="Note" style="width: 1000px; height: 300px;">
                                     {{ old('Note') }}
                                 </textarea>
-                                <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
-{{--                                <script scr="https://cloud.tinymce.com/stable/tinymce.min.js"></script>--}}
                                 <script>
-                                    tinymce.init({
-                                        selector:'textarea.note',
-                                        width:1050,
-                                        hight:900
-
-                                    });
-                                    // new FroalaEditor('textarea#Note',{
-                                    //     heightMin: 300,
-                                    //     heightMax: 300
-                                    // })
+                                    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
                                 </script>
                             </div>
                         </div>
