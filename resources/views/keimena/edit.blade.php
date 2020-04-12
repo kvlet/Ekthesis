@@ -54,14 +54,21 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <textarea id="Note" name="Note">
+                                <textarea class="Note" name="Note">
                                     {{ $keimena->Note }}
                                 </textarea>
+                                <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
                                 <script>
-                                    new FroalaEditor('textarea#Note',{
-                                        heightMin: 300,
-                                        heightMax: 300
-                                    })
+                                    tinymce.init({
+                                        selector : 'textarea.Note',
+                                        width:900,
+                                        hight:300
+
+                                    });
+                                    // new FroalaEditor('textaredeca#Note',{
+                                    //     heightMin: 300,
+                                    //     heightMax: 300
+                                    // })
                                 </script>
                             </div>
                         </div>
