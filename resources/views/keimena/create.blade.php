@@ -53,11 +53,14 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <textarea class="note" name="Note" style="width: 1000px; height: 300px;">
+                                <textarea id="Note" name="Note" style="width: 1000px; height: 300px;">
                                     {{ old('Note') }}
                                 </textarea>
                                 <script>
-                                    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+                                    bkLib.onDomLoaded(function() {
+                                        // nicEditors.allTextAreas()
+                                        new nicEditor({fullPanel : true}).panelInstance('Note');
+                                    });
                                 </script>
                             </div>
                         </div>
