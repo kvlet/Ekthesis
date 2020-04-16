@@ -59,8 +59,10 @@
                                 <script>
                                     bkLib.onDomLoaded(function() {
                                         // nicEditors.allTextAreas()
-                                        new nicEditor({fullPanel : true}).panelInstance('Note');
+                                         new nicEditor({fullPanel : true}).panelInstance('Note');
+
                                     });
+
                                 </script>
                             </div>
                         </div>
