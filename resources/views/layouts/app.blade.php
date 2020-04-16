@@ -21,7 +21,7 @@
 {{--    <script src="assets/js/moment.js"></script>--}}
 {{--    editor--}}
 {{--        <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>--}}
-        <script type="text/javascript" src="{{ URL::asset('resources/js/nicEdit.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('/js/nicEdit.js') }}"></script>
 {{--        <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>--}}
 {{--        <script>tinymce.init({ selector:'textarea' });</script>--}}
 {{--    editor--}}
