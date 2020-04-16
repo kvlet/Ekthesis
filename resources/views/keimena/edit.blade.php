@@ -60,7 +60,7 @@
                                 <script>
                                     bkLib.onDomLoaded(function() {
                                         // nicEditors.allTextAreas()
-                                        new nicEditor({fullPanel : true}).panelInstance('Note');
+                                        new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');
                                     });
                                 </script>
                             </div>
