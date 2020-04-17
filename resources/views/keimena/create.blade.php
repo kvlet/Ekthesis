@@ -61,7 +61,6 @@
                                         // nicEditors.allTextAreas()
                                         new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');
                                     });
-
                                 </script>
                             </div>
                         </div>
