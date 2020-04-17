@@ -903,7 +903,64 @@
                 <div class="tab-pane fade" id="v-pills-synergeia" role="tabpanel" aria-labelledby="v-pills-synergeia-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-provlepsis" role="tabpanel" aria-labelledby="v-pills-provlepsis-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-praktoreia" role="tabpanel" aria-labelledby="v-pills-praktoreia-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-notes" role="tabpanel" aria-labelledby="v-pills-notes-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-notes" role="tabpanel" aria-labelledby="v-pills-notes-tab">
+                    <form method="post" action="{{ route('pragmatognomosines.update', $pragmatognomosini->id_ekthesis) }}" autocomplete="off">
+                        @csrf
+                        {{ method_field('PUT') }}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header-cust">
+                                        <h6 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Παρατηρήσεις') }}</strong>
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-label{{ $errors->has('id_ekthesis') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label" for="id_ekthesis">{{ __('Αρ. Πρωτοκόλλου') }}</label>
+                                                    <input type="text" name="id_ekthesis" id="id_ekthesis"
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('id_ekthesis') ? ' is-invalid' : '' }}"
+                                                           value="{{ $pragmatognomosini->id_ekthesis }}" disabled autofocus>
+                                                    {{--                                                           value="{{ old('id_ekthesis') }}" disabled autofocus>--}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <hr>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <textarea id="Note" name="Note" style="width: 650px; height: 250px;">
+                                                    {{ $pragmatognomosini->Notes }}
+                                                </textarea>
+                                                <script>
+                                                    bkLib.onDomLoaded(function() {
+                                                        // nicEditors.allTextAreas()
+                                                        new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <hr>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col d-flex justify-content-end">
+                                                <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div class="tab-pane fade" id="v-pills-eksodasynergati" role="tabpanel" aria-labelledby="v-pills-eksodasynergati-tab">...</div>
             </div>
         </div>
