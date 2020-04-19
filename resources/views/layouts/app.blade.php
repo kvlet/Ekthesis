@@ -65,10 +65,7 @@
                 <div class="col-md-1 d-none d-md-block p-0">
                     @yield('onofflmenu')
                 </div>
-                <div class="col-md-2">
-                    <a href="/" target=""><img src="/images/homepage.jpg" width="60" height="35" alt="K Software Development" /></a>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <h6> Χρήστης: <strong> {{ Auth::user()->F_name }} {{ Auth::user()->L_name }}</strong></h6>
                 </div>
                 <div class="col-md-2">

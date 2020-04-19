@@ -3,11 +3,11 @@
 @endsection
 
 @section('logo')
-    <a href="https://www.ksoftdev.gr" target="_blank"><img src="/images/logo.jpg" width="25" height="25" alt="K Software Development" /></a>
+    <a href="/" target=""><img src="/images/logo.jpg" width="25" height="25" alt="K Software Development" /></a>
 @endsection
 
 @section('header-left')
-     K Software Development
+    <a href="https://www.ksoftdev.gr" target="_blank">K Software Development</a>
 @endsection
 
 @section('header-center')
