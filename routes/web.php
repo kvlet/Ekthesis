@@ -14,6 +14,7 @@ Route::get('ereunes', 'PragmController@create')->name('pragmatognomosines.create
 Route::post('ereunes', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('ereunes/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
 Route::put('ereunes/{id}', 'PragmController@update')->name('pragmatognomosines.update');
+
 //Route::get('pragmatognomosines/{id}', 'PragmController@show')->name('pragmatognomosines.show');
 // end routes for pragmatognomisines
 

@@ -44,6 +44,7 @@ class PragmController extends Controller
      */
 
 
+
     public function create()
     {
         $grafeia = Grafeio::all('id_grafeio', 'Name');

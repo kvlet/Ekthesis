@@ -940,7 +940,7 @@
                                                 <script>
                                                     bkLib.onDomLoaded(function() {
                                                         // nicEditors.allTextAreas()
-                                                        new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');
+                                                        new nicEditor({iconsPath : '/js/nicEditorIcons.gif'}).panelInstance('Note');
                                                     });
                                                 </script>
                                             </div>
