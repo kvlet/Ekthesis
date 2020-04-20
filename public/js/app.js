@@ -37035,6 +37035,9 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#diakr_view").DataTable();
 });
+$(document).ready(function () {
+  $("#entoli").DataTable();
+});
 
 /***/ }),
 

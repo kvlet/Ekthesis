@@ -154,10 +154,10 @@ class PragmController extends Controller
         }
         $pragmatognomosini->save();
 
-        if (\Request::is('ereunes')){
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
-        }else{
+        if ($request->id_diakrisi=='Π' || $request->id_diakrisi=='ΠΕ'){
             return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
         }
     }
 

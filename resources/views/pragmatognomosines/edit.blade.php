@@ -82,7 +82,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-label{{ $errors->has('newrecdiak') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
-                                                    <label class="form-control-label" for="newrecdiak">{{ __(' Νέος Τύπος ') }} </label>
+                                                    <label class="form-control-label" for="newrecdiak">{{ __(' Τύπος ') }} </label>
                                                     <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}" style="margin: auto">
                                                         {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
                                                         <button id="newrecdiak" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#diakrisisModal">
@@ -172,7 +172,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-label{{ $errors->has('newrecnom') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
-                                                    <label class="form-control-label" for="newrecnom">{{ __('Νέος Νομός') }}</label>
+                                                    <label class="form-control-label" for="newrecnom">{{ __('Νομός') }}</label>
                                                     <div class="form-label{{ $errors->has('id_nomoi') ? ' has-danger' : '' }}" style="margin: auto">
                                                         {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
                                                         <button id="newrecnom" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#nomoiModal">
@@ -225,7 +225,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-label{{ $errors->has('newrecplace') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
-                                                    <label class="form-control-label" for="newrecplace">{{ __('Νέος Τόπος') }}</label>
+                                                    <label class="form-control-label" for="newrecplace">{{ __('Τόπος') }}</label>
                                                     <div class="form-label{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}" style="margin: auto">
                                                         {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
                                                         <button id="newrecplace" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#placeModal">
@@ -279,7 +279,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-label{{ $errors->has('newrecarxi') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
-                                                    <label class="form-control-label" for="newrecarxi">{{ __('Νέα Αρχή') }}</label>
+                                                    <label class="form-control-label" for="newrecarxi">{{ __('Αρχή') }}</label>
                                                     <div class="form-label{{ $errors->has('id_Arxi_ekdosis_eggrafon') ? ' has-danger' : '' }}" style="margin: auto">
                                                         {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
                                                         <button id="newrecarxi" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#arxiModal">
@@ -509,7 +509,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-label{{ $errors->has('newreccomp') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
-                                                    <label class="form-control-label" for="newreccomp">{{ __('Νέα Εταιρεία') }}</label>
+                                                    <label class="form-control-label" for="newreccomp">{{ __('Εταιρεία') }}</label>
                                                     <div class="form-label{{ $errors->has('id_company') ? ' has-danger' : '' }}" style="margin: auto">
                                                         <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compModal">
 
@@ -567,7 +567,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_pathon">{{ __('Παθών') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_pathon" name="id_pathon" required>
@@ -587,7 +587,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-label{{ $errors->has('newrecperson') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
-                                                    <label class="form-control-label" for="newrecperson">{{ __('Νέος Παθών') }}</label>
+                                                    <label class="form-control-label" for="newrecperson">{{ __('Παθών') }}</label>
                                                     <div class="form-label{{ $errors->has('id_pathon') ? ' has-danger' : '' }}" style="margin: auto">
                                                         <button id="newrecperson" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#personModal">
 
@@ -595,7 +595,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-label{{ $errors->has('id_oximatos_pathon') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_oximatos_pathon">{{ __('Αρ. Κυκλοφορίας') }}</label>
@@ -616,7 +616,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-label{{ $errors->has('newrecoxima') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
-                                                    <label class="form-control-label" for="newrecoxima">{{ __('Νέο Όχημα') }}</label>
+                                                    <label class="form-control-label" for="newrecoxima">{{ __('Όχημα') }}</label>
                                                     <div class="form-label{{ $errors->has('id_oximatos_pathon') ? ' has-danger' : '' }}" style="margin: auto">
                                                         <button id="newrecoxima" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#oximaModal">
 
@@ -663,7 +663,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-label{{ $errors->has('newreccomp') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
-                                                    <label class="form-control-label" for="newreccomp">{{ __('Νέα Εταιρεία') }}</label>
+                                                    <label class="form-control-label" for="newreccomp">{{ __('Εταιρεία') }}</label>
                                                     <div class="form-label{{ $errors->has('id_company_pathon_real') ? ' has-danger' : '' }}" style="margin: auto">
                                                         <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compModal">
 
@@ -756,7 +756,7 @@
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="row">
-                                                                <div class="col-md-4">
+                                                                <div class="col-md-5">
                                                                     <div class="form-label{{ $errors->has('id_ypaitiou') ? ' has-danger' : '' }}">
                                                                         <label class="form-control-label" for="id_ypaitiou">{{ __('Υπαίτιος') }}</label>
                                                                         <select class="form-control form-select" id="id_ypaitiou" name="id_ypaitiou">
@@ -776,7 +776,7 @@
                                                                 <div class="col-md-2">
                                                                     <div class="form-label{{ $errors->has('newrecperson') ? ' has-danger' : '' }}">
                                                                         <!-- Button trigger modal -->
-                                                                        <label class="form-control-label" for="newrecperson">{{ __('Νέος Υπαίτιος') }}</label>
+                                                                        <label class="form-control-label" for="newrecperson">{{ __('Υπαίτιος') }}</label>
                                                                         <div class="form-label{{ $errors->has('id_ypaitiou') ? ' has-danger' : '' }}" style="margin: auto">
                                                                             <button id="newrecperson" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#personModal">
 
@@ -784,7 +784,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-4">
+                                                                <div class="col-md-3">
                                                                     <div class="form-label{{ $errors->has('id_oximatos_ypaitiou') ? ' has-danger' : '' }}">
                                                                         <label class="form-control-label"
                                                                                for="id_oximatos_ypaitiou">{{ __('Αρ. Κυκλοφορίας') }}</label>
@@ -805,7 +805,7 @@
                                                                 <div class="col-md-2">
                                                                     <div class="form-label{{ $errors->has('newrecoxima') ? ' has-danger' : '' }}">
                                                                         <!-- Button trigger modal -->
-                                                                        <label class="form-control-label" for="newrecoxima">{{ __('Νέο Όχημα') }}</label>
+                                                                        <label class="form-control-label" for="newrecoxima">{{ __('Όχημα') }}</label>
                                                                         <div class="form-label{{ $errors->has('id_oximatos_ypaitiou') ? ' has-danger' : '' }}" style="margin: auto">
                                                                             <button id="newrecoxima" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#oximaModal">
 
@@ -836,7 +836,7 @@
                                                                 <div class="col-md-2">
                                                                     <div class="form-label{{ $errors->has('newreccomp') ? ' has-danger' : '' }}">
                                                                         <!-- Button trigger modal -->
-                                                                        <label class="form-control-label" for="newreccomp">{{ __('Νέα Εταιρεία') }}</label>
+                                                                        <label class="form-control-label" for="newreccomp">{{ __('Εταιρεία') }}</label>
                                                                         <div class="form-label{{ $errors->has('id_company_ypaitiou') ? ' has-danger' : '' }}" style="margin: auto">
                                                                             <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compModal">
 

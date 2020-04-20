@@ -7,25 +7,17 @@
 
 @section('forms')
 {{--    <div class="bg-wel-ekthesis"></div>--}}
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="entoli-tab" data-toggle="pill" href="#entoli" role="tab" aria-controls="entoli" aria-selected="true">Εντολή Εταιρείας</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="anathesi-tab" data-toggle="pill" href="#anathesi" role="tab" aria-controls="anathesi" aria-selected="false">Ανάθεση σε συνεργάτη</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="elegxo-tab" data-toggle="pill" href="#elegxo" role="tab" aria-controls="elegxo" aria-selected="false">Προς Έλεγχο</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="apostoli-tab" data-toggle="pill" href="#apostoli" role="tab" aria-controls="apostoli" aria-selected="false">Προς Αποστολή</a>
-            </li>
-        </ul>
-    </div>
-    <div class="tab-content" id="pills-tabContent">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="entoli-tab" data-toggle="tab" href="#entoli" role="tab" aria-controls="entoli" aria-selected="true">Εντολή Εταιρείας</a>
+            <a class=" nav-item nav-link" id="anathesi-tab" data-toggle="tab" href="#anathesi" role="tab" aria-controls="anathesi" aria-selected="false">Ανάθεση σε συνεργάτη</a>
+            <a class="nav-item nav-link" id="elegxo-tab" data-toggle="tab" href="#elegxo" role="tab" aria-controls="elegxo" aria-selected="false">Προς Έλεγχο</a>
+            <a class="nav-item nav-link" id="apostoli-tab" data-toggle="tab" href="#apostoli" role="tab" aria-controls="apostoli" aria-selected="false">Προς Αποστολή</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="entoli" role="tabpanel" aria-labelledby="entoli-tab">
-            <table id="pragmList" class="table table-bordered table-hover" style="width:100%">
+            <table id="entoli" class="table table-bordered table-hover display" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
                         <th>Αρ. Πρωτοκόλλου</th>
@@ -90,9 +82,14 @@
                     @endforeach
                 </tbody>
             </table>
+            <script>
+                $(document).ready(function() {
+                    $('#entoli').DataTable();
+                } );
+            </script>
         </div>
         <div class="tab-pane fade" id="anathesi" role="tabpanel" aria-labelledby="anathesi-tab">
-            <table id="pragmList" class="table table-bordered table-hover" style="width:100%">
+            <table id="anathesi" class="table table-bordered table-hover" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
                         <th>Αρ. Πρωτοκόλλου</th>
@@ -159,7 +156,7 @@
             </table>
         </div>
         <div class="tab-pane fade" id="elegxo" role="tabpanel" aria-labelledby="elegxo-tab">
-            <table id="pragmList" class="table table-bordered table-hover" style="width:100%">
+            <table id="elegxo" class="table table-bordered table-hover dislpay" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
                         <th>Αρ. Πρωτοκόλλου</th>
@@ -224,9 +221,14 @@
                     @endforeach
                 </tbody>
             </table>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#elegxo').DataTable();
+                } );
+            </script>
         </div>
         <div class="tab-pane fade" id="apostoli" role="tabpanel" aria-labelledby="apostoli-tab">
-            <table id="pragmList" class="table table-bordered table-hover" style="width:100%">
+            <table id="apostoli" class="table table-bordered table-hover display" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
                         <th>Αρ. Πρωτοκόλλου</th>
@@ -291,6 +293,11 @@
                     @endforeach
                 </tbody>
             </table>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#apostoli').DataTable();
+                } );
+            </script>
         </div>
     </div>
 @endsection

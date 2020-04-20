@@ -54,6 +54,8 @@
                     <div class="col-md-12">
                         <a class="btn btn-sm btn-danger" style="margin: 4px" href="#"> Φωτογραφίες </a>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-12">
                         <a class="btn btn-sm btn-danger" style="margin: 4px" href="#"> Εμπλεκόμενα Οχήματα </a>
                     </div>
