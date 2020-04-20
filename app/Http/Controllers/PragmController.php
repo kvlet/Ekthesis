@@ -119,7 +119,6 @@ class PragmController extends Controller
         $pragmatognomosini->id_ypaitiou = $request->id_ypaitiou;
         $pragmatognomosini->id_oximatos_ypaitiou = $request->id_oximatos_ypaitiou;
         $pragmatognomosini->id_pathon = $request->id_pathon;
-        $pragmatognomosini->id_oximatos_pathon = $request->id_oximatos_pathon;
         $pragmatognomosini->Xiliometra = $request->Xiliometra;
         $pragmatognomosini->id_company_ypaitiou = $request->id_company_ypaitiou;
         $pragmatognomosini->id_company_pathon = $request->id_company_pathon;
@@ -148,6 +147,11 @@ class PragmController extends Controller
         $pragmatognomosini->Amibi_partner =$request->Amibi_partner;
         $pragmatognomosini->Flag = $request->Flag;
 
+        if ($request->id_oximatos_pathon != null){
+            $pragmatognomosini->id_oximatos_pathon = $request->id_oximatos_pathon;
+        }else{
+            $pragmatognomosini->id_oximatos_pathon=1;
+        }
         $pragmatognomosini->save();
 
         if (\Request::is('ereunes')){
@@ -161,9 +165,9 @@ class PragmController extends Controller
     {
         $grafeia = Grafeio::all('id_grafeio', 'Name');
         $nomoi = Nomos::where([['Mark_del','Όχι']])->get();
-        if (\Request::is('pragmatognomosines')) {
+        if (\Request::is('pragmatognomosines/*')) {
             $diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
-        }elseif (\Request::is('ereunes')){
+        }elseif (\Request::is('ereunes/*')){
             $diakrisis = Diakrisi::where([['Group_diakr','>=','3'],['Mark_del','Όχι']])->get();
         }else{
             $diakrisis = Diakrisi::where([['Mark_del','Όχι']])->get();
@@ -179,7 +183,7 @@ class PragmController extends Controller
         $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
 
         // calculate file position
-        if ($pragmatognomosini->id_oximatos_pathon != null){
+        if ($pragmatognomosini->id_oximatos_pathon != 1){
             foreach ($oximata_pathon as $oxima){
                 if($pragmatognomosini->id_oximatos_pathon == $oxima->id_oximata){
                      $pinakida=$oxima->Ar_kyklo;

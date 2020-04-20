@@ -9,6 +9,7 @@ use App\Pragmatognomosini;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -38,14 +39,15 @@ class HomeController extends Controller
             $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
             $pragm->Date_atiximatos = $dateAtiximatos;
         }
-
+        $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
 
         return view('home',compact([
             'pragmatognomosines',
             'companies',
             'pathontes',
             'oximata_pathon',
-            'pragmatognomones'
+            'pragmatognomones',
+            'status'
         ]));
     }
 }
