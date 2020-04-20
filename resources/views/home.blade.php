@@ -293,10 +293,4 @@
             </table>
         </div>
     </div>
-{{--    <script>--}}
-{{--        $(document).ready(function(){--}}
-{{--            $('a[href="#entoli"]').tab('show');--}}
-{{--        });--}}
-{{--    </script>--}}
-
 @endsection
