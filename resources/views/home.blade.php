@@ -82,7 +82,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <script>
+            <script type="text/javascript">
                 $(document).ready(function() {
                     $('#entoli').DataTable();
                 } );
