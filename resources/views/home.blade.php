@@ -17,7 +17,7 @@
     </nav>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="entoli" role="tabpanel" aria-labelledby="entoli-tab">
-            <table id="entoli" class="table table-bordered table-hover display" style="width:100%">
+            <table id="entoli" class="table table-bordered table-hover" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
                         <th>Αρ. Πρωτοκόλλου</th>
@@ -85,7 +85,7 @@
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#entoli').DataTable();
-                } );
+                });
             </script>
         </div>
         <div class="tab-pane fade" id="anathesi" role="tabpanel" aria-labelledby="anathesi-tab">
@@ -301,3 +301,4 @@
         </div>
     </div>
 @endsection
+
