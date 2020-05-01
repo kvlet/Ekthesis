@@ -261,11 +261,12 @@ class PragmController extends Controller
         $request->partially_lock = 'Όχι';
         $request->total_lock = 'Όχι';
         $request->Amibi_partner='0';
-        $request->Flag='2';
+        $request->Flag='1';
 
         if ($request->Object != null){
             $request->id_oximatos_pathon='1';
         }
+
         //        fix date format for DB
         $dateAtiximatos = Carbon::createFromFormat('d-m-Y', $request->Date_atiximatos)->format('Y-m-d');
         $request->Date_atiximatos = $dateAtiximatos;
