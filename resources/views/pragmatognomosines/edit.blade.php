@@ -209,15 +209,15 @@
                                             <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('id_accedent_place') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_accedent_place">{{ __('Τόπος Εξέτασης') }}</label>
-                                                    <select class="form-control form-select" id="id_accedent_place" name="id_accident_place">
+                                                    <select class="form-control form-select" id="id_accedent_place" name="id_accedent_place">
                                                         <option selected value value=-1>{{ " Επιλέξτε Τόπο Ατυχήματος " }}</option>
-                                                        @foreach($accident_places as $accident_place)
-                                                            <option value="{{$accident_place->id_accident_place}}" @if($pragmatognomosini->id_accedent_place == $accident_place->id_accident_place) selected @endif>{{ $accident_place->Place}}</option>
+                                                        @foreach($accedent_places as $accedent_place)
+                                                            <option value="{{$accedent_place->id_accedent_place}}" @if($pragmatognomosini->id_accedent_place == $accedent_place->id_accedent_place) selected @endif>{{ $accedent_place->Place}}</option>
                                                         @endforeach
                                                     </select>
-                                                    @if ($errors->has('id_accident_place'))
+                                                    @if ($errors->has('id_accedent_place'))
                                                         <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('id_accident_place') }}</strong>
+                                                                <strong>{{ $errors->first('id_accedent_place') }}</strong>
                                                             </span>
                                                     @endif
                                                 </div>
@@ -971,7 +971,7 @@
 
     @include('_modals.diakrisisModal', [ 'diakrisis' => $diakrisis])
     @include('_modals.nomoiModal',['nomoi'=>$nomoi])
-    @include('_modals.placeModal',['place'=> $accident_places])
+    @include('_modals.placeModal',['place'=> $accedent_places])
     @include('_modals.arxiModal',['arxi'=> $arxes_ekdosis_eggrafon])
     @include('_modals.compModal',['company'=> $company])
 

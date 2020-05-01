@@ -6,11 +6,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-2">
-                        <div class="form-label{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}">
-                            <label class="form-control-label" for="id_accident_place">{{ __('Κωδικός') }} <span style="color:red;font-weight:bold">*</span></label>
-                            <input type="text" name="id_accident_place" id="id_accident_place"
-                                   class="form-control form-input form-control-alternative{{ $errors->has('id_accident_place') ? ' is-invalid' : '' }}"
-                                   value="{{ old('id_accident_place') }}" autofocus disabled>
+                        <div class="form-label{{ $errors->has('id_accedent_place') ? ' has-danger' : '' }}">
+                            <label class="form-control-label" for="id_accedent_place">{{ __('Κωδικός') }} <span style="color:red;font-weight:bold">*</span></label>
+                            <input type="text" name="id_accedent_place" id="id_accedent_place"
+                                   class="form-control form-input form-control-alternative{{ $errors->has('id_accedent_place') ? ' is-invalid' : '' }}"
+                                   value="{{ old('id_accedent_place') }}" autofocus disabled>
                         </div>
                     </div>
                     <div class="col-md-6">

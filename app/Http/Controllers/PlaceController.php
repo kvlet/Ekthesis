@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Accident_place;
+use App\Accedent_place;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -14,9 +14,9 @@ class PlaceController extends Controller
 
     public function create(){
 
-        $accident_places=Accident_place::where('Mark_del', 'Όχι')->get();
+        $accident_places=Accedent_place::where('Mark_del', 'Όχι')->get();
 
-        return view('accident_place.create',compact('accident_places'));
+        return view('accedent_place.create',compact('accident_places'));
     }
     /**
      * @param PlaceRequest $request
@@ -25,7 +25,7 @@ class PlaceController extends Controller
 
         if($request->expectsJson()){
             $data = $request->all();
-            $value = Accident_place::create($data);
+            $value = Accedent_place::create($data);
             return response()->json([
                 'data' => $value
             ],200);

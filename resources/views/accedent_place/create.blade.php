@@ -9,7 +9,7 @@
                         <strong>{{ __('Τόποι Ατυχήματος') }}</strong>
                     </h4>
                 </div>
-                @include('accident_place.formModal')
+                @include('accedent_place.formModal')
                 <div class="card-body">
                     <div class="container-fluid mt-4">
                         <div class="row">
@@ -23,11 +23,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($accident_places as $accident_place)
+                                    @foreach($accedent_places as $accedent_place)
                                         <tr>
-                                            <td>{{ $accident_place->id_accident_place }}</td>
-                                            <td>{{ $accident_place->Place }}</td>
-                                            <td>{{ $accident_place->Mark_del }}</td>
+                                            <td>{{ $accedent_place->id_accedent_place }}</td>
+                                            <td>{{ $accedent_place->Place }}</td>
+                                            <td>{{ $accedent_place->Mark_del }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
