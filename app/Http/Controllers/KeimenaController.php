@@ -49,8 +49,17 @@ class KeimenaController extends Controller
     }
 
     public function update(KeimenaRequest $request,$id_keimena){
+
         $keimena = Keimena::find($id_keimena);
-        $keimena = $request->all()->get();
+
+
+
+        $request->Mark_del='Όχι';
+
+//        $keimena->id_keimena = $request->id_keimena;
+        $keimena->Sort_descr = $request->Sort_descr;
+        $keimena->Note = $request->Note;
+        $keimena->Mark_del = $request->Mark_del;
         $keimena->update();
         return redirect('manage_keimena/'.$keimena->id_keimena);
     }
