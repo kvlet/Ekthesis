@@ -56,7 +56,7 @@ class KeimenaController extends Controller
 
         $request->Mark_del='Όχι';
 
-//        $keimena->id_keimena = $request->id_keimena;
+
         $keimena->Sort_descr = $request->Sort_descr;
         $keimena->Note = $request->Note;
         $keimena->Mark_del = $request->Mark_del;
