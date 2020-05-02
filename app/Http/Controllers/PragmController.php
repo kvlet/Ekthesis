@@ -57,7 +57,7 @@ class PragmController extends Controller
             $diakrisis = Diakrisi::where([['Mark_del','Όχι']])->get();
         }
 
-        $accident_places=Accedent_place::where('Mark_del', 'Όχι')->get();
+        $accedent_places=Accedent_place::where('Mark_del', 'Όχι')->get();
         $arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del', 'Όχι')->get();
         $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
         $companies = Company::where('Mark_del', 'Όχι')->get();
@@ -68,7 +68,7 @@ class PragmController extends Controller
             'grafeia',
             'nomoi',
             'diakrisis',
-            'accident_places',
+            'accedent_places',
             'arxes_ekdosis_eggrafon',
             'pragmatognomones',
             'companies',

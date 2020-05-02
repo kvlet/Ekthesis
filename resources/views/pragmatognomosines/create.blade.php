@@ -175,13 +175,13 @@
                                                     <label class="form-control-label" for="id_accedent_place">{{ __('Τόπος Εξέτασης') }}</label>
                                                     <select class="form-control form-select" id="id_accedent_place" name="id_accedent_place" >
                                                         <option selected value value=-1>{{ " Επιλέξτε Τόπο Ατυχήματος " }}</option>
-                                                        @foreach($accident_places as $accident_place)
-                                                            <option value="{{$accident_place->id_accident_place}}" @if(old('id_accedent_place') == $accident_place->id_accident_place) selected @endif>{{ $accident_place->Place}}</option>
+                                                        @foreach($accedent_places as $accedent_place)
+                                                            <option value="{{$accedent_place->id_accedent_place}}" @if(old('id_accedent_place') == $accedent_place->id_accedent_place) selected @endif>{{ $accedent_place->Place}}</option>
                                                         @endforeach
                                                     </select>
-                                                    @if ($errors->has('id_accident_place'))
+                                                    @if ($errors->has('id_accedent_place'))
                                                         <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('id_accident_place') }}</strong>
+                                                                <strong>{{ $errors->first('id_accedent_place') }}</strong>
                                                             </span>
                                                     @endif
                                                 </div>
@@ -190,7 +190,7 @@
                                                 <div class="form-label{{ $errors->has('newrecplace') ? ' has-danger' : '' }}">
                                                     <!-- Button trigger modal -->
                                                     <label class="form-control-label" for="newrecplace">{{ __('Τόπος') }}</label>
-                                                    <div class="form-label{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}" style="margin: auto">
+                                                    <div class="form-label{{ $errors->has('id_accedent_place') ? ' has-danger' : '' }}" style="margin: auto">
                                                         {{--                                                <label class="form-control-label" for="newrec">{{ __('Νέος Τύπος') }}</label>--}}
                                                         <button id="newrecplace" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#placeModal">
                                                             {{--                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
@@ -857,7 +857,7 @@
 
     @include('_modals.diakrisisModal', [ 'diakrisis' => $diakrisis])
     @include('_modals.nomoiModal',['nomoi'=>$nomoi])
-    @include('_modals.placeModal',['place'=> $accident_places])
+    @include('_modals.placeModal',['place'=> $accedent_places])
     @include('_modals.arxiModal',['arxi'=> $arxes_ekdosis_eggrafon])
     @include('_modals.compModal',['company'=> $company])
 
