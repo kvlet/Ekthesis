@@ -26,6 +26,7 @@ Route::get('pdf/aitisiDikografias', 'PdfReportController@aitisiDikografias_pdf')
 // routes for look up tables
 Route::get('diakrisis', 'DiakrisiController@create')->name('diakrisis.create');
 Route::post('diakrisis', 'DiakrisiController@store')->name('diakrisis.store');
+Route::get('diakrisis/{id}', 'DiakrisiController@edit')->name('diakrisis.edit');
 Route::get('nomoi', 'NomoiController@create')->name('nomoi.create');
 Route::post('nomoi', 'NomoiController@store')->name('nomoi.store');
 Route::get('place', 'PlaceController@create')->name('accedent_place.create');
