@@ -27,16 +27,22 @@ Route::get('pdf/aitisiDikografias', 'PdfReportController@aitisiDikografias_pdf')
 Route::get('diakrisis', 'DiakrisiController@create')->name('diakrisis.create');
 Route::post('diakrisis', 'DiakrisiController@store')->name('diakrisis.store');
 Route::get('diakrisis/{id}', 'DiakrisiController@edit')->name('diakrisis.edit');
+Route::put('diakrisis/{id}', 'DiakrisiController@update')->name('diakrisis.update');
+
 Route::get('nomoi', 'NomoiController@create')->name('nomoi.create');
 Route::post('nomoi', 'NomoiController@store')->name('nomoi.store');
+
 Route::get('place', 'PlaceController@create')->name('accedent_place.create');
 Route::post('place', 'PlaceController@store')->name('accedent_place.store');
+
 Route::get('arxi', 'ArxiController@create')->name('arxi_eggrafon.create');
 Route::post('arxi', 'ArxiController@store')->name('arxi_eggrafon.store');
+
 Route::get('company', 'CompanyController@create')->name('company.create');
 Route::post('company', 'CompanyController@store')->name('company.store');
 Route::get('company/{id}', 'CompanyController@edit')->name('company.edit');
 Route::put('company/{id}', 'CompanyController@update')->name('company.update');
+
 Route::get('manage_keimena', 'KeimenaController@create')->name('keimena.create');
 Route::post('manage_keimena', 'KeimenaController@store')->name('keimena.store');
 Route::get('manage_keimena/{id}', 'KeimenaController@edit')->name('keimena.edit');

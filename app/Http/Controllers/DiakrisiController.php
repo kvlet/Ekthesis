@@ -43,4 +43,31 @@ class DiakrisiController extends Controller
         return redirect('diakrisis/'.$diakrisi->id_diakrisi);
 
     }
+
+    public  function edit($id_diakrisi){
+
+        $diakrisi = Diakrisi::find($id_diakrisi);
+
+
+        $diakrisi->update();
+        $diakrisis = Diakrisi::where([['Mark_del','Όχι']])->get();
+        return view('diakrisis.edit',compact(['diakrisi','diakrisis']));
+    }
+
+    public function update(DiakrisiRequest $request, $id_diakrisi){
+
+        $diakrisi = Diakrisi::find($id_diakrisi);
+
+        $request->Mark_del='Όχι';
+        $diakrisi->Diakrisi = $request->Diakrisi;
+        $diakrisi->Mark_del = $request->Mark_del;
+        $diakrisi->Group_diakr = $request->Group_diakr;
+        $diakrisi->update();
+
+        $diakrisis = Diakrisi::where([['Mark_del','Όχι']])->get();
+
+        return view('diakrisis.create',compact('diakrisis'));
+
+
+    }
 }
