@@ -1,8 +1,9 @@
 @extends('forms')
 
 @section('formsdetails')
-    <form id="create_praktoreio_form" method="post" action="{{ route('praktoreio.store') }}" autocomplete="off">
+    <form id="create_praktoreio_form" method="post" action="{{ route('praktoreio.update', $paktoreio->id_praktoreio) }}" autocomplete="off">
         @csrf
+        {{ method_field('PUT') }}
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -18,7 +19,7 @@
                                     <label class="form-control-label" for="id_praktoreio">{{ __('Κωδικός') }} </label>
                                     <input type="text" name="id_praktoreio" id="id_praktoreio"
                                            class="form-control form-input form-control-alternative{{ $errors->has('id_praktoreio') ? ' is-invalid' : '' }}"
-                                           value="{{ old('id_praktoreio') }}"   autofocus disabled>
+                                           value="{{ $paktoreio->id_praktoreio }}"   autofocus disabled>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -26,7 +27,7 @@
                                     <label class="form-control-label" for="eponymia">{{ __(' Επωνυμία') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <input type="text" name="eponymia" id="eponymia"
                                            class="form-control form-input form-control-alternative{{ $errors->has('eponymia') ? ' is-invalid' : '' }}"
-                                           value="{{ old('eponymia') }}" autofocus required>
+                                           value="{{ $paktoreio->eponymia }}" autofocus required>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +37,7 @@
                                     <label class="form-control-label" for="address">{{ __('Διεύθυνση') }} </label>
                                     <input type="text" name="address" id="address"
                                            class="form-control form-input form-control-alternative{{ $errors->has('address') ? ' is-invalid' : '' }}"
-                                           value="{{ old('address') }}"   autofocus>
+                                           value="{{ $praktoreio->address }}"   autofocus>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -44,7 +45,7 @@
                                     <label class="form-control-label" for="tel">{{ __(' Τηλέφωνο') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <input type="number" name="tel" id="tel" maxlength="10"
                                            class="form-control form-input form-control-alternative{{ $errors->has('tel') ? ' is-invalid' : '' }}"
-                                           value="{{ old('tel') }}" autofocus required>
+                                           value="{{ $praktoreio->tel }}" autofocus required>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +55,7 @@
                                     <label class="form-control-label" for="kinito">{{ __('Κινητό') }} </label>
                                     <input type="number" name="kinito" id="kinito" maxlength="10"
                                            class="form-control form-input form-control-alternative{{ $errors->has('kinito') ? ' is-invalid' : '' }}"
-                                           value="{{ old('kinito') }}"   autofocus>
+                                           value="{{ $praktoreio->kinito }}"   autofocus>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -62,7 +63,7 @@
                                     <label class="form-control-label" for="fax">{{ __(' Fax') }} </label>
                                     <input type="number" name="fax" id="fax" maxlength="10"
                                            class="form-control form-input form-control-alternative{{ $errors->has('fax') ? ' is-invalid' : '' }}"
-                                           value="{{ old('fax') }}" autofocus>
+                                           value="{{ $praktoreio->fax }}" autofocus>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +73,7 @@
                                     <label class="form-control-label" for="email">{{ __('Email') }} </label>
                                     <input type="email" name="email" id="email"
                                            class="form-control form-input form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           value="{{ old('email') }}"   autofocus>
+                                           value="{{ $praktoreio->email }}"   autofocus>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -98,7 +99,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <textarea id="note" name="note" style="width: 800px; height: 200px;">
-                                    {{ old('note') }}
+                                    {{ $praktoreio->note }}
                                 </textarea>
                                 <script>
                                     bkLib.onDomLoaded(function() {
@@ -125,6 +126,7 @@
         @include('errors')
     </form>
 @endsection
+
 
 
 

@@ -25,9 +25,10 @@ class PraktoreioRequest extends FormRequest
     {
         return [
             'eponymia'=>'required',
-            'tel'=>'required|numeric',
+            'tel'=>'required|numeric|max:10',
             'mark_del'=>'in:Ναι,Όχι',
-            'fax'=>'nullable|numeric|digits:10'
+            'fax'=>'nullable|numeric|max:10',
+            'kinito'=>'nullable|numeric|max:10'
         ];
     }
 }

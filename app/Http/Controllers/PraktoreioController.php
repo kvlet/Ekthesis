@@ -40,9 +40,26 @@ class PraktoreioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Praktoreio $request)
     {
-        //
+        $praktoreio = new Praktoreio();
+        $request->Mark_del='Όχι';
+        $request->Flag='2';
+
+        $praktoreio->eponymia = $request->eponymia;
+        $praktoreio->address = $request->address;
+        $praktoreio->tel = $request->tel;
+        $praktoreio->kinito = $request->kinito;
+        $praktoreio->fax = $request->fax;
+        $praktoreio->email = $request->email;
+        $praktoreio->mark_del = $request->mark_del;
+        $praktoreio->note = $request->note;
+        $praktoreio->flag = $request->flag;
+
+        $praktoreio->save();
+
+        return redirect('praktoreiο/'.$praktoreio->id_praktoreio);
+
     }
 
     /**
@@ -62,9 +79,11 @@ class PraktoreioController extends Controller
      * @param  \App\Praktoreio  $praktoreio
      * @return \Illuminate\Http\Response
      */
-    public function edit(Praktoreio $praktoreio)
+    public function edit($id_praktoreio)
     {
-        //
+       $praktoreio = Praktoreio::find($id_praktoreio);
+       $praktoreio->update();
+       return view('praktoreio.edit',compact(['praktoreio']));
     }
 
     /**
@@ -74,9 +93,25 @@ class PraktoreioController extends Controller
      * @param  \App\Praktoreio  $praktoreio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Praktoreio $praktoreio)
+    public function update(Request $request, $id_praktoreio)
     {
-        //
+        $praktoreio = Praktoreio::find($id_praktoreio);
+        $request->Mark_del='Όχι';
+        $request->Flag='2';
+
+        $praktoreio->eponymia = $request->eponymia;
+        $praktoreio->address = $request->address;
+        $praktoreio->tel = $request->tel;
+        $praktoreio->kinito = $request->kinito;
+        $praktoreio->fax = $request->fax;
+        $praktoreio->email = $request->email;
+        $praktoreio->mark_del = $request->mark_del;
+        $praktoreio->note = $request->note;
+        $praktoreio->flag = $request->flag;
+
+        $praktoreio->update();
+        return redirect('praktoreiο/'.$praktoreio->id_praktoreio);
+
     }
 
     /**
