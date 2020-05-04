@@ -41,7 +41,7 @@
                                     @if ($errors->has('Mark_del'))
                                         <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('Mark_del') }}</strong>
-                                                </span>
+                                        </span>
                                     @endif
                                 </div>
                             </div>

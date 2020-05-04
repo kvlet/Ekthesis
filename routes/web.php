@@ -47,6 +47,12 @@ Route::get('manage_keimena', 'KeimenaController@create')->name('keimena.create')
 Route::post('manage_keimena', 'KeimenaController@store')->name('keimena.store');
 Route::get('manage_keimena/{id}', 'KeimenaController@edit')->name('keimena.edit');
 Route::put('manage_keimena/{id}', 'KeimenaController@update')->name('keimena.update' );
+
+Route::get('praktoreiο','PraktoreioController@create')->name('praktoreio.create');
+Route::post('praktoreiο','PraktoreioController@store')->name('praktoreio.store');
+Route::get('praktoreiο/{id}','PraktoreioController@edit')->name('praktoreio.edit');
+Route::put('praktoreiο/{id}','PraktoreioController@update')->name('praktoreio.update');
+//Route::resource('proktereio','PraktoreioController');
 // end routes for look up tables
 
 /*Route::get('/pragmatognomosines', 'PragmController@create');
