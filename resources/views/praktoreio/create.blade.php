@@ -42,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('tel') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="tel">{{ __(' Τηλέφωνο') }} <span style="color:red;font-weight:bold">*</span></label>
-                                    <input type="text" name="tel" id="tel" maxlength="10"
+                                    <input type="text" name="tel" id="tel"  pattern="[0-9]{10}" maxlength="10"
                                            class="form-control form-input form-control-alternative{{ $errors->has('tel') ? ' is-invalid' : '' }}"
                                            value="{{ old('tel') }}" autofocus required>
                                 </div>
@@ -52,7 +52,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('kinito') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="kinito">{{ __('Κινητό') }} </label>
-                                    <input type="text" name="kinito" id="kinito" maxlength="10"
+                                    <input type="text" name="kinito" id="kinito" maxlength="10" pattern="[0-9]{10}"
                                            class="form-control form-input form-control-alternative{{ $errors->has('kinito') ? ' is-invalid' : '' }}"
                                            value="{{ old('kinito') }}"   autofocus>
                                 </div>
@@ -60,7 +60,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('fax') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="fax">{{ __(' Fax') }} </label>
-                                    <input type="text" name="fax" id="fax" maxlength="10"
+                                    <input type="text" name="fax" id="fax" maxlength="10"  pattern="[0-9]{10}"
                                            class="form-control form-input form-control-alternative{{ $errors->has('fax') ? ' is-invalid' : '' }}"
                                            value="{{ old('fax') }}" autofocus>
                                 </div>
