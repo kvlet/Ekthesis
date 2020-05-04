@@ -14,15 +14,15 @@ class PraktoreioController extends Controller
     {
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+//    /**
+//     * Display a listing of the resource.
+//     *
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function index()
+//    {
+//        //
+//    }
 
     /**
      * Show the form for creating a new resource.
@@ -40,11 +40,12 @@ class PraktoreioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Praktoreio $request)
+    public function store(Request $request)
     {
         $praktoreio = new Praktoreio();
-        $request->Mark_del='Όχι';
-        $request->Flag='2';
+
+        $request->mark_del='Όχι';
+        $request->flag='2';
 
         $praktoreio->eponymia = $request->eponymia;
         $praktoreio->address = $request->address;
@@ -62,16 +63,16 @@ class PraktoreioController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Praktoreio  $praktoreio
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Praktoreio $praktoreio)
-    {
-        //
-    }
+//    /**
+//     * Display the specified resource.
+//     *
+//     * @param  \App\Praktoreio  $praktoreio
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function show(Praktoreio $praktoreio)
+//    {
+//        //
+//    }
 
     /**
      * Show the form for editing the specified resource.
@@ -96,8 +97,8 @@ class PraktoreioController extends Controller
     public function update(Request $request, $id_praktoreio)
     {
         $praktoreio = Praktoreio::find($id_praktoreio);
-        $request->Mark_del='Όχι';
-        $request->Flag='2';
+        $request->mark_del='Όχι';
+        $request->flag='2';
 
         $praktoreio->eponymia = $request->eponymia;
         $praktoreio->address = $request->address;
@@ -114,14 +115,14 @@ class PraktoreioController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Praktoreio  $praktoreio
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Praktoreio $praktoreio)
-    {
-        //
-    }
+//    /**
+//     * Remove the specified resource from storage.
+//     *
+//     * @param  \App\Praktoreio  $praktoreio
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function destroy(Praktoreio $praktoreio)
+//    {
+//        //
+//    }
 }

@@ -1,7 +1,7 @@
 @extends('forms')
 
 @section('formsdetails')
-    <form id="create_praktoreio_form" method="post" action="{{ route('praktoreio.update', $paktoreio->id_praktoreio) }}" autocomplete="off">
+    <form id="create_praktoreio_form" method="post" action="{{ route('praktoreio.update', $praktoreio->id_praktoreio) }}" autocomplete="off">
         @csrf
         {{ method_field('PUT') }}
         <div class="row">
@@ -19,7 +19,7 @@
                                     <label class="form-control-label" for="id_praktoreio">{{ __('Κωδικός') }} </label>
                                     <input type="text" name="id_praktoreio" id="id_praktoreio"
                                            class="form-control form-input form-control-alternative{{ $errors->has('id_praktoreio') ? ' is-invalid' : '' }}"
-                                           value="{{ $paktoreio->id_praktoreio }}"   autofocus disabled>
+                                           value="{{ $praktoreio->id_praktoreio }}"   autofocus disabled>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -27,7 +27,7 @@
                                     <label class="form-control-label" for="eponymia">{{ __(' Επωνυμία') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <input type="text" name="eponymia" id="eponymia"
                                            class="form-control form-input form-control-alternative{{ $errors->has('eponymia') ? ' is-invalid' : '' }}"
-                                           value="{{ $paktoreio->eponymia }}" autofocus required>
+                                           value="{{ $praktoreio->eponymia }}" autofocus required>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('tel') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="tel">{{ __(' Τηλέφωνο') }} <span style="color:red;font-weight:bold">*</span></label>
-                                    <input type="number" name="tel" id="tel" maxlength="10"
+                                    <input type="text" name="tel" id="tel" maxlength="10"
                                            class="form-control form-input form-control-alternative{{ $errors->has('tel') ? ' is-invalid' : '' }}"
                                            value="{{ $praktoreio->tel }}" autofocus required>
                                 </div>
@@ -53,7 +53,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('kinito') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="kinito">{{ __('Κινητό') }} </label>
-                                    <input type="number" name="kinito" id="kinito" maxlength="10"
+                                    <input type="text" name="kinito" id="kinito" maxlength="10"
                                            class="form-control form-input form-control-alternative{{ $errors->has('kinito') ? ' is-invalid' : '' }}"
                                            value="{{ $praktoreio->kinito }}"   autofocus>
                                 </div>
@@ -61,7 +61,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('fax') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="fax">{{ __(' Fax') }} </label>
-                                    <input type="number" name="fax" id="fax" maxlength="10"
+                                    <input type="text" name="fax" id="fax" maxlength="10"
                                            class="form-control form-input form-control-alternative{{ $errors->has('fax') ? ' is-invalid' : '' }}"
                                            value="{{ $praktoreio->fax }}" autofocus>
                                 </div>
@@ -79,7 +79,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('Mark_del') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Mark_del">{{ __(' Διαγραφή') }} <span style="color:red;font-weight:bold">*</span></label>
-                                    <select class="form-control form-select" id="Mark_del" name="Mark_del" required disabled>
+                                    <select class="form-control form-select" id="Mark_del" name="Mark_del" required>
                                         <option value="Ναι">Ναι</option>
                                         <option value="Όχι" selected="selected">Όχι</option>
                                     </select>
