@@ -97,7 +97,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <textarea id="note" name="note" style="width: 600px; height: 200px;">
+                                <textarea id="note" name="note" style="width: 500px; height: 200px;">
                                     {{ old('note') }}
                                 </textarea>
                                 <script>
@@ -107,29 +107,7 @@
                                     });
                                 </script>
                             </div>
-                            <div class="col-md-6">
-                                <table id="entoli" class="table table-bordered table-hover" style="width:100%">
-                                    <thead class="thead-dark">
-                                    <tr>
-                                        <th>Κωδικός</th>
-                                        <th>Επωνυμία</th>
-                                        <th>Διεύθυνση</th>
-                                        <th>Τηλέφωνο</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($praktoreia as $praktoreio)
-                                            <tr>
-                                                <td> {{ $praktoreio->id_praktoreio }} </td>
-                                                <td> {{ $praktoreio->eponymia }} </td>
-                                                <td> {{ $praktoreio->address }} </td>
-                                                <td> {{ $praktoreio->tel }} </td>
-                                                <td> <a href="{{ URL('praktoreiο/'.$praktoreio->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col">
@@ -147,6 +125,62 @@
         </div>
         @include('errors')
     </form>
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header-cust">
+                    <h4 class="heading-small text-center text-muted">
+                        <strong>{{ __('Λίστα πρακτορείων') }}</strong>
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="praktoreio" class="table table-bordered table-hover" style="width:100%">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th>Κωδικός</th>
+                                    <th>Επωνυμία</th>
+                                    <th>Διεύθυνση</th>
+                                    <th>Τηλέφωνο</th>
+                                    <th>Email</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($praktoreia as $praktoreio)
+                                    <tr>
+                                        <td> {{ $praktoreio->id_praktoreio }} </td>
+                                        <td> {{ $praktoreio->eponymia }} </td>
+                                        <td> {{ $praktoreio->address }} </td>
+                                        <td> {{ $praktoreio->tel }} </td>
+                                        <td> {{ $praktoreio->email }}</td>
+                                        <td>
+                                            <a href="{{ URL('praktoreiο/'.$praktoreio->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                        </td>
+                                        <td>
+                                            <form action=" {{ action('PraktoreioController@destroy',$praktoreio->id_praktoreio) }}" method="post">
+                                                @csrf
+                                                {{ method_field('DELETE') }}
+                                                <button type="submit" class="btn btn-danger" style="background-color:transparent; border-color:transparent;">
+                                                    <img src="/images/delete.jpg" height="25"/>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 

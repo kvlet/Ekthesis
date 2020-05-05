@@ -85,7 +85,8 @@ class PraktoreioController extends Controller
     {
        $praktoreio = Praktoreio::find($id_praktoreio);
        $praktoreio->update();
-       return view('praktoreio.edit',compact(['praktoreio']));
+       $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+       return view('praktoreio.edit',compact(['praktoreio','praktoreia']));
     }
 
     /**
@@ -116,14 +117,18 @@ class PraktoreioController extends Controller
 
     }
 
-//    /**
-//     * Remove the specified resource from storage.
-//     *
-//     * @param  \App\Praktoreio  $praktoreio
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function destroy(Praktoreio $praktoreio)
-//    {
-//        //
-//    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Praktoreio  $praktoreio
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id_praktoreio)
+    {
+        $praktoreio = $praktoreio = Praktoreio::find($id_praktoreio);
+        $praktoreio->delete();
+
+        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+        return view('praktoreio.create', compact(['praktoreia']));
+    }
 }

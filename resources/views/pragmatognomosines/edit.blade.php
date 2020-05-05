@@ -867,7 +867,7 @@
                                                             <div class="row">
                                                                 <div class="col">
                                                                     <div class="text-center">
-                                                                        <a href="{{ route('pragmatognomosines.store') }}"><img width="50" src="/images/add_rec.jpg" /></a> {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
+                                                                            <a href="{{ route('pragmatognomosines.store') }}"><img width="50" src="/images/add_rec.jpg" /></a> {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
                                                                     </div>
                                                                 </div>
 {{--                                                                <div class="col">

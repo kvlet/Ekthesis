@@ -53,6 +53,7 @@ Route::get('praktoreiο','PraktoreioController@create')->name('praktoreio.create
 Route::post('praktoreiο','PraktoreioController@store')->name('praktoreio.store');
 Route::get('praktoreiο/{id}','PraktoreioController@edit')->name('praktoreio.edit');
 Route::put('praktoreiο/{id}','PraktoreioController@update')->name('praktoreio.update');
+Route::delete('praktoreiο/{id}','PraktoreioController@destroy')->name('praktoreio.destroy');
 //Route::resource('proktereio','PraktoreioController');
 // end routes for look up tables
 
