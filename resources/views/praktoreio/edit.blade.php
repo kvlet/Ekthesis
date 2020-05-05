@@ -97,8 +97,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <textarea id="note" name="note" style="width: 800px; height: 200px;">
+                            <div class="col-md-6">
+                                <textarea id="note" name="note" style="width: 600px; height: 200px;">
                                     {{ $praktoreio->note }}
                                 </textarea>
                                 <script>

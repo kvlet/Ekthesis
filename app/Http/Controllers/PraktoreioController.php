@@ -31,7 +31,8 @@ class PraktoreioController extends Controller
      */
     public function create()
     {
-        return view('praktoreio.create');
+        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+        return view('praktoreio.create', compact(['praktoreia']));
     }
 
     /**
