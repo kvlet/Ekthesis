@@ -97,7 +97,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <textarea id="note" name="note" style="width: 500px; height: 200px;">
+                                <textarea id="note" name="note" style="width: 600px; height: 200px;">
                                     {{ old('note') }}
                                 </textarea>
                                 <script>
