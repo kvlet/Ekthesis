@@ -163,7 +163,7 @@
                                         <td> {{ $praktoreio->eponymia }} </td>
                                         <td> {{ $praktoreio->address }} </td>
                                         <td> {{ $praktoreio->tel }} </td>
-                                        <td> {{ $praktoreio->email }}</td>
+                                        <td> <a href="mailto: {{ $praktoreio->email }} " alt="send mail to {{ $praktoreio->eponymia }}">{{ $praktoreio->email }}</a></td>
                                         <td>
                                             <a href="{{ URL('praktoreiο/'.$praktoreio->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                         </td>
