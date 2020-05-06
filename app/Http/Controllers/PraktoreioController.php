@@ -125,9 +125,10 @@ class PraktoreioController extends Controller
      */
     public function destroy($id_praktoreio)
     {
-        $praktoreio = $praktoreio = Praktoreio::find($id_praktoreio);
-        $praktoreio->delete();
-
+        if($praktEkth = Praktoreio::find($id_praktoreio)->pragmatognomosini->isEmpty()){
+            $praktoreio = Praktoreio::find($id_praktoreio);
+            $praktoreio->delete();
+        }
         $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
         return view('praktoreio.create', compact(['praktoreia']));
     }
