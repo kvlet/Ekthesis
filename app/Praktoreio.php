@@ -15,6 +15,6 @@ class Praktoreio extends Model
 
     public function pragmatognomosini()
     {
-        return $this->belongsToMany(Pragmatognomosini::class);
+        return $this->belongsToMany('App\Pragmatognomosini','db_praktoreio_ekthesis','id_praktoreio','id_ekthesis');
     }
 }

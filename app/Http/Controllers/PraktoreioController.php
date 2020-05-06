@@ -128,8 +128,13 @@ class PraktoreioController extends Controller
         if($praktEkth = Praktoreio::find($id_praktoreio)->pragmatognomosini->isEmpty()){
             $praktoreio = Praktoreio::find($id_praktoreio);
             $praktoreio->delete();
+            $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+            return view('praktoreio.create', compact(['praktoreia']));
+        }else{
+            return back()->with('error','Το πρακτορείο δεν γίνεται να διαγραφεί συμμετέχει σε εκθέσεις');
+//            $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+//            return view('praktoreio.create', compact(['praktoreia']))->with('error','Το πρακτορείο δεν γίνεται να διαγραφεί συμμετέχει σε εκθέσεις');
         }
-        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
-        return view('praktoreio.create', compact(['praktoreia']));
+
     }
 }
