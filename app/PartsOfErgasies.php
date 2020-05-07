@@ -19,10 +19,11 @@ class PartsOfErgasies extends Model
     ];
 
     public function ergasies_in_parts(){
-        return $this->hasMany(Ergasies::class);
+        return $this->hasMany(Ergasies::class,'id_ergasies');
     }
 
     public  function parts_in_ergasies(){
-        return $this->hasMany(Parts::class);
+        return $this->hasMany(Parts::class,'id_parts');
     }
+
 }

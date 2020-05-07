@@ -13,6 +13,6 @@ class Ergasies extends Model
     protected $primaryKey= 'id_ergasies';
 
     public function ergasies_in_parts(){
-        return $this->belongsToMany(PartsOfErgasies::class);
+        return $this->belongsToMany(PartsOfErgasies::class,'db_parts_of_ergasies','id_ergasies','id_parts');
     }
 }

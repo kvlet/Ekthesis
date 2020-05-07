@@ -12,6 +12,6 @@ class Keimena extends Model
     protected $primaryKey = 'id_keimena';
 
     public function pragmatognomosini(){
-        return $this->belongsToMany(Pragmatognomosini::class,'db_ekthesis','id_ekthesis');
+        return $this->belongsToMany('App\Pragmatognomosini','db_keimena_ekthesis','id_keimena','id_ekthesis');
     }
 }
