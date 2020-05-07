@@ -12,6 +12,8 @@ class Arxi_ekdosis_eggrafon extends Model
     public $timestamps = false;
     protected $primaryKey= 'id_Arxi_ekdosis_eggrafon';
 
-
+    public function pragmatognomosini(){
+        return $this->belongsToMany(Pragmatognomosini::class,'db_ekthesis','id_ekthesis');
+    }
 
 }

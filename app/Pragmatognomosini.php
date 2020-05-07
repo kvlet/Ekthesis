@@ -46,55 +46,55 @@ class Pragmatognomosini extends Model
 
     public function grafeio()
     {
-        return $this->hasOne(Grafeio::class);
+        return $this->hasOne(Grafeio::class,'id_grafeio');
     }
 
     public function nomoi()
     {
-        return $this->hasOne(Nomos::class);
+        return $this->hasOne(Nomos::class,'id_nomoi');
     }
 
     public function diakrisi()
     {
-        return $this->hasOne(Diakrisi::class);
+        return $this->hasOne(Diakrisi::class,'id_diakrisi');
     }
 
     public function arxi_ekdosis_eggrafon(){
-        return $this->hasOne(Arxi_ekdosis_eggrafon::class);
+        return $this->hasOne(Arxi_ekdosis_eggrafon::class,'id_Arxi_ekdosis_eggrafon');
     }
 
     public function accident_place(){
-        return $this->hasOne(Accedent_place::class);
+        return $this->hasOne(Accedent_place::class,'id_accident_place');
     }
 
     public function company_ypaitiou(){
-        return $this->hasOne(Company::class);
+        return $this->hasOne(Company::class,'id_company');
     }
     public function company_pathon_real(){
-        return $this->hasOne(Company::class);
+        return $this->hasOne(Company::class,'id_company');
     }
     public function company_pathon(){
-        return $this->hasOne(Company::class);
+        return $this->hasOne(Company::class,'id_company');
     }
 
     public function pathon(){
-        return $this->hasOne(Person::class);
+        return $this->hasOne(Person::class,'id_person');
     }
 
     public function ypaitios(){
-        return $this->hasOne(Person::class);
+        return $this->hasOne(Person::class,'id_person');
     }
 
     public function oxima_pathon(){
-        return $this->hasOne(Oxima::class);
+        return $this->hasOne(Oxima::class,'id_oximata');
     }
 
     public function oxima_ypatiou(){
-        return $this->hasOne(Oxima::class);
+        return $this->hasOne(Oxima::class,'id_oximata');
     }
 
     public function keimena(){
-        return $this->hasMany(Keimena::class);
+        return $this->hasMany(Keimena::class,'id_keimena');
     }
     public  function praktoreia(){
         return $this->belongsToMany('App\Praktoreio','db_praktoreio_ekthesis','id_ekthesis','id_praktoreio');

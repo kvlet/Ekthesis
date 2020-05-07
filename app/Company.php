@@ -13,4 +13,8 @@ class Company extends Model
 
     public $timestamps = false;
     protected $primaryKey= 'id_company';
+
+    public function pragmatognomosini(){
+        return $this->belongsToMany(Pragmatognomosini::class,'db_ekthesis','id_ekthesis');
+    }
 }

@@ -13,6 +13,6 @@ class Nomos extends Model
     protected $primaryKey= 'id_nomoi';
 
     public function pragmatognomosini(){
-        return $this->belongsToMany(Pragmatognomosini::class);
+        return $this->belongsToMany(Pragmatognomosini::class,'db_ekthesis','id_ekthesis');
     }
 }

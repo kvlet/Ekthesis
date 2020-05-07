@@ -38,4 +38,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pragmatognomosini(){
+        return $this->belongsToMany(Pragmatognomosini::class,'db_ekthesis','id_ekthesis');
+    }
 }
