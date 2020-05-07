@@ -1,4 +1,4 @@
-<form id="create_company_form" method="post" action="{{'company.store'}}" autocomplete="off">
+<form id="create_company_form" method="post" action="{{ route('company.store')}}" autocomplete="off">
     @csrf
     <div class="container-fluid">
         <div class="card">

@@ -129,6 +129,7 @@ class PraktoreioController extends Controller
             $praktoreio = Praktoreio::find($id_praktoreio);
             $praktoreio->delete();
             $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+//            redirect()->route('praktoreio.create');
             return view('praktoreio.create', compact(['praktoreia']));
         }else{
             return back()->with('error','Το πρακτορείο δεν γίνεται να διαγραφεί συμμετέχει σε εκθέσεις');

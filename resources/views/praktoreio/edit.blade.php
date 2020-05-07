@@ -121,7 +121,17 @@
                                 </div>
                             </div>
                             <div class="col d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                                <form action=" {{ action('PraktoreioController@destroy',$praktoreio->id_praktoreio) }}" method="post">
+                                    @csrf
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit" class="btn btn-danger">
+{{--                                        <img src="/images/delete.jpg" height="25"/>--}}
+                                        Διαφραφή
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="col d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                             </div>
                         </div>
                     </div>

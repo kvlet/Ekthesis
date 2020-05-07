@@ -22,7 +22,7 @@ class CompanyController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request){
-        dd($request);
+
 
         $company = new Company();
         $request->Flag='2';
@@ -38,14 +38,20 @@ class CompanyController extends Controller
         $company->Mark_del = $request->Mark_del;
 
         $company->save();
+        if (\Request::is('pragmatognomosines/*')) {
+            dd($request);
+        }elseif (\Request::is('ereunes/*')){
+           return back();
+        }else{
+            return redirect('company/'.$company->id_company);
+        }
 
-        return redirect('company/'.$company->id_company);
     }
 
     public function edit($id_company){
 
         $company = Company::find($id_company);
-        return view('company.edit');
+        return view('company.edit',compact(['company']));
 
     }
 
@@ -53,9 +59,19 @@ class CompanyController extends Controller
     {
         $company = Company::find($id_company);
 
-        $company = $request->all();
+        $request->Flag='2';
+        $request->Mark_del='Όχι';
+
+        $company->comp_name = $request->comp_name;
+        $company->afm = $request->afm;
+        $company->address = $request->address;
+        $company->tk = $request->tk;
+        $company->Fax = $request->Fax;
+        $company->Email = $request->Email;
+        $company->Flag = $request->Flag;
+        $company->Mark_del = $request->Mark_del;
         $company->update();
 
-        return redirect('company/'.$company->$id_company);
+        return redirect('company/'.$company->id_company);
     }
 }

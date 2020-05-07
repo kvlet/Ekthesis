@@ -1,7 +1,7 @@
 @extends('forms')
 
 @section('formsdetails')
-    <form id="create_company_form" method="post" action="{{ 'company.store' }}" autocomplete="off">
+    <form id="create_company_form" method="post" action="{{ route('company.store') }}" autocomplete="off">
         @csrf
         <div class="row">
             <div class="col-md-12">
