@@ -99,4 +99,11 @@ class Pragmatognomosini extends Model
     public  function praktoreia(){
         return $this->belongsToMany('App\Praktoreio','db_praktoreio_ekthesis','id_ekthesis','id_praktoreio');
     }
+
+    public function synyrgeis(){
+
+        return $this->belongsToMany('App\Synergeio','db_synergeia_ekthesis','id_ekthesis','id_synergeia');
+    }
+
+
 }
