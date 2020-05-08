@@ -126,7 +126,7 @@
                                     {{ method_field('DELETE') }}
                                     <button type="submit" class="btn btn-danger">
 {{--                                        <img src="/images/delete.jpg" height="25"/>--}}
-                                        Διαφραφή
+                                        Διαγραφή
                                     </button>
                                 </form>
                             </div>

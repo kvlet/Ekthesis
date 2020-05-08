@@ -21,7 +21,7 @@
             <ul class="flex-column pl-2 nav">
                 <li class="nav-item"><a class="nav-link py-0" href="/company"><span>Εταιρείες</span></a></li>
                 <li class="nav-item"><a class="nav-link py-0" href="/praktoreiο"><span>Πρακτορεία</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/synergeiο"><span>Συνεργεία</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/synergeio"><span>Συνεργεία</span></a></li>
             </ul>
         </div>
     </li>

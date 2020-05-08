@@ -165,7 +165,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <table id="praktoreio" class="table table-bordered table-hover" style="width:100%">
+                            <table id="synergeio" class="table table-bordered table-hover" style="width:100%">
                                 <thead class="thead-dark">
                                 <tr>
                                     <th>Κωδικός</th>
@@ -182,9 +182,9 @@
                                         <td> {{ $synergeio->Name_syner }} </td>
                                         <td> {{ $synergeio->Addres }} </td>
                                         <td> {{ $synergeio->Phone }} </td>
-                                        <td> <a href="mailto: {{ $praktoreio->Email }} " alt="send mail to {{ $praktoreio->Name_syner }}">{{ $praktoreio->Email }}</a></td>
+                                        <td> <a href="mailto: {{ $synergeio->Email }} " alt="send mail to {{ $synergeio->Name_syner }}">{{ $synergeio->Email }}</a></td>
                                         <td>
-                                            <a href="{{ URL('praktoreiο/'.$synergeio->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                            <a href="{{ URL('synergeio/'.$synergeio->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                         </td>
                                         <td>
                                             <form action=" {{ action('SynergeioController@destroy',$synergeio->id_synergeia) }}" method="post">
