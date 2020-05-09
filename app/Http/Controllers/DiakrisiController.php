@@ -32,6 +32,7 @@ class DiakrisiController extends Controller
 //                'data' => $value
 //            ],200);
 //        }
+        $request->Mark_del='Όχι';
         $diakrisi = new Diakrisi();
         $diakrisi->id_diakrisi = $request->id_diakrisi;
         $diakrisi->Diakrisi = $request->Diakrisi;
@@ -59,6 +60,7 @@ class DiakrisiController extends Controller
         $diakrisi = Diakrisi::find($id_diakrisi);
 
         $request->Mark_del='Όχι';
+        $diakrisi->id_diakrisi = $request->id_diakrisi;
         $diakrisi->Diakrisi = $request->Diakrisi;
         $diakrisi->Mark_del = $request->Mark_del;
         $diakrisi->Group_diakr = $request->Group_diakr;

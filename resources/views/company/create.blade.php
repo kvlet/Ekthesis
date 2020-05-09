@@ -97,7 +97,7 @@
                         </div>
                         <div class="row mt-4">
                             <div class="col d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Αποθήκευση</button>
+                                <button type="submit" class="btn btn-primary">Καταχώρηση</button>
                             </div>
                         </div>
                     </div>

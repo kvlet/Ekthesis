@@ -61,6 +61,10 @@ Route::get('synergeio/{id}','SynergeioController@edit')->name('synergeio.edit');
 Route::put('synergeio/{id}','SynergeioController@update')->name('synergeio.update');
 Route::delete('synergeio/{id}','SynergeioController@destroy')->name('synergeio.destroy');
 
+Route::get('person','PersonController@create')->name('person.create');
+Route::post('person','PersonController@store')->name('person.store');
+Route::get('person/{id}','PersonController@edit')->name('person.edit');
+Route::put('person/{id}','PersonController@update')->name('person.update');
 // end routes for look up tables
 
 /*Route::get('/pragmatognomosines', 'PragmController@create');

@@ -103,7 +103,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('Mark_del') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Mark_del">{{ __(' Διαγραφή') }} <span style="color:red;font-weight:bold">*</span></label>
-                                    <select class="form-control form-select" id="Mark_del" name="Mark_del" required disabled>
+                                    <select class="form-control form-select" id="Mark_del" name="Mark_del" required>
                                         <option value="Ναι">Ναι</option>
                                         <option value="Όχι" selected="selected">Όχι</option>
                                     </select>

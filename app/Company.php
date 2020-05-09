@@ -15,6 +15,6 @@ class Company extends Model
     protected $primaryKey= 'id_company';
 
     public function pragmatognomosini(){
-        return $this->belongsToMany(Pragmatognomosini::class,'db_ekthesis','id_ekthesis');
+        return $this->hasMany(Pragmatognomosini::class,'id_ekthesis','id_company');
     }
 }

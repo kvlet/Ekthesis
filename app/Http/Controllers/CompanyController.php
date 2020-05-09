@@ -51,6 +51,8 @@ class CompanyController extends Controller
     public function edit($id_company){
 
         $company = Company::find($id_company);
+//        $pragma =  Company::find($id_company)->pragmatognomosini;
+//        dd($pragma->id_company);
         return view('company.edit',compact(['company']));
 
     }

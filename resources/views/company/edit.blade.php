@@ -79,7 +79,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('Mark_del') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Mark_del">{{ __(' Διαγραφή') }} <span style="color:red;font-weight:bold">*</span></label>
-                                    <select class="form-control form-select" id="Mark_del" name="Mark_del" required disabled>
+                                    <select class="form-control form-select" id="Mark_del" name="Mark_del" required>
                                         <option value="Ναι">Ναι</option>
                                         <option value="Όχι" selected="selected">Όχι</option>
                                     </select>
@@ -97,6 +97,11 @@
                             </div>
                         </div>
                         <div class="row mt-4">
+                            <div class="col">
+                                <div class="text-center">
+                                    <a href="{{ route('company.create') }}"><img width="50" src="/images/add_rec.jpg" /></a> {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
+                                </div>
+                            </div>
                             <div class="col d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                             </div>
