@@ -12,8 +12,8 @@
                     <a class="nav-link" id="v-pills-bafes-tab" data-toggle="pill" href="#v-pills-bafes" role="tab" aria-controls="v-pills-bafes" aria-selected="false">Βαφές</a>
                     <a class="nav-link" id="v-pills-ergasiesNoAntallaktika-tab" data-toggle="pill" href="#v-pills-ergasiesnoantallaktika" role="tab" aria-controls="v-pills-ergasiesnoantallaktika" aria-selected="false">Εργασίες χωρίς ανταλλακτικά</a>
                     <a class="nav-link" id="v-pills-proasfalistikos-tab" data-toggle="pill" href="#v-pills-proasfalistikos" role="tab" aria-controls="v-pills-proasfalistikos" aria-selected="false">Προασφαλιστικός</a>
-                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
+                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false">Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-proyparxouses-tab" data-toggle="pill" href="#v-pills-proyparxouses" role="tab" aria-controls="v-pills-proyparxouses" aria-selected="false">Προυπάρχουσες</a>
                     <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
@@ -27,8 +27,8 @@
             <div class="col-2 menu-text-size">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab" aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
-                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
+                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false">Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
                     <a class="nav-link" id="v-pills-provlepsis-tab" data-toggle="pill" href="#v-pills-provlepsis" role="tab" aria-controls="v-pills-provlepsis" aria-selected="false">Προβλέψεις</a>
@@ -870,11 +870,6 @@
                                                                             <a href="{{ route('pragmatognomosines.store') }}"><img width="50" src="/images/add_rec.jpg" /></a> {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
                                                                     </div>
                                                                 </div>
-{{--                                                                <div class="col">
-                                                                    <div class="text-center">
-                                                                        <input type="image" width="50" value="submit" src="/images/save.png" alt="Καταχώρηση" > --}}{{-- onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}{{--
-                                                                    </div>
-                                                                </div>--}}
                                                                     <div class="col d-flex justify-content-end">
                                                                         <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                                                                     </div>
@@ -897,7 +892,139 @@
                 <div class="tab-pane fade" id="v-pills-ergasiesnoantallaktika" role="tabpanel" aria-labelledby="v-pills-ergasiesnoantallaktika-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-proasfalistikos" role="tabpanel" aria-labelledby="v-pills-proasfalistikos-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-katastasi" role="tabpanel" aria-labelledby="v-pills-katastasi-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-keimena" role="tabpanel" aria-labelledby="v-pills-keimena-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-keimena" role="tabpanel" aria-labelledby="v-pills-keimena-tab">
+                    εδώ τα κείμενα
+{{--                    <form id="create_praktoreio_form" method="post" action="{{ route('praktoreio.store') }}" autocomplete="off">--}}
+{{--                        @csrf--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-12">--}}
+{{--                                <div class="card">--}}
+{{--                                    <div class="card-header-cust">--}}
+{{--                                        <h4 class="heading-small text-center text-muted">--}}
+{{--                                            <strong>{{ __('Κείμενα Έκθεσης') }}</strong>--}}
+{{--                                        </h4>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="card-body">--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-md-6">--}}
+{{--                                                <div class="form-label{{ $errors->has('Print') ? ' has-danger' : '' }}">--}}
+{{--                                                    <label class="form-control-label" for="Print">{{ __(' Εκτύπωση ') }} <span style="color:red;font-weight:bold">*</span></label>--}}
+{{--                                                    <select class="form-control form-select" id="Mark_del" name="Mark_del" required>--}}
+{{--                                                        <option value="Ναι" selected="selected">Ναι</option>--}}
+{{--                                                        <option value="Όχι">Όχι</option>--}}
+{{--                                                    </select>--}}
+{{--                                                    @if ($errors->has('Print'))--}}
+{{--                                                        <span class="invalid-feedback" role="alert">--}}
+{{--                                                            <strong>{{ $errors->first('Print') }}</strong>--}}
+{{--                                                        </span>--}}
+{{--                                                    @endif--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-6">--}}
+{{--                                                <div class="form-label{{ $errors->has('print_group') ? ' has-danger' : '' }}">--}}
+{{--                                                    <label class="form-control-label" for="print_group">{{ __(' Εκτύπωση ') }} </label>--}}
+{{--                                                    <select class="form-control form-select" id="Mark_del" name="print_group" >--}}
+{{--                                                        <option value=1 selected="selected">1</option>--}}
+{{--                                                        <option value=2>2</option>--}}
+{{--                                                    </select>--}}
+{{--                                                    @if ($errors->has('print_group'))--}}
+{{--                                                        <span class="invalid-feedback" role="alert">--}}
+{{--                                                            <strong>{{ $errors->first('print_group') }}</strong>--}}
+{{--                                                        </span>--}}
+{{--                                                    @endif--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col">--}}
+{{--                                                <hr>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-md-6">--}}
+{{--                                <textarea id="note" name="note" style="width: 650px; height: 200px;">--}}
+{{--                                    {{ old('note') }}--}}
+{{--                                </textarea>--}}
+{{--                                <script>--}}
+{{--                                    bkLib.onDomLoaded(function() {--}}
+{{--                                        // nicEditors.allTextAreas()--}}
+{{--                                        new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('note');--}}
+{{--                                    });--}}
+{{--                                </script>--}}
+{{--                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col">--}}
+{{--                                                <hr>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="row mt-4">--}}
+{{--                                            <div class="col d-flex justify-content-end">--}}
+{{--                                                <button type="submit" class="btn btn-primary">Καταχώρηση</button>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        @include('errors')--}}
+{{--                    </form>--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col">--}}
+{{--                            <hr>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <div class="card">--}}
+{{--                                <div class="card-header-cust">--}}
+{{--                                    <h4 class="heading-small text-center text-muted">--}}
+{{--                                        <strong>{{ __('Λίστα Κειμένων') }}</strong>--}}
+{{--                                    </h4>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <table id="praktoreio" class="table table-bordered table-hover" style="width:100%">--}}
+{{--                                                <thead class="thead-dark">--}}
+{{--                                                <tr>--}}
+{{--                                                    <th>Κωδικός Κειμένου</th>--}}
+{{--                                                    <th>Εκτύπωση</th>--}}
+{{--                                                    <th>Σειρά εμφάνισης</th>--}}
+{{--                                                    <th>Κείμενο</th>--}}
+{{--                                                </tr>--}}
+{{--                                                </thead>--}}
+{{--                                                <tbody>--}}
+{{--                                                @foreach($praktoreia as $praktoreio)--}}
+{{--                                                    <tr>--}}
+{{--                                                        <td> {{ $praktoreio->id_praktoreio }} </td>--}}
+{{--                                                        <td> {{ $praktoreio->eponymia }} </td>--}}
+{{--                                                        <td> {{ $praktoreio->address }} </td>--}}
+{{--                                                        <td> {{ $praktoreio->tel }} </td>--}}
+{{--                                                        <td> <a href="mailto: {{ $praktoreio->email }} " alt="send mail to {{ $praktoreio->eponymia }}">{{ $praktoreio->email }}</a></td>--}}
+{{--                                                        <td>--}}
+{{--                                                            <a href="{{ URL('praktoreiο/'.$praktoreio->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>--}}
+{{--                                                        </td>--}}
+{{--                                                        <td>--}}
+{{--                                                            <form action=" {{ action('PraktoreioController@destroy',$praktoreio->id_praktoreio) }}" method="post">--}}
+{{--                                                                @csrf--}}
+{{--                                                                {{ method_field('DELETE') }}--}}
+{{--                                                                <button type="submit" class="btn btn-danger" style="background-color:transparent; border-color:transparent;">--}}
+{{--                                                                    <img src="/images/delete.jpg" height="25"/>--}}
+{{--                                                                </button>--}}
+{{--                                                            </form>--}}
+{{--                                                        </td>--}}
+{{--                                                    </tr>--}}
+{{--                                                @endforeach--}}
+{{--                                                </tbody>--}}
+{{--                                            </table>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+                </div>
                 <div class="tab-pane fade" id="v-pills-eksodaekthesis" role="tabpanel" aria-labelledby="v-pills-eksodaekthesis-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-proyparxouses" role="tabpanel" aria-labelledby="v-pills-proyparxouses-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-synergeia" role="tabpanel" aria-labelledby="v-pills-synergeia-tab">...</div>
