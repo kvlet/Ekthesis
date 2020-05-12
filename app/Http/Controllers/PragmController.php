@@ -341,4 +341,10 @@ class PragmController extends Controller
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
     }
+
+    public function add_keimena($id_ekthesis){
+
+        $keimena = Keimena::where([['Mark_del','Όχι']])->get();
+        return view('pragmatognomosines.add_keimena',compact(['keimena','id_ekthesis']));
+    }
 }

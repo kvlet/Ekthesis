@@ -11,11 +11,12 @@ Route::get('pragmatognomosines', 'PragmController@create')->name('pragmatognomos
 Route::post('pragmatognomosines', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('pragmatognomosines/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
 Route::put('pragmatognomosines/{id}', 'PragmController@update')->name('pragmatognomosines.update');
+Route::get('pragmatognomosines/{id}/add_keimena', 'PragmController@add_keimena')->name('pragmatognomosines.add_keimena');
 Route::get('ereunes', 'PragmController@create')->name('pragmatognomosines.create');
 Route::post('ereunes', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('ereunes/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
 Route::put('ereunes/{id}', 'PragmController@update')->name('pragmatognomosines.update');
-
+Route::get('ereunes/{id}/add_keimena', 'PragmController@add_keimena')->name('pragmatognomosines.add_keimena');
 //Route::get('pragmatognomosines/{id}', 'PragmController@show')->name('pragmatognomosines.show');
 // end routes for pragmatognomisines
 
