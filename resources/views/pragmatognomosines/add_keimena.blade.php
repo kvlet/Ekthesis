@@ -14,6 +14,24 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
+                                <div class="form-label{{ $errors->has('id_keimena') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="id_keimena">{{ __('Κείμενο') }}<span style="color:red;font-weight:bold">*</span></label>
+                                    <select class="form-control form-select" id="id_keimena" name="id_keimena" required >
+                                        <option selected value value=-1>{{ " Επιλέξτε Κείμενο " }}</option>
+                                        @foreach($keimena as $keimeno)
+                                            <option value="{{$keimeno->id_keimena}}" @if(old('id_keimena') == $keimeno->id_keimena) selected @endif>{{ $keimeno->Sort_descr }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('id_keimena'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('id_keimena') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('Print') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Print">{{ __(' Εκτύπωση ') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <select class="form-control form-select" id="Mark_del" name="Mark_del" required>

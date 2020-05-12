@@ -933,6 +933,12 @@
                                                             <textarea id="Note" name="Note" style="width: 200px; height: 200px;">
                                                                     {{ $keimeno->Note }}
                                                              </textarea>
+                                                            <script>
+                                                                bkLib.onDomLoaded(function() {
+                                                                    // nicEditors.allTextAreas()
+                                                                    new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Νote');
+                                                                });
+                                                            </script>
                                                         </td>
                                                         <td>
                                                             <a href="{{ URL('praktoreiο/'.$keimeno->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
