@@ -50,8 +50,8 @@ class CompanyController extends Controller
 
     public function edit($id_company){
 
-        $company = Company::find($id_company);
-//        $pragma =  Company::find($id_company)->pragmatognomosini;
+        $company = Company::findOrFail($id_company);
+//        $pragma =  Company::findOrFail($id_company)->pragmatognomosini;
 //        dd($pragma->id_company);
         return view('company.edit',compact(['company']));
 
@@ -59,7 +59,7 @@ class CompanyController extends Controller
 
     public function update(Request $request, $id_company)
     {
-        $company = Company::find($id_company);
+        $company = Company::findOrFailOrFail($id_company);
 
         $request->Flag='2';
         $request->Mark_del='Όχι';

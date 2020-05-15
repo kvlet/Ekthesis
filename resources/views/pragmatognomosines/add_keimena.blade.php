@@ -40,8 +40,8 @@
                                     </select>
                                     @if ($errors->has('Print'))
                                         <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('Print') }}</strong>
-                                                            </span>
+                                            <strong>{{ $errors->first('Print') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>
@@ -54,8 +54,8 @@
                                     </select>
                                     @if ($errors->has('print_group'))
                                         <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('print_group') }}</strong>
-                                                            </span>
+                                            <strong>{{ $errors->first('print_group') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>

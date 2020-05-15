@@ -147,6 +147,7 @@ class PragmController extends Controller
         $pragmatognomosini->Amibi_partner =$request->Amibi_partner;
         $pragmatognomosini->Flag = $request->Flag;
 
+
         if ($request->id_oximatos_pathon != null){
             $pragmatognomosini->id_oximatos_pathon = $request->id_oximatos_pathon;
         }else{
@@ -180,7 +181,7 @@ class PragmController extends Controller
         $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
         $keimena = Keimena::where([['Mark_del','Όχι']])->get();
 
-        $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
 
         // calculate file position
         if ($pragmatognomosini->id_oximatos_pathon != 1){
@@ -237,8 +238,8 @@ class PragmController extends Controller
             $dateParadosis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_paradosis)->format('d-m-Y');
             $pragmatognomosini->Date_paradosis = $dateParadosis;
         }
-
 //        end fix date format for display in form
+
 
 
         return view('pragmatognomosines.edit', compact([
@@ -252,12 +253,14 @@ class PragmController extends Controller
             'companies',
             'pathontes',
             'oximata_pathon',
-            'keimena']));
+            'keimena',
+
+        ]));
     }
 
     public function update(Request $request, $id_ekthesis)
     {
-        $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::FailOrFail($id_ekthesis);
         $request->partially_lock = 'Όχι';
         $request->total_lock = 'Όχι';
         $request->Amibi_partner='0';
@@ -336,7 +339,7 @@ class PragmController extends Controller
 
     public function show($id_ekthesis)
     {
-        $pragmatognomosini = Pragmatognomosini::find($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
 
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);

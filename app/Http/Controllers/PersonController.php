@@ -92,7 +92,7 @@ class PersonController extends Controller
      */
     public function edit($id_person)
     {
-        $person=Person::find($id_person);
+        $person=Person::findOrFail($id_person);
         $person->update();
         return view('person.edit',compact(['person']));
     }
@@ -106,7 +106,7 @@ class PersonController extends Controller
      */
     public function update(Request $request,$id_person)
     {
-        $person=Person::find($id_person);
+        $person=Person::findOrFail($id_person);
         $request->Mark_del='Όχι';
         $request->Flag='2';
         if ($request->Hm_gen != null){

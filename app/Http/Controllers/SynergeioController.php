@@ -79,7 +79,7 @@ class SynergeioController extends Controller
      */
     public function edit($id_synergeia)
     {
-        $synergeio=Synergeio::find($id_synergeia);
+        $synergeio=Synergeio::findOrFail($id_synergeia);
         $synergeio->update();
         $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
         return view('synergeio.edit',compact(['synergeio','synergeia']));
@@ -94,7 +94,7 @@ class SynergeioController extends Controller
      */
     public function update(Request $request, $id_synergeia)
     {
-        $synergeio=Synergeio::find($id_synergeia);
+        $synergeio=Synergeio::findOrFail($id_synergeia);
 
         $request->Mark_del='Όχι';
 
@@ -121,8 +121,8 @@ class SynergeioController extends Controller
      */
     public function destroy($id_synergeia)
     {
-        if ($synerEkth = Synergeio::find($id_synergeia)->pragmatognomosini->isEmpty()){
-            $synergeio=Synergeio::find($id_synergeia);
+        if ($synerEkth = Synergeio::findOrFail($id_synergeia)->pragmatognomosini->isEmpty()){
+            $synergeio=Synergeio::findOrFail($id_synergeia);
             $synergeio->delete();
             $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
             return redirect('synergeio/');

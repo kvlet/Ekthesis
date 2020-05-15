@@ -920,26 +920,26 @@
                                                     <th>Κωδικός Κειμένου</th>
                                                     <th>Εκτύπωση</th>
                                                     <th>Σειρά εμφάνισης</th>
-                                                    <th>Κείμενο</th>
+{{--                                                    <th>Κείμενο</th>--}}
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($keimena as $keimeno)
+                                                @foreach($pragmatognomosini->keimena as $keimeno)
                                                     <tr>
                                                         <td> {{ $keimeno->id_keimena }} </td>
                                                         <td> {{ $keimeno->Print }} </td>
                                                         <td> {{ $keimeno->print_group }} </td>
-                                                        <td>
-                                                            <textarea id="Note" name="Note" style="width: 200px; height: 200px;">
-                                                                    {{ $keimeno->Note }}
-                                                             </textarea>
-                                                            <script>
-                                                                bkLib.onDomLoaded(function() {
-                                                                    // nicEditors.allTextAreas()
-                                                                    new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Νote');
-                                                                });
-                                                            </script>
-                                                        </td>
+{{--                                                        <td>--}}
+{{--                                                            <textarea id="Note" name="Note" style="width: 200px; height: 200px;">--}}
+{{--                                                                    {{ $keimeno->Note }}--}}
+{{--                                                             </textarea>--}}
+{{--                                                            <script>--}}
+{{--                                                                bkLib.onDomLoaded(function() {--}}
+{{--                                                                    // nicEditors.allTextAreas()--}}
+{{--                                                                    new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');--}}
+{{--                                                                });--}}
+{{--                                                            </script>--}}
+{{--                                                        </td>--}}
                                                         <td>
                                                             <a href="{{ URL('praktoreiο/'.$keimeno->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                         </td>

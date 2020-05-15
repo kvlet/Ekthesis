@@ -41,7 +41,7 @@ class KeimenaController extends Controller
 
     public function edit($id_keimena){
 
-        $keimena = Keimena::find($id_keimena);
+        $keimena = Keimena::findOrFail($id_keimena);
 
         $keimena->update();
 
@@ -50,7 +50,7 @@ class KeimenaController extends Controller
 
     public function update(KeimenaRequest $request,$id_keimena){
 
-        $keimena = Keimena::find($id_keimena);
+        $keimena = Keimena::findOrFail($id_keimena);
 
         $request->Mark_del='Όχι';
 

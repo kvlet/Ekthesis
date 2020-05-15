@@ -94,7 +94,7 @@ class Pragmatognomosini extends Model
     }
 
     public function keimena(){
-        return $this->belongsToMany(Keimena::class,'db_keimena_ekthesis','id_ekthesis','id_keimena');
+        return $this->belongsToMany('App\Keimena','db_keimena_ekthesis','id_ekthesis','id_keimena');
     }
     public  function praktoreia(){
         return $this->belongsToMany('App\Praktoreio','db_praktoreio_ekthesis','id_ekthesis','id_praktoreio');

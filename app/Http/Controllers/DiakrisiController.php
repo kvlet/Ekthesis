@@ -47,7 +47,7 @@ class DiakrisiController extends Controller
 
     public  function edit($id_diakrisi){
 
-        $diakrisi = Diakrisi::find($id_diakrisi);
+        $diakrisi = Diakrisi::findOrFail($id_diakrisi);
 
 
         $diakrisi->update();
@@ -57,7 +57,7 @@ class DiakrisiController extends Controller
 
     public function update(DiakrisiRequest $request, $id_diakrisi){
 
-        $diakrisi = Diakrisi::find($id_diakrisi);
+        $diakrisi = Diakrisi::findOrFail($id_diakrisi);
 
         $request->Mark_del='Όχι';
         $diakrisi->id_diakrisi = $request->id_diakrisi;
