@@ -181,7 +181,7 @@ class PragmController extends Controller
         $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
         $keimena = Keimena::where([['Mark_del','Όχι']])->get();
 
-        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::with('keimena')->findOrFail($id_ekthesis);
 
         // calculate file position
         if ($pragmatognomosini->id_oximatos_pathon != 1){
