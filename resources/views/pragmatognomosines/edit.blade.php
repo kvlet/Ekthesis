@@ -920,26 +920,33 @@
                                                     <th>Κωδικός Κειμένου</th>
                                                     <th>Εκτύπωση</th>
                                                     <th>Σειρά εμφάνισης</th>
-                                                    <th>Κείμενο</th>
+{{--                                                    <th>Κείμενο</th>--}}
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 @foreach($pragmatognomosini->keimena as $keimeno)
                                                     <tr>
-                                                        <td> {{ $keimeno->pivot->id_keimena }} </td>
+                                                        <td>
+                                                            @foreach($keimena as $keim)
+                                                                @if ($keim->id_keimena == $keimeno->pivot->id_keimena)
+                                                                    {{ $keim->Sort_descr }}
+                                                                @endif
+                                                            @endforeach
+
+                                                        </td>
                                                         <td> {{ $keimeno->pivot->Print }} </td>
                                                         <td> {{ $keimeno->pivot->print_group }} </td>
-                                                        <td>
-                                                            <textarea id="Note" name="Note" style="width: 200px; height: 200px;">
-                                                                    {{ $keimeno->pivot->Note }}
-                                                             </textarea>
-                                                            <script>
-                                                                bkLib.onDomLoaded(function() {
-                                                                    nicEditors.allTextAreas()
-                                                                    new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');
-                                                                });
-                                                            </script>
-                                                        </td>
+{{--                                                        <td>--}}
+{{--                                                            <textarea id="Note" name="Note" style="width: 200px; height: 200px;">--}}
+{{--                                                                    {{ $keimeno->pivot->Note }}--}}
+{{--                                                             </textarea>--}}
+{{--                                                            <script>--}}
+{{--                                                                bkLib.onDomLoaded(function() {--}}
+{{--                                                                    nicEditors.allTextAreas()--}}
+{{--                                                                    new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');--}}
+{{--                                                                });--}}
+{{--                                                            </script>--}}
+{{--                                                        </td>--}}
                                                         <td>
                                                             <a href="{{ URL('keimeno/'.$keimeno->pivot->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                         </td>

@@ -67,9 +67,22 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <textarea id="Note" name="Note" style="width: 650px; height: 200px;">
-                                    {{ old('Note') }}
-                                </textarea>
+{{--                                <script>--}}
+{{--                                    $(document).ready(function(){--}}
+{{--                                        $("#id_keimena").change(function(){--}}
+                                        <textarea id="Note" name="Note" style="width: 650px; height: 200px;">
+                                            foreach($keimena as $keimeno)
+                                                if(old('id_keimena') == $keimeno->id_keimena)
+                                                    {{ $keimeno->Note }}
+                                                else
+                                                    {{ old('Note') }}
+                                                endif
+                                            endforeach
+                                        </textarea>
+{{--                                        });--}}
+{{--                                    });--}}
+{{--                                </script>--}}
+                                {{ old('Note') }}
                                 <script>
                                     bkLib.onDomLoaded(function() {
                                         // nicEditors.allTextAreas()
