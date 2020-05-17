@@ -1,8 +1,9 @@
 @extends('forms')
 
 @section('formsdetails')
-    <form id="create_keimena_ekth_form" method="post" action="" autocomplete="off">
+    <form id="create_keimena_ekth_form" method="post" action="{{ route('pragmatognomosines.update_keimena_ekth',$id_ekthesis) }}" autocomplete="off">
         @csrf
+        {{ method_field('PUT') }}
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -13,6 +14,15 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-label{{ $errors->has('id_ekthesis') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="id_ekthesis">{{ __('Αρ. Πρωτοκόλλου') }}</label>
+                                    <input type="text" name="id_ekthesis" id="id_ekthesis"
+                                           class="form-control form-input form-control-alternative{{ $errors->has('id_ekthesis') ? ' is-invalid' : '' }}"
+                                           value="{{ $id_ekthesis }}" disabled autofocus>
+                                    {{--                                                           value="{{ old('id_ekthesis') }}" disabled autofocus>--}}
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('id_keimena') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="id_keimena">{{ __('Κείμενο') }}<span style="color:red;font-weight:bold">*</span></label>
@@ -65,32 +75,19 @@
                                 <hr>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-{{--                                <script>--}}
-{{--                                    $(document).ready(function(){--}}
-{{--                                        $("#id_keimena").change(function(){--}}
-                                        <textarea id="Note" name="Note" style="width: 650px; height: 200px;">
-                                            foreach($keimena as $keimeno)
-                                                if(old('id_keimena') == $keimeno->id_keimena)
-                                                    {{ $keimeno->Note }}
-                                                else
-                                                    {{ old('Note') }}
-                                                endif
-                                            endforeach
-                                        </textarea>
-{{--                                        });--}}
-{{--                                    });--}}
-{{--                                </script>--}}
-                                {{ old('Note') }}
-                                <script>
-                                    bkLib.onDomLoaded(function() {
-                                        // nicEditors.allTextAreas()
-                                        new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');
-                                    });
-                                </script>
-                            </div>
-                        </div>
+                        {{--                        <div class="row">--}}
+                        {{--                            <div class="col-md-6">--}}
+                        {{--                                <textarea id="Note" name="Note" style="width: 650px; height: 200px;">--}}
+                        {{--                                            {{ old('Note') }}--}}
+                        {{--                                 </textarea>--}}
+                        {{--                                <script>--}}
+                        {{--                                    bkLib.onDomLoaded(function() {--}}
+                        {{--                                        // nicEditors.allTextAreas()--}}
+                        {{--                                        new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');--}}
+                        {{--                                    });--}}
+                        {{--                                </script>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                         <div class="row">
                             <div class="col">
                                 <hr>
@@ -108,3 +105,4 @@
         @include('errors')
     </form>
 @endsection
+

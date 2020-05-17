@@ -345,9 +345,24 @@ class PragmController extends Controller
         return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
     }
 
-    public function add_keimena($id_ekthesis){
+    public function create_keimena_ekth($id_ekthesis){
 
         $keimena = Keimena::where([['Mark_del','Όχι']])->get();
-        return view('pragmatognomosines.add_keimena',compact(['keimena','id_ekthesis']));
+        return view('pragmatognomosines.create_keimena_ekth',compact(['keimena','id_ekthesis']));
+    }
+    public function store_keimena_ekth(Request $request,$id_ekthesis){
+
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+        $keimena_note=Keimena::where([['Mark_del','Όχι'],['id_keimena','=',$request->id_keimena]])->pluck('Note');
+        $request->Note = $keimena_note[0];
+        $pragmatognomosini->keimena()->attach($request->id_keimena, ['Note'=>  $request->Note ],['Print'=>$request->Print],['print_group'=>$request->print_group]);
+//        $pragmatognomosini->keimena()->sync([$request->id_keimena]);
+//        return back();
+        $keimena = Keimena::where([['Mark_del','Όχι']])->get();
+        return view('pragmatognomosines.create_keimena_ekth',compact(['keimena','id_ekthesis']));
+    }
+
+    public function update_keimena_ekth(){
+
     }
 }

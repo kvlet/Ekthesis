@@ -894,9 +894,9 @@
                 <div class="tab-pane fade" id="v-pills-katastasi" role="tabpanel" aria-labelledby="v-pills-katastasi-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-keimena" role="tabpanel" aria-labelledby="v-pills-keimena-tab">
                     @if ((Request::is('pragmatognomosines/*')))
-                        <a href="{{route('pragmatognomosines.add_keimena',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη κειμένου</a>
+                        <a href="{{route('pragmatognomosines.create_keimena_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη κειμένου</a>
                     @elseif ((\Request::is('ereunes/*')))
-                        <a href="{{ route('pragmatognomosines.add_keimena',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη κειμένου</a>
+                        <a href="{{ route('pragmatognomosines.create_keimena_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη κειμένου</a>
                     @endif
                     <div class="row">
                         <div class="col">
