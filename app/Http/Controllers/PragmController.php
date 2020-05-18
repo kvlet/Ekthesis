@@ -359,7 +359,13 @@ class PragmController extends Controller
 //        $pragmatognomosini->keimena()->sync([$request->id_keimena]);
 //        return back();
         $keimena = Keimena::where([['Mark_del','Όχι']])->get();
-        return view('pragmatognomosines.create_keimena_ekth',compact(['keimena','id_ekthesis']));
+
+//        return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);;
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);;
+        }
     }
 
     public function destroy_keimena_ekth($id_ekthesis,$id_keimena){
