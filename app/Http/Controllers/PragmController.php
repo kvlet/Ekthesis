@@ -362,9 +362,9 @@ class PragmController extends Controller
 
 //        return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);
         if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);;
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);
         }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);;
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);
         }
     }
 
