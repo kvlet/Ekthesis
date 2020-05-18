@@ -56,10 +56,10 @@
         <a class="nav-link collapsed text-truncate" href="#submenu6" data-toggle="collapse" data-target="#submenu6"><i class="fa fa-table"></i> <span class="d-none d-sm-inline" style="color: black">Βοηθητικά</span></a>
         <div class="collapse" id="submenu6" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
-                <li class="nav-item"><a class="nav-link py-0" href="/diakrisis"><span>Τύπος Έκθεσης</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/nomoi"><span>Νομοί</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/place"><span>Τόπος Ατυχήματος</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/arxi"><span>Αρχή Εγγράφων</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/diakrisis"><span style="color: black">Τύπος Έκθεσης</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/nomoi"><span style="color: black">Νομοί</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/place"><span style="color: black">Τόπος Ατυχήματος</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/arxi"><span style="color: black">Αρχή Εγγράφων</span></a></li>
             </ul>
         </div>
     </li>
