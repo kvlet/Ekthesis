@@ -362,7 +362,8 @@ class PragmController extends Controller
         return view('pragmatognomosines.create_keimena_ekth',compact(['keimena','id_ekthesis']));
     }
 
-    public function update_keimena_ekth(){
-
+    public function destroy_keimena_ekth($id_ekthesis,$id_keimena){
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+        $pragmatognomosini->keimena()->detach($id_keimena);
     }
 }

@@ -1,7 +1,7 @@
 @extends('forms')
 
 @section('formsdetails')
-    <form id="create_keimena_ekth_form" method="post" action="{{ route('pragmatognomosines.update_keimena_ekth',$id_ekthesis) }}" autocomplete="off">
+    <form id="create_keimena_ekth_form" method="post" action="{{ route('pragmatognomosines.update_keimena_ekth',$id_ekthesis,$keimeno->id_keimena) }}" autocomplete="off">
         @csrf
         {{ method_field('PUT') }}
         <div class="row">
