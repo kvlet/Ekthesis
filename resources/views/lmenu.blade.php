@@ -7,11 +7,11 @@
         <a class="nav-link text-truncate" href="/ereunes"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Έρευνες</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline" style="color:black;">Πρόσωπα</span></a>
+        <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Πρόσωπα</span></a>
         <div class="collapse" id="submenu1" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
                 <li class="nav-item"><a class="nav-link py-0" href="/person"><span>Παθόντες/Υπαίτιοι</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/users_view"><span>Χρήστες</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/users_view"><span style="color: red">Χρήστες</span></a></li>
             </ul>
         </div>
     </li>
@@ -29,9 +29,9 @@
         <a class="nav-link collapsed text-truncate" href="#submenu3" data-toggle="collapse" data-target="#submenu3"><i class="fa fa-table"></i> <span class="d-none d-sm-inline" style="color: black">Οχήματα</span></a>
         <div class="collapse" id="submenu3" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
-                <li class="nav-item"><a class="nav-link py-0" href="/oximata"><span>Οχήματα</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/parts"><span>Ανταλλακτικά</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/jobs"><span>Εργασίες</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/oximata"><span style="color: black">Οχήματα</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/parts"><span style="color: black">Ανταλλακτικά</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/jobs"><span style="color: black">Εργασίες</span></a></li>
             </ul>
         </div>
     </li>
