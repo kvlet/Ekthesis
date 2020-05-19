@@ -23,7 +23,7 @@ class DiakrisiController extends Controller
     /**
      * @param DiakrisiRequest $request
      */
-    public function store(DiakrisiRequest $request){
+    public function store(Request $request){
 
 //        if($request->expectsJson()){
 //            $data = $request->all();
@@ -33,6 +33,7 @@ class DiakrisiController extends Controller
 //            ],200);
 //        }
         $request->Mark_del='Όχι';
+
         $diakrisi = new Diakrisi();
         $diakrisi->id_diakrisi = $request->id_diakrisi;
         $diakrisi->Diakrisi = $request->Diakrisi;
@@ -55,7 +56,7 @@ class DiakrisiController extends Controller
         return view('diakrisis.edit',compact(['diakrisi','diakrisis']));
     }
 
-    public function update(DiakrisiRequest $request, $id_diakrisi){
+    public function update(Request $request, $id_diakrisi){
 
         $diakrisi = Diakrisi::findOrFail($id_diakrisi);
 

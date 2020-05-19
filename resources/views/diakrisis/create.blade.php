@@ -17,11 +17,11 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <div class="form-label{{ $errors->has('id_diakrisis') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="id_diakrisis">{{ __('Κωδικός') }} <span style="color:red;font-weight:bold">*</span></label>
-                                            <input type="text" name="id_diakrisis" id="id_diakrisis"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_diakrisis') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('id_diakrisis') }}" autofocus required>
+                                        <div class="form-label{{ $errors->has('id_diakrisi') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="id_diakrisi">{{ __('Κωδικός') }} <span style="color:red;font-weight:bold">*</span></label>
+                                            <input type="text" name="id_diakrisi" id="id_diakrisi"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_diakrisi') ? ' is-invalid' : '' }}"
+                                                   value="{{ old('id_diakrisi') }}" autofocus required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
