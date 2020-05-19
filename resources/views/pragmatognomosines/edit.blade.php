@@ -951,7 +951,8 @@
                                                             <a href="{{ URL('keimeno/'.$keimeno->pivot->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                         </td>
                                                         <td>
-                                                            <form action=" {{ action('PragmController@destroy_keimena_ekth',['id_ekth'=>$pragmatognomosini->id_ekthesis,'id_keim'=>$keimeno->pivot->id_keimena]) }} " method="post">
+                                                            <form action=" " method="post">
+{{--                                                            <form action=" {{ action('PragmController@destroy_keimena_ekth',['id_ekth'=>$pragmatognomosini->id_ekthesis,'id_keim'=>$keimeno->pivot->id_keimena]) }} " method="post">--}}
                                                                 @csrf
                                                                 {{ method_field('DELETE') }}
                                                                 <button type="submit" class="btn btn-danger" style="background-color:transparent; border-color:transparent;">

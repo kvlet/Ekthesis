@@ -14,7 +14,7 @@ Route::put('pragmatognomosines/{id}', 'PragmController@update')->name('pragmatog
 Route::get('pragmatognomosines/{id}/add_keimena', 'PragmController@create_keimena_ekth')->name('pragmatognomosines.create_keimena_ekth');
 //Route::get('pragmatognomosines/{id}/add_keimena/{id_ekth}/{id_keim}', 'PragmController@edit_keimena_ekth')->name('pragmatognomosines.edit_keimena_ekth');
 Route::post('pragmatognomosines/{id}/add_keimena', 'PragmController@store_keimena_ekth')->name('pragmatognomosines.store_keimena_ekth');
-Route::delete('pragmatognomosines/{id}/add_keimena/id_ekth/id_keim', 'PragmController@destroy_keimena_ekth')->name('pragmatognomosines.destroy_keimena_ekth');
+//Route::delete('pragmatognomosines/{id}/add_keimena/id_ekth/id_keim', 'PragmController@destroy_keimena_ekth')->name('pragmatognomosines.destroy_keimena_ekth');
 Route::get('ereunes', 'PragmController@create')->name('pragmatognomosines.create');
 Route::post('ereunes', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('ereunes/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
@@ -22,7 +22,7 @@ Route::put('ereunes/{id}', 'PragmController@update')->name('pragmatognomosines.u
 Route::get('ereunes/{id}/add_keimena', 'PragmController@create_keimena_ekth')->name('pragmatognomosines.create_keimena_ekth');
 //Route::get('ereunes/{id}/add_keimena/{id_ekth}/{id_keim}', 'PragmController@edit_keimena_ekth')->name('pragmatognomosines.edit_keimena_ekth');
 Route::post('ereunes/{id}/add_keimena', 'PragmController@store_keimena_ekth')->name('pragmatognomosines.store_keimena_ekth');
-Route::delete('ereunes/{id}/add_keimena/id_ekth/id_keim', 'PragmController@destroy_keimena_ekth')->name('pragmatognomosines.destroy_keimena_ekth');
+//Route::delete('ereunes/{id}/add_keimena/id_ekth/id_keim', 'PragmController@destroy_keimena_ekth')->name('pragmatognomosines.destroy_keimena_ekth');
 //Route::get('pragmatognomosines/{id}', 'PragmController@show')->name('pragmatognomosines.show');
 // end routes for pragmatognomisines
 
