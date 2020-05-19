@@ -43,7 +43,7 @@ Route::post('nomoi', 'NomoiController@store')->name('nomoi.store');
 Route::get('place', 'PlaceController@create')->name('accedent_place.create');
 Route::post('place', 'PlaceController@store')->name('accedent_place.store');
 Route::get('place/{id}', 'PlaceController@edit')->name('accedent_place.edit');
-Route::put('place/{id}', 'PlaceController@update')->name('accedent_place.update'); 
+Route::put('place/{id}', 'PlaceController@update')->name('accedent_place.update');
 
 Route::get('arxi', 'ArxiController@create')->name('arxi_eggrafon.create');
 Route::post('arxi', 'ArxiController@store')->name('arxi_eggrafon.store');
