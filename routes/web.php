@@ -39,6 +39,8 @@ Route::put('diakrisis/{id}', 'DiakrisiController@update')->name('diakrisis.updat
 
 Route::get('nomoi', 'NomoiController@create')->name('nomoi.create');
 Route::post('nomoi', 'NomoiController@store')->name('nomoi.store');
+Route::get('nomoi/{id}', 'NomoiController@edit')->name('nomoi.edit');
+Route::put('nomoi/{id}', 'NomoiController@update')->name('nomoi.update');
 
 Route::get('place', 'PlaceController@create')->name('accedent_place.create');
 Route::post('place', 'PlaceController@store')->name('accedent_place.store');

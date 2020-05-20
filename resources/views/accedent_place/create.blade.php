@@ -61,7 +61,7 @@
                         <div class="row">
                             <div class="col">
                                 <table class="table" id="place_view">
-                                    <thead>
+                                    <thead class="thead-dark"
                                     <tr>
                                         <th scope="col">Κωδικός</th>
                                         <th scope="col">Τόπος</th>
@@ -74,6 +74,7 @@
                                             <td>{{ $accedent_place->id_accident_place }}</td>
                                             <td>{{ $accedent_place->Place }}</td>
                                             <td>{{ $accedent_place->Mark_del }}</td>
+                                            <td><a href="{{ URL('place/'.$accedent_place->id_accident_place) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
