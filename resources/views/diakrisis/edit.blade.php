@@ -7,7 +7,7 @@
                 <div class="card-header-cust">
                     <h4 class="heading-small text-center text-muted">
                         <strong>{{ __('Τύποι Έκθεσης') }}</strong>
-                    </h4>
+                    </h4>{{ method_field('PUT') }}
                 </div>
 
                 <form id="create_diakrisis_form" method="post" action="{{ route('diakrisis.update', $diakrisi->id_diakrisi) }}" autocomplete="off">

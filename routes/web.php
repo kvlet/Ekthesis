@@ -49,6 +49,8 @@ Route::put('place/{id}', 'PlaceController@update')->name('accedent_place.update'
 
 Route::get('arxi', 'ArxiController@create')->name('arxi_eggrafon.create');
 Route::post('arxi', 'ArxiController@store')->name('arxi_eggrafon.store');
+Route::get('arxi/{id}', 'ArxiController@edit')->name('arxi_eggrafon.edit');
+Route::put('arxi/{id}', 'ArxiController@update')->name('arxi_eggrafon.update');
 
 Route::get('company', 'CompanyController@create')->name('company.create');
 Route::post('company', 'CompanyController@store')->name('company.store');

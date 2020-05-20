@@ -59,7 +59,7 @@
                 <li class="nav-item"><a class="nav-link py-0" href="/diakrisis"><span>Τύπος Έκθεσης</span></a></li>
                 <li class="nav-item"><a class="nav-link py-0" href="/nomoi"><span>Νομοί</span></a></li>
                 <li class="nav-item"><a class="nav-link py-0" href="/place"><span>Τόπος Ατυχήματος</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/arxi"><span style="color: black">Αρχή Εγγράφων</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/arxi"><span>Αρχή Εγγράφων</span></a></li>
             </ul>
         </div>
     </li>
