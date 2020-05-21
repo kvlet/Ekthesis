@@ -60,7 +60,7 @@ class DiakrisiController extends Controller
 
         $diakrisi = Diakrisi::findOrFail($id_diakrisi);
 
-        $request->Mark_del='Όχι';
+
         $diakrisi->id_diakrisi = $request->id_diakrisi;
         $diakrisi->Diakrisi = $request->Diakrisi;
         $diakrisi->Mark_del = $request->Mark_del;

@@ -99,7 +99,7 @@ class PraktoreioController extends Controller
     public function update(Request $request, $id_praktoreio)
     {
         $praktoreio = Praktoreio::find($id_praktoreio);
-        $request->mark_del='Όχι';
+
         $request->flag='2';
 
         $praktoreio->eponymia = $request->eponymia;

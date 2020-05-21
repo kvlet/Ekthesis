@@ -52,7 +52,7 @@ class PlaceController extends Controller
 
     public function update(Request $request,$id_accident_place){
         $place = Accedent_place::findOrFail($id_accident_place);
-        $request->Mark_del='Όχι';
+
         $place->Place = $request->Place;
         $place->Mark_del = $request->Mark_del;
         $place->update();

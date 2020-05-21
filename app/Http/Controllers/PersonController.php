@@ -107,7 +107,7 @@ class PersonController extends Controller
     public function update(Request $request,$id_person)
     {
         $person=Person::findOrFail($id_person);
-        $request->Mark_del='Όχι';
+
         $request->Flag='2';
         if ($request->Hm_gen != null){
             $hm_gen = Carbon::createFromFormat('d-m-Y', $request->Hm_gen)->format('Y-m-d');

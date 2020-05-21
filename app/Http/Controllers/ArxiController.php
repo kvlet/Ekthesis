@@ -49,8 +49,8 @@ class ArxiController extends Controller
 
     public function update(Request $request,$id_Arxi_ekdosis_eggrafon){
         $arxi = Arxi_ekdosis_eggrafon::findOrFail($id_Arxi_ekdosis_eggrafon);
-        $request->Mark_del='Όχι';
-        $arxi = new Arxi_ekdosis_eggrafon();
+
+
         $arxi->Arxi = $request->Arxi;
         $arxi->Tel1 = $request->Tel1;
         $arxi->Tel2 = $request->Tel2;
@@ -58,6 +58,6 @@ class ArxiController extends Controller
         $arxi->update();
         $arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del', 'Όχι')->get();
 
-        return redirect('arxi_eggrafon.create',compact('arxes_ekdosis_eggrafon'));
+        return view('arxi_eggrafon.create',compact('arxes_ekdosis_eggrafon'));
     }
 }

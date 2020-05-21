@@ -96,7 +96,7 @@ class SynergeioController extends Controller
     {
         $synergeio=Synergeio::findOrFail($id_synergeia);
 
-        $request->Mark_del='Όχι';
+
 
         $synergeio->Name_syner = $request->Name_syner;
         $synergeio->Addres = $request->Addres;

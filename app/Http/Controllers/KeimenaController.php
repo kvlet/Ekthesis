@@ -52,7 +52,7 @@ class KeimenaController extends Controller
 
         $keimena = Keimena::findOrFail($id_keimena);
 
-        $request->Mark_del='Όχι';
+
 
         $keimena->Sort_descr = $request->Sort_descr;
         $keimena->Note = $request->Note;
