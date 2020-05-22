@@ -28,13 +28,13 @@
                                 <select class="form-control form-select" id="id_praktoreio" name="id_praktoreio" required >
                                     <option selected value value=-1>{{ " Επιλέξτε Κείμενο " }}</option>
                                     @foreach($praktoreia as $praktoreio)
-                                    <option value="{{$praktoreio->id_praktoreio}}" @if(old('id_praktoreio') == $praktoreio->id_praktoreio) selected @endif>{{ $praktoreio->eponymia }}</option>
+                                        <option value="{{$praktoreio->id_praktoreio}}" @if(old('id_praktoreio') == $praktoreio->id_praktoreio) selected @endif>{{ $praktoreio->eponymia }}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->has('id_praktoreio'))
                                 <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('id_praktoreio') }}</strong>
-                                        </span>
+                                </span>
                                 @endif
                             </div>
                         </div>

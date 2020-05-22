@@ -23,7 +23,7 @@
 {{--                        <a class="btn btn-sm btn-warning" style="margin: 4px" href="#"> Αίτηση Δικογραφίας </a>--}}
                     </div>
                     <div class="col-md-12">
-                        <a class="btn btn-sm btn-warning" style="margin: 4px" href="#"> Αίτηση Εισαγγελίας </a>
+                        <a class="btn btn-sm btn-warning" style="margin: 4px" href="#">Αίτηση Εισαγγελίας</a>
                     </div>
                 </div>
                 <div class="row">
@@ -31,7 +31,6 @@
                         <a class="btn btn-sm btn-warning" style="margin: 4px" href="#"> Εντολή Συνεργάτη </a>
                     </div>
                     <div class="col">
-
                     </div>
                 </div>
             </div>
