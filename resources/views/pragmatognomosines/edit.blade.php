@@ -16,9 +16,9 @@
                     <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: black">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" style="color: red">Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-proyparxouses-tab" data-toggle="pill" href="#v-pills-proyparxouses" role="tab" aria-controls="v-pills-proyparxouses" aria-selected="false" style="color: red">Προυπάρχουσες</a>
-                    <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false" style="color: black">Συνεργεία</a>
+                    <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
                     <a class="nav-link" id="v-pills-provlepsis-tab" data-toggle="pill" href="#v-pills-provlepsis" role="tab" aria-controls="v-pills-provlepsis" aria-selected="false">Προβλέψεις</a>
-                    <a class="nav-link" id="v-pills-praktoreia-tab" data-toggle="pill" href="#v-pills-praktoreia" role="tab" aria-controls="v-pills-praktoreia" aria-selected="false" style="color: black">Πρακτορεία</a>
+                    <a class="nav-link" id="v-pills-praktoreia-tab" data-toggle="pill" href="#v-pills-praktoreia" role="tab" aria-controls="v-pills-praktoreia" aria-selected="false" >Πρακτορεία</a>
                     <a class="nav-link" id="v-pills-notes-tab" data-toggle="pill" href="#v-pills-notes" role="tab" aria-controls="v-pills-notes" aria-selected="false">Παρατηρήσεις</a>
                     <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#v-pills-eksodasynergati" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false" style="color: red">Έξοδα συνεργάτη</a>
                 </div>
@@ -30,9 +30,9 @@
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
                     <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: black">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" style="color: red">Έξοδα έκθεσεις</a>
-                    <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false" style="color: black">Συνεργεία</a>
+                    <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
                     <a class="nav-link" id="v-pills-provlepsis-tab" data-toggle="pill" href="#v-pills-provlepsis" role="tab" aria-controls="v-pills-provlepsis" aria-selected="false" style="color: red">Προβλέψεις</a>
-                    <a class="nav-link" id="v-pills-praktoreia-tab" data-toggle="pill" href="#v-pills-praktoreia" role="tab" aria-controls="v-pills-praktoreia" aria-selected="false" style="color: black">Πρακτορεία</a>
+                    <a class="nav-link" id="v-pills-praktoreia-tab" data-toggle="pill" href="#v-pills-praktoreia" role="tab" aria-controls="v-pills-praktoreia" aria-selected="false" >Πρακτορεία</a>
                     <a class="nav-link" id="v-pills-notes-tab" data-toggle="pill" href="#v-pills-notes" role="tab" aria-controls="v-pills-notes" aria-selected="false">Παρατηρήσεις</a>
                     <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#v-pills-eksodasynergati" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false" style="color: red">Έξοδα συνεργάτη</a>
                 </div>
@@ -948,7 +948,11 @@
 {{--                                                            </script>--}}
 {{--                                                        </td>--}}
                                                         <td>
-                                                            <a href="{{ URL('keimeno/'.$keimeno->pivot->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+                                                                <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$keimeno->pivot->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                            @else
+                                                                <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$keimeno->pivot->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                            @endif
                                                         </td>
                                                         <td>
                                                             <form action=" " method="post">
@@ -973,9 +977,172 @@
                 </div>
                 <div class="tab-pane fade" id="v-pills-eksodaekthesis" role="tabpanel" aria-labelledby="v-pills-eksodaekthesis-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-proyparxouses" role="tabpanel" aria-labelledby="v-pills-proyparxouses-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-synergeia" role="tabpanel" aria-labelledby="v-pills-synergeia-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-synergeia" role="tabpanel" aria-labelledby="v-pills-synergeia-tab">
+                    @if ((Request::is('pragmatognomosines/*')))
+                        <a href="{{route('pragmatognomosines.create_synergeia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη συνεργείου</a>
+                    @elseif ((\Request::is('ereunes/*')))
+                        <a href="{{ route('pragmatognomosines.create_synergeia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη συνεργείου</a>
+                    @endif
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Λίστα Συνεργείων') }}</strong>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="synergeio" class="table table-bordered table-hover" style="width:100%">
+                                                <thead class="thead-dark">
+                                                <tr>
+                                                    <th>Συνεργείο</th>
+                                                    <th>1η επίσκεψη</th>
+                                                    <th>2η επίσκεψη</th>
+                                                    <th>3η επίσκεψη</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($pragmatognomosini->synergeia as $synergeio)
+                                                    <tr>
+                                                        <td>
+                                                            @foreach($synergeia as $synerg)
+                                                                @if ($synerg->id_synergeia == $synergeio->pivot->id_synergeia)
+                                                                    {{ $synerg->Name_syner }}
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td id="d1">{{$synergeio->pivot->Date_episkepsis}}
+                                                            <script type="text/javascript">
+                                                                $('#d1').datepicker({
+                                                                    autoclose: true,
+                                                                    format: 'dd-mm-yyyy',
+                                                                    language: 'el',
+                                                                    todayHighlight: true,
+                                                                });
+                                                            </script>
+                                                        </td>
+                                                        <td id="d2">{{$synergeio->pivot->Date_episkepsis2}}
+                                                            <script type="text/javascript">
+                                                                $('#d2').datepicker({
+                                                                    autoclose: true,
+                                                                    format: 'dd-mm-yyyy',
+                                                                    language: 'el',
+                                                                    todayHighlight: true,
+                                                                });
+                                                            </script>
+                                                        </td>
+                                                        <td id="d3">{{$synergeio->pivot->Date_episkepsis3}}
+                                                            <script type="text/javascript">
+                                                                $('#d3').datepicker({
+                                                                    autoclose: true,
+                                                                    format: 'dd-mm-yyyy',
+                                                                    language: 'el',
+                                                                    todayHighlight: true,
+                                                                });
+                                                            </script>
+                                                        </td>
+                                                        <td>
+                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+                                                            <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_synergeia/'.$pragmatognomosini->id_ekthesis.'/'.$synergeio->pivot->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                            @else
+                                                                <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_synergeia/'.$pragmatognomosini->id_ekthesis.'/'.$synergeio->pivot->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            <form action=" " method="post">
+                                                                {{--                                                            <form action=" {{ action('PragmController@destroy_keimena_ekth',['id_ekth'=>$pragmatognomosini->id_ekthesis,'id_keim'=>$keimeno->pivot->id_keimena]) }} " method="post">--}}
+                                                                @csrf
+                                                                {{ method_field('DELETE') }}
+                                                                <button type="submit" class="btn btn-danger" style="background-color:transparent; border-color:transparent;">
+                                                                    <img src="/images/delete.jpg" height="25"/>
+                                                                </button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-provlepsis" role="tabpanel" aria-labelledby="v-pills-provlepsis-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-praktoreia" role="tabpanel" aria-labelledby="v-pills-praktoreia-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-praktoreia" role="tabpanel" aria-labelledby="v-pills-praktoreia-tab">
+                    @if ((Request::is('pragmatognomosines/*')))
+                        <a href="{{route('pragmatognomosines.create_praktoreia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη πρακτορείου</a>
+                    @elseif ((\Request::is('ereunes/*')))
+                        <a href="{{ route('pragmatognomosines.create_praktoreia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη πρακτορείου</a>
+                    @endif
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header-cust">
+                                        <h4 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Λίστα Πρακτορείων') }}</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table id="praktoreio" class="table table-bordered table-hover" style="width:100%">
+                                                    <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>Πρακτορείο</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($pragmatognomosini->praktoreia as $praktoreio)
+                                                        <tr>
+                                                            <td>
+                                                                @foreach($praktoreia as $prakt)
+                                                                    @if ($prakt->id_praktoreio == $praktoreio->pivot->id_praktoreio)
+                                                                        {{ $prakt->eponymia }}
+                                                                    @endif
+                                                                @endforeach
+                                                            </td>
+                                                            <td>
+                                                                @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+                                                                <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_praktoreia/'.$pragmatognomosini->id_ekthesis.'/'.$praktoreio->pivot->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                @else
+                                                                    <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_praktoreia/'.$pragmatognomosini->id_ekthesis.'/'.$praktoreio->pivot->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <form action=" " method="post">
+                                                                    {{--                                                            <form action=" {{ action('PragmController@destroy_keimena_ekth',['id_ekth'=>$pragmatognomosini->id_ekthesis,'id_keim'=>$keimeno->pivot->id_keimena]) }} " method="post">--}}
+                                                                    @csrf
+                                                                    {{ method_field('DELETE') }}
+                                                                    <button type="submit" class="btn btn-danger" style="background-color:transparent; border-color:transparent;">
+                                                                        <img src="/images/delete.jpg" height="25"/>
+                                                                    </button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-notes" role="tabpanel" aria-labelledby="v-pills-notes-tab">
                     <form method="post" action="{{ route('pragmatognomosines.update', $pragmatognomosini->id_ekthesis) }}" autocomplete="off">
                         @csrf

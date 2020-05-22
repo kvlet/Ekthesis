@@ -75,19 +75,19 @@
                                 <hr>
                             </div>
                         </div>
-                        {{--                        <div class="row">--}}
-                        {{--                            <div class="col-md-6">--}}
-                        {{--                                <textarea id="Note" name="Note" style="width: 650px; height: 200px;">--}}
-                        {{--                                            {{ old('Note') }}--}}
-                        {{--                                 </textarea>--}}
-                        {{--                                <script>--}}
-                        {{--                                    bkLib.onDomLoaded(function() {--}}
-                        {{--                                        // nicEditors.allTextAreas()--}}
-                        {{--                                        new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');--}}
-                        {{--                                    });--}}
-                        {{--                                </script>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <textarea id="Note" name="Note" style="width: 650px; height: 200px;">
+                                            {{ $keimeno->Note }}
+                                 </textarea>
+                                <script>
+                                    bkLib.onDomLoaded(function() {
+                                        // nicEditors.allTextAreas()
+                                        new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');
+                                    });
+                                </script>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col">
                                 <hr>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="row mt-4">
                             <div class="col d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                                <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                             </div>
                         </div>
                     </div>

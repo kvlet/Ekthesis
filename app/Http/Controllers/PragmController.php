@@ -12,6 +12,8 @@ use App\Nomos;
 use App\Oxima;
 use App\Person;
 use App\Pragmatognomosini;
+use App\Praktoreio;
+use App\Synergeio;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\PragmRequest;
@@ -180,8 +182,12 @@ class PragmController extends Controller
         $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
         $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
         $keimena = Keimena::where([['Mark_del','Όχι']])->get();
+        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+        $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
 
-        $pragmatognomosini = Pragmatognomosini::with('keimena')->findOrFail($id_ekthesis);
+        // many to many for pragmatognomosini
+        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia')->findOrFail($id_ekthesis);
+        // end many to many for pragmatognomosini
 
         // calculate file position
         if ($pragmatognomosini->id_oximatos_pathon != 1){
@@ -238,6 +244,15 @@ class PragmController extends Controller
             $dateParadosis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_paradosis)->format('d-m-Y');
             $pragmatognomosini->Date_paradosis = $dateParadosis;
         }
+        foreach ($pragmatognomosini->synergeia as $synergeio){
+            $synergeio->pivot->Date_episkepsis=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis)->format('d-m-Y');
+            if ($synergeio->pivot->Date_episkepsis2 != null){
+                $synergeio->pivot->Date_episkepsis2=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis2)->format('d-m-Y');
+            }
+            if ($synergeio->pivot->Date_episkepsis3 != null){
+                $synergeio->pivot->Date_episkepsis3=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
+            }
+        }
 //        end fix date format for display in form
 
 
@@ -254,7 +269,8 @@ class PragmController extends Controller
             'pathontes',
             'oximata_pathon',
             'keimena',
-
+            'praktoreia',
+            'synergeia'
         ]));
     }
 
@@ -344,7 +360,7 @@ class PragmController extends Controller
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
     }
-
+    //  manage keimena ekthesis
     public function create_keimena_ekth($id_ekthesis){
 
         $keimena = Keimena::where([['Mark_del','Όχι']])->get();
@@ -368,8 +384,76 @@ class PragmController extends Controller
         }
     }
 
+    public function edit_keimena_ekth($id_ekthesis,$id_keimena){
+
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+
+
+
+        $keimena = Keimena::where([['Mark_del','Όχι']])->get();
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$id_keimena)->with(['keimena','id_ekthesis']);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$id_keimena)->with(['keimena','id_ekthesis']);
+        }
+
+    }
+
+    public function update_keimena_ekth($id_ekthesis,$id_keimena){
+
+
+    }
     public function destroy_keimena_ekth($id_ekthesis,$id_keimena){
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
         $pragmatognomosini->keimena()->detach($id_keimena);
     }
+    //  end manage keimena ekthesis
+
+    // manage praktoreia ekthesis
+    public function create_praktoreia_ekth($id_ekthesis){
+
+        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+        return view('pragmatognomosines.create_praktoreia_ekth',compact(['praktoreia','id_ekthesis']));
+    }
+
+    public function store_praktoreia_ekth(Request $request,$id_ekthesis){
+
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+
+        $pragmatognomosini->praktoreia()->attach($request->id_praktoreio);
+
+        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis)->with(['praktoreia','id_ekthesis']);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['praktoreia','id_ekthesis']);
+        }
+    }
+    public function edit_praktoreia_ekth($id_ekthesis,$id_praktoreio){
+
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+
+
+
+        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_praktoreia/'.$pragmatognomosini->id_ekthesis.'/'.$id_praktoreio)->with(['praktoreia','id_ekthesis']);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_praktoreia/'.$pragmatognomosini->id_ekthesis.'/'.$id_praktoreio)->with(['praktoreia','id_ekthesis']);
+        }
+
+    }
+    public function update_praktoreia_ekth($id_ekthesis,$id_praktoreio){
+
+
+    }
+    //  end manage praktoreia ekthesis
+
+    //  manage synergeia ekthesis
+    public function create_synergeia_ekth($id_ekthesis){
+
+        $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
+        return view('pragmatognomosines.create_synergeia_ekth',compact(['synergeia','id_ekthesis']));
+    }
+    //  end manage synergeia ekthesis
 }

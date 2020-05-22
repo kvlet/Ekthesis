@@ -35,7 +35,7 @@
                                     <div class="col-md-2">
                                         <div class="form-label{{ $errors->has('Tel1') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="Tel1">{{ __(' Τηλέφωνο-1') }} </label>
-                                            <input type="text" name="Tel1" id="Tel1"
+                                            <input type="text" name="Tel1" id="Tel1"  pattern="[0-9]{10}" maxlength="10"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('Arxi') ? ' is-invalid' : '' }}"
                                                    value="{{ $arxi->Tel1 }}" autofocus>
                                         </div>
@@ -43,7 +43,7 @@
                                     <div class="col-md-2">
                                         <div class="form-label{{ $errors->has('Tel2') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="Tel2">{{ __(' Τηλέφωνο-2') }}</label>
-                                            <input type="text" name="Tel2" id="Tel2"
+                                            <input type="text" name="Tel2" id="Tel2"  pattern="[0-9]{10}" maxlength="10"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('Tel2') ? ' is-invalid' : '' }}"
                                                    value="{{ $arxi->Tel2 }}" autofocus>
                                         </div>

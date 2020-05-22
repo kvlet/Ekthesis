@@ -74,19 +74,6 @@
                                 <hr>
                             </div>
                         </div>
-{{--                        <div class="row">--}}
-{{--                            <div class="col-md-6">--}}
-{{--                                <textarea id="Note" name="Note" style="width: 650px; height: 200px;">--}}
-{{--                                            {{ old('Note') }}--}}
-{{--                                 </textarea>--}}
-{{--                                <script>--}}
-{{--                                    bkLib.onDomLoaded(function() {--}}
-{{--                                        // nicEditors.allTextAreas()--}}
-{{--                                        new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');--}}
-{{--                                    });--}}
-{{--                                </script>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                         <div class="row">
                             <div class="col">
                                 <hr>

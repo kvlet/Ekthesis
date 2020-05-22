@@ -31,11 +31,13 @@ class NomoiController extends Controller
 //                'data' => $value
 //            ],200);
 //        }
+
         $request->Mark_del='Όχι';
         $nomos = new Nomos();
         $nomos->Nomos = $request->Nomos;
         $nomos->Mark_del = $request->Mark_del;
         $nomos->save();
+
         return redirect('nomoi/'.$nomos->id_nomoi);
     }
 

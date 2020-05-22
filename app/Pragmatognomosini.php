@@ -100,7 +100,7 @@ class Pragmatognomosini extends Model
         return $this->belongsToMany('App\Praktoreio','db_praktoreio_ekthesis','id_ekthesis','id_praktoreio')->withPivot('note');
     }
 
-    public function synyrgeis(){
+    public function synergeia(){
 
         return $this->belongsToMany('App\Synergeio','db_synergeia_ekthesis','id_ekthesis','id_synergeia')->withPivot('Date_episkepsis','Date_episkepsis2','Date_episkepsis3','Note');
     }

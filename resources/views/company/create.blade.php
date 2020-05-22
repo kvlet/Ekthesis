@@ -52,7 +52,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('tk') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="tk">{{ __(' Τ.Κ. ') }} </label>
-                                    <input type="text" name="tk" id="tk"
+                                    <input type="text" name="tk" id="tk"  pattern="[0-9]{10}" maxlength="5"
                                            class="form-control form-input form-control-alternative{{ $errors->has('tk') ? ' is-invalid' : '' }}"
                                            value="{{ old('tk') }}" autofocus>
                                 </div>
@@ -60,7 +60,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('Fax') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Fax">{{ __(' Fax ') }} </label>
-                                    <input type="text" name="Fax" id="Fax"
+                                    <input type="text" name="Fax" id="Fax"  pattern="[0-9]{10}" maxlength="10"
                                            class="form-control form-input form-control-alternative{{ $errors->has('Fax') ? ' is-invalid' : '' }}"
                                            value="{{ old('Fax') }}" autofocus>
                                 </div>

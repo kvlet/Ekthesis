@@ -1,8 +1,9 @@
 
-<form id="create_arxi_form" method="post" action="{{'arxi.store'}}" autocomplete="off">
+<form id="create_arxi_form" method="post" action="{{ ('arxi.store') }}" autocomplete="off">
     @csrf
     <div class="container-fluid">
         <div class="card">
+
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-2">
