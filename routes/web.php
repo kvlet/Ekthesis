@@ -47,6 +47,7 @@ Route::put('diakrisis/{id}', 'DiakrisiController@update')->name('diakrisis.updat
 
 Route::get('nomoi', 'NomoiController@create')->name('nomoi.create');
 Route::post('nomoi', 'NomoiController@store')->name('nomoi.store');
+Route::post('nomoi_ajax', 'NomoiController@store_ajax')->name('nomoi.store.ajax');
 Route::get('nomoi/{id}', 'NomoiController@edit')->name('nomoi.edit');
 Route::put('nomoi/{id}', 'NomoiController@update')->name('nomoi.update');
 
