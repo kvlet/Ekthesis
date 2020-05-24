@@ -276,7 +276,7 @@ class PragmController extends Controller
 
     public function update(Request $request, $id_ekthesis)
     {
-        $pragmatognomosini = Pragmatognomosini::firstOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
         $request->partially_lock = 'Όχι';
         $request->total_lock = 'Όχι';
         $request->Amibi_partner='0';
@@ -452,8 +452,12 @@ class PragmController extends Controller
 
         $praktoreio->pivot->note = $request->Note;
         $praktoreio->pivot->save();
-
-        return view('pragmatognomosines.edit',compact(['praktoreio','id_ekthesis']));
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        }
+//
     }
     //  end manage praktoreia ekthesis
 
