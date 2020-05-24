@@ -59,7 +59,7 @@ class CompanyController extends Controller
 
     public function update(Request $request, $id_company)
     {
-        $company = Company::findOrFailOrFail($id_company);
+        $company = Company::findOrFail($id_company);
 
         $request->Flag='2';
         $request->Mark_del='Όχι';
