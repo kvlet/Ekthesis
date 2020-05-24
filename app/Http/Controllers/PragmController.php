@@ -276,7 +276,7 @@ class PragmController extends Controller
 
     public function update(Request $request, $id_ekthesis)
     {
-        $pragmatognomosini = Pragmatognomosini::FailOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
         $request->partially_lock = 'Όχι';
         $request->total_lock = 'Όχι';
         $request->Amibi_partner='0';
