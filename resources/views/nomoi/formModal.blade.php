@@ -1,5 +1,5 @@
 
-<form id="create_nomoi_form" method="post" action="{{'nomoi.store'}}" autocomplete="off">
+<form id="create_nomoi_form_ajax" method="post" action="{{'nomoi.store.ajax'}}" autocomplete="off">
     @csrf
     <div class="container-fluid">
         <div class="card">
