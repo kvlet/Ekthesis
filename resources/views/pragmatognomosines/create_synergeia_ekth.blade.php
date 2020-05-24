@@ -43,7 +43,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('Date_episkepsis') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Date_episkepsis">{{ __('1η Επίσκεψη') }}<span style="color:red;font-weight:bold">*</span></label>
-                                    <input type="text" name="Date_episkepsis" id="Date_episkepsis" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                    <input type="text" name="Date_episkepsis" id="Date_episkepsis" data-provide="datepicker" data-date-format="dd-mm-yyyy" placeholder="HH-MM-YYYY"
                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_episkepsis') ? ' is-invalid' : '' }}"
                                            value="{{ $synergeio->Date_episkepsis }}" autofocus>
                                     <script type="text/javascript">
@@ -66,7 +66,7 @@
                                     <label class="form-control-label"
                                            for="Date_episkepsis1">{{ __('2η Επίσκεψη') }}
                                     </label>
-                                    <input type="text" name="Date_episkepsis1" id="Date_episkepsis1" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                    <input type="text" name="Date_episkepsis1" id="Date_episkepsis1" data-provide="datepicker" data-date-format="dd-mm-yyyy" placeholder="HH-MM-YYYY"
                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_episkepsis1') ? ' is-invalid' : '' }}"
                                            value="{{ $synergeio->Date_episkepsis1 }}" autofocus>
                                     <script type="text/javascript">
@@ -91,7 +91,7 @@
                                     <label class="form-control-label"
                                            for="Date_episkepsis2">{{ __('3η Επίσκεψη') }}
                                     </label>
-                                    <input type="text" name="Date_episkepsis2" id="Date_episkepsis2" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                    <input type="text" name="Date_episkepsis2" id="Date_episkepsis2" data-provide="datepicker" data-date-format="dd-mm-yyyy" placeholder="HH-MM-YYYY"
                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_episkepsis2') ? ' is-invalid' : '' }}"
                                            value="{{ $synergeio->Date_episkepsis2 }}" autofocus>
                                     <script type="text/javascript">
