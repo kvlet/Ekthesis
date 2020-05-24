@@ -40,6 +40,28 @@ class NomoiController extends Controller
 
         return redirect('nomoi/'.$nomos->id_nomoi);
     }
+    /**
+     * @param NomoiRequest $request
+     */
+    public function store_ajax(Request $request){
+
+    //    if($request->expectsJson()){
+    //        $data = $request->all();
+    //        $value = Nomos::create($data);
+    //        return response()->json([
+    //            'data' => $value
+    //        ],200);
+    //    }
+
+        $request->Mark_del='Όχι';
+        $nomos = new Nomos();
+        $nomos->Nomos = $request->Nomos;
+        $nomos->Mark_del = $request->Mark_del;
+        $nomos->save();
+
+        // dd($nomos);
+        return $nomos;
+    }
 
     public function edit($id_nomoi){
 
