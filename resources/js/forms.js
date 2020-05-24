@@ -29,30 +29,25 @@ $(document).ready( function(){
 });
 
 $(document).ready( function(){
-    $('#create_nomoi_form').on('submit', function(e) {
+    $('#create_nomoi_form_ajax').on('submit', function(e) {
         e.preventDefault();
         let id_nomoi = $("#id_nomoi").val();
         let Nomos = $("#Nomos").val();
         let Mark_del = $("#Mark_del").val();
 
-
-
-        window.axios.post('/nomoi', {
+        window.axios.post('/nomoi_ajax', {
             'id_nomoi' : id_nomoi,
             'Nomos': Nomos,
             'Mark_del': Mark_del
-        }).then(response => {
+        }).then((response) => {
 
-            let data = response.data;
+            $('#nomoiModal').modal('hide');
+            var ddl = document.getElementById('id_nomoi');
 
-            let  row = "<td>" + data.id_nomoi + "</td>" + "<td>" + data.Nomos + "</td>" + "<td>" + data.Mark_del + "</td>";
+            ddl.options[ddl.options.length] = new Option(response.data.Nomos, response.data.id_nomoi, false, true);
 
-            let rowElement = document.createElement("tr");
-
-            $('#create_nomoi_form table tbody').append(rowElement);
-
-            $('#create_nomoi_form table tbody').append(last('tr').html(row));
-
+        }, (error) => {
+            console.log(error);
         });
     });
 });
