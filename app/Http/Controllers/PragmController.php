@@ -455,5 +455,43 @@ class PragmController extends Controller
         $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
         return view('pragmatognomosines.create_synergeia_ekth',compact(['synergeia','id_ekthesis']));
     }
+
+    public function store_synergeia_ekth(Request $request,$id_ekthesis){
+
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+
+        $date_ep = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis)->format('Y-m-d');
+        $request->Date_episkepsis = $date_ep;
+        if ($request->Date_episkepsis2 != null){
+            $date_ep2 = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis2)->format('Y-m-d');
+            $request->Date_episkepsis2 = $date_ep2;
+        }
+        if ($request->Date_episkepsis3 != null){
+            $date_ep3 = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis3)->format('Y-m-d');
+            $request->Date_episkepsis3 = $date_ep3;
+        }
+        $pragmatognomosini->synergeia()->attach($request->id_synergeia,['Date_episkepsis'=>  $request->Date_episkepsis ],['Date_episkepsis2'=>  $request->Date_episkepsis2 ],['Date_episkepsis3'=>  $request->Date_episkepsis3 ]);
+
+        $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis)->with(['synergeia','id_ekthesis']);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['synergeia','id_ekthesis']);
+        }
+    }
+    public function edit_synergeia_ekth($id_ekthesis,$id_synergeia){
+
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+
+
+
+        $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_synergeia/'.$pragmatognomosini->id_ekthesis.'/'.$id_praktoreio)->with(['praktoreia','id_ekthesis']);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_synergeia/'.$pragmatognomosini->id_ekthesis.'/'.$id_praktoreio)->with(['praktoreia','id_ekthesis']);
+        }
+
+    }
     //  end manage synergeia ekthesis
 }
