@@ -276,7 +276,7 @@ class PragmController extends Controller
 
     public function update(Request $request, $id_ekthesis)
     {
-        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::firstOrFail($id_ekthesis);
         $request->partially_lock = 'Όχι';
         $request->total_lock = 'Όχι';
         $request->Amibi_partner='0';
@@ -431,21 +431,29 @@ class PragmController extends Controller
     }
     public function edit_praktoreia_ekth($id_ekthesis,$id_praktoreio){
 
-        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::with('praktoreia')->findOrFail($id_ekthesis);
 
+        $praktoreio = $pragmatognomosini->praktoreia()->wherePivot('id_praktoreio', $id_praktoreio)->first();
 
-
-        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
         if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_praktoreia/'.$pragmatognomosini->id_ekthesis.'/'.$id_praktoreio)->with(['praktoreia','id_ekthesis']);
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_praktoreia/'.$id_praktoreio)->with(['praktoreio','id_ekthesis']);
         }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_praktoreia/'.$pragmatognomosini->id_ekthesis.'/'.$id_praktoreio)->with(['praktoreia','id_ekthesis']);
+            return view('pragmatognomosines.edit_praktoreia_ekth',compact(['praktoreio','id_ekthesis']));
         }
 
     }
-    public function update_praktoreia_ekth($id_ekthesis,$id_praktoreio){
+    public function update_praktoreia_ekth(Request $request)
+    {
+        $id_ekthesis = $request->id_ekthesis;
 
+        $pragmatognomosini = Pragmatognomosini::with('praktoreia')->findOrFail($id_ekthesis);
 
+        $praktoreio = $pragmatognomosini->praktoreia()->wherePivot('id_praktoreio', $request->id_praktoreio)->first();
+
+        $praktoreio->pivot->note = $request->Note;
+        $praktoreio->pivot->save();
+
+        return view('pragmatognomosines.edit',compact(['praktoreio','id_ekthesis']));
     }
     //  end manage praktoreia ekthesis
 

@@ -1119,7 +1119,7 @@
                                                                 @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
                                                                 <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_praktoreia/'.$pragmatognomosini->id_ekthesis.'/'.$praktoreio->pivot->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 @else
-                                                                    <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_praktoreia/'.$pragmatognomosini->id_ekthesis.'/'.$praktoreio->pivot->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                    <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_praktoreia/'.$praktoreio->pivot->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 @endif
                                                             </td>
                                                             <td>

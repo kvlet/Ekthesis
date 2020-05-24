@@ -1,6 +1,5 @@
 <?php
 
-
 Route::get('/home', function () {
 
     return view('home');
@@ -28,6 +27,8 @@ Route::post('ereunes/{id}/add_keimena', 'PragmController@store_keimena_ekth')->n
 Route::get('ereunes/{id}/add_keimena/{id_ekth}/{id_keim}', 'PragmController@edit_keimena_ekth')->name('pragmatognomosines.edit_keimena_ekth');
 Route::get('ereunes/{id}/add_praktoreia', 'PragmController@create_praktoreia_ekth')->name('pragmatognomosines.create_praktoreia_ekth');
 Route::post('ereunes/{id}/add_praktoreia', 'PragmController@store_praktoreia_ekth')->name('pragmatognomosines.store_praktoreia_ekth');
+Route::get('ereunes/{id}/edit_praktoreia/{second_id}', 'PragmController@edit_praktoreia_ekth');
+Route::post('ereunes/edit_praktoreia', 'PragmController@update_praktoreia_ekth')->name('pragmatognomosines.update_praktoreia_ekth');
 Route::get('ereunes/{id}/add_synergeia', 'PragmController@create_synergeia_ekth')->name('pragmatognomosines.create_synergeia_ekth');
 Route::post('ereunes/{id}/add_synergeia', 'PragmController@store_synergeia_ekth')->name('pragmatognomosines.store_synergeia_ekth');
 //Route::delete('ereunes/{id}/add_keimena/id_ekth/id_keim', 'PragmController@destroy_keimena_ekth')->name('pragmatognomosines.destroy_keimena_ekth');
