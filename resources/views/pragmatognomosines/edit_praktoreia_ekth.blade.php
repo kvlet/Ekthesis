@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('id_praktoreio') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="id_praktoreio">{{ __('Αρ. Πρωτοκόλλου') }}</label>
+                                    <label class="form-control-label" for="id_praktoreio">{{ __('Πρακτορείο') }}</label>
                                     <input type="text" name="id_praktoreio" id="id_praktoreio"
                                            class="form-control form-input form-control-alternative{{ $errors->has('id_praktoreio') ? ' is-invalid' : '' }}"
                                            value="{{ $praktoreio->id_praktoreio }}" disabled autofocus>
@@ -59,7 +59,7 @@
                         <input name="id_praktoreio" type="hidden" value="{{ $praktoreio->id_praktoreio }}">
                         <div class="row mt-4">
                             <div class="col d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                                <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                             </div>
                         </div>
                     </div>
