@@ -434,11 +434,11 @@ class PragmController extends Controller
         $pragmatognomosini = Pragmatognomosini::with('praktoreia')->findOrFail($id_ekthesis);
 
         $praktoreio = $pragmatognomosini->praktoreia()->wherePivot('id_praktoreio', $id_praktoreio)->first();
-
+        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
         if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
             return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_praktoreia/'.$id_praktoreio)->with(['praktoreio','id_ekthesis']);
         }else{
-            return view('pragmatognomosines.edit_praktoreia_ekth',compact(['praktoreio','id_ekthesis']));
+            return view('pragmatognomosines.edit_praktoreia_ekth',compact(['praktoreio','id_ekthesis','praktoreia']));
         }
 
     }

@@ -24,11 +24,17 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('id_praktoreio') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="id_praktoreio">{{ __('Πρακτορείο') }}</label>
-                                    <input type="text" name="id_praktoreio" id="id_praktoreio"
-                                           class="form-control form-input form-control-alternative{{ $errors->has('id_praktoreio') ? ' is-invalid' : '' }}"
-                                           value="{{ $praktoreio->id_praktoreio }}" disabled autofocus>
-                                    {{-- value="{{ old('id_praktoreio') }}" disabled autofocus>--}}
+                                    <label class="form-control-label" for="id_praktoreio">{{ __('Πρακτορείο') }}<span style="color:red;font-weight:bold">*</span></label>
+                                    <select class="form-control form-select" id="id_praktoreio" name="id_praktoreio" required  disabled>
+                                        @foreach($praktoreia as $prakt)
+                                            <option value="{{$prakt->id_praktoreio}}" @if(old('id_praktoreio') == $prakt->id_praktoreio) selected @endif>{{ $prakt->eponymia }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('id_praktoreio'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('id_praktoreio') }}</strong>
+                                </span>
+                                    @endif
                                 </div>
                             </div>
                         </div>
