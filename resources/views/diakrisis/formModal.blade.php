@@ -1,5 +1,5 @@
 
-<form id="create_diakrisis_form" method="post" action="{{ route('diakrisis.store') }}" autocomplete="off">
+<form id="create_diakrisis_form_ajax" method="post" action="{{ 'diakrisis.store.ajax' }}" autocomplete="off">
     @csrf
     <div class="container-fluid">
         <div class="card">
