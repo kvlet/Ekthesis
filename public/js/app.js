@@ -37078,24 +37078,23 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  var row_number = 1;
-  $('#addRow').on('submit', function (e) {
+  $('#create_diakrisis_form_ajax').on('submit', function (e) {
     e.preventDefault();
-    var id_diakrisis = $("#id_diakrisis").val();
+    var id_diakrisi = $("#id_diakrisi").val();
     var Diakrisi = $("#Diakrisi").val();
     var Mark_del = $("#Mark_del").val();
     var Group_diakr = $("#Group_diakr").val();
-    window.axios.post('/diakrisis', {
-      'id_diakrisi': id_diakrisis,
+    window.axios.post('/diakrisis_ajax', {
+      'id_diakrisi': id_diakrisi,
       'Diakrisi': Diakrisi,
       'Mark_del': Mark_del,
       'Group_diakr': Group_diakr
     }).then(function (response) {
-      var data = response.data;
-      var row = "<td>" + data.id_diakrisi + "</td>" + "<td>" + data.Diakrisi + "</td>" + "<td>" + data.Mark_del + "</td>" + "<td" + data.Group_diakr + "</td>";
-      var rowElement = document.createElement("tr");
-      $('#create_diakrisis_form table tbody').append(rowElement);
-      $('#create_diakrisis_form table tbody').append(last('tr').html(row));
+      $('#diakrisisModal').modal('hide');
+      var ddl = document.getElementById('id_diakrisi');
+      ddl.options[ddl.options.length] = new Option(response.data.Diakrisi, response.data.id_diakrisi, false, true);
+    }, function (error) {
+      console.log(error);
     });
   });
 });

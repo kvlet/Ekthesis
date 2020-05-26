@@ -1,28 +1,24 @@
 $(document).ready( function(){
-    let row_number = 1;
-    $('#addRow').on('submit', function(e) {
+    $('#create_diakrisis_form_ajax').on('submit', function(e) {
         e.preventDefault();
-         let id_diakrisis = $("#id_diakrisis").val();
+         let id_diakrisi = $("#id_diakrisi").val();
          let Diakrisi = $("#Diakrisi").val();
          let Mark_del = $("#Mark_del").val();
          let Group_diakr = $("#Group_diakr").val();
 
-        window.axios.post('/diakrisis', {
-            'id_diakrisi' : id_diakrisis,
+        window.axios.post('/diakrisis_ajax', {
+            'id_diakrisi' : id_diakrisi,
             'Diakrisi': Diakrisi,
             'Mark_del': Mark_del,
             'Group_diakr': Group_diakr
         }).then(response => {
+            $('#diakrisisModal').modal('hide');
+            var ddl = document.getElementById('id_diakrisi');
 
-            let data = response.data;
+            ddl.options[ddl.options.length] = new Option(response.data.Diakrisi, response.data.id_diakrisi, false, true);
 
-            let  row = "<td>" + data.id_diakrisi + "</td>" + "<td>" + data.Diakrisi + "</td>" + "<td>" + data.Mark_del + "</td>" + "<td" + data.Group_diakr  + "</td>";
-
-            let rowElement = document.createElement("tr");
-
-            $('#create_diakrisis_form table tbody').append(rowElement);
-
-            $('#create_diakrisis_form table tbody').append(last('tr').html(row));
+        }, (error) => {
+            console.log(error);
 
         });
     });
