@@ -27,6 +27,7 @@
                         <th>Παθών</th>
                         <th>Αρ. Κυκλ.</th>
                         <th>Πραγματογνώμονας</th>
+                        <th>Τύπος έκθεσης</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,6 +70,7 @@
                                             @endif
                                         @endforeach
                                     </td>
+                                    <td>{{ $pragmatognomosini->id_diakrisi }}</td>
                                     <td>
                                         @if ($pragmatognomosini->id_diakrisi=='Π' || ($pragmatognomosini->id_diakrisi=='ΠΕ' ))
                                             <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
@@ -99,6 +101,7 @@
                         <th>Παθών</th>
                         <th>Αρ. Κυκλ.</th>
                         <th>Πραγματογνώμονας</th>
+                        <th>Τύπος έκθεσης</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -141,6 +144,7 @@
                                             @endif
                                         @endforeach
                                     </td>
+                                    <td>{{ $pragmatognomosini->id_diakrisi }}</td>
                                     <td>
                                         @if ($pragmatognomosini->id_diakrisi=='Π' || ($pragmatognomosini->id_diakrisi=='ΠΕ' ))
                                             <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
@@ -166,6 +170,7 @@
                         <th>Παθών</th>
                         <th>Αρ. Κυκλ.</th>
                         <th>Πραγματογνώμονας</th>
+                        <th>Τύπος έκθεσης</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -208,6 +213,7 @@
                                             @endif
                                         @endforeach
                                     </td>
+                                    <td>{{ $pragmatognomosini->id_diakrisi }}</td>
                                     <td>
                                         @if ($pragmatognomosini->id_diakrisi=='Π' || ($pragmatognomosini->id_diakrisi=='ΠΕ' ))
                                             <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
@@ -238,6 +244,7 @@
                         <th>Παθών</th>
                         <th>Αρ. Κυκλ.</th>
                         <th>Πραγματογνώμονας</th>
+                        <th>Τύπος έκθεσης</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -280,6 +287,7 @@
                                             @endif
                                         @endforeach
                                     </td>
+                                    <td>{{ $pragmatognomosini->id_diakrisi }}</td>
                                     <td>
                                         @if ($pragmatognomosini->id_diakrisi=='Π' || ($pragmatognomosini->id_diakrisi=='ΠΕ' ))
                                             <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
