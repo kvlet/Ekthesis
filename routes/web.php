@@ -52,6 +52,7 @@ Route::get('pdf/aitisiDikografias', 'PdfReportController@aitisiDikografias_pdf')
 // routes for look up tables
 Route::get('diakrisis', 'DiakrisiController@create')->name('diakrisis.create');
 Route::post('diakrisis', 'DiakrisiController@store')->name('diakrisis.store');
+Route::post('diakrisis_ajax', 'DiakrisiController@store_ajax')->name('diakrisis.store.ajax');
 Route::get('diakrisis/{id}', 'DiakrisiController@edit')->name('diakrisis.edit');
 Route::put('diakrisis/{id}', 'DiakrisiController@update')->name('diakrisis.update');
 
