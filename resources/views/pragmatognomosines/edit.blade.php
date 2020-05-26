@@ -936,17 +936,6 @@
                                                         </td>
                                                         <td> {{ $keimeno->pivot->Print }} </td>
                                                         <td> {{ $keimeno->pivot->print_group }} </td>
-{{--                                                        <td>--}}
-{{--                                                            <textarea id="Note" name="Note" style="width: 200px; height: 200px;">--}}
-{{--                                                                    {{ $keimeno->pivot->Note }}--}}
-{{--                                                             </textarea>--}}
-{{--                                                            <script>--}}
-{{--                                                                bkLib.onDomLoaded(function() {--}}
-{{--                                                                    nicEditors.allTextAreas()--}}
-{{--                                                                    new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');--}}
-{{--                                                                });--}}
-{{--                                                            </script>--}}
-{{--                                                        </td>--}}
                                                         <td>
                                                             @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
                                                                 <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$keimeno->pivot->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
