@@ -25,13 +25,7 @@ class DiakrisiController extends Controller
      */
     public function store(Request $request){
 
-//        if($request->expectsJson()){
-//            $data = $request->all();
-//            $value = Diakrisi::create($data);
-//            return response()->json([
-//                'data' => $value
-//            ],200);
-//        }
+
         $request->Mark_del='Όχι';
 
         $diakrisi = new Diakrisi();
@@ -43,6 +37,23 @@ class DiakrisiController extends Controller
         $diakrisi->save();
 
         return redirect('diakrisis/'.$diakrisi->id_diakrisi);
+
+    }
+
+    public function store_ajax(Request $request){
+
+
+        $request->Mark_del='Όχι';
+
+        $diakrisi = new Diakrisi();
+        $diakrisi->id_diakrisi = $request->id_diakrisi;
+        $diakrisi->Diakrisi = $request->Diakrisi;
+        $diakrisi->Mark_del = $request->Mark_del;
+        $diakrisi->Group_diakr = $request->Group_diakr;
+
+        $diakrisi->save();
+
+        return $diakrisi;
 
     }
 
