@@ -386,21 +386,35 @@ class PragmController extends Controller
 
     public function edit_keimena_ekth($id_ekthesis,$id_keimena){
 
-        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
-
-
-
+        $pragmatognomosini = Pragmatognomosini::with('keimena')->findOrFail($id_ekthesis);
+        $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena',$id_keimena)->first();
+//        dd($keimeno);
         $keimena = Keimena::where([['Mark_del','Όχι']])->get();
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$id_keimena)->with(['keimena','id_ekthesis']);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$id_keimena)->with(['keimena','id_ekthesis']);
-        }
+
+        return view('pragmatognomosines.edit_keimena_ekth',compact(['keimeno','id_ekthesis','keimena']));
+
+//        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+//            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$id_keimena)->with(['keimena','id_ekthesis']);
+//        }else{
+//            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$id_keimena)->with(['keimena','id_ekthesis']);
+//        }
 
     }
 
-    public function update_keimena_ekth($id_ekthesis,$id_keimena){
+    public function update_keimena_ekth(Request $request){
+        $id_ekthesis = $request->id_ekthesis;
+        $pragmatognomosini = Pragmatognomosini::with('keimena')->findOrFail($id_ekthesis);
+        $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena',$request->id_keimena)->first();
 
+        $keimeno->pivot->Note = $request->Note;
+        $keimeno->pivot->Print = $request->Print;
+        $keimeno->pivot->print_group = $request->print_group;
+        $keimeno->save();
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        }
 
     }
     public function destroy_keimena_ekth($id_ekthesis,$id_keimena){

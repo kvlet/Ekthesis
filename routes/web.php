@@ -13,7 +13,8 @@ Route::put('pragmatognomosines/{id}', 'PragmController@update')->name('pragmatog
 
 Route::get('pragmatognomosines/{id}/add_keimena', 'PragmController@create_keimena_ekth')->name('pragmatognomosines.create_keimena_ekth');
 Route::post('pragmatognomosines/{id}/add_keimena', 'PragmController@store_keimena_ekth')->name('pragmatognomosines.store_keimena_ekth');
-Route::get('pragmatognomosines/{id}/add_keimena/{id_ekth}/{id_keim}', 'PragmController@edit_keimena_ekth')->name('pragmatognomosines.edit_keimena_ekth');
+Route::get('pragmatognomosines/{id}/edit_keimena/{second_id}', 'PragmController@edit_keimena_ekth');
+Route::post('pragmatognomosines/edit_keimena', 'PragmController@update_keimena_ekth')->name('pragmatognomosines.update_keimena_ekth');
 
 Route::get('pragmatognomosines/{id}/add_praktoreia', 'PragmController@create_praktoreia_ekth')->name('pragmatognomosines.create_praktoreia_ekth');
 Route::post('pragmatognomosines/{id}/add_praktoreia', 'PragmController@store_praktoreia_ekth')->name('pragmatognomosines.store_praktoreia_ekth');
@@ -30,7 +31,8 @@ Route::put('ereunes/{id}', 'PragmController@update')->name('pragmatognomosines.u
 
 Route::get('ereunes/{id}/add_keimena', 'PragmController@create_keimena_ekth')->name('pragmatognomosines.create_keimena_ekth');
 Route::post('ereunes/{id}/add_keimena', 'PragmController@store_keimena_ekth')->name('pragmatognomosines.store_keimena_ekth');
-Route::get('ereunes/{id}/add_keimena/{id_ekth}/{id_keim}', 'PragmController@edit_keimena_ekth')->name('pragmatognomosines.edit_keimena_ekth');
+Route::get('ereunes/{id}/edit_keimena/{second_id}', 'PragmController@edit_keimena_ekth');
+Route::post('ereunes/edit_keimena', 'PragmController@update_keimena_ekth')->name('pragmatognomosines.update_keimena_ekth');
 
 Route::get('ereunes/{id}/add_praktoreia', 'PragmController@create_praktoreia_ekth')->name('pragmatognomosines.create_praktoreia_ekth');
 Route::post('ereunes/{id}/add_praktoreia', 'PragmController@store_praktoreia_ekth')->name('pragmatognomosines.store_praktoreia_ekth');

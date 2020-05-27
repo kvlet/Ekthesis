@@ -1,7 +1,7 @@
 @extends('forms')
 
 @section('formsdetails')
-    <form id="create_keimena_ekth_form" method="post" action="{{ route('pragmatognomosines.update_keimena_ekth',$id_ekthesis,$keimeno->id_keimena) }}" autocomplete="off">
+    <form id="create_keimena_ekth_form" method="post" action="{{ route('pragmatognomosines.update_keimena_ekth') }}" autocomplete="off">
         @csrf
         {{ method_field('PUT') }}
         <div class="row">
@@ -26,8 +26,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('id_keimena') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="id_keimena">{{ __('Κείμενο') }}<span style="color:red;font-weight:bold">*</span></label>
-                                    <select class="form-control form-select" id="id_keimena" name="id_keimena" required >
-                                        <option selected value value=-1>{{ " Επιλέξτε Κείμενο " }}</option>
+                                    <select class="form-control form-select" id="id_keimena" name="id_keimena" required disabled >
                                         @foreach($keimena as $keimeno)
                                             <option value="{{$keimeno->id_keimena}}" @if(old('id_keimena') == $keimeno->id_keimena) selected @endif>{{ $keimeno->Sort_descr }}</option>
                                         @endforeach
@@ -78,7 +77,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <textarea id="Note" name="Note" style="width: 650px; height: 200px;">
-                                            {{ $keimeno->Note }}
+                                            {{ $keimeno->pivot->Note }}
                                  </textarea>
                                 <script>
                                     bkLib.onDomLoaded(function() {
@@ -93,6 +92,8 @@
                                 <hr>
                             </div>
                         </div>
+                        <input name="id_ekthesis" type="hidden" value="{{ $id_ekthesis }}">
+                        <input name="id_keimena" type="hidden" value="{{ $keimeno->id_keimena }}">
                         <div class="row mt-4">
                             <div class="col d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary">Αποθήκευση</button>
