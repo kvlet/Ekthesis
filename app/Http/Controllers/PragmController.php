@@ -287,8 +287,10 @@ class PragmController extends Controller
         }
 
         //        fix date format for DB
-        $dateAtiximatos = Carbon::createFromFormat('d-m-Y', $request->Date_atiximatos)->format('Y-m-d');
-        $request->Date_atiximatos = $dateAtiximatos;
+        if( $request->Date_atiximatos != null){
+            $dateAtiximatos = Carbon::createFromFormat('d-m-Y', $request->Date_atiximatos)->format('Y-m-d');
+            $request->Date_atiximatos = $dateAtiximatos;
+        }
         if ($request->Date_dikasimou != null){
             $dateDikasimou = Carbon::createFromFormat('d-m-Y', $request->Date_dikasimou)->format('Y-m-d');
             $request->Date_dikasimou = $dateDikasimou;
@@ -359,6 +361,21 @@ class PragmController extends Controller
 
 
         return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+    }
+    public function update_note(Request $request, $id_ekthesis)
+    {
+
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+
+        $pragmatognomosini->Notes = $request->Notes;
+
+
+        $pragmatognomosini->save();
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        }
     }
     //  manage keimena ekthesis
     public function create_keimena_ekth($id_ekthesis){

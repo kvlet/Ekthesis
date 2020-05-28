@@ -10,6 +10,7 @@ Route::get('pragmatognomosines', 'PragmController@create')->name('pragmatognomos
 Route::post('pragmatognomosines', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('pragmatognomosines/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
 Route::put('pragmatognomosines/{id}', 'PragmController@update')->name('pragmatognomosines.update');
+Route::put('pragmatognomosines/{id}/update_note', 'PragmController@update_note')->name('pragmatognomosines.update_note');
 
 Route::get('pragmatognomosines/{id}/add_keimena', 'PragmController@create_keimena_ekth')->name('pragmatognomosines.create_keimena_ekth');
 Route::post('pragmatognomosines/{id}/add_keimena', 'PragmController@store_keimena_ekth')->name('pragmatognomosines.store_keimena_ekth');
@@ -30,6 +31,7 @@ Route::get('ereunes', 'PragmController@create')->name('pragmatognomosines.create
 Route::post('ereunes', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('ereunes/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
 Route::put('ereunes/{id}', 'PragmController@update')->name('pragmatognomosines.update');
+Route::put('ereunes/{id}/update_note', 'PragmController@update_note')->name('pragmatognomosines.update_note');
 
 Route::get('ereunes/{id}/add_keimena', 'PragmController@create_keimena_ekth')->name('pragmatognomosines.create_keimena_ekth');
 Route::post('ereunes/{id}/add_keimena', 'PragmController@store_keimena_ekth')->name('pragmatognomosines.store_keimena_ekth');

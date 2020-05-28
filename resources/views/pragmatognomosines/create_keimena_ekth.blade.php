@@ -44,7 +44,8 @@
                                 <div class="form-label{{ $errors->has('Print') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Print">{{ __(' Εκτύπωση ') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <select class="form-control form-select" id="Mark_del" name="Mark_del" required>
-                                        <option value="Ναι" selected="selected">Ναι</option>
+                                        <option selected value value=-1>{{ " Επιλέξτε " }}</option>
+                                        <option value="Ναι" >Ναι</option>
                                         <option value="Όχι">Όχι</option>
                                     </select>
                                     @if ($errors->has('Print'))

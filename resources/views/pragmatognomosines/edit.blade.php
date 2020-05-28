@@ -13,7 +13,7 @@
                     <a class="nav-link" id="v-pills-ergasiesNoAntallaktika-tab" data-toggle="pill" href="#v-pills-ergasiesnoantallaktika" role="tab" aria-controls="v-pills-ergasiesnoantallaktika" aria-selected="false" style="color: red">Εργασίες χωρίς ανταλλακτικά</a>
                     <a class="nav-link" id="v-pills-proasfalistikos-tab" data-toggle="pill" href="#v-pills-proasfalistikos" role="tab" aria-controls="v-pills-proasfalistikos" aria-selected="false" style="color: red">Προασφαλιστικός</a>
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
-                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: black">Κατάσταση</a>
+                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: red">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" style="color: red">Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-proyparxouses-tab" data-toggle="pill" href="#v-pills-proyparxouses" role="tab" aria-controls="v-pills-proyparxouses" aria-selected="false" style="color: red">Προυπάρχουσες</a>
                     <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
@@ -28,7 +28,7 @@
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab" aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
-                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: black">Κατάσταση</a>
+                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: red">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" style="color: red">Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
                     <a class="nav-link" id="v-pills-provlepsis-tab" data-toggle="pill" href="#v-pills-provlepsis" role="tab" aria-controls="v-pills-provlepsis" aria-selected="false" style="color: red">Προβλέψεις</a>
@@ -1133,7 +1133,7 @@
                         </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-notes" role="tabpanel" aria-labelledby="v-pills-notes-tab">
-                    <form method="post" action="{{ route('pragmatognomosines.update', $pragmatognomosini->id_ekthesis) }}" autocomplete="off">
+                    <form method="post" action="{{ route('pragmatognomosines.update_note', $pragmatognomosini->id_ekthesis) }}" autocomplete="off">
                         @csrf
                         {{ method_field('PUT') }}
                         <div class="row">
@@ -1163,13 +1163,13 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <textarea id="Note" name="Note" style="width: 650px; height: 250px;">
+                                                <textarea id="Notes" name="Notes" style="width: 650px; height: 250px;">
                                                     {{ $pragmatognomosini->Notes }}
                                                 </textarea>
                                                 <script>
                                                     bkLib.onDomLoaded(function() {
                                                         // nicEditors.allTextAreas()
-                                                        new nicEditor({iconsPath : '/js/nicEditorIcons.gif'}).panelInstance('Note');
+                                                        new nicEditor({iconsPath : '/js/nicEditorIcons.gif'}).panelInstance('Notes');
                                                     });
                                                 </script>
                                             </div>
@@ -1181,7 +1181,7 @@
                                         </div>
                                         <div class="row mt-4">
                                             <div class="col d-flex justify-content-end">
-                                                <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                                                <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                                             </div>
                                         </div>
                                     </div>
