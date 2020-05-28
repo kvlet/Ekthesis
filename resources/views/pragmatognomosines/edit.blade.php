@@ -920,7 +920,6 @@
                                                     <th>Κωδικός Κειμένου</th>
                                                     <th>Εκτύπωση</th>
                                                     <th>Σειρά εμφάνισης</th>
-{{--                                                    <th>Κείμενο</th>--}}
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -932,12 +931,11 @@
                                                                     {{ $keim->Sort_descr }}
                                                                 @endif
                                                             @endforeach
-
                                                         </td>
                                                         <td> {{ $keimeno->pivot->Print }} </td>
                                                         <td> {{ $keimeno->pivot->print_group }} </td>
                                                         <td>
-                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
                                                                 <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_keimena/'.$keimeno->pivot->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                             @else
                                                                 <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_keimena/'.$keimeno->pivot->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
@@ -967,9 +965,11 @@
                 <div class="tab-pane fade" id="v-pills-eksodaekthesis" role="tabpanel" aria-labelledby="v-pills-eksodaekthesis-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-proyparxouses" role="tabpanel" aria-labelledby="v-pills-proyparxouses-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-synergeia" role="tabpanel" aria-labelledby="v-pills-synergeia-tab">
-                    @if ((Request::is('pragmatognomosines/*')))
+                    @if($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+{{--                    @if ((Request::is('pragmatognomosines/*')))--}}
                         <a href="{{route('pragmatognomosines.create_synergeia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη συνεργείου</a>
-                    @elseif ((\Request::is('ereunes/*')))
+{{--                    @elseif ((\Request::is('ereunes/*')))--}}
+                    @else
                         <a href="{{ route('pragmatognomosines.create_synergeia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη συνεργείου</a>
                     @endif
                     <div class="row">
@@ -1038,10 +1038,10 @@
                                                             </script>
                                                         </td>
                                                         <td>
-                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-                                                            <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_synergeia/'.$pragmatognomosini->id_ekthesis.'/'.$synergeio->pivot->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                                <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_synergeia/'.$synergeio->pivot->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                             @else
-                                                                <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_synergeia/'.$pragmatognomosini->id_ekthesis.'/'.$synergeio->pivot->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_synergeia/'.$synergeio->pivot->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                             @endif
                                                         </td>
                                                         <td>
@@ -1105,7 +1105,7 @@
                                                                 @endforeach
                                                             </td>
                                                             <td>
-                                                                @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+                                                                @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
                                                                     <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_praktoreia/'.$praktoreio->pivot->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 @else
                                                                     <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_praktoreia/'.$praktoreio->pivot->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>

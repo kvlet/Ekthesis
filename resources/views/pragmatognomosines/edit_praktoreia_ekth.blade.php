@@ -27,7 +27,7 @@
                                     <label class="form-control-label" for="id_praktoreio">{{ __('Πρακτορείο') }}<span style="color:red;font-weight:bold">*</span></label>
                                     <select class="form-control form-select" id="id_praktoreio" name="id_praktoreio" required  disabled>
                                         @foreach($praktoreia as $prakt)
-                                            <option value="{{$prakt->id_praktoreio}}" @if(old('id_praktoreio') == $prakt->id_praktoreio) selected @endif>{{ $prakt->eponymia }}</option>
+                                            <option value="{{$praktoreio->id_praktoreio}}" @if($praktoreio->id_praktoreio == $prakt->id_praktoreio) selected @endif>{{ $prakt->eponymia }}</option>
                                         @endforeach
                                     </select>
                                     @if ($errors->has('id_praktoreio'))

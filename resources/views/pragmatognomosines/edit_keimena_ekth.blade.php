@@ -1,9 +1,9 @@
 @extends('forms')
 
 @section('formsdetails')
-    <form id="create_keimena_ekth_form" method="post" action="{{ route('pragmatognomosines.update_keimena_ekth') }}" autocomplete="off">
+    <form id="edit_keimena_ekth_form" method="post" action="{{ route('pragmatognomosines.update_keimena_ekth') }}" autocomplete="off">
         @csrf
-        {{ method_field('PUT') }}
+{{--        {{ method_field('PUT') }}--}}
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -27,8 +27,8 @@
                                 <div class="form-label{{ $errors->has('id_keimena') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="id_keimena">{{ __('Κείμενο') }}<span style="color:red;font-weight:bold">*</span></label>
                                     <select class="form-control form-select" id="id_keimena" name="id_keimena" required disabled >
-                                        @foreach($keimena as $keimeno)
-                                            <option value="{{$keimeno->id_keimena}}" @if(old('id_keimena') == $keimeno->id_keimena) selected @endif>{{ $keimeno->Sort_descr }}</option>
+                                        @foreach($keimena as $keim)
+                                            <option value="{{$keimeno->id_keimena}}" @if($keimeno->id_keimena == $keim->id_keimena) selected @endif>{{ $keim->Sort_descr }}</option>
                                         @endforeach
                                     </select>
                                     @if ($errors->has('id_keimena'))
@@ -43,7 +43,7 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('Print') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Print">{{ __(' Εκτύπωση ') }} <span style="color:red;font-weight:bold">*</span></label>
-                                    <select class="form-control form-select" id="Mark_del" name="Mark_del" required>
+                                    <select class="form-control form-select" id="Print" name="Print" required>
                                         <option value="Ναι" selected="selected">Ναι</option>
                                         <option value="Όχι">Όχι</option>
                                     </select>

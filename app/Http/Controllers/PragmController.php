@@ -388,16 +388,11 @@ class PragmController extends Controller
 
         $pragmatognomosini = Pragmatognomosini::with('keimena')->findOrFail($id_ekthesis);
         $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena',$id_keimena)->first();
-//        dd($keimeno);
+
         $keimena = Keimena::where([['Mark_del','Όχι']])->get();
 
         return view('pragmatognomosines.edit_keimena_ekth',compact(['keimeno','id_ekthesis','keimena']));
 
-//        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-//            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$id_keimena)->with(['keimena','id_ekthesis']);
-//        }else{
-//            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_keimena/'.$pragmatognomosini->id_ekthesis.'/'.$id_keimena)->with(['keimena','id_ekthesis']);
-//        }
 
     }
 
@@ -409,7 +404,8 @@ class PragmController extends Controller
         $keimeno->pivot->Note = $request->Note;
         $keimeno->pivot->Print = $request->Print;
         $keimeno->pivot->print_group = $request->print_group;
-        $keimeno->save();
+
+        $keimeno->pivot->save();
         if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
             return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
         }else{
@@ -507,17 +503,53 @@ class PragmController extends Controller
     }
     public function edit_synergeia_ekth($id_ekthesis,$id_synergeia){
 
-        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::with('synergeia')->findOrFail($id_ekthesis);
+        $synergeio = $pragmatognomosini->synergeia()->wherePivot('id_synergeia', $id_synergeia)->first();
 
+        $synergeio->pivot->Date_episkepsis=Carbon::createFromFormat('Y-m-d',$synergeio->pivot->Date_episkepsis)->format('d-m-Y');
+        if ($synergeio->pivot->Date_episkepsis2 != null){
+            $synergeio->pivot->Date_episkepsis2=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis2)->format('d-m-Y');
+        }
+        if ($synergeio->pivot->Date_episkepsis3 != null){
+            $synergeio->pivot->Date_episkepsis3=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
+        }
 
 
         $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_synergeia/'.$pragmatognomosini->id_ekthesis.'/'.$id_praktoreio)->with(['praktoreia','id_ekthesis']);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis.'/add_synergeia/'.$pragmatognomosini->id_ekthesis.'/'.$id_praktoreio)->with(['praktoreia','id_ekthesis']);
+        return view('pragmatognomosines.edit_synergeia_ekth',compact(['synergeio','id_ekthesis','synergeia']));
+    }
+
+    public function update_synergeia_ekth(Request $request)
+    {
+
+        $id_ekthesis = $request->id_ekthesis;
+        $pragmatognomosini = Pragmatognomosini::with('synergeia')->findOrFail($id_ekthesis);
+        $synergeio = $pragmatognomosini->synergeia()->wherePivot('id_synergeia', $request->id_synergeia)->first();
+
+
+        $date_ep = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis)->format('Y-m-d');
+        $request->Date_episkepsis = $date_ep;
+        if ($request->Date_episkepsis2 != null){
+            $date_ep2 = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis2)->format('Y-m-d');
+            $request->Date_episkepsis2 = $date_ep2;
+        }
+        if ($request->Date_episkepsis3 != null){
+            $date_ep3 = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis3)->format('Y-m-d');
+            $request->Date_episkepsis3 = $date_ep3;
         }
 
+        $synergeio->pivot->Date_episkepsis = $request->Date_episkepsis;
+        $synergeio->pivot->Date_episkepsis2 = $request->Date_episkepsis2;
+        $synergeio->pivot->Date_episkepsis3 = $request->Date_episkepsis3;
+        $synergeio->pivot->Note = $request->Note;
+
+        $synergeio->pivot->save();
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        }
+//
     }
     //  end manage synergeia ekthesis
 }
