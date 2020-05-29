@@ -936,20 +936,22 @@
                                                         <td> {{ $keimeno->pivot->print_group }} </td>
                                                         <td>
                                                             @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
-                                                                <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_keimena/'.$keimeno->pivot->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_keimena/'.$keimeno->pivot->id_keimena) }}"
+                                                                   target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                             @else
-                                                                <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_keimena/'.$keimeno->pivot->id_keimena) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_keimena/'.$keimeno->pivot->id_keimena) }}"
+                                                                   target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <form action=" " method="post">
-{{--                                                            <form action=" {{ action('PragmController@destroy_keimena_ekth',['id_ekth'=>$pragmatognomosini->id_ekthesis,'id_keim'=>$keimeno->pivot->id_keimena]) }} " method="post">--}}
-                                                                @csrf
-                                                                {{ method_field('DELETE') }}
-                                                                <button type="submit" class="btn btn-danger" style="background-color:transparent; border-color:transparent;">
-                                                                    <img src="/images/delete.jpg" height="25"/>
-                                                                </button>
-                                                            </form>
+                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                                <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_keimena/'.$keimeno->pivot->id_keimena) }}"
+                                                                   target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                            @else
+                                                                <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/delete_keimena/'.$keimeno->pivot->id_keimena) }}"
+                                                                   target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                            @endif
+                                                        </td>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -1039,20 +1041,21 @@
                                                         </td>
                                                         <td>
                                                             @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
-                                                                <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_synergeia/'.$synergeio->pivot->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_synergeia/'.$synergeio->pivot->id_synergeia) }}"
+                                                                   target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                             @else
-                                                                <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_synergeia/'.$synergeio->pivot->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_synergeia/'.$synergeio->pivot->id_synergeia) }}"
+                                                                   target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <form action=" " method="post">
-                                                                {{--                                                            <form action=" {{ action('PragmController@destroy_keimena_ekth',['id_ekth'=>$pragmatognomosini->id_ekthesis,'id_keim'=>$keimeno->pivot->id_keimena]) }} " method="post">--}}
-                                                                @csrf
-                                                                {{ method_field('DELETE') }}
-                                                                <button type="submit" class="btn btn-danger" style="background-color:transparent; border-color:transparent;">
-                                                                    <img src="/images/delete.jpg" height="25"/>
-                                                                </button>
-                                                            </form>
+                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                                <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_synergeia/'.$synergeio->pivot->id_synergeia) }}"
+                                                                   target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                            @else
+                                                                <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/delete_synergeia/'.$synergeio->pivot->id_synergeia) }}"
+                                                                   target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -1106,20 +1109,21 @@
                                                             </td>
                                                             <td>
                                                                 @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
-                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_praktoreia/'.$praktoreio->pivot->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_praktoreia/'.$praktoreio->pivot->id_praktoreio) }}"
+                                                                       target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 @else
-                                                                    <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_praktoreia/'.$praktoreio->pivot->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                    <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_praktoreia/'.$praktoreio->pivot->id_praktoreio) }}"
+                                                                       target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                <form action=" " method="post">
-                                                                    {{--                                                            <form action=" {{ action('PragmController@destroy_keimena_ekth',['id_ekth'=>$pragmatognomosini->id_ekthesis,'id_keim'=>$keimeno->pivot->id_keimena]) }} " method="post">--}}
-                                                                    @csrf
-                                                                    {{ method_field('DELETE') }}
-                                                                    <button type="submit" class="btn btn-danger" style="background-color:transparent; border-color:transparent;">
-                                                                        <img src="/images/delete.jpg" height="25"/>
-                                                                    </button>
-                                                                </form>
+                                                                @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_praktoreia/'.$praktoreio->pivot->id_praktoreio) }}"
+                                                                       target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                                @else
+                                                                    <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/delete_praktoreia/'.$praktoreio->pivot->id_praktoreio) }}"
+                                                                       target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                                @endif
                                                             </td>
                                                         </tr>
                                                     @endforeach
