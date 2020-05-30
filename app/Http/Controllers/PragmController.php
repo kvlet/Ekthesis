@@ -13,6 +13,7 @@ use App\Oxima;
 use App\Person;
 use App\Pragmatognomosini;
 use App\Praktoreio;
+use App\Status;
 use App\Synergeio;
 use App\User;
 use Illuminate\Http\Request;
@@ -21,6 +22,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Filesystem\Filesystem;
 use \Carbon\Carbon;
 use File;
+use DateTime;
+use DateInterval;
+use Illuminate\Support\Facades\DB;
 
 
 /**
@@ -157,6 +161,21 @@ class PragmController extends Controller
         }
         $pragmatognomosini->save();
 
+        // insert to table status ekthesis
+        $procDate = new DateTime(date('Y-m-d'));
+        $procDate->add(new DateInterval('P2D'));
+        $query = array(['id_status' => 1, 'id_ekthesis' => $pragmatognomosini->id_ekthesis, 'Status_date' => date('Y-m-d'), 'Valid' => 'Ναι','Process_date'=>$procDate]);
+        DB::table('db_status_ekthesis')->insert($query);
+            //$procDate = new DateTime(date('Y-m-d'));
+            //$procDate->add(new DateInterval('P2D'));
+            //$procDate=Carbon::createFromFormat('Y-m-d',date('Y-m-d'));
+            //$daysToAdd =3;
+            //$procDate = $procDate->addDays($daysToAdd);
+            //dd($procDate) ;
+            //$val='Ναι';
+            //$pragmatognomosini->status_ek()->attach('1',['Status_date'=>date('Y-m-d')],['Valid'=>$val],['Process_date'=>date('Y-m-d')]);
+        // end insert to to table status ekthesis
+
         if ($request->id_diakrisi=='Π' || $request->id_diakrisi=='ΠΕ'){
             return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
         }else{
@@ -185,6 +204,7 @@ class PragmController extends Controller
         $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
         $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
 
+
         // many to many for pragmatognomosini
         $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
@@ -208,18 +228,12 @@ class PragmController extends Controller
         {
             File::makeDirectory($dir,$mode = 0777, true, true);
         }
-        //end create folder
+        //end create folder , end calculate file position
         $pragmatognomosini->update();
         //end calculate file position
 
+        ///make windows dir
 
-        // make windows dir
-/*        $path='X:\\'.$pragmatognomosini->File_position;
-        if(!Storage::exists($path)) {
-
-            Storage::makeDirectory($path, 0775, true); //creates directory
-
-        }*/
         $newdir = new Filesystem();
         $path='X:\\'.$pragmatognomosini->File_position;
         if ( !$newdir->isDirectory(storage_path($path)) )
