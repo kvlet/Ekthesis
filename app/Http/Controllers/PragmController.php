@@ -162,10 +162,10 @@ class PragmController extends Controller
         $pragmatognomosini->save();
 
         // insert to table status ekthesis
-        $procDate = new DateTime(date('Y-m-d'));
-        $procDate->add(new DateInterval('P2D'));
-        $query = array(['id_status' => 1, 'id_ekthesis' => $pragmatognomosini->id_ekthesis, 'Status_date' => date('Y-m-d'), 'Valid' => 'Ναι','Process_date'=>$procDate]);
-        DB::table('db_status_ekthesis')->insert($query);
+            $procDate = new DateTime(date('Y-m-d'));
+            $procDate->add(new DateInterval('P2D'));
+            $query = array(['id_status' => 1, 'id_ekthesis' => $pragmatognomosini->id_ekthesis, 'Status_date' => date('Y-m-d'), 'Valid' => 'Ναι','Process_date'=>$procDate]);
+            DB::table('db_status_ekthesis')->insert($query);
             //$procDate = new DateTime(date('Y-m-d'));
             //$procDate->add(new DateInterval('P2D'));
             //$procDate=Carbon::createFromFormat('Y-m-d',date('Y-m-d'));
