@@ -45,7 +45,7 @@
                                     <label class="form-control-label" for="Date_episkepsis">{{ __('1η Επίσκεψη') }}<span style="color:red;font-weight:bold">*</span></label>
                                     <input type="text" name="Date_episkepsis" id="Date_episkepsis" data-provide="datepicker" data-date-format="dd-mm-yyyy" placeholder="HH-MM-YYYY"
                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_episkepsis') ? ' is-invalid' : '' }}"
-                                           value="{{ $synergeio->Date_episkepsis }}" >
+                                           value="{{ $synergeio->Date_episkepsis }}" required >
                                     <script type="text/javascript">
                                         $('#Date_episkepsis').datepicker({
                                             autoclose: true,
