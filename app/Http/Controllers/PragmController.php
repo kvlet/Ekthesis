@@ -550,8 +550,10 @@ class PragmController extends Controller
 
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
 
-        $date_ep = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis)->format('Y-m-d');
-        $request->Date_episkepsis = $date_ep;
+        if ($request->Date_episkepsis != null){
+            $date_ep = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis)->format('Y-m-d');
+            $request->Date_episkepsis = $date_ep;
+        }
         if ($request->Date_episkepsis2 != null){
             $date_ep2 = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis2)->format('Y-m-d');
             $request->Date_episkepsis2 = $date_ep2;
