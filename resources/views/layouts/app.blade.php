@@ -54,14 +54,18 @@
     <div class="header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4 text-left">
+                <div class="col-md-2 text-left">
                     @yield('logo')
+{{--                    @yield('header-left')--}}
+                </div>
+                <div class="col-md-3 text-left">
+{{--                    @yield('logo')--}}
                     @yield('header-left')
                 </div>
                 <div class="col-md-4 text-center">
                     @yield('header-center')
                 </div>
-                <div class="col-md-4 text-right">
+                <div class="col-md-3 text-right">
                     @yield('header-right')
                 </div>
             </div>
