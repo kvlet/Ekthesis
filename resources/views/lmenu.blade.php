@@ -75,48 +75,48 @@
                             <div class="collapse" id="submenu1sub1_1" aria-expanded="false">
                                 <ul class="flex-column nav pl-4">
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/entoli_etaireias" target="_blank">
-                                            <i class="fa fa-fw fa-clock-o" style="color: red"></i>Εντολή Εταιρείας</a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/entoli_etaireias" target="_blank" style="color: red">
+                                            <i class="fa fa-fw fa-clock-o" ></i>Εντολή Εταιρείας</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/anathesi_se_sinergati" target="_blank">
-                                            <i class="fa fa-fw fa-dashboard" style="color: red"></i> Ανάθεση σε Συνεργάτη </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/anathesi_se_sinergati" target="_blank" style="color: red">
+                                            <i class="fa fa-fw fa-dashboard" ></i> Ανάθεση σε Συνεργάτη </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/anathesi_se_sinergates">
-                                            <i class="fa fa-fw fa-bar-chart" style="color: red"></i> Ανάθεση σε Συνεργάτες </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/anathesi_se_sinergates" style="color: red">
+                                            <i class="fa fa-fw fa-bar-chart" ></i> Ανάθεση σε Συνεργάτες </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/pros_elegxo">
-                                            <i class="fa fa-fw fa-bar-chart" style="color: red"></i> Προς Έλεγχο </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/pros_elegxo" style="color: red">
+                                            <i class="fa fa-fw fa-bar-chart" ></i> Προς Έλεγχο </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/pros_apostoli">
-                                            <i class="fa fa-fw fa-bar-chart" style="color: red"></i> Προς Αποστολή </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/pros_apostoli" style="color: red">
+                                            <i class="fa fa-fw fa-bar-chart" ></i> Προς Αποστολή </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/oloklirothike">
-                                            <i class="fa fa-fw fa-bar-chart" style="color: red"></i> Ολοκληρώθηκε </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/oloklirothike" style="color: red">
+                                            <i class="fa fa-fw fa-bar-chart" ></i> Ολοκληρώθηκε </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/sinolikes_ekkremotites">
-                                            <i class="fa fa-fw fa-bar-chart" style="color: red"></i> Συνολικές Εκκρεμότητες </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/sinolikes_ekkremotites" style="color: red">
+                                            <i class="fa fa-fw fa-bar-chart" ></i> Συνολικές Εκκρεμότητες </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/sinolikes_ekkremotites_nomou">
-                                            <i class="fa fa-fw fa-bar-chart" style="color: red"></i> Συνολικές Εκκρεμότητες ανά Νομό </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/sinolikes_ekkremotites_nomou" style="color: red">
+                                            <i class="fa fa-fw fa-bar-chart"></i> Συνολικές Εκκρεμότητες ανά Νομό </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/sinolikes_ekkremotites_eggrafon">
-                                            <i class="fa fa-fw fa-bar-chart" style="color: red"></i> Συνολικές Εκκρεμότητες Εγγράφων </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/sinolikes_ekkremotites_eggrafon" style="color: red">
+                                            <i class="fa fa-fw fa-bar-chart" ></i> Συνολικές Εκκρεμότητες Εγγράφων </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/ekkremotites_dikasimon">
-                                            <i class="fa fa-fw fa-bar-chart" style="color: red"></i> Εκκρεμότητες Δικασίμων </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/ekkremotites_dikasimon" style="color: red">
+                                            <i class="fa fa-fw fa-bar-chart" ></i> Εκκρεμότητες Δικασίμων </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/ekthesis_entolea">
-                                            <i class="fa fa-fw fa-bar-chart" style="color: red"></i> Εκθέσεις Εντολέα </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/pros_diekpereosi/ekthesis_entolea" style="color: red">
+                                            <i class="fa fa-fw fa-bar-chart" ></i> Εκθέσεις Εντολέα </a>
                                     </li>
                                 </ul>
                             </div>
@@ -124,16 +124,16 @@
                             <div class="collapse" id="submenu1sub1_2" aria-expanded="false">
                                 <ul class="flex-column nav pl-4">
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/entoli_etaireias">
-                                            <i class="fa fa-fw fa-clock-o" style="color: red"></i>Εντολή Εταιρείας </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/entoli_etaireias" style="color: red">
+                                            <i class="fa fa-fw fa-clock-o" ></i>Εντολή Εταιρείας </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/anathesi_se_sinergati">
-                                            <i class="fa fa-fw fa-dashboard" style="color: red"></i> Ανάθεση σε Συνεργάτη </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/anathesi_se_sinergati" style="color: red">
+                                            <i class="fa fa-fw fa-dashboard"></i> Ανάθεση σε Συνεργάτη </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/anathesi_se_sinergates">
-                                            <i class="fa fa-fw fa-bar-chart" style="color: red"></i> Ανάθεση σε Συνεργάτες </a>
+                                        <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/anathesi_se_sinergates" style="color: red">
+                                            <i class="fa fa-fw fa-bar-chart"></i> Ανάθεση σε Συνεργάτες </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link p-1" href="/reports/check_stats/ekprothesmes/pros_elegxo">

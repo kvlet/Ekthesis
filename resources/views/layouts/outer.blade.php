@@ -20,9 +20,8 @@
 
     <div class="header">
         <div class="container-fluid">
-            <div class="row">         
+            <div class="row">
                 <div class="col-md-4 text-left">
-                    @yield('logo')
                     @yield('header-left')
                 </div>
                 <div class="col-md-4 text-center">
@@ -40,7 +39,7 @@
             <div class="row">
                 <div class="col-md-9 d-none d-md-block p-0">
                     <div class="bg-wel-ekthesis"></div>
-                </div> 
+                </div>
                 <div class="col-md-3 d-flex justify-content-center align-items-center flex-row login-column">
                     <div class="login-form">
                         @yield('content')
