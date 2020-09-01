@@ -18,7 +18,8 @@
         "league/flysystem": "^1.0",
         "mpdf/mpdf": "^8.0",
         "nesbot/carbon": "^2.29",
-        "unisharp/laravel-filemanager": "~1.8"
+        "unisharp/laravel-filemanager": "~1.8",
+        "van-ons/laraberg": "^1.1"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

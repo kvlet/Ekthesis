@@ -53,7 +53,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <textarea id="Note" name="Note" style="width: 1000px; height: 300px;">
+                                <textarea id="Note" name="Note" style="width: 1000px; height: 300px;" >
                                     {{ old('Note') }}
                                 </textarea>
                                 <script>
@@ -61,6 +61,7 @@
                                         // nicEditors.allTextAreas()
                                         new nicEditor({iconsPath : 'js/nicEditorIcons.gif'}).panelInstance('Note');
                                     });
+                                    // Laraberg.init('[Note]')
                                 </script>
                             </div>
                         </div>
