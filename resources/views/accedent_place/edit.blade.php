@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header-cust">
                     <h4 class="heading-small text-center text-muted">
-                        <strong>{{ __('Τόποι Ατυχήματος') }}</strong>
+                        <strong>{{ __('Τόποι Εξέτασης') }}</strong>
                     </h4>
                 </div>
 
