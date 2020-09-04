@@ -82,6 +82,7 @@ Route::put('nomoi/{id}', 'NomoiController@update')->name('nomoi.update');
 
 Route::get('place', 'PlaceController@create')->name('accedent_place.create');
 Route::post('place', 'PlaceController@store')->name('accedent_place.store');
+Route::post('place_ajax', 'PlaceController@store_ajax')->name('accedent_place.store.ajax');
 Route::get('place/{id}', 'PlaceController@edit')->name('accedent_place.edit');
 Route::put('place/{id}', 'PlaceController@update')->name('accedent_place.update');
 

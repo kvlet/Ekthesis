@@ -41,7 +41,20 @@ class PlaceController extends Controller
 
         return redirect('place/'.$place->id_accident_place);
     }
+    public function store_ajax(Request $request){
 
+
+        $request->Mark_del='Όχι';
+
+        $place = new Accedent_place();
+
+        $place->Place = $request->Place;
+        $place->Mark_del = $request->Mark_del;
+
+        $place->save();
+        return $place;
+
+    }
     public  function edit($id_accident_place){
 
         $place = Accedent_place::findOrFail($id_accident_place);

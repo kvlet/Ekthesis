@@ -1,5 +1,5 @@
 
-<form id="create_place_form" method="post" action="{{'place.store'}}" autocomplete="off">
+<form id="create_place_form_ajax" method="post" action="{{'accedent_place.store.ajax'}}" autocomplete="off">
     @csrf
     <div class="container-fluid">
         <div class="card">
