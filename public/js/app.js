@@ -37099,6 +37099,25 @@ $(document).ready(function () {
   });
 });
 $(document).ready(function () {
+  $('#create_place_form_ajax').on('submit', function (e) {
+    e.preventDefault();
+    var id_accedent_place = $("#id_accedent_place").val();
+    var Place = $("#Place").val();
+    var Mark_del = $("#Mark_del").val();
+    window.axios.post('/place_ajax', {
+      'id_accedent_place': id_accedent_place,
+      'Place': Place,
+      'Mark_del': Mark_del
+    }).then(function (response) {
+      $('#placeModal').modal('hide');
+      var ddl = document.getElementById('id_accedent_place');
+      ddl.options[ddl.options.length] = new Option(response.data.Accedent_place, response.data.id_accedent_place, false, true);
+    }, function (error) {
+      console.log(error);
+    });
+  });
+});
+$(document).ready(function () {
   $('#create_nomoi_form_ajax').on('submit', function (e) {
     e.preventDefault();
     var id_nomoi = $("#id_nomoi").val();
