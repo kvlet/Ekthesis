@@ -77,6 +77,7 @@
                                         <th scope="col">Διάκριση</th>
                                         <th scope="col">Διαγραφή</th>
                                         <th scope="col">Προτεραιότητα</th>
+                                        <th scope="col">Επεξεργασία</th>
                                     </tr>
                                     </thead>
                                     <tbody>

@@ -60,12 +60,13 @@
                     <div class="container-fluid mt-4">
                         <div class="row">
                             <div class="col">
-                                <table class="table" id="place_view">
+                                <table class="table table-bordered table-hover" id="place_view">
                                     <thead class="thead-dark"
                                     <tr>
                                         <th scope="col">Κωδικός</th>
                                         <th scope="col">Τόπος</th>
                                         <th scope="col">Διαγραφή</th>
+                                        <th scope="col">Επεξεργασία</th>
                                     </tr>
                                     </thead>
                                     <tbody>

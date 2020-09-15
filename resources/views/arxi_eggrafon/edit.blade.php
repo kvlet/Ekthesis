@@ -89,6 +89,7 @@
                                         <th scope="col">Τηλέφωνο-1</th>
                                         <th scope="col">Τηλέφωνο-2</th>
                                         <th scope="col">Διαγραφή</th>
+                                        <th scope="col">Επεξεργασία</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -99,7 +100,7 @@
                                             <td>{{ $arxi->Tel1 }}</td>
                                             <td>{{ $arxi->Tel2 }}</td>
                                             <td>{{ $arxi->Mark_del }}</td>
-                                            <td><a href="{{ URL('arxi/'.$arxi->id_Arxi_ekdosis_eggrafon) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
+                                            <td> <a href="{{ URL('arxi/'.$arxi->id_Arxi_ekdosis_eggrafon) }}" target="" ><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία"/></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

@@ -83,6 +83,7 @@
                                         <th scope="col">Τηλέφωνο-1</th>
                                         <th scope="col">Τηλέφωνο-2</th>
                                         <th scope="col">Διαγραφή</th>
+                                        <th scope="col">Επεξεργασία</th>
                                     </tr>
                                     </thead>
                                     <tbody>
