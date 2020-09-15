@@ -20,14 +20,15 @@
             <table id="entoli" class="table table-bordered table-hover" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Αρ. Πρωτοκόλλου</th>
-                        <th>Αρ. Φακέλου</th>
-                        <th>Ημ/νια Ατυχήματος</th>
-                        <th>Εταιρεία</th>
-                        <th>Παθών</th>
-                        <th>Αρ. Κυκλ.</th>
-                        <th>Πραγματογνώμονας</th>
-                        <th>Τύπος έκθεσης</th>
+                        <th scope="col">Αρ. Πρωτοκόλλου</th>
+                        <th scope="col">Αρ. Φακέλου</th>
+                        <th scope="col">Ημ/νια Ατυχήματος</th>
+                        <th scope="col">Εταιρεία</th>
+                        <th scope="col">Παθών</th>
+                        <th scope="col">Αρ. Κυκλ.</th>
+                        <th scope="col">Πραγματογνώμονας</th>
+                        <th scope="col">Τύπος έκθεσης</th>
+                        <th scope="col">Επεξεργασία</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,14 +95,15 @@
             <table id="anathesi" class="table table-bordered table-hover" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Αρ. Πρωτοκόλλου</th>
-                        <th>Αρ. Φακέλου</th>
-                        <th>Ημ/νια Ατυχήματος</th>
-                        <th>Εταιρεία</th>
-                        <th>Παθών</th>
-                        <th>Αρ. Κυκλ.</th>
-                        <th>Πραγματογνώμονας</th>
-                        <th>Τύπος έκθεσης</th>
+                        <th scope="col">Αρ. Πρωτοκόλλου</th>
+                        <th scope="col">Αρ. Φακέλου</th>
+                        <th scope="col">Ημ/νια Ατυχήματος</th>
+                        <th scope="col">Εταιρεία</th>
+                        <th scope="col">Παθών</th>
+                        <th scope="col">Αρ. Κυκλ.</th>
+                        <th scope="col">Πραγματογνώμονας</th>
+                        <th scope="col">Τύπος έκθεσης</th>
+                        <th scope="col">Επεξεργασία</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -163,14 +165,15 @@
             <table id="elegxo" class="table table-bordered table-hover dislpay" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Αρ. Πρωτοκόλλου</th>
-                        <th>Αρ. Φακέλου</th>
-                        <th>Ημ/νια Ατυχήματος</th>
-                        <th>Εταιρεία</th>
-                        <th>Παθών</th>
-                        <th>Αρ. Κυκλ.</th>
-                        <th>Πραγματογνώμονας</th>
-                        <th>Τύπος έκθεσης</th>
+                        <th scope="col">Αρ. Πρωτοκόλλου</th>
+                        <th scope="col">Αρ. Φακέλου</th>
+                        <th scope="col">Ημ/νια Ατυχήματος</th>
+                        <th scope="col">Εταιρεία</th>
+                        <th scope="col">Παθών</th>
+                        <th scope="col">Αρ. Κυκλ.</th>
+                        <th scope="col">Πραγματογνώμονας</th>
+                        <th scope="col">Τύπος έκθεσης</th>
+                        <th scope="col">Επεξεργασία</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -237,14 +240,15 @@
             <table id="apostoli" class="table table-bordered table-hover display" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Αρ. Πρωτοκόλλου</th>
-                        <th>Αρ. Φακέλου</th>
-                        <th>Ημ/νια Ατυχήματος</th>
-                        <th>Εταιρεία</th>
-                        <th>Παθών</th>
-                        <th>Αρ. Κυκλ.</th>
-                        <th>Πραγματογνώμονας</th>
-                        <th>Τύπος έκθεσης</th>
+                        <th scope="col">Αρ. Πρωτοκόλλου</th>
+                        <th scope="col">Αρ. Φακέλου</th>
+                        <th scope="col">Ημ/νια Ατυχήματος</th>
+                        <th scope="col">Εταιρεία</th>
+                        <th scope="col">Παθών</th>
+                        <th scope="col">Αρ. Κυκλ.</th>
+                        <th scope="col">Πραγματογνώμονας</th>
+                        <th scope="col">Τύπος έκθεσης</th>
+                        <th scope="col">Επεξεργασία</th>
                     </tr>
                 </thead>
                 <tbody>
