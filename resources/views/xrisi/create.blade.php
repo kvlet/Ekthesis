@@ -9,7 +9,7 @@
                         <strong>{{ __('Χρήση') }}</strong>
                     </h4>
                 </div>
-                <form id="create_nomoi_form" method="post" action="{{ route('xrisi.store') }}" autocomplete="off">
+                <form id="create_xrisi_form" method="post" action="{{ route('xrisi.store') }}" autocomplete="off">
                     @csrf
                     <div class="container-fluid">
                         <div class="card">

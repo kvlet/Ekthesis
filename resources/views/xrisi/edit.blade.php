@@ -9,7 +9,7 @@
                         <strong>{{ __('Χρήση') }}</strong>
                     </h4>
                 </div>
-                <form id="create_nomoi_form" method="post" action="{{ route('xrisi.update',$xrisi->id_xrisi) }}" autocomplete="off">
+                <form id="edit_xrisi_form" method="post" action="{{ route('xrisi.update',$xrisi->id_xrisi) }}" autocomplete="off">
                     @csrf
                     {{ method_field('PUT') }}
                     <div class="container-fluid">

@@ -21,7 +21,7 @@ class XrisiController extends Controller
     }
 
     /**
-     * @param MarkaRequest $request
+     * @param XrisiRequest $request
      */
     public function store(Request $request){
 

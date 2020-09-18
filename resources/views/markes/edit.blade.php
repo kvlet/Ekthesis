@@ -9,7 +9,7 @@
                         <strong>{{ __('Μάρκες') }}</strong>
                     </h4>
                 </div>
-                <form id="create_nomoi_form" method="post" action="{{ route('markes.update',$marka->id_markes) }}" autocomplete="off">
+                <form id="edit_markes_form" method="post" action="{{ route('markes.update',$marka->id_markes) }}" autocomplete="off">
                     @csrf
                     {{ method_field('PUT') }}
                     <div class="container-fluid">

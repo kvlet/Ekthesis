@@ -129,6 +129,12 @@ Route::post('xrisi', 'XrisiController@store')->name('xrisi.store');
 Route::post('xrisi_ajax', 'XrisiController@store_ajax')->name('xrisi.store.ajax');
 Route::get('xrisi/{id}', 'XrisiController@edit')->name('xrisi.edit');
 Route::put('xrisi/{id}', 'XrisiController@update')->name('xrisi.update');
+
+Route::get('xromata', 'XromataController@create')->name('xromata.create');
+Route::post('xromata', 'XromataController@store')->name('xromata.store');
+Route::post('xromata_ajax', 'XromataController@store_ajax')->name('xromata.store.ajax');
+Route::get('xromata/{id}', 'XromataController@edit')->name('xromata.edit');
+Route::put('xromata/{id}', 'XromataController@update')->name('xromata.update');
 // end routes for look up tables
 
 /*Route::get('/pragmatognomosines', 'PragmController@create');
