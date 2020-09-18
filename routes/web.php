@@ -135,6 +135,12 @@ Route::post('xromata', 'XromataController@store')->name('xromata.store');
 Route::post('xromata_ajax', 'XromataController@store_ajax')->name('xromata.store.ajax');
 Route::get('xromata/{id}', 'XromataController@edit')->name('xromata.edit');
 Route::put('xromata/{id}', 'XromataController@update')->name('xromata.update');
+
+Route::get('cartype', 'CarTypeController@create')->name('cartype.create');
+Route::post('cartype', 'CarTypeController@store')->name('cartype.store');
+Route::post('cartype_ajax', 'CarTypeController@store_ajax')->name('cartype.store.ajax');
+Route::get('cartype/{id}', 'CarTypeController@edit')->name('cartype.edit');
+Route::put('cartype/{id}', 'CarTypeController@update')->name('cartype.update');
 // end routes for look up tables
 
 /*Route::get('/pragmatognomosines', 'PragmController@create');

@@ -6,29 +6,29 @@
             <div class="card">
                 <div class="card-header-cust">
                     <h4 class="heading-small text-center text-muted">
-                        <strong>{{ __('Χρώματα') }}</strong>
+                        <strong>{{ __('Τύπος Οχημάτων') }}</strong>
                     </h4>
                 </div>
-                <form id="create_xromata_form" method="post" action="{{ route('xromata.store') }}" autocomplete="off">
+                <form id="create_cartype_form" method="post" action="{{ route('cartype.store') }}" autocomplete="off">
                     @csrf
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <div class="form-label{{ $errors->has('id_xromata') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="id_xromata">{{ __('Κωδικός') }} <span style="color:red;font-weight:bold">*</span></label>
-                                            <input type="text" name="id_xromata" id="id_xromata"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_xromata') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('id_xromata') }}" autofocus disabled>
+                                        <div class="form-label{{ $errors->has('id_car_type') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="id_car_type">{{ __('Κωδικός') }} <span style="color:red;font-weight:bold">*</span></label>
+                                            <input type="text" name="id_car_type" id="id_car_type"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_car_type') ? ' is-invalid' : '' }}"
+                                                   value="{{ old('id_car_type') }}" autofocus disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-label{{ $errors->has('color') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="color">{{ __(' Χρώμα') }} <span style="color:red;font-weight:bold">*</span></label>
-                                            <input type="text" name="color" id="color"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('color') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('color') }}" autofocus required>
+                                        <div class="form-label{{ $errors->has('Typos') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="Typos">{{ __(' Τύπος') }} <span style="color:red;font-weight:bold">*</span></label>
+                                            <input type="text" name="Typos" id="Typos"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('Typos') ? ' is-invalid' : '' }}"
+                                                   value="{{ old('Typos') }}" autofocus required>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -63,18 +63,18 @@
                                     <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">Κωδικός</th>
-                                        <th scope="col">Χρώμα</th>
+                                        <th scope="col">Τύπος</th>
                                         <th scope="col">Διαγραφή</th>
                                         <th scope="col">Επεξεργασία</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($xromata as $xroma)
+                                    @foreach($cartype as $cart)
                                         <tr>
-                                            <td>{{ $xroma->id_xromata }}</td>
-                                            <td>{{ $xroma->color }}</td>
-                                            <td>{{ $xroma->Mark_del }}</td>
-                                            <td><a href="{{ URL('xromata/'.$xroma->id_xromata) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
+                                            <td>{{ $cart->id_car_type }}</td>
+                                            <td>{{ $cart->Typos }}</td>
+                                            <td>{{ $cart->Mark_del }}</td>
+                                            <td><a href="{{ URL('cartype/'.$cart->id_car_type) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -87,6 +87,7 @@
         </div>
     </div>
 @endsection
+
 
 
 
