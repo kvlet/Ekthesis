@@ -61,6 +61,7 @@
                 <li class="nav-item"><a class="nav-link py-0" href="/place"><span>Τόπος Εξέτασης</span></a></li>
                 <li class="nav-item"><a class="nav-link py-0" href="/arxi"><span>Αρχή Εγγράφων</span></a></li>
                 <li class="nav-item"><a class="nav-link py-0" href="/markes"><span>Μάρκες</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/xrisi"><span>Χρήση</span></a></li>
             </ul>
         </div>
     </li>

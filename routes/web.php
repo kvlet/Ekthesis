@@ -123,6 +123,12 @@ Route::post('markes', 'MarkaController@store')->name('markes.store');
 Route::post('markes_ajax', 'MarkaController@store_ajax')->name('markes.store.ajax');
 Route::get('markes/{id}', 'MarkaController@edit')->name('markes.edit');
 Route::put('markes/{id}', 'MarkaController@update')->name('markes.update');
+
+Route::get('xrisi', 'XrisiController@create')->name('xrisi.create');
+Route::post('xrisi', 'XrisiController@store')->name('xrisi.store');
+Route::post('xrisi_ajax', 'XrisiController@store_ajax')->name('xrisi.store.ajax');
+Route::get('xrisi/{id}', 'XrisiController@edit')->name('xrisi.edit');
+Route::put('xrisi/{id}', 'XrisiController@update')->name('xrisi.update');
 // end routes for look up tables
 
 /*Route::get('/pragmatognomosines', 'PragmController@create');
