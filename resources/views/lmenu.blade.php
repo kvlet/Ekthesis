@@ -64,6 +64,7 @@
                 <li class="nav-item"><a class="nav-link py-0" href="/xrisi"><span>Χρήση</span></a></li>
                 <li class="nav-item"><a class="nav-link py-0" href="/xromata"><span>Χρώματα</span></a></li>
                 <li class="nav-item"><a class="nav-link py-0" href="/cartype"><span>Τύπος οχήματος</span></a></li>
+                <li class="nav-item"><a class="nav-link py-0" href="/paint"><span>Βαφή</span></a></li>
             </ul>
         </div>
     </li>

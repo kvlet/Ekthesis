@@ -141,6 +141,12 @@ Route::post('cartype', 'CarTypeController@store')->name('cartype.store');
 Route::post('cartype_ajax', 'CarTypeController@store_ajax')->name('cartype.store.ajax');
 Route::get('cartype/{id}', 'CarTypeController@edit')->name('cartype.edit');
 Route::put('cartype/{id}', 'CarTypeController@update')->name('cartype.update');
+
+Route::get('paint', 'PaintController@create')->name('paint.create');
+Route::post('paint', 'PaintController@store')->name('paint.store');
+Route::post('paint_ajax', 'PaintController@store_ajax')->name('paint.store.ajax');
+Route::get('paint/{id}', 'PaintController@edit')->name('paint.edit');
+Route::put('paint/{id}', 'PaintController@update')->name('paint.update');
 // end routes for look up tables
 
 /*Route::get('/pragmatognomosines', 'PragmController@create');
