@@ -40,7 +40,7 @@ class Pragmatognomosini extends Model
 
     public function pragmatognomonas()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class,'id');
     }
 
 

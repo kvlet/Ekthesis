@@ -66,6 +66,19 @@ Route::delete('ereunes/delete_synergeia', 'PragmController@destroy_synergeia_ekt
 Route::get('pdf/aitisiDikografias', 'PdfReportController@aitisiDikografias_pdf')->name('pdf.aitisiDikografias_pdf');
 // end Route for pdf
 
+// Route for company
+Route::get('company', 'CompanyController@create')->name('company.create');
+Route::post('company', 'CompanyController@store')->name('company.store');
+Route::get('company/{id}', 'CompanyController@edit')->name('company.edit');
+Route::put('company/{id}', 'CompanyController@update')->name('company.update');
+// end Route for company
+
+// Route for keimena
+Route::get('manage_keimena', 'KeimenaController@create')->name('keimena.create');
+Route::post('manage_keimena', 'KeimenaController@store')->name('keimena.store');
+Route::get('manage_keimena/{id}', 'KeimenaController@edit')->name('keimena.edit');
+Route::put('manage_keimena/{id}', 'KeimenaController@update')->name('keimena.update' );
+// end Route for keimena
 
 // routes for look up tables
 Route::get('diakrisis', 'DiakrisiController@create')->name('diakrisis.create');
@@ -90,16 +103,6 @@ Route::get('arxi', 'ArxiController@create')->name('arxi_eggrafon.create');
 Route::post('arxi', 'ArxiController@store')->name('arxi_eggrafon.store');
 Route::get('arxi/{id}', 'ArxiController@edit')->name('arxi_eggrafon.edit');
 Route::put('arxi/{id}', 'ArxiController@update')->name('arxi_eggrafon.update');
-
-Route::get('company', 'CompanyController@create')->name('company.create');
-Route::post('company', 'CompanyController@store')->name('company.store');
-Route::get('company/{id}', 'CompanyController@edit')->name('company.edit');
-Route::put('company/{id}', 'CompanyController@update')->name('company.update');
-
-Route::get('manage_keimena', 'KeimenaController@create')->name('keimena.create');
-Route::post('manage_keimena', 'KeimenaController@store')->name('keimena.store');
-Route::get('manage_keimena/{id}', 'KeimenaController@edit')->name('keimena.edit');
-Route::put('manage_keimena/{id}', 'KeimenaController@update')->name('keimena.update' );
 
 Route::get('praktoreiο','PraktoreioController@create')->name('praktoreio.create');
 Route::post('praktoreiο','PraktoreioController@store')->name('praktoreio.store');
