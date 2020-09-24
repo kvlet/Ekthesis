@@ -31,12 +31,12 @@ class OximataRequest extends FormRequest
             'id_xrisi'   => 'required',
             'Hm_first_kykl' => 'nullable|date',
             'id_xromata'   => 'required',
-            'Thesis' => 'nullable | numeric',
-            'Ippoi' => 'nullable |numeric',
+            'Thesis' => 'nullable | numeric|max:3',
+            'Ippoi' => 'nullable |numeric|max:2',
             'id_car_type'   => 'required',
-            'kibika' => 'nullable|numeric',
+            'kibika' => 'nullable|numeric|max:4',
             'id_paint'   => 'required',
-            'manuf_year' => 'nullable|numeric',
+            'manuf_year' => 'nullable|numeric|max:4',
         ];
     }
 }
