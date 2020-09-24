@@ -73,6 +73,13 @@ Route::get('company/{id}', 'CompanyController@edit')->name('company.edit');
 Route::put('company/{id}', 'CompanyController@update')->name('company.update');
 // end Route for company
 
+// Route for oximata
+Route::get('oximata', 'OximataController@create')->name('oximata.create');
+Route::post('oximata', 'OximataController@store')->name('oximata.store');
+Route::get('oximata/{id}', 'OximataController@edit')->name('oximata.edit');
+Route::put('oximata/{id}', 'OximataController@update')->name('oximata.update');
+// end Route for oximata
+
 // Route for keimena
 Route::get('manage_keimena', 'KeimenaController@create')->name('keimena.create');
 Route::post('manage_keimena', 'KeimenaController@store')->name('keimena.store');
