@@ -77,7 +77,7 @@
                                     <tbody>
                                     @foreach($cartype as $cart)
                                         <tr>
-                                            <td>{{ $cart->id_xromata }}</td>
+                                            <td>{{ $cart->id_car_type }}</td>
                                             <td>{{ $cart->Typos }}</td>
                                             <td>{{ $cart->Mark_del }}</td>
                                             <td><a href="{{ URL('cartype/'.$cart->id_car_type) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
