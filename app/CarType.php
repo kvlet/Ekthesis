@@ -12,5 +12,7 @@ class CarType extends Model
     public $timestamps = false;
     protected $primaryKey= 'id_car_type';
 
-    //edo na balo kai tin sisxetisi me ta oximata
+    public function oximata(){
+        return $this->belongsToMany(Oxima::class,'db_oximata','id_oximata');
+    }
 }

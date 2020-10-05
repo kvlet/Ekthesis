@@ -12,5 +12,7 @@ class Marka extends Model
     public $timestamps = false;
     protected $primaryKey= 'id_markes';
 
-    //edo na balo kai tin sisxetisi me ta oximata
+    public function oximata(){
+        return $this->belongsToMany(Oxima::class,'db_oximata','id_oximata');
+    }
 }

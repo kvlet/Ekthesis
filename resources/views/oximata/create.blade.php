@@ -36,7 +36,7 @@
                                                     <label class="form-control-label" for="Ar_kyklo">{{ __('Αρ. Κυκλοφορίας') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <input type="text" name="Ar_kyklo" id="Ar_kyklo"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Ar_kyklo') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Ar_kyklo') }}" autofocus>
+                                                           value="{{ old('Ar_kyklo') }}" required autofocus>
                                                     @if ($errors->has('Ar_kyklo'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('Ar_kyklo') }}</strong>
@@ -54,7 +54,7 @@
                                                     <label class="form-control-label" for="Ar_plasiou">{{ __('Αρ. Πλαισίου') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <input type="text" name="Ar_plasiou" id="Ar_plasiou"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Ar_plasiou') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Ar_plasiou') }}" autofocus>
+                                                           value="{{ old('Ar_plasiou') }}" required autofocus>
                                                     @if ($errors->has('Ar_plasiou'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('Ar_plasiou') }}</strong>
@@ -142,7 +142,7 @@
                                                     <label class="form-control-label" for="Hm_first_kykl">{{ __('Ημ/νια 1ης Κυκλοφορίας') }}</label>
                                                     <input type="text" name="Hm_first_kykl" id="Hm_first_kykl" data-provide="datepicker" placeholder="HH-MM-YYYY"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Hm_first_kykl') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Hm_first_kykl') }}"  required autofocus>
+                                                           value="{{ old('Hm_first_kykl') }}"  autofocus>
                                                     <script type="text/javascript">
                                                         $('#Hm_first_kykl').datepicker({
                                                             autoclose: true,
@@ -188,43 +188,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <div class="form-label{{ $errors->has('Thesis') ? ' has-danger' : '' }}">
-                                                    <label class="form-control-label"
-                                                           for="Thesis">{{ __('Θέσης') }}</label>
-                                                    <input type="number" name="Thesis" id="Thesis" maxlength="2" min="0"
-                                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                           class="form-control form-input form-control-alternative{{ $errors->has('Thesis') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Thesis') }}" autofocus>
-                                                    @if ($errors->has('Thesis'))
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('Thesis') }}</strong>
-                                                        </span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="form-label{{ $errors->has('Ippoi') ? ' has-danger' : '' }}">
-                                                    <label class="form-control-label" for="Ippoi">{{ __('Ιπποι') }}</label>
-                                                    <input type="number" name="Ippoi" id="Ippoi" maxlength="3" min="0"
-                                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                           class="form-control form-input form-control-alternative{{ $errors->has('Ippoi') ? ' is-invalid' : '' }}"
-                                                           value="{{ old('Ippoi') }}" autofocus>
-                                                    @if ($errors->has('Ippoi'))
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('Ippoi') }}</strong>
-                                                        </span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('kibika') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="kibika">{{ __('Κυβικά') }}</label>
-                                                    <input type="number" name="kibika" id="kibika" maxlength="4" min="0"
+                                                    <input type="number" name="kibika" id="kibika" maxlength="4"
+{{--                                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"--}}
                                                            class="form-control form-input form-control-alternative{{ $errors->has('kibika') ? ' is-invalid' : '' }}"
                                                            value="{{ old('kibika') }}"  autofocus>
                                                     @if ($errors->has('kibika'))
@@ -268,7 +235,8 @@
                                             <div class="col-md-5">
                                                 <div class="form-label{{ $errors->has('manuf_year') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="manuf_year">{{ __('Έτος κατασκευής') }}</label>
-                                                    <input type="number" name="manuf_year" id="manuf_year" maxlength="4" min="0"
+                                                    <input type="number" name="manuf_year" id="manuf_year" maxlength="4"
+{{--                                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"--}}
                                                            class="form-control form-input form-control-alternative{{ $errors->has('manuf_year') ? ' is-invalid' : '' }}"
                                                            value="{{ old('manuf_year') }}"  autofocus>
                                                     @if ($errors->has('manuf_year'))
@@ -282,9 +250,9 @@
                                                 <div class="form-label{{ $errors->has('id_paint') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label" for="id_paint">{{ __('Βαφή') }}<span style="color:red;font-weight:bold">*</span></label>
                                                     <select class="form-control form-select" id="id_paint"  name="id_paint"  required>
-                                                        <option selected value value=-1>{{ "Επιλέξτε Βαφή" }}</option>
+                                                        <option selected value value=-1>{{ " Επιλέξτε Βαφή " }}</option>
                                                         @foreach($paint as $pain)
-                                                            <option value="{{$pain->id_paint}}" @if(old('id_paint') == $pain->id_paint) selected @endif>{{ $pain->paint_type}}</option>
+                                                            <option value="{{$pain->id_paint_type}}" @if(old('id_paint') == $pain->id_paint_type) selected @endif>{{ $pain->paint_type}}</option>
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('id_paint'))
@@ -306,6 +274,62 @@
                                                         </button>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-label{{ $errors->has('Thesis') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label"
+                                                           for="Thesis">{{ __('Θέσης') }}</label>
+                                                    <input type="number" name="Thesis" id="Thesis" maxlength="2"
+{{--                                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"--}}
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Thesis') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Thesis') }}" autofocus>
+                                                    @if ($errors->has('Thesis'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Thesis') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-label{{ $errors->has('Ippoi') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label" for="Ippoi">{{ __('Ιπποι') }}</label>
+                                                    <input type="number" name="Ippoi" id="Ippoi" maxlength="3"
+{{--                                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"--}}
+                                                           class="form-control form-input form-control-alternative{{ $errors->has('Ippoi') ? ' is-invalid' : '' }}"
+                                                           value="{{ old('Ippoi') }}" autofocus>
+                                                    @if ($errors->has('Ippoi'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('Ippoi') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-label{{ $errors->has('Mark_del') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label" for="Mark_del">{{ __(' Διαγραφή') }} <span style="color:red;font-weight:bold">*</span></label>
+                                                    <select class="form-control form-select" id="Mark_del" name="Mark_del" required disabled>
+                                                        <option value="Ναι">Ναι</option>
+                                                        <option value="Όχι" selected="selected">Όχι</option>
+                                                    </select>
+                                                    @if ($errors->has('Mark_del'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('Mark_del') }}</strong>
+                                                </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+
+                                            </div>
+                                            <div class="col-md-2">
+
                                             </div>
                                         </div>
                                         <div class="row mt-4">

@@ -12,5 +12,7 @@ class Xrisi extends Model
     public $timestamps = false;
     protected $primaryKey= 'id_xrisi';
 
-    //edo na balo kai tin sisxetisi me ta oximata
+    public function oximata(){
+        return $this->belongsToMany(Oxima::class,'db_oximata','id_oximata');
+    }
 }
