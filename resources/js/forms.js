@@ -71,3 +71,27 @@ $(document).ready( function(){
         });
     });
 });
+
+$(document).ready( function(){
+    $('#create_markes_form_ajax').on('submit', function(e) {
+        e.preventDefault();
+        let id_markes = $("#id_markes").val();
+        let marka = $("#marka").val();
+        let Mark_del = $("#Mark_del").val();
+
+        window.axios.post('/markes_ajax', {
+            'id_markes' : id_markes,
+            'marka': marka,
+            'Mark_del': Mark_del
+        }).then((response) => {
+
+            $('#markesModal').modal('hide');
+            var ddl = document.getElementById('id_markes');
+
+            ddl.options[ddl.options.length] = new Option(response.data.marka, response.data.id_markes, false, true);
+
+        }, (error) => {
+            console.log(error);
+        });
+    });
+});
