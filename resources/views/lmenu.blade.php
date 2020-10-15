@@ -29,7 +29,15 @@
         <a class="nav-link collapsed text-truncate" href="#submenu3" data-toggle="collapse" data-target="#submenu3"><i class="fa fa-table"></i> <span class="d-none d-sm-inline" style="color: red">Οχήματα</span></a>
         <div class="collapse" id="submenu3" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
-                <li class="nav-item"><a class="nav-link py-0" href="/oximata"><span>Οχήματα</span></a></li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#submenu1sub7" data-toggle="collapse" data-target="#submenu1sub7"><span>Οχήματα</span></a>
+                    <div class="collapse" id="submenu1sub7" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="/oximata"><span>Δημιουργία</span></a></li>
+                            <li class="nav-item"><a class="nav-link py-0" href="/oximata/search"><span>Αναζήτηση</span></a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="nav-item"><a class="nav-link py-0" href="/parts"><span style="color: red">Ανταλλακτικά</span></a></li>
                 <li class="nav-item"><a class="nav-link py-0" href="/jobs"><span style="color: red">Εργασίες</span></a></li>
             </ul>

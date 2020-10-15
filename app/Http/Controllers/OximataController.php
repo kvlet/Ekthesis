@@ -22,13 +22,15 @@ class OximataController extends Controller
         $xromata = Xromata::where([['Mark_del','Όχι']])->orderBy('color')->get();
         $cartype = CarType::where([['Mark_del','Όχι']])->orderBy('Typos')->get();
         $paint = Paint::where([['Mark_del','Όχι']])->orderBy('paint_type')->get();
+        $oximata = Oxima::where([['Mark_del','Όχι'],['Ar_kyklo','LIKE','%'],['Ar_kyklo','!=','@@']])->orderBy('Ar_kyklo')->get();
 
         return view('oximata.create',compact([
             'markes',
             'xrisis',
             'xromata',
             'cartype',
-            'paint'
+            'paint',
+            'oximata'
         ]));
     }
 
@@ -132,5 +134,28 @@ class OximataController extends Controller
 
         return redirect('oximata/'.$oxima->id_oximata);
 
+    }
+    public function opensearch(){
+
+        $oximata = Oxima::where([['Mark_del','Όχι'],['Ar_kyklo','LIKE','%'],['Ar_kyklo','!=','@@']])->orderBy('Ar_kyklo')->get();
+
+        return view('oximata.search',compact([
+            'oximata'
+        ]));
+    }
+
+    public function search(Request $request){
+
+        $pin= $request->pinakida;
+
+        if ($pin == null){
+            $oximata = Oxima::where([['Mark_del','Όχι'],['Ar_kyklo','LIKE','%'],['Ar_kyklo','!=','@@']])->orderBy('Ar_kyklo')->get();
+        }else{
+            $oximata = Oxima::where([['Mark_del','Όχι'],['Ar_kyklo','LIKE','%'.$pin.'%'],['Ar_kyklo','!=','@@']])->orderBy('Ar_kyklo')->get();
+        }
+//        return redirect()->back()->with(compact('oximata'));
+        return view('oximata.search',compact([
+            'oximata'
+        ]));
     }
 }

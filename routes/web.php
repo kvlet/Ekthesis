@@ -76,6 +76,8 @@ Route::put('company/{id}', 'CompanyController@update')->name('company.update');
 // Route for oximata
 Route::get('oximata', 'OximataController@create')->name('oximata.create');
 Route::post('oximata', 'OximataController@store')->name('oximata.store');
+Route::get('oximata/search', 'OximataController@opensearch')->name('oximata.opensearch');
+Route::post('oximata/search', 'OximataController@search')->name('oximata.search');
 Route::get('oximata/{id}', 'OximataController@edit')->name('oximata.edit');
 Route::put('oximata/{id}', 'OximataController@update')->name('oximata.update');
 // end Route for oximata
