@@ -46,12 +46,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Είσοδος') }}
                                 </button>
-                                <!--
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Υπενθύμιση κωδικού') }}
-                                    </a>
-                                @endif-->
+{{--                                @if (Route::has('password.request'))--}}
+{{--                                    <a class="btn btn-link" href="{{ route('password.request') }}">--}}
+{{--                                        {{ __('Υπενθύμιση κωδικού') }}--}}
+{{--                                    </a>--}}
+{{--                                @endif--}}
                             </div>
                         </div>
                     </form>

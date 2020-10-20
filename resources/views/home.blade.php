@@ -6,6 +6,113 @@
 @endsection
 
 @section('forms')
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" action="{{ route('oximata.search') }}" role="search" autocomplete="off">
+                @csrf
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header-cust">
+                                <h4 class="heading-small text-center text-muted">
+                                    <strong>{{ __('Αναζήτηση Έκθεσης') }}</strong>
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-label{{ $errors->has('id_ekthesis') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label"
+                                                   for="id_ekthesis">{{ __('Αρ. Πρωτοκόλλου') }}</label>
+                                            <input type="text" name="id_ekthesis" id="id_ekthesis"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_ekthesis') ? ' is-invalid' : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label{{ $errors->has('Prot_bibliou') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="Prot_bibliou">{{ __('Αρ. Φακέλου') }}</label>
+                                            <input type="text" name="Prot_bibliou" id="Prot_bibliou"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('Prot_bibliou') ? ' is-invalid' : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label{{ $errors->has('Ar_kyklo') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="Ar_kyklo">{{ __('Αρ. Κυκλοφορίας') }}</label>
+                                            <input type="text" name="Ar_kyklo" id="Ar_kyklo"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('Ar_kyklo') ? ' is-invalid' : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label{{ $errors->has('person') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="person">{{ __('Παθών / Υπαίτιος') }}</label>
+                                            <input type="text" name="person" id="person"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('person') ? ' is-invalid' : '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-label{{ $errors->has('id_company') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="id_company">{{ __('Εταιρεία') }}</label>
+                                            <input type="text" name="id_company" id="id_company"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_company') ? ' is-invalid' : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label{{ $errors->has('sDate_atiximatos') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="sDate_atiximatos">{{ __('Αρχική Ημ/νια Ατυχήματος') }}</label>
+                                            <input type="text" name="sDate_atiximatos" id="sDate_atiximatos" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('sDate_atiximatos') ? ' is-invalid' : '' }}">
+                                            <script type="text/javascript">
+                                                $('#sDate_atiximatos').datepicker({
+                                                    autoclose: true,
+                                                    format: 'dd-mm-yyyy',
+                                                    language: 'el',
+                                                    todayHighlight: true,
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label{{ $errors->has('eDate_atiximatos') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="eDate_atiximatos">{{ __('Τελική Ημ/νια Ατυχήματος') }}</label>
+                                            <input type="text" name="eDate_atiximatos" id="eDate_atiximatos" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('eDate_atiximatos') ? ' is-invalid' : '' }}">
+                                            <script type="text/javascript">
+                                                $('#eDate_atiximatos').datepicker({
+                                                    autoclose: true,
+                                                    format: 'dd-mm-yyyy',
+                                                    language: 'el',
+                                                    todayHighlight: true,
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label{{ $errors->has('id_user') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="id_user">{{ __('Πραγματογνώμονας') }}</label>
+                                            <input type="text" name="id_user" id="id_user"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_user') ? ' is-invalid' : '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <hr/>
+        </div>
+    </div>
 {{--    <div class="bg-wel-ekthesis"></div>--}}
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">

@@ -1,9 +1,8 @@
 <?php
 
-Route::get('/home', function () {
-
-    return view('home');
-});
+//Route::get('/home', function () {
+//    return view('home');
+//});
 
 //routes for pragmatognomisines
 Route::get('pragmatognomosines', 'PragmController@create')->name('pragmatognomosines.create');
