@@ -64,11 +64,54 @@ class HomeController extends Controller
         }else{
             $pragm->get()->all();
         }
-        if ($request->Ar_kyklo != null){
-            $oximata = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1'],['Ar_kyklo','LIKE','%'.$request->Ar_kyklo.'%']])->get('id_oximata');
-            $pragm->whereIn('id_oximatos_pathon',$oximata)
-                  ->orWhereIn('id_oximatos_ypaitiou',$oximata)->get();
+        if ($request->company != null){
+            $companies= Company::where([['Mark_del','Όχι'],['comp_name','LIKE','%'.$request->company.'%']])->get('id_company');
+            $pragm->whereIn('id_company_pathon',$companies)->get();
+        }else{
+            $pragm->get()->all();
+        }
+        if ($request->user != null){
+            $users= User::where([['Active','Ναι'],['L_name','LIKE','%'.$request->user.'%']])->get('id');
+            $pragm->whereIn('id_company_pathon',$users)->get();
+        }else{
+            $pragm->get()->all();
+        }
+        if ($request->Ar_kyklo_p != null){
+            $oximata = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1'],['Ar_kyklo','LIKE','%'.$request->Ar_kyklo_p.'%']])->get('id_oximata');
+            $pragm->whereIn('id_oximatos_pathon',$oximata)->get();
 //            dd($oximata);
+        }else{
+            $pragm->get()->all();
+        }
+        if ($request->pathon != null){
+            $persons=Person::where([['Mark_del','Όχι'],['id_person','>','1'],['L_name','LIKE','%'.$request->pathon.'%']])->get('id_person');
+            $pragm->whereIn('id_pathon',$persons)->get();
+        }else{
+            $pragm->get()->all();
+        }
+        if ($request->Ar_kyklo_y != null){
+            $oximata = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1'],['Ar_kyklo','LIKE','%'.$request->Ar_kyklo_y.'%']])->get('id_oximata');
+            $pragm->whereIn('id_oximatos_ypaitiou',$oximata)->get();
+//            dd($oximata);
+        }else{
+            $pragm->get()->all();
+        }
+        if ($request->ypaitios != null){
+            $persons=Person::where([['Mark_del','Όχι'],['id_person','>','1'],['L_name','LIKE','%'.$request->ypaitios.'%']])->get('id_person');
+            $pragm->whereIn('id_ypaitiou',$persons)->get();
+        }else{
+            $pragm->get()->all();
+        }
+        if ($request->sDate_atiximatos !=null && $request->eDate_atiximatos !=null){
+            $sdate=Carbon::createFromFormat('d-m-Y',$request->sDate_atiximatos)->format('Y-m-d');
+            $edate=Carbon::createFromFormat('d-m-Y',$request->eDate_atiximatos)->format('Y-m-d');
+            $pragm->whereBetween('Date_atiximatos',[$sdate,$edate])->get();
+        }elseif ($request->sDate_atiximatos !=null){
+            $sdate=Carbon::createFromFormat('d-m-Y',$request->sDate_atiximatos)->format('Y-m-d');
+            $pragm->where('Date_atiximatos','>=',$sdate)->get();
+        }elseif ($request->eDate_atiximatos !=null){
+            $edate=Carbon::createFromFormat('d-m-Y',$request->eDate_atiximatos)->format('Y-m-d');
+            $pragm->where('Date_atiximatos','=',$edate)->get();
         }else{
             $pragm->get()->all();
         }

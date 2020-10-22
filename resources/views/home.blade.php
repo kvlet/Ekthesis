@@ -58,66 +58,82 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-label{{ $errors->has('Ar_kyklo') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="Ar_kyklo">{{ __('Αρ. Κυκλοφορίας') }}</label>
-                                            <input type="text" name="Ar_kyklo" id="Ar_kyklo"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('Ar_kyklo') ? ' is-invalid' : '' }}">
+                                        <div class="form-label{{ $errors->has('company') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="company">{{ __('Εταιρεία') }}</label>
+                                            <input type="text" name="company" id="company"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('company') ? ' is-invalid' : '' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-label{{ $errors->has('person') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="person">{{ __('Παθών / Υπαίτιος') }}</label>
-                                            <input type="text" name="person" id="person"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('person') ? ' is-invalid' : '' }}">
+                                        <div class="form-label{{ $errors->has('user') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="user">{{ __('Πραγματογνώμονας') }}</label>
+                                            <input type="text" name="user" id="user"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('user') ? ' is-invalid' : '' }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <div class="form-label{{ $errors->has('id_company') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="id_company">{{ __('Εταιρεία') }}</label>
-                                            <input type="text" name="id_company" id="id_company"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_company') ? ' is-invalid' : '' }}">
+                                        <div class="form-label{{ $errors->has('Ar_kyklo_p') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="Ar_kyklo_p">{{ __('Αρ. Κυκλοφορίας Παθών') }}</label>
+                                            <input type="text" name="Ar_kyklo_p" id="Ar_kyklo_p"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('Ar_kyklo_p') ? ' is-invalid' : '' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-label{{ $errors->has('sDate_atiximatos') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="sDate_atiximatos">{{ __('Αρχική Ημ/νια Ατυχήματος') }}</label>
-                                            <input type="text" name="sDate_atiximatos" id="sDate_atiximatos" data-provide="datepicker" placeholder="HH-MM-YYYY"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('sDate_atiximatos') ? ' is-invalid' : '' }}">
-                                            <script type="text/javascript">
-                                                $('#sDate_atiximatos').datepicker({
-                                                    autoclose: true,
-                                                    format: 'dd-mm-yyyy',
-                                                    language: 'el',
-                                                    todayHighlight: true,
-                                                });
-                                            </script>
+                                        <div class="form-label{{ $errors->has('pathon') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="pathon">{{ __('Παθών') }}</label>
+                                            <input type="text" name="pathon" id="pathon"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('pathon') ? ' is-invalid' : '' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-label{{ $errors->has('eDate_atiximatos') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="eDate_atiximatos">{{ __('Τελική Ημ/νια Ατυχήματος') }}</label>
-                                            <input type="text" name="eDate_atiximatos" id="eDate_atiximatos" data-provide="datepicker" placeholder="HH-MM-YYYY"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('eDate_atiximatos') ? ' is-invalid' : '' }}">
-                                            <script type="text/javascript">
-                                                $('#eDate_atiximatos').datepicker({
-                                                    autoclose: true,
-                                                    format: 'dd-mm-yyyy',
-                                                    language: 'el',
-                                                    todayHighlight: true,
-                                                });
-                                            </script>
+                                        <div class="form-label{{ $errors->has('Ar_kyklo_y') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="Ar_kyklo_y">{{ __('Αρ. Κυκλοφορίας Υπαίτιου') }}</label>
+                                            <input type="text" name="Ar_kyklo_y" id="Ar_kyklo_y"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('Ar_kyklo_y') ? ' is-invalid' : '' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-label{{ $errors->has('id_user') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="id_user">{{ __('Πραγματογνώμονας') }}</label>
-                                            <input type="text" name="id_user" id="id_user"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_user') ? ' is-invalid' : '' }}">
+                                        <div class="form-label{{ $errors->has('ypaitios') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="ypaitios">{{ __('Υπαίτιος') }}</label>
+                                            <input type="text" name="ypaitios" id="ypaitios"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('ypaitios') ? ' is-invalid' : '' }}">
                                         </div>
                                     </div>
                                 </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-label{{ $errors->has('sDate_atiximatos') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="sDate_atiximatos">{{ __('Αρχική Ημ/νια Ατυχήματος') }}</label>
+                                                <input type="text" name="sDate_atiximatos" id="sDate_atiximatos" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                                       class="form-control form-input form-control-alternative{{ $errors->has('sDate_atiximatos') ? ' is-invalid' : '' }}">
+                                                <script type="text/javascript">
+                                                    $('#sDate_atiximatos').datepicker({
+                                                        autoclose: true,
+                                                        format: 'dd-mm-yyyy',
+                                                        language: 'el',
+                                                        todayHighlight: true,
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-label{{ $errors->has('eDate_atiximatos') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="eDate_atiximatos">{{ __('Τελική Ημ/νια Ατυχήματος') }}</label>
+                                                <input type="text" name="eDate_atiximatos" id="eDate_atiximatos" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                                       class="form-control form-input form-control-alternative{{ $errors->has('eDate_atiximatos') ? ' is-invalid' : '' }}">
+                                                <script type="text/javascript">
+                                                    $('#eDate_atiximatos').datepicker({
+                                                        autoclose: true,
+                                                        format: 'dd-mm-yyyy',
+                                                        language: 'el',
+                                                        todayHighlight: true,
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <div class="row">
                                     <div class="col mt-4">
                                         <div class="col d-flex justify-content-end">
