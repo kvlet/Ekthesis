@@ -50,4 +50,47 @@ class HomeController extends Controller
             'status'
         ]));
     }
+    public function search(Request $request){
+        $pragm = (new Pragmatognomosini)->newQuery();
+
+        if ($request->id_ekthesis != null){
+            $pragm->where('id_ekthesis','LIKE','%'.$request->id_ekthesis.'%');
+        }else{
+            $pragm->get()->all();
+        }
+
+        if ($request->Prot_bibliou != null){
+            $pragm->where('Prot_bibliou','LIKE','%'.$request->Prot_bibliou.'%');
+        }else{
+            $pragm->get()->all();
+        }
+        if ($request->Ar_kyklo != null){
+            $oximata = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1'],['Ar_kyklo','LIKE','%'.$request->Ar_kyklo.'%']])->get('id_oximata');
+            $pragm->whereIn('id_oximatos_pathon',$oximata)
+                  ->orWhereIn('id_oximatos_ypaitiou',$oximata)->get();
+//            dd($oximata);
+        }else{
+            $pragm->get()->all();
+        }
+
+        $pragmatognomosines= $pragm->get();
+
+        $companies = Company::where('Mark_del', 'Όχι')->get();
+        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+        foreach ($pragmatognomosines as $pragm){
+            $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
+            $pragm->Date_atiximatos = $dateAtiximatos;
+        }
+        $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
+        return view('home',compact([
+            'pragmatognomosines',
+            'companies',
+            'pathontes',
+            'oximata_pathon',
+            'pragmatognomones',
+            'status'
+        ]));
+    }
 }

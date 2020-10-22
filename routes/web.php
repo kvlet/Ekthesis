@@ -179,6 +179,7 @@ Route::get('/reports/check_stats/pros_diekpereosi/anathesi_se_sinergati', functi
 // routes for Auth
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/', 'HomeController@search')->name('search');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // end  routs for auth
 

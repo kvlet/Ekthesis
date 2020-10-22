@@ -8,17 +8,39 @@
 @section('forms')
     <div class="row">
         <div class="col-md-12">
-            <form method="post" action="{{ route('oximata.search') }}" role="search" autocomplete="off">
+            <form method="post" action="{{ route('search') }}" role="search" autocomplete="off">
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header-cust">
-                                <h4 class="heading-small text-center text-muted">
-                                    <strong>{{ __('Αναζήτηση Έκθεσης') }}</strong>
-                                </h4>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <h4 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Αναζήτηση Έκθεσης') }}</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <ul class="nav flex-column flex-nowrap overflow-hidden">
+                                            <li class="nav-item">
+                                                <input type="checkbox"  data-toggle="toggle" id="body_toggle" class="btn btn-sm btn-primary" style="margin: 4px;">
+                                            </li>
+                                            <script type="text/javascript">
+                                                $("#body_toggle").change(function() {
+                                                    var e = document.getElementById("body");
+
+                                                    if(!this.checked) {
+                                                        $('#body').addClass('g-hide');
+                                                    } else {
+                                                        $('#body').removeClass('g-hide');
+                                                    }
+                                                });
+                                            </script>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body g-hide" id="body">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-label{{ $errors->has('id_ekthesis') ? ' has-danger' : '' }}">
@@ -96,9 +118,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mt-4">
-                                    <div class="col d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+                                <div class="row">
+                                    <div class="col mt-4">
+                                        <div class="col d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +156,7 @@
                         <th scope="col">Ημ/νια Ατυχήματος</th>
                         <th scope="col">Εταιρεία</th>
                         <th scope="col">Παθών</th>
-                        <th scope="col">Αρ. Κυκλ.</th>
+                        <th scope="col">Αρ. Κυκλ. Παθών</th>
                         <th scope="col">Πραγματογνώμονας</th>
                         <th scope="col">Τύπος έκθεσης</th>
                         <th scope="col">Επεξεργασία</th>
@@ -207,7 +231,7 @@
                         <th scope="col">Ημ/νια Ατυχήματος</th>
                         <th scope="col">Εταιρεία</th>
                         <th scope="col">Παθών</th>
-                        <th scope="col">Αρ. Κυκλ.</th>
+                        <th scope="col">Αρ. Κυκλ. Παθών</th>
                         <th scope="col">Πραγματογνώμονας</th>
                         <th scope="col">Τύπος έκθεσης</th>
                         <th scope="col">Επεξεργασία</th>
@@ -277,7 +301,7 @@
                         <th scope="col">Ημ/νια Ατυχήματος</th>
                         <th scope="col">Εταιρεία</th>
                         <th scope="col">Παθών</th>
-                        <th scope="col">Αρ. Κυκλ.</th>
+                        <th scope="col">Αρ. Κυκλ. Παθών</th>
                         <th scope="col">Πραγματογνώμονας</th>
                         <th scope="col">Τύπος έκθεσης</th>
                         <th scope="col">Επεξεργασία</th>
@@ -352,7 +376,7 @@
                         <th scope="col">Ημ/νια Ατυχήματος</th>
                         <th scope="col">Εταιρεία</th>
                         <th scope="col">Παθών</th>
-                        <th scope="col">Αρ. Κυκλ.</th>
+                        <th scope="col">Αρ. Κυκλ. Παθών</th>
                         <th scope="col">Πραγματογνώμονας</th>
                         <th scope="col">Τύπος έκθεσης</th>
                         <th scope="col">Επεξεργασία</th>
