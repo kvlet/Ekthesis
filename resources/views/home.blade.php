@@ -156,10 +156,27 @@
 {{--    <div class="bg-wel-ekthesis"></div>--}}
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="entoli-tab" data-toggle="tab" href="#entoli" role="tab" aria-controls="entoli" aria-selected="true">Εντολή Εταιρείας</a>
-            <a class=" nav-item nav-link" id="anathesi-tab" data-toggle="tab" href="#anathesi" role="tab" aria-controls="anathesi" aria-selected="false">Ανάθεση σε συνεργάτη</a>
-            <a class="nav-item nav-link" id="elegxo-tab" data-toggle="tab" href="#elegxo" role="tab" aria-controls="elegxo" aria-selected="false">Προς Έλεγχο</a>
-            <a class="nav-item nav-link" id="apostoli-tab" data-toggle="tab" href="#apostoli" role="tab" aria-controls="apostoli" aria-selected="false">Προς Αποστολή</a>
+            <?php $count_ent=0; $count_anath=0; $count_eleg=0; $count_apost=0?>
+            @foreach($pragmatognomosines as $pragmatognomosini)
+                    @foreach($status as $status_ekth)
+                        @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==1)
+                            <?php $count_ent++ ?>
+                        @endif
+                        @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==2)
+                            <?php $count_anath++ ?>
+                        @endif
+                        @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==3)
+                            <?php $count_eleg++ ?>
+                        @endif
+                        @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==4)
+                            <?php $count_apost++ ?>
+                        @endif
+                    @endforeach
+            @endforeach
+            <a class="nav-item nav-link active" id="entoli-tab" data-toggle="tab" href="#entoli" role="tab" aria-controls="entoli" aria-selected="true">Εντολή Εταιρείας {{'('.$count_ent.')'}}</a>
+            <a class=" nav-item nav-link" id="anathesi-tab" data-toggle="tab" href="#anathesi" role="tab" aria-controls="anathesi" aria-selected="false">Ανάθεση σε συνεργάτη {{'('.$count_anath.')'}}</a>
+            <a class="nav-item nav-link" id="elegxo-tab" data-toggle="tab" href="#elegxo" role="tab" aria-controls="elegxo" aria-selected="false">Προς Έλεγχο {{'('.$count_eleg.')'}}</a>
+            <a class="nav-item nav-link" id="apostoli-tab" data-toggle="tab" href="#apostoli" role="tab" aria-controls="apostoli" aria-selected="false">Προς Αποστολή {{'('.$count_apost.')'}}</a>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">

@@ -5,6 +5,9 @@
 //});
 
 //routes for pragmatognomisines
+Route::get('pragma_search','PragmController@opensearch')->name('pragmatognomosines.opensearch');
+Route::post('pragma_search','PragmController@search')->name('pragmatognomosines.search');
+
 Route::get('pragmatognomosines', 'PragmController@create')->name('pragmatognomosines.create');
 Route::post('pragmatognomosines', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('pragmatognomosines/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');

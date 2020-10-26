@@ -42,8 +42,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header-cust">
+                    <?php $count=0?>
+                    @foreach($oximata as $oxima)
+                            <?php $count++ ?>
+                    @endforeach
                     <h4 class="heading-small text-center text-muted">
-                        <strong>{{ __('Λίστα Οχημάτων') }}</strong>
+                        <strong>{{ __('Λίστα Οχημάτων'.' '.'('.$count.')') }}</strong>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -60,14 +64,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($oximata as $oxima)
-                                        <tr>
-                                            <td>{{ $oxima->Ar_kyklo }}</td>
-                                            <td>{{ $oxima->id_markes }}</td>
-                                            <td>{{ $oxima->id_xromata }}</td>
-                                            <td><a href="{{ URL('oximata/'.$oxima->id_oximata) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
-                                        </tr>
-                                    @endforeach
+                                        @foreach($oximata as $oxima)
+                                            <tr>
+                                                <td>{{ $oxima->Ar_kyklo }}</td>
+                                                <td>{{ $oxima->id_markes }}</td>
+                                                <td>{{ $oxima->id_xromata }}</td>
+                                                <td><a href="{{ URL('oximata/'.$oxima->id_oximata) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
