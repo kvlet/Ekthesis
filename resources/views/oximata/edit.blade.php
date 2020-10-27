@@ -6,7 +6,7 @@
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-oximata-tab" data-toggle="pill" href="#v-pills-oximata" role="tab" aria-controls="v-pills-oximata" aria-selected="true">Οχήματα</a>
                 <a class="nav-link" id="v-pills-owners-tab" data-toggle="pill" href="#v-pills-owners" role="tab" aria-controls="v-pills-owners" aria-selected="false" style="color: red">Ιδιοκτήτες</a>
-                <a class="nav-link" id="v-pills-pragmoxim-tab" data-toggle="pill" href="#v-pills-pragmoxim" role="tab" aria-controls="v-pills-pragmoxim" aria-selected="false" style="color: red">Εκθέσεις Οχήματος</a>
+                <a class="nav-link" id="v-pills-pragmoxim-tab" data-toggle="pill" href="#v-pills-pragmoxim" role="tab" aria-controls="v-pills-pragmoxim" aria-selected="false" >Εκθέσεις Οχήματος</a>
             </div>
         </div>
         <div class="col-10">
@@ -346,12 +346,97 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="v-pills-owners" role="tabpanel" aria-labelledby="v-pills-owners-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-pragmoxim" role="tabpanel" aria-labelledby="v-pills-pragmoxim-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-pragmoxim" role="tabpanel" aria-labelledby="v-pills-pragmoxim-tab">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <?php $count=0?>
+                                    @foreach($pragmatognomosines as $pragmatognomosini)
+                                        <?php $count++ ?>
+                                    @endforeach
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Λίστα Εκθέσεων'.' '.'('.$count.')') }}</strong>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="container-fluid mt-4">
+                                        <div class="row">
+                                            <div class="col">
+                                                <table class="table table-bordered table-hover" id="pragma_view">
+                                                    <thead class="thead-dark">
+                                                        <tr>
+                                                            <th scope="col">Αρ. Πρωτοκόλλου</th>
+                                                            <th scope="col">Αρ. Φακέλου</th>
+                                                            <th scope="col">Ημ/νια Ατυχήματος</th>
+                                                            <th scope="col">Εταιρεία</th>
+                                                            <th scope="col">Παθών</th>
+                                                            <th scope="col">Αρ. Κυκλ. Παθών</th>
+                                                            <th scope="col">Πραγμ/γνώμονας</th>
+                                                            <th scope="col">Τύπος</th>
+                                                            <th scope="col">Επεξεργασία</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach($pragmatognomosines as $pragmatognomosini)
+                                                            <tr>
+                                                                <td>{{$pragmatognomosini->id_ekthesis}}</td>
+                                                                <td>{{ $pragmatognomosini->Prot_bibliou }}</td>
+                                                                <td>{{$pragmatognomosini->Date_atiximatos}}</td>
+                                                                <td>
+                                                                    @foreach($companies as $company)
+                                                                        @if($pragmatognomosini->id_company_pathon == $company->id_company)
+                                                                            {{$company->comp_name}}
+                                                                        @endif
+                                                                    @endforeach
+                                                                </td>
+                                                                <td>
+                                                                    @foreach($pathontes as $pathon)
+                                                                        @if($pragmatognomosini->id_pathon == $pathon->id_person)
+                                                                            {{$pathon->L_name. ' '.$pathon->F_name}}
+                                                                        @endif
+                                                                    @endforeach
+                                                                </td>
+                                                                <td>
+                                                                    @if ($pragmatognomosini->id_oximatos_pathon != 1)
+                                                                        @foreach($oximata_pathon as $oxima_pathon)
+                                                                            @if($pragmatognomosini->id_oximatos_pathon == $oxima_pathon->id_oximata)
+                                                                                {{$oxima_pathon->Ar_kyklo}}
+                                                                            @endif
+                                                                        @endforeach
+                                                                    @else
+                                                                        {{$pragmatognomosini->Object}}
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    @foreach($pragmatognomones as $pragmatognomonas)
+                                                                        @if($pragmatognomosini->id == $pragmatognomonas->id)
+                                                                            {{$pragmatognomonas->L_name.' '.$pragmatognomonas->F_name }}
+                                                                        @endif
+                                                                    @endforeach
+                                                                </td>
+                                                                <td>{{ $pragmatognomosini->id_diakrisi }}</td>
+                                                                <td>
+                                                                    @if ($pragmatognomosini->id_diakrisi=='Π' || ($pragmatognomosini->id_diakrisi=='ΠΕ' ))
+                                                                        <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                    @else
+                                                                        <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        {{--        <div class="col-2" id="rmenu">
-                    @include('rmenu')
-                </div>--}}
     </div>
     @include('_modals.markesModal',['markes'=> $markes])
     @include('_modals.xrisiModal',['xrisi'=> $xrisi])

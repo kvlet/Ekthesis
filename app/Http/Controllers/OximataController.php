@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\CarType;
+use App\Company;
 use App\Http\Requests\OximataRequest;
 use App\Http\Requests\PragmRequest;
 use App\Marka;
 use App\Oxima;
 use App\Paint;
+use App\Person;
+use App\Pragmatognomosini;
+use App\User;
 use App\Xrisi;
 use App\Xromata;
 use Carbon\Carbon;
@@ -88,7 +92,24 @@ class OximataController extends Controller
                 $oxima->Hm_first_kykl = $dateFirstKyk;
             }
         //        end fix date format for display in form
+        // ekthesis oximatos
+            $pragma = (new Pragmatognomosini)->newQuery();
+            $idoxima=$oxima->id_oximata;
+            if ($id_oximata !=null){
+                $pragma->where('id_oximatos_pathon','=',$id_oximata)
+                        ->orwhere('id_oximatos_ypaitiou','=',$id_oximata)->get();
+            }
+            $pragmatognomosines = $pragma->get();
 
+            $companies = Company::where('Mark_del', 'Όχι')->get();
+            $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
+            $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+            $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+            foreach ($pragmatognomosines as $pragm){
+                $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
+                $pragm->Date_atiximatos = $dateAtiximatos;
+            }
+        // end ekthesis oximatos
 
 
         return view('oximata.edit',compact([
@@ -97,7 +118,12 @@ class OximataController extends Controller
             'xrisis',
             'xromata',
             'cartype',
-            'paint'
+            'paint',
+            'pragmatognomosines',
+            'companies',
+            'pathontes',
+            'oximata_pathon',
+            'pragmatognomones',
         ]));
     }
 

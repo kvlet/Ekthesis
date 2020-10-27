@@ -16,8 +16,25 @@
                             <div class="card-header-cust">
                                 <div class="row">
                                     <div class="col-md-10">
+                                        <?php $count=0?>
+                                            @foreach($pragmatognomosines as $pragmatognomosini)
+                                                @foreach($status as $status_ekth)
+                                                    @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==1)
+                                                        <?php $count++ ?>
+                                                    @endif
+                                                    @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==2)
+                                                        <?php $count++ ?>
+                                                    @endif
+                                                    @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==3)
+                                                        <?php $count++ ?>
+                                                    @endif
+                                                    @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==4)
+                                                        <?php $count++ ?>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
                                         <h4 class="heading-small text-center text-muted">
-                                            <strong>{{ __('Αναζήτηση Έκθεσης') }}</strong>
+                                            <strong>{{ __('Αναζήτηση Έκθεσης'.' '.'('.$count.')') }}</strong>
                                         </h4>
                                     </div>
                                     <div class="col-md-2">
