@@ -71,6 +71,8 @@ Route::get('pdf/aitisiDikografias', 'PdfReportController@aitisiDikografias_pdf')
 // Route for company
 Route::get('company', 'CompanyController@create')->name('company.create');
 Route::post('company', 'CompanyController@store')->name('company.store');
+Route::get('company/search', 'CompanyController@opensearch')->name('company.opensearch');
+Route::post('company/search', 'CompanyController@search')->name('company.search');
 Route::get('company/{id}', 'CompanyController@edit')->name('company.edit');
 Route::put('company/{id}', 'CompanyController@update')->name('company.update');
 // end Route for company

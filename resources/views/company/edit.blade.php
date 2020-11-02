@@ -97,11 +97,6 @@
                             </div>
                         </div>
                         <div class="row mt-4">
-                            <div class="col">
-                                <div class="text-center">
-                                    <a href="{{ route('company.create') }}"><img width="50" src="/images/add_rec.jpg" /></a> {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
-                                </div>
-                            </div>
                             <div class="col d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                             </div>

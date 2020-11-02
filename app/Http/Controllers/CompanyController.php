@@ -76,4 +76,25 @@ class CompanyController extends Controller
 
         return redirect('company/'.$company->id_company);
     }
+
+    public  function opensearch(){
+        $companys= Company::where([['Mark_del','Όχι'],['comp_name','LIKE','%']])->orderBy('comp_name')->get();
+
+        return view('company.search',compact([
+            'companys'
+        ]));
+    }
+
+    public function search(Request $request){
+        $comp= $request->compName;
+        if ($comp == null){
+            $companys= Company::where([['Mark_del','Όχι'],['comp_name','LIKE','%']])->orderBy('comp_name')->get();
+        }else{
+            $companys= Company::where([['Mark_del','Όχι'],['comp_name','LIKE','%'.$comp.'%']])->orderBy('comp_name')->get();
+        }
+
+        return view('company.search',compact([
+            'companys'
+        ]));
+    }
 }

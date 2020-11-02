@@ -22,7 +22,15 @@
         <a class="nav-link collapsed text-truncate" href="#submenu2" data-toggle="collapse" data-target="#submenu2"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Εταιρείες</span></a>
         <div class="collapse" id="submenu2" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
-                <li class="nav-item"><a class="nav-link py-0" href="/company"><span>Εταιρείες</span></a></li>
+               <li class="nav-item">
+                   <a class="nav-link py-0" href="#submenu1sub8" data-toggle="collapse" data-target="#submenu1sub8"><span>Εταιρεία</span></a>
+                    <div class="collapse" id="submenu1sub8" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="/company"><span>Δημιουργία</span></a></li>
+                            <li class="nav-item"><a class="nav-link py-0" href="/company/search"><span>Αναζήτηση</span></a></li>
+                        </ul>
+                    </div>
+               </li>
                 <li class="nav-item"><a class="nav-link py-0" href="/praktoreiο"><span>Πρακτορεία</span></a></li>
                 <li class="nav-item"><a class="nav-link py-0" href="/synergeio"><span>Συνεργεία</span></a></li>
             </ul>
@@ -33,7 +41,7 @@
         <div class="collapse" id="submenu3" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
                 <li class="nav-item">
-                    <a class="nav-link py-0" href="#submenu1sub7" data-toggle="collapse" data-target="#submenu1sub7"><span>Οχήματα</span></a>
+                    <a class="nav-link py-0" href="#submenu1sub7" data-toggle="collapse" data-target="#submenu1sub7"><span>Όχημα</span></a>
                     <div class="collapse" id="submenu1sub7" aria-expanded="false">
                         <ul class="flex-column pl-2 nav">
                             <li class="nav-item"><a class="nav-link py-0" href="/oximata"><span>Δημιουργία</span></a></li>

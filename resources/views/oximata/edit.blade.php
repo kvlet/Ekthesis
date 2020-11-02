@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-2 menu-text-size">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="v-pills-oximata-tab" data-toggle="pill" href="#v-pills-oximata" role="tab" aria-controls="v-pills-oximata" aria-selected="true">Οχήματα</a>
+                <a class="nav-link active" id="v-pills-oximata-tab" data-toggle="pill" href="#v-pills-oximata" role="tab" aria-controls="v-pills-oximata" aria-selected="true">Όχημα</a>
                 <a class="nav-link" id="v-pills-owners-tab" data-toggle="pill" href="#v-pills-owners" role="tab" aria-controls="v-pills-owners" aria-selected="false" style="color: red">Ιδιοκτήτες</a>
                 <a class="nav-link" id="v-pills-pragmoxim-tab" data-toggle="pill" href="#v-pills-pragmoxim" role="tab" aria-controls="v-pills-pragmoxim" aria-selected="false" >Εκθέσεις Οχήματος</a>
             </div>
@@ -20,7 +20,7 @@
                                 <div class="card">
                                     <div class="card-header-cust">
                                         <h4 class="heading-small text-center text-muted">
-                                            <strong>{{ __('Οχήματα') }}</strong>
+                                            <strong>{{ __('Όχημα') }}</strong>
                                         </h4>
                                     </div>
                                     <div class="card-body">
