@@ -154,7 +154,7 @@
                 <th scope="col">Αρ. Πρωτοκόλλου</th>
                 <th scope="col">Αρ. Φακέλου</th>
                 <th scope="col">Ημ/νια Ατυχήματος</th>
-                <th scope="col">Εταιρεία</th>
+                <th scope="col">Εταιρεία Εντολέας</th>
                 <th scope="col">Παθών</th>
                 <th scope="col">Αρ. Κυκλ. Παθών</th>
                 <th scope="col">Πραγμ/γνώμονας</th>

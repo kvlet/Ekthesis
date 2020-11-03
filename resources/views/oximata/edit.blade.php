@@ -20,7 +20,7 @@
                                 <div class="card">
                                     <div class="card-header-cust">
                                         <h4 class="heading-small text-center text-muted">
-                                            <strong>{{ __('Όχημα') }}</strong>
+                                            <strong>{{ __('Όχημα:'.' '.$oxima->Ar_kyklo) }}</strong>
                                         </h4>
                                     </div>
                                     <div class="card-body">
@@ -356,6 +356,9 @@
                                         <?php $count++ ?>
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Οχήματος:'.' '.$oxima->Ar_kyklo) }}</strong>
+                                    </h4>
+                                    <h4 class="heading-small text-center text-muted">
                                         <strong>{{ __('Λίστα Εκθέσεων'.' '.'('.$count.')') }}</strong>
                                     </h4>
                                 </div>
@@ -369,7 +372,7 @@
                                                             <th scope="col">Αρ. Πρωτοκόλλου</th>
                                                             <th scope="col">Αρ. Φακέλου</th>
                                                             <th scope="col">Ημ/νια Ατυχήματος</th>
-                                                            <th scope="col">Εταιρεία</th>
+                                                            <th scope="col">Εταιρεία Εντολέας</th>
                                                             <th scope="col">Παθών</th>
                                                             <th scope="col">Αρ. Κυκλ. Παθών</th>
                                                             <th scope="col">Πραγμ/γνώμονας</th>
