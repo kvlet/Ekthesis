@@ -143,7 +143,7 @@
                                         <?php $count++ ?>
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Εταιρεία Εντολέα:'.$company->comp_name) }}</strong>
+                                        <strong>{{ __('Εταιρεία Εντολέας:'.$company->comp_name) }}</strong>
                                     </h4>
                                     <h4 class="heading-small text-center text-muted">
                                         <strong>{{ __('Λίστα Εκθέσεων'.' '.'('.$count.')') }}</strong>
