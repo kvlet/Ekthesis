@@ -163,6 +163,12 @@ Route::post('paint', 'PaintController@store')->name('paint.store');
 Route::post('paint_ajax', 'PaintController@store_ajax')->name('paint.store.ajax');
 Route::get('paint/{id}', 'PaintController@edit')->name('paint.edit');
 Route::put('paint/{id}', 'PaintController@update')->name('paint.update');
+
+Route::get('department', 'DepartmentController@create')->name('department.create');
+Route::post('department', 'DepartmentController@store')->name('department.store');
+Route::post('department_ajax', 'DepartmentController@store_ajax')->name('department.store.ajax');
+Route::get('department/{id}', 'DepartmentController@edit')->name('department.edit');
+Route::put('department/{id}', 'DepartmentController@update')->name('department.update');
 // end routes for look up tables
 
 /*Route::get('/pragmatognomosines', 'PragmController@create');

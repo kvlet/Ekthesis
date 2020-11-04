@@ -154,6 +154,7 @@
                 <th scope="col">Αρ. Πρωτοκόλλου</th>
                 <th scope="col">Αρ. Φακέλου</th>
                 <th scope="col">Ημ/νια Ατυχήματος</th>
+                <th scope="col">Ημ/νια Δικασίμου</th>
                 <th scope="col">Εταιρεία Εντολέας</th>
                 <th scope="col">Παθών</th>
                 <th scope="col">Αρ. Κυκλ. Παθών</th>
@@ -168,6 +169,7 @@
                     <td>{{$pragmatognomosini->id_ekthesis}}</td>
                     <td>{{ $pragmatognomosini->Prot_bibliou }}</td>
                     <td>{{$pragmatognomosini->Date_atiximatos}}</td>
+                    <td>{{$pragmatognomosini->Date_dikasimou}}</td>
                     <td>
                         @foreach($companies as $company)
                             @if($pragmatognomosini->id_company_pathon == $company->id_company)

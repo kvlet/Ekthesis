@@ -473,6 +473,10 @@ class PragmController extends Controller
         foreach ($pragmatognomosines as $pragm){
             $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
             $pragm->Date_atiximatos = $dateAtiximatos;
+            if ($pragm->Date_dikasimou != null){
+                $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragm->Date_dikasimou)->format('d-m-Y');
+                $pragm->Date_dikasimou = $dateDikasimou;
+            }
         }
         $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
         return view('pragmatognomosines.search',compact([

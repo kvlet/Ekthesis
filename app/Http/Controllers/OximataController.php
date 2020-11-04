@@ -108,6 +108,10 @@ class OximataController extends Controller
             foreach ($pragmatognomosines as $pragm){
                 $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
                 $pragm->Date_atiximatos = $dateAtiximatos;
+                if ($pragm->Date_dikasimou != null){
+                    $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragm->Date_dikasimou)->format('d-m-Y');
+                    $pragm->Date_dikasimou = $dateDikasimou;
+                }
             }
         // end ekthesis oximatos
 
@@ -164,14 +168,19 @@ class OximataController extends Controller
     public function opensearch(){
 
         $oximata = Oxima::where([['Mark_del','Όχι'],['Ar_kyklo','LIKE','%'],['Ar_kyklo','!=','@@']])->orderBy('Ar_kyklo')->get();
-
+        $markes = Marka::where([['Mark_del','Όχι']])->orderBy('marka')->get();
+        $xromata = Xromata::where([['Mark_del','Όχι']])->orderBy('color')->get();
         return view('oximata.search',compact([
-            'oximata'
+            'oximata',
+            'markes',
+            'xromata'
         ]));
     }
 
     public function search(Request $request){
 
+        $markes = Marka::where([['Mark_del','Όχι']])->orderBy('marka')->get();
+        $xromata = Xromata::where([['Mark_del','Όχι']])->orderBy('color')->get();
         $pin= $request->pinakida;
 
         if ($pin == null){
@@ -181,7 +190,9 @@ class OximataController extends Controller
         }
 //        return redirect()->back()->with(compact('oximata'));
         return view('oximata.search',compact([
-            'oximata'
+            'oximata',
+            'markes',
+            'xromata'
         ]));
     }
 }

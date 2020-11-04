@@ -5,6 +5,7 @@
         <div class="col-2 menu-text-size">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-oximata-tab" data-toggle="pill" href="#v-pills-oximata" role="tab" aria-controls="v-pills-oximata" aria-selected="true">Όχημα</a>
+                <a class="nav-link" id="v-pills-specifications-tab" data-toggle="pill" href="#v-pills-specifications" role="tab" aria-controls="v-pills-specifications" aria-selected="false" style="color: red">Επιπλέον Χαρακτηριστικά</a>
                 <a class="nav-link" id="v-pills-owners-tab" data-toggle="pill" href="#v-pills-owners" role="tab" aria-controls="v-pills-owners" aria-selected="false" style="color: red">Ιδιοκτήτες</a>
                 <a class="nav-link" id="v-pills-pragmoxim-tab" data-toggle="pill" href="#v-pills-pragmoxim" role="tab" aria-controls="v-pills-pragmoxim" aria-selected="false" >Εκθέσεις Οχήματος</a>
             </div>
@@ -345,6 +346,7 @@
                         @include('errors')
                     </form>
                 </div>
+                <div class="tab-pane fade" id="v-pills-specifications" role="tabpanel" aria-labelledby="v-pills-specifications-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-owners" role="tabpanel" aria-labelledby="v-pills-owners-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-pragmoxim" role="tabpanel" aria-labelledby="v-pills-pragmoxim-tab">
                     <div class="row">
@@ -372,6 +374,7 @@
                                                             <th scope="col">Αρ. Πρωτοκόλλου</th>
                                                             <th scope="col">Αρ. Φακέλου</th>
                                                             <th scope="col">Ημ/νια Ατυχήματος</th>
+                                                            <th scope="col">Ημ/νια Δικασίμου</th>
                                                             <th scope="col">Εταιρεία Εντολέας</th>
                                                             <th scope="col">Παθών</th>
                                                             <th scope="col">Αρ. Κυκλ. Παθών</th>
@@ -386,6 +389,7 @@
                                                                 <td>{{$pragmatognomosini->id_ekthesis}}</td>
                                                                 <td>{{ $pragmatognomosini->Prot_bibliou }}</td>
                                                                 <td>{{$pragmatognomosini->Date_atiximatos}}</td>
+                                                                <td>{{$pragmatognomosini->Date_dikasimou}}</td>
                                                                 <td>
                                                                     @foreach($companies as $company)
                                                                         @if($pragmatognomosini->id_company_pathon == $company->id_company)

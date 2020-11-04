@@ -63,9 +63,7 @@ class CompanyController extends Controller
             $pragma = (new Pragmatognomosini)->newQuery();
             $idcomp = $company->id_company;
             if ($id_company != null){
-                $pragma->where('id_company_pathon','=',$id_company)
-                    ->orwhere('id_company_ypaitiou','=',$id_company)
-                    ->orwhere('id_company_pathon_real','=',$id_company)->get();
+                $pragma->where('id_company_pathon','=',$id_company)->get();
             }
             $pragmatognomosines = $pragma->get();
             $companies = Company::where('Mark_del', 'Όχι')->get();
@@ -75,6 +73,10 @@ class CompanyController extends Controller
             foreach ($pragmatognomosines as $pragm){
                 $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
                 $pragm->Date_atiximatos = $dateAtiximatos;
+                if ($pragm->Date_dikasimou != null){
+                    $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragm->Date_dikasimou)->format('d-m-Y');
+                    $pragm->Date_dikasimou = $dateDikasimou;
+                }
             }
         // end ekthesis etaireias
 

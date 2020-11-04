@@ -152,13 +152,14 @@
                                 <div class="card-body">
                                     <div class="container-fluid mt-4">
                                         <div class="row">
-                                            <div class="col">
-                                                <table class="table table-bordered table-hover" id="pragma_view">
+                                            <div class="col-md-12">
+                                                <table class="table table-bordered table-hover dislpay" style="width:100%" id="pragma_view">
                                                     <thead class="thead-dark">
                                                     <tr>
                                                         <th scope="col">Αρ. Πρωτοκόλλου</th>
                                                         <th scope="col">Αρ. Φακέλου</th>
                                                         <th scope="col">Ημ/νια Ατυχήματος</th>
+                                                        <th scope="col">Ημ/νια Δικασίμου</th>
                                                         <th scope="col">Εταιρεία Εντολέας</th>
                                                         <th scope="col">Παθών</th>
                                                         <th scope="col">Αρ. Κυκλ. Παθών</th>
@@ -173,6 +174,7 @@
                                                             <td>{{$pragmatognomosini->id_ekthesis}}</td>
                                                             <td>{{ $pragmatognomosini->Prot_bibliou }}</td>
                                                             <td>{{$pragmatognomosini->Date_atiximatos}}</td>
+                                                            <td>{{$pragmatognomosini->Date_dikasimou}}</td>
                                                             <td>
                                                                 @foreach($companies as $company)
                                                                     @if($pragmatognomosini->id_company_pathon == $company->id_company)

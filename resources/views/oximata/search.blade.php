@@ -67,8 +67,20 @@
                                         @foreach($oximata as $oxima)
                                             <tr>
                                                 <td>{{ $oxima->Ar_kyklo }}</td>
-                                                <td>{{ $oxima->id_markes }}</td>
-                                                <td>{{ $oxima->id_xromata }}</td>
+                                                <td>
+                                                    @foreach($markes as $marka)
+                                                        @if($oxima->id_markes == $marka->id_markes )
+                                                            {{ $marka->marka }}
+                                                        @endif
+                                                    @endforeach
+                                                </td>
+                                                <td>
+                                                    @foreach($xromata as $xroma)
+                                                        @if($oxima->id_xromata == $xroma->id_xromata )
+                                                            {{ $xroma->color }}
+                                                        @endif
+                                                    @endforeach
+                                                </td>
                                                 <td><a href="{{ URL('oximata/'.$oxima->id_oximata) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
                                             </tr>
                                         @endforeach
