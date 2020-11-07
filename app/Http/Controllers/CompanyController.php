@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Department;
 use App\Http\Requests\CompanyRequest;
 use App\Oxima;
 use App\Person;
@@ -55,7 +56,7 @@ class CompanyController extends Controller
 
     public function edit($id_company){
 
-        $company = Company::findOrFail($id_company);
+        $company = Company::with('departments')->findOrFail($id_company);
 //        $pragma =  Company::findOrFail($id_company)->pragmatognomosini;
 //        dd($pragma->id_company);
 
@@ -70,6 +71,7 @@ class CompanyController extends Controller
             $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
             $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
             $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+            $department = Department::where([['Mark_del','Όχι']])->get();
             foreach ($pragmatognomosines as $pragm){
                 $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
                 $pragm->Date_atiximatos = $dateAtiximatos;
@@ -86,7 +88,8 @@ class CompanyController extends Controller
             'companies',
             'pathontes',
             'oximata_pathon',
-            'pragmatognomones'
+            'pragmatognomones',
+            'department'
         ]));
 
     }
@@ -131,4 +134,59 @@ class CompanyController extends Controller
             'companys'
         ]));
     }
+
+   //mange company department
+    public function create_company_dept($id_company){
+
+        $company = Company::findOrFail($id_company);
+        $department = Department::where([['Mark_del','Όχι']])->get();
+        return view('company.create_company_dept',compact(['department','company']));
+    }
+
+    public function store_company_dept(Request $request,$id_company){
+
+        $company = Company::findOrFail($id_company);
+        $company->departments()->attach($request->id_department,['phone'=>$request->phone,'Fax'=>$request->Fax,'Email'=>$request->Email,'Respon'=>$request->Respon]);
+        $department = Department::where([['Mark_del','Όχι']])->get();
+        return redirect('company/'.$company->id_company)->with(['department','company','id_company']);
+    }
+
+    public function edit_company_dept($id_company,$id_department){
+        $company=Company::with('departments')->findOrFail($id_company);
+        $department=$company->departments()->wherePivot('id_department',$id_department)->first();
+        $departments = Department::where([['Mark_del','Όχι']])->get();
+        return view('company.edit_company_dept',compact(['department','id_company','departments','company']));
+    }
+
+    public function update_company_dept(Request $request){
+        $id_company=$request->id_company;
+        $company=Company::with('departments')->findOrFail($id_company);
+        $department=$company->departments()->wherePivot('id_department',$request->id_department)->first();
+
+        $department->pivot->phone=$request->phone;
+        $department->pivot->Fax=$request->Fax;
+        $department->pivot->Email=$request->Email;
+        $department->pivot->Respon=$request->Respon;
+
+        $department->pivot->save();
+
+        return redirect('company/'.$company->id_company);
+    }
+
+    public function delete_company_dept($id_company,$id_department){
+        $company=Company::with('departments')->findOrFail($id_company);
+        $department=$company->departments()->wherePivot('id_department',$id_department)->first();
+        $departments = Department::where([['Mark_del','Όχι']])->get();
+        return view('company.delete_company_dept',compact(['department','id_company','departments','company']));
+    }
+
+    public function destroy_company_dept(Request $request){
+        $id_company=$request->id_company;
+        $company=Company::with('departments')->findOrFail($id_company);
+        $department=$company->departments()->wherePivot('id_department',$request->id_department)->first();
+        $company->departments()->detach($request->id_department);
+
+        return redirect('company/'.$company->id_company);
+    }
+  //end manage company department
 }

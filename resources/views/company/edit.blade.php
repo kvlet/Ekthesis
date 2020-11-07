@@ -132,7 +132,70 @@
                         @include('errors')
                     </form>
                 </div>
-                <div class="tab-pane fade" id="v-pills-dept" role="tabpanel" aria-labelledby="v-pills-dept-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-dept" role="tabpanel" aria-labelledby="v-pills-dept-tab">
+                    <a href="{{ route('company.create_company_dept',$company->id_company) }}" target="" class="btn btn-primary">Προσθήκη τμήματος</a>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Λίστα Τμημάτων') }}</strong>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="department" class="table table-bordered table-hover" style="width:100%">
+                                                <thead class="thead-dark">
+                                                <tr>
+                                                    <th>Τμήμα</th>
+                                                    <th>Τηλέφωνο</th>
+                                                    <th>Fax</th>
+                                                    <th>Email</th>
+                                                    <th>Υπεύθυνος</th>
+                                                    <th>Επεξεργασία</th>
+                                                    <th>Διαγραφή</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($company->departments as $depart)
+                                                    <tr>
+                                                        <td>
+                                                            @foreach($department as $dept)
+                                                                @if ($dept->id_department == $depart->pivot->id_department)
+                                                                    {{ $dept->dept }}
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td> {{ $depart->pivot->phone }} </td>
+                                                        <td> {{ $depart->pivot->Fax }} </td>
+                                                        <td> {{ $depart->pivot->Email }} </td>
+                                                        <td> {{ $depart->pivot->Respon }} </td>
+                                                        <td>
+                                                            <a href="{{  URL('company/'.$company->id_company.'/edit_department/'.$depart->pivot->id_department) }}"
+                                                               target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="{{  URL('company/'.$company->id_company.'/delete_department/'.$depart->pivot->id_department) }}"
+                                                               target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                        </td>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-pragmcomp" role="tabpanel" aria-labelledby="v-pills-pragmcomp-tab">
                     <div class="row">
                         <div class="col-md-12">

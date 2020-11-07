@@ -509,6 +509,7 @@ class PragmController extends Controller
         $keimena = Keimena::where([['Mark_del','Όχι']])->get();
         return view('pragmatognomosines.create_keimena_ekth',compact(['keimena','id_ekthesis']));
     }
+
     public function store_keimena_ekth(Request $request,$id_ekthesis){
 
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
