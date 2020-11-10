@@ -21,4 +21,8 @@ class Company extends Model
     public function departments(){
         return $this->belongsToMany('App\Department','db_company_dept','id_company','id_department')->withPivot('phone','Fax','Email','Respon');
     }
+
+    public function priceList(){
+
+    }
 }

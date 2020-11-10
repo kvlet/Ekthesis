@@ -176,6 +176,12 @@ Route::post('department', 'DepartmentController@store')->name('department.store'
 Route::post('department_ajax', 'DepartmentController@store_ajax')->name('department.store.ajax');
 Route::get('department/{id}', 'DepartmentController@edit')->name('department.edit');
 Route::put('department/{id}', 'DepartmentController@update')->name('department.update');
+
+Route::get('expense', 'ExpenseController@create')->name('expense.create');
+Route::post('expense', 'ExpenseController@store')->name('expense.store');
+Route::post('expense_ajax', 'ExpenseController@store_ajax')->name('expense.store.ajax');
+Route::get('expense/{id}', 'ExpenseController@edit')->name('expense.edit');
+Route::put('expense/{id}', 'ExpenseController@update')->name('expense.update');
 // end routes for look up tables
 
 /*Route::get('/pragmatognomosines', 'PragmController@create');

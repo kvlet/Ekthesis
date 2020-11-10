@@ -6,6 +6,7 @@
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-companys-tab" data-toggle="pill" href="#v-pills-companys" role="tab" aria-controls="v-pills-companys" aria-selected="true">Εταιρεία</a>
                 <a class="nav-link" id="v-pills-dept-tab" data-toggle="pill" href="#v-pills-dept" role="tab" aria-controls="v-pills-dept" aria-selected="false">Τηλέφωνα</a>
+                <a class="nav-link" id="v-pills-price-tab" data-toggle="pill" href="#v-pills-price" role="tab" aria-controls="v-pills-price" aria-selected="false">Τιμοκατάλογος</a>
                 <a class="nav-link" id="v-pills-pragmcomp-tab" data-toggle="pill" href="#v-pills-pragmcomp" role="tab" aria-controls="v-pills-pragmcomp" aria-selected="false" >Εκθέσεις Εταιρείας</a>
             </div>
         </div>
@@ -196,6 +197,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="tab-pane fade" id="v-pills-price" role="tabpanel" aria-labelledby="v-pills-price-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-pragmcomp" role="tabpanel" aria-labelledby="v-pills-pragmcomp-tab">
                     <div class="row">
                         <div class="col-md-12">
