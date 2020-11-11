@@ -9,7 +9,7 @@
                         <strong>{{ __('Τμήματα Εταιρείας') }}</strong>
                     </h4>
                 </div>
-                <form id="create_company_dept_form" method="post" action="{{ route('company.destroy_company_dept') }}" autocomplete="off">
+                <form id="delete_company_dept_form" method="post" action="{{ route('company.destroy_company_dept') }}" autocomplete="off">
                     @csrf
                     {{ method_field('DELETE') }}
                     <div class="container-fluid">

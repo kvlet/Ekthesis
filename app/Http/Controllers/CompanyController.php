@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\Department;
+use App\Expense;
 use App\Http\Requests\CompanyRequest;
 use App\Oxima;
 use App\Person;
@@ -72,6 +73,7 @@ class CompanyController extends Controller
             $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
             $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
             $department = Department::where([['Mark_del','Όχι']])->get();
+            $expenses=Expense::where([['Mark_del','Όχι']])->get();
             foreach ($pragmatognomosines as $pragm){
                 $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
                 $pragm->Date_atiximatos = $dateAtiximatos;
@@ -89,7 +91,8 @@ class CompanyController extends Controller
             'pathontes',
             'oximata_pathon',
             'pragmatognomones',
-            'department'
+            'department',
+            'expenses'
         ]));
 
     }
@@ -189,4 +192,57 @@ class CompanyController extends Controller
         return redirect('company/'.$company->id_company);
     }
   //end manage company department
+
+  //mange company price list
+    public function create_company_price($id_company){
+
+        $company = Company::findOrFail($id_company);
+        $expenses=Expense::where([['Mark_del','Όχι'],['Where_use','LIKE','Ε'.'%']])->get();
+        return view('company.create_company_price',compact(['expenses','company']));
+    }
+
+    public function store_company_price(Request $request,$id_company){
+
+        $company = Company::findOrFail($id_company);
+        $company->price_list()->attach($request->id_expenses,['price'=>$request->price]);
+        $expenses=Expense::where([['Mark_del','Όχι']])->get();
+        return redirect('company/'.$company->id_company)->with(['expenses','company','id_company']);
+    }
+
+    public function edit_company_price($id_company,$id_expenses){
+        $company=Company::with('price_list')->findOrFail($id_company);
+        $expense=$company->price_list()->wherePivot('id_expenses',$id_expenses)->first();
+        $expenses=Expense::where([['Mark_del','Όχι']])->get();
+        return view('company.edit_company_price',compact(['expense','id_company','expenses','company']));
+    }
+
+    public function update_company_price(Request $request){
+
+        $id_company=$request->id_company;
+        $company=Company::with('price_list')->findOrFail($id_company);
+        $expense=$company->price_list()->wherePivot('id_expenses',$request->id_expenses)->first();
+
+        $expense->pivot->price=$request->price;
+
+        $expense->pivot->save();
+
+        return redirect('company/'.$company->id_company);
+    }
+
+    public function delete_company_price($id_company,$id_expenses){
+        $company=Company::with('price_list')->findOrFail($id_company);
+        $expense=$company->price_list()->wherePivot('id_expenses',$id_expenses)->first();
+        $expenses=Expense::where([['Mark_del','Όχι']])->get();
+        return view('company.delete_company_price',compact(['expense','id_company','expenses','company']));
+    }
+
+    public function destroy_company_price(Request $request){
+        $id_company=$request->id_company;
+        $company=Company::with('price_list')->findOrFail($id_company);
+        $expense=$company->price_list()->wherePivot('id_expenses',$request->id_expenses)->first();
+        $company->price_list()->detach($request->id_expenses);
+
+        return redirect('company/'.$company->id_company);
+    }
+    //end manage company price list
 }

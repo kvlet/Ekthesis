@@ -22,7 +22,7 @@ class Company extends Model
         return $this->belongsToMany('App\Department','db_company_dept','id_company','id_department')->withPivot('phone','Fax','Email','Respon');
     }
 
-    public function priceList(){
-
+    public function price_list(){
+        return $this->belongsToMany('App\Expense','db_company_price','id_company','id_expenses')->withPivot('price');
     }
 }

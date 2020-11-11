@@ -9,7 +9,7 @@
                         <strong>{{ __('Τμήματα Εταιρείας') }}</strong>
                     </h4>
                 </div>
-                <form id="create_company_dept_form" method="post" action="{{ route('company.update_company_dept') }}" autocomplete="off">
+                <form id="edit_company_dept_form" method="post" action="{{ route('company.update_company_dept') }}" autocomplete="off">
                     @csrf
                     <div class="container-fluid">
                         <div class="card">

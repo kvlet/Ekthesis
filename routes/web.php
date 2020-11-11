@@ -82,6 +82,13 @@ Route::get('company/{id}/edit_department/{second_id}', 'CompanyController@edit_c
 Route::post('company/edit_department', 'CompanyController@update_company_dept')->name('company.update_company_dept');
 Route::get('company/{id}/delete_department/{second_id}', 'CompanyController@delete_company_dept')->name('company.delete_company_dept');
 Route::delete('company/delete_department', 'CompanyController@destroy_company_dept')->name('company.destroy_company_dept');
+
+Route::get('company/{id}/add_price', 'CompanyController@create_company_price')->name('company.create_company_price');
+Route::post('company/{id}/add_price', 'CompanyController@store_company_price')->name('company.store_company_price');
+Route::get('company/{id}/edit_price/{second_id}', 'CompanyController@edit_company_price');
+Route::post('company/edit_price', 'CompanyController@update_company_price')->name('company.update_company_price');
+Route::get('company/{id}/delete_price/{second_id}', 'CompanyController@delete_company_price')->name('company.delete_company_price');
+Route::delete('company/delete_price', 'CompanyController@destroy_company_price')->name('company.destroy_company_price');
 // end Route for company
 
 // Route for oximata
