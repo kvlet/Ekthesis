@@ -35,7 +35,7 @@ $(document).ready( function(){
             'id_accedent_place' : id_accedent_place,
             'Place': Place,
             'Mark_del': Mark_del
-        }).then((response) => {
+        }).then(response => {
 
             $('#placeModal').modal('hide');
             var ddl = document.getElementById('id_accedent_place');
@@ -59,7 +59,7 @@ $(document).ready( function(){
             'id_nomoi' : id_nomoi,
             'Nomos': Nomos,
             'Mark_del': Mark_del
-        }).then((response) => {
+        }).then(response => {
 
             $('#nomoiModal').modal('hide');
             var ddl = document.getElementById('id_nomoi');
@@ -83,12 +83,66 @@ $(document).ready( function(){
             'id_markes' : id_markes,
             'marka': marka,
             'Mark_del': Mark_del
-        }).then((response) => {
+        }).then(response => {
 
             $('#markesModal').modal('hide');
             var ddl = document.getElementById('id_markes');
 
             ddl.options[ddl.options.length] = new Option(response.data.marka, response.data.id_markes, false, true);
+
+        }, (error) => {
+            console.log(error);
+        });
+    });
+});
+
+$(document).ready( function(){
+    $('#create_department_form_ajax').on('submit', function(e) {
+        e.preventDefault();
+        let id_department = $("#id_department").val();
+        let dept = $("#dept").val();
+        let Mark_del = $("#Mark_del").val();
+
+        window.axios.post('/department_ajax', {
+            'id_department' : id_department,
+            'dept': dept,
+            'Mark_del': Mark_del
+        }).then(response => {
+
+            $('#departmentsModal').modal('hide');
+            var ddl = document.getElementById('id_department');
+
+            ddl.options[ddl.options.length] = new Option(response.data.dept, response.data.id_department, false, true);
+
+        }, (error) => {
+            console.log(error);
+        });
+    });
+});
+
+$(document).ready( function(){
+    $('#create_expense_form_ajax').on('submit', function(e) {
+        e.preventDefault();
+        let id_expenses = $("#id_expenses").val();
+        let eksodo = $("#eksodo").val();
+        let type_eksodo = $("#type_eksodo").val();
+        let Where_use = $("#Where_use").val();
+        let flag = $("#flag").val();
+        let Mark_del = $("#Mark_del").val();
+
+        window.axios.post('/expense_ajax', {
+            'id_expenses' : id_expenses,
+            'eksodo': eksodo,
+            'type_eksodo': type_eksodo,
+            'Where_use': Where_use,
+            'flag': flag,
+            'Mark_del': Mark_del
+        }).then(response => {
+
+            $('#expensesModal').modal('hide');
+            var ddl = document.getElementById('id_expenses');
+
+            ddl.options[ddl.options.length] = new Option(response.data.eksodo, response.data.id_expenses, false, true);
 
         }, (error) => {
             console.log(error);

@@ -37155,6 +37155,50 @@ $(document).ready(function () {
     });
   });
 });
+$(document).ready(function () {
+  $('#create_department_form_ajax').on('submit', function (e) {
+    e.preventDefault();
+    var id_department = $("#id_department").val();
+    var dept = $("#dept").val();
+    var Mark_del = $("#Mark_del").val();
+    window.axios.post('/department_ajax', {
+      'id_department': id_department,
+      'dept': dept,
+      'Mark_del': Mark_del
+    }).then(function (response) {
+      $('#departmentsModal').modal('hide');
+      var ddl = document.getElementById('id_department');
+      ddl.options[ddl.options.length] = new Option(response.data.dept, response.data.id_department, false, true);
+    }, function (error) {
+      console.log(error);
+    });
+  });
+});
+$(document).ready(function () {
+  $('#create_expense_form_ajax').on('submit', function (e) {
+    e.preventDefault();
+    var id_expenses = $("#id_expenses").val();
+    var eksodo = $("#eksodo").val();
+    var type_eksodo = $("#type_eksodo").val();
+    var Where_use = $("#Where_use").val();
+    var flag = $("#flag").val();
+    var Mark_del = $("#Mark_del").val();
+    window.axios.post('/expense_ajax', {
+      'id_expenses': id_expenses,
+      'eksodo': eksodo,
+      'type_eksodo': type_eksodo,
+      'Where_use': Where_use,
+      'flag': flag,
+      'Mark_del': Mark_del
+    }).then(function (response) {
+      $('#expensesModal').modal('hide');
+      var ddl = document.getElementById('id_expenses');
+      ddl.options[ddl.options.length] = new Option(response.data.eksodo, response.data.id_expenses, false, true);
+    }, function (error) {
+      console.log(error);
+    });
+  });
+});
 
 /***/ }),
 

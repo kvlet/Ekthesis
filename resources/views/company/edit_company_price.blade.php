@@ -41,7 +41,7 @@
                                     <div class="col-md-4">
                                         <div class="form-label{{ $errors->has('price') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="price">{{ __('Τιμή') }} <span style="color:red;font-weight:bold">*</span></label>
-                                            <input type="text" name="price" id="price"
+                                            <input type="number" name="price" id="price"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('price') ? ' is-invalid' : '' }}"
                                                    value="{{  $expense->pivot->price  }}" autofocus required>
                                         </div>

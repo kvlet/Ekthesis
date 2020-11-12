@@ -40,6 +40,19 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <div class="col-md-2">
+                                        <div class="form-label{{ $errors->has('newrecdept') ? ' has-danger' : '' }}">
+                                            <!-- Button trigger modal -->
+                                            <label class="form-control-label" for="newrecdept">{{ __('Νέο Τμήμα') }}</label>
+                                            <div class="form-label{{ $errors->has('id_department') ? ' has-danger' : '' }}" style="margin: auto">
+                                                <button id="newrecdept" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#departmentsModal">
+                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-label{{ $errors->has('phone') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="phone">{{ __('Τηλέφωνο') }} <span style="color:red;font-weight:bold">*</span></label>
@@ -48,8 +61,6 @@
                                                    value="{{  old('phone')  }}" autofocus required>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-label{{ $errors->has('Fax') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="Fax">{{ __('Fax') }} </label>
@@ -58,6 +69,8 @@
                                                    value="{{  old('Fax')  }}" autofocus>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-label{{ $errors->has('Email') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="Email">{{ __('Email') }} </label>
@@ -103,6 +116,7 @@
             </div>
         </div>
     </div>
+    @include('_modals.departmentModal',['department'=> $department])
 @endsection
 
 

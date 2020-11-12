@@ -15,7 +15,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-5">
                                         <input name="id_company" type="hidden" value="{{ $company->id_company }}">
                                         <div class="form-label{{ $errors->has('company') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="company">{{ __('Εταιρεία') }} <span style="color:red;font-weight:bold">*</span></label>
@@ -24,7 +24,7 @@
                                                    value="{{   $company->comp_name  }}" autofocus disabled>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-5">
                                         <div class="form-label{{ $errors->has('id_expenses') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="id_expenses">{{ __('Έξοδο') }}<span style="color:red;font-weight:bold">*</span></label>
                                             <select class="form-control form-select" id="id_expenses" name="id_expenses" required >
@@ -40,10 +40,23 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
+                                        <div class="form-label{{ $errors->has('newrecexpe') ? ' has-danger' : '' }}">
+                                            <!-- Button trigger modal -->
+                                            <label class="form-control-label" for="newrecexpe">{{ __('Νέο Έξοδο') }}</label>
+                                            <div class="form-label{{ $errors->has('id_expenses') ? ' has-danger' : '' }}" style="margin: auto">
+                                                <button id="newrecexpe" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#expensesModal">
+                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
                                         <div class="form-label{{ $errors->has('price') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="price">{{ __('Τιμή') }} <span style="color:red;font-weight:bold">*</span></label>
-                                            <input type="text" name="price" id="price"
+                                            <input type="number" name="price" id="price"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('price') ? ' is-invalid' : '' }}"
                                                    value="{{  old('price')  }}" autofocus required>
                                         </div>
@@ -61,6 +74,7 @@
             </div>
         </div>
     </div>
+    @include('_modals.expensesModal',['expenses'=> $expenses])
 @endsection
 
 

@@ -92,7 +92,7 @@
                     <div class="container-fluid mt-4">
                         <div class="row">
                             <div class="col">
-                                <table class="table table-bordered table-hover" id="nomoi_view">
+                                <table class="table table-bordered table-hover" id="expenses_view">
                                     <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">Κωδικός</th>
