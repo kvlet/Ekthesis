@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="compModal" tabindex="-1" role="dialog" aria-labelledby="compModal"
+<div class="modal fade" id="compYpaitiouModal" tabindex="-1" role="dialog" aria-labelledby="compYpaitiouModal"
      aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                @include('company.formModal')
+                @include('company.formModalYpaitiou')
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Κλείσιμο</button>
@@ -18,4 +18,8 @@
         </div>
     </div>
 </div>
+
+
+
+
 

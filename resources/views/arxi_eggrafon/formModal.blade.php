@@ -1,5 +1,5 @@
 
-<form id="create_arxi_form" method="post" action="{{ ('arxi.store') }}" autocomplete="off">
+<form id="create_arxi_form_ajax" method="post" action="{{ ('arxi_eggrafon.store.ajax') }}" autocomplete="off">
     @csrf
     <div class="container-fluid">
         <div class="card">

@@ -71,6 +71,9 @@ Route::get('pdf/aitisiDikografias', 'PdfReportController@aitisiDikografias_pdf')
 // Route for company
 Route::get('company', 'CompanyController@create')->name('company.create');
 Route::post('company', 'CompanyController@store')->name('company.store');
+Route::post('company_ajax', 'CompanyController@store_ajax')->name('company.store.ajax');
+Route::post('companyReal_ajax', 'CompanyController@storeReal_ajax')->name('company.storeReal.ajax');
+Route::post('companyYpait_ajax', 'CompanyController@storeYpait_ajax')->name('company.storeYpait.ajax');
 Route::get('company/search', 'CompanyController@opensearch')->name('company.opensearch');
 Route::post('company/search', 'CompanyController@search')->name('company.search');
 Route::get('company/{id}', 'CompanyController@edit')->name('company.edit');
@@ -128,6 +131,7 @@ Route::put('place/{id}', 'PlaceController@update')->name('accedent_place.update'
 
 Route::get('arxi', 'ArxiController@create')->name('arxi_eggrafon.create');
 Route::post('arxi', 'ArxiController@store')->name('arxi_eggrafon.store');
+Route::post('arxi_ajax', 'ArxiController@store_ajax')->name('arxi_eggrafon.store.ajax');
 Route::get('arxi/{id}', 'ArxiController@edit')->name('arxi_eggrafon.edit');
 Route::put('arxi/{id}', 'ArxiController@update')->name('arxi_eggrafon.update');
 

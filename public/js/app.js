@@ -37110,8 +37110,118 @@ $(document).ready(function () {
       'Mark_del': Mark_del
     }).then(function (response) {
       $('#placeModal').modal('hide');
-      var ddl = document.getElementById('id_accedent_place');
-      ddl.options[ddl.options.length] = new Option(response.data.Accedent_place, response.data.id_accedent_place, false, true);
+      var ddl = document.getElementById('id_accident_place');
+      ddl.options[ddl.options.length] = new Option(response.data.Place, response.data.id_accident_place, false, true);
+    }, function (error) {
+      console.log(error);
+    });
+  });
+});
+$(document).ready(function () {
+  $('#create_arxi_form_ajax').on('submit', function (e) {
+    e.preventDefault();
+    var id_arxi_ekdosis_eggrafon = $("#id_Arxi_ekdosis_eggrafon").val();
+    var Arxi = $("#Arxi").val();
+    var Tel1 = $("#Tel1").val();
+    var Tel2 = $("#Tel2").val();
+    var Mark_del = $("#Mark_del").val();
+    window.axios.post('/arxi_ajax', {
+      'id_Arxi_ekdosis_eggrafon': id_arxi_ekdosis_eggrafon,
+      'Arxi': Arxi,
+      'Tel1': Tel1,
+      'Tel2': Tel2,
+      'Mark_del': Mark_del
+    }).then(function (response) {
+      $('#arxiModal').modal('hide');
+      var ddl = document.getElementById('id_arxi_ekdosis_eggrafon');
+      ddl.options[ddl.options.length] = new Option(response.data.Arxi, response.data.id_arxi_ekdosis_eggrafon, false, true);
+    }, function (error) {
+      console.log(error);
+    });
+  });
+});
+$(document).ready(function () {
+  $('#create_companyPathon_form_ajax').on('submit', function (e) {
+    e.preventDefault();
+    var id_company = $("#id_company").val();
+    var comp_name = $("#comp_name").val();
+    var afm = $("#afm").val();
+    var address = $("#address").val();
+    var tk = $("#tk").val();
+    var Fax = $("#Fax").val();
+    var Email = $("#Email").val();
+    var Mark_del = $("#Mark_del").val();
+    window.axios.post('/company_ajax', {
+      'id_company': id_company,
+      'comp_name': comp_name,
+      'afm': afm,
+      'address': address,
+      'tk': tk,
+      'Fax': Fax,
+      'Email': Email,
+      'Mark_del': Mark_del
+    }).then(function (response) {
+      $('#compPathonModal').modal('hide');
+      var ddl = document.getElementById('id_company_pathon');
+      ddl.options[ddl.options.length] = new Option(response.data.comp_name, response.data.id_company_pathon, false, true);
+    }, function (error) {
+      console.log(error);
+    });
+  });
+});
+$(document).ready(function () {
+  $('#create_companyPathonReal_form_ajax').on('submit', function (e) {
+    e.preventDefault();
+    var id_company = $("#id_company").val();
+    var comp_name = $("#comp_name").val();
+    var afm = $("#afm").val();
+    var address = $("#address").val();
+    var tk = $("#tk").val();
+    var Fax = $("#Fax").val();
+    var Email = $("#Email").val();
+    var Mark_del = $("#Mark_del").val();
+    window.axios.post('/companyReal_ajax', {
+      'id_company': id_company,
+      'comp_name': comp_name,
+      'afm': afm,
+      'address': address,
+      'tk': tk,
+      'Fax': Fax,
+      'Email': Email,
+      'Mark_del': Mark_del
+    }).then(function (response) {
+      $('#compPathonRealModal').modal('hide');
+      var ddl1 = document.getElementById('id_company_pathon_real');
+      ddl1.options[ddl1.options.length] = new Option(response.data.comp_name, response.data.id_company_pathon_real, false, true);
+    }, function (error) {
+      console.log(error);
+    });
+  });
+});
+$(document).ready(function () {
+  $('#create_companyYpaitiou_form_ajax').on('submit', function (e) {
+    e.preventDefault();
+    var id_company = $("#id_company").val();
+    var comp_name = $("#comp_name").val();
+    var afm = $("#afm").val();
+    var address = $("#address").val();
+    var tk = $("#tk").val();
+    var Fax = $("#Fax").val();
+    var Email = $("#Email").val();
+    var Mark_del = $("#Mark_del").val();
+    window.axios.post('/companyYpait_ajax', {
+      'id_company': id_company,
+      'comp_name': comp_name,
+      'afm': afm,
+      'address': address,
+      'tk': tk,
+      'Fax': Fax,
+      'Email': Email,
+      'Mark_del': Mark_del
+    }).then(function (response) {
+      $('#compYpaitiouModal').modal('hide');
+      var ddl2 = document.getElementById('id_company_ypaitiou');
+      ddl2.options[ddl2.options.length] = new Option(response.data.comp_name, response.data.id_company_ypaitiou, false, true);
     }, function (error) {
       console.log(error);
     });

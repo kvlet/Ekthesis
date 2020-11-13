@@ -45,13 +45,7 @@ class NomoiController extends Controller
      */
     public function store_ajax(Request $request){
 
-    //    if($request->expectsJson()){
-    //        $data = $request->all();
-    //        $value = Nomos::create($data);
-    //        return response()->json([
-    //            'data' => $value
-    //        ],200);
-    //    }
+
 
         $request->Mark_del='Όχι';
         $nomos = new Nomos();

@@ -1,4 +1,4 @@
-<form id="create_company_form" method="post" action="{{ route('company.store')}}" autocomplete="off">
+<form id="create_companyPathonReal_form_ajax" method="post" action="{{ route('company.storeReal.ajax')}}" autocomplete="off">
     @csrf
     <div class="container-fluid">
         <div class="card">
@@ -83,10 +83,11 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">Αποθήκευση</button>
+                        <button type="submit" class="btn btn-primary">Καταχώρηση</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </form>
+

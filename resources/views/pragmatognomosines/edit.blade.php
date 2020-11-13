@@ -511,7 +511,7 @@
                                                     <!-- Button trigger modal -->
                                                     <label class="form-control-label" for="newreccomp">{{ __('Εταιρεία') }}</label>
                                                     <div class="form-label{{ $errors->has('id_company') ? ' has-danger' : '' }}" style="margin: auto">
-                                                        <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compModal">
+                                                        <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compPathonModal">
 
                                                         </button>
                                                     </div>
@@ -665,7 +665,7 @@
                                                     <!-- Button trigger modal -->
                                                     <label class="form-control-label" for="newreccomp">{{ __('Εταιρεία') }}</label>
                                                     <div class="form-label{{ $errors->has('id_company_pathon_real') ? ' has-danger' : '' }}" style="margin: auto">
-                                                        <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compModal">
+                                                        <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compPathonRealModal">
 
                                                         </button>
                                                     </div>
@@ -838,7 +838,7 @@
                                                                         <!-- Button trigger modal -->
                                                                         <label class="form-control-label" for="newreccomp">{{ __('Εταιρεία') }}</label>
                                                                         <div class="form-label{{ $errors->has('id_company_ypaitiou') ? ' has-danger' : '' }}" style="margin: auto">
-                                                                            <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compModal">
+                                                                            <button id="newreccomp" type="button" class=" btn btn-success btn-lg newdroprec" data-toggle="modal" data-target="#compYpaitiouModal">
 
                                                                             </button>
                                                                         </div>
@@ -1212,7 +1212,9 @@
     @include('_modals.nomoiModal',['nomoi'=>$nomoi])
     @include('_modals.placeModal',['place'=> $accedent_places])
     @include('_modals.arxiModal',['arxi'=> $arxes_ekdosis_eggrafon])
-    @include('_modals.compModal',['company'=> $company])
+    @include('_modals.compModalPathon',['company'=> $company])
+    @include('_modals.compModalPathonReal',['company'=> $company])
+    @include('_modals.compModalYpaitiou',['company'=> $company])
 
 
 @endsection

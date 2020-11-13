@@ -43,6 +43,7 @@ class DiakrisiController extends Controller
     public function store_ajax(Request $request){
 
 
+
         $request->Mark_del='Όχι';
 
         $diakrisi = new Diakrisi();

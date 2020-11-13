@@ -40,6 +40,23 @@ class ArxiController extends Controller
         $arxi->save();
         return redirect('arxi/'.$arxi->id_Arxi_ekdosis_eggrafon);
     }
+
+    /**
+     * @param Arxi_ekdosis_eggrafon $request
+     */
+    public function store_ajax(Request $request){
+
+
+        $request->Mark_del='Όχι';
+        $arxi = new Arxi_ekdosis_eggrafon();
+        $arxi->Arxi = $request->Arxi;
+        $arxi->Tel1 = $request->Tel1;
+        $arxi->Tel2 = $request->Tel2;
+        $arxi->Mark_del = $request->Mark_del;
+        $arxi->save();
+        return $arxi;
+    }
+
     public function edit($id_Arxi_ekdosis_eggrafon){
         $arxi = Arxi_ekdosis_eggrafon::findOrFail($id_Arxi_ekdosis_eggrafon);
         $arxi->update();
