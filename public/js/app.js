@@ -37172,23 +37172,23 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('#create_companyPathonReal_form_ajax').on('submit', function (e) {
     e.preventDefault();
-    var id_company = $("#id_company").val();
-    var comp_name = $("#comp_name").val();
-    var afm = $("#afm").val();
-    var address = $("#address").val();
-    var tk = $("#tk").val();
-    var Fax = $("#Fax").val();
-    var Email = $("#Email").val();
-    var Mark_del = $("#Mark_del").val();
+    var rid_company = $("#rid_company").val();
+    var rcomp_name = $("#rcomp_name").val();
+    var rafm = $("#rafm").val();
+    var raddress = $("#raddress").val();
+    var rtk = $("#rtk").val();
+    var rFax = $("#rFax").val();
+    var rEmail = $("#rEmail").val();
+    var rMark_del = $("#rMark_del").val();
     window.axios.post('/companyReal_ajax', {
-      'id_company': id_company,
-      'comp_name': comp_name,
-      'afm': afm,
-      'address': address,
-      'tk': tk,
-      'Fax': Fax,
-      'Email': Email,
-      'Mark_del': Mark_del
+      'id_company': rid_company,
+      'comp_name': rcomp_name,
+      'afm': rafm,
+      'address': raddress,
+      'tk': rtk,
+      'Fax': rFax,
+      'Email': rEmail,
+      'Mark_del': rMark_del
     }).then(function (response) {
       $('#compPathonRealModal').modal('hide');
       var ddl1 = document.getElementById('id_company_pathon_real');
@@ -37201,23 +37201,23 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('#create_companyYpaitiou_form_ajax').on('submit', function (e) {
     e.preventDefault();
-    var id_company = $("#id_company").val();
-    var comp_name = $("#comp_name").val();
-    var afm = $("#afm").val();
-    var address = $("#address").val();
-    var tk = $("#tk").val();
-    var Fax = $("#Fax").val();
-    var Email = $("#Email").val();
-    var Mark_del = $("#Mark_del").val();
+    var yid_company = $("#yid_company").val();
+    var ycomp_name = $("#ycomp_name").val();
+    var yafm = $("#yafm").val();
+    var yaddress = $("#yaddress").val();
+    var ytk = $("#ytk").val();
+    var yFax = $("#yFax").val();
+    var yEmail = $("#yEmail").val();
+    var yMark_del = $("#yMark_del").val();
     window.axios.post('/companyYpait_ajax', {
-      'id_company': id_company,
-      'comp_name': comp_name,
-      'afm': afm,
-      'address': address,
-      'tk': tk,
-      'Fax': Fax,
-      'Email': Email,
-      'Mark_del': Mark_del
+      'id_company': yid_company,
+      'comp_name': ycomp_name,
+      'afm': yafm,
+      'address': yaddress,
+      'tk': ytk,
+      'Fax': yFax,
+      'Email': yEmail,
+      'Mark_del': yMark_del
     }).then(function (response) {
       $('#compYpaitiouModal').modal('hide');
       var ddl2 = document.getElementById('id_company_ypaitiou');

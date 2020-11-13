@@ -63,7 +63,7 @@ class CompanyController extends Controller
 
 
         $company = new Company();
-        $request->Flag='2';
+        $request->Flag='1';
         $request->Mark_del='Όχι';
 
         $company->comp_name = $request->comp_name;
@@ -89,7 +89,7 @@ class CompanyController extends Controller
 
 
         $company = new Company();
-        $request->Flag='2';
+        $request->Flag='1';
         $request->Mark_del='Όχι';
 
         $company->comp_name = $request->comp_name;
@@ -115,7 +115,7 @@ class CompanyController extends Controller
 
 
         $company = new Company();
-        $request->Flag='2';
+        $request->Flag='1';
         $request->Mark_del='Όχι';
 
         $company->comp_name = $request->comp_name;

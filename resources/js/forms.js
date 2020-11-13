@@ -115,24 +115,24 @@ $(document).ready( function(){
 $(document).ready( function(){
     $('#create_companyPathonReal_form_ajax').on('submit', function(e) {
         e.preventDefault();
-        let id_company = $("#id_company").val();
-        let comp_name = $("#comp_name").val();
-        let afm = $("#afm").val();
-        let address = $("#address").val();
-        let tk = $("#tk").val();
-        let Fax = $("#Fax").val();
-        let Email = $("#Email").val();
-        let Mark_del = $("#Mark_del").val();
+        let rid_company = $("#rid_company").val();
+        let rcomp_name = $("#rcomp_name").val();
+        let rafm = $("#rafm").val();
+        let raddress = $("#raddress").val();
+        let rtk = $("#rtk").val();
+        let rFax = $("#rFax").val();
+        let rEmail = $("#rEmail").val();
+        let rMark_del = $("#rMark_del").val();
 
         window.axios.post('/companyReal_ajax', {
-            'id_company' : id_company,
-            'comp_name': comp_name,
-            'afm': afm,
-            'address': address,
-            'tk': tk,
-            'Fax': Fax,
-            'Email': Email,
-            'Mark_del': Mark_del
+            'id_company' : rid_company,
+            'comp_name': rcomp_name,
+            'afm': rafm,
+            'address': raddress,
+            'tk': rtk,
+            'Fax': rFax,
+            'Email': rEmail,
+            'Mark_del': rMark_del
         }).then(response => {
 
             $('#compPathonRealModal').modal('hide');
@@ -149,24 +149,24 @@ $(document).ready( function(){
 $(document).ready( function(){
     $('#create_companyYpaitiou_form_ajax').on('submit', function(e) {
         e.preventDefault();
-        let id_company = $("#id_company").val();
-        let comp_name = $("#comp_name").val();
-        let afm = $("#afm").val();
-        let address = $("#address").val();
-        let tk = $("#tk").val();
-        let Fax = $("#Fax").val();
-        let Email = $("#Email").val();
-        let Mark_del = $("#Mark_del").val();
+        let yid_company = $("#yid_company").val();
+        let ycomp_name = $("#ycomp_name").val();
+        let yafm = $("#yafm").val();
+        let yaddress = $("#yaddress").val();
+        let ytk = $("#ytk").val();
+        let yFax = $("#yFax").val();
+        let yEmail = $("#yEmail").val();
+        let yMark_del = $("#yMark_del").val();
 
         window.axios.post('/companyYpait_ajax', {
-            'id_company' : id_company,
-            'comp_name': comp_name,
-            'afm': afm,
-            'address': address,
-            'tk': tk,
-            'Fax': Fax,
-            'Email': Email,
-            'Mark_del': Mark_del
+            'id_company' : yid_company,
+            'comp_name': ycomp_name,
+            'afm': yafm,
+            'address': yaddress,
+            'tk': ytk,
+            'Fax': yFax,
+            'Email': yEmail,
+            'Mark_del': yMark_del
         }).then(response => {
 
             $('#compYpaitiouModal').modal('hide');
