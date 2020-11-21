@@ -151,6 +151,8 @@ Route::get('person','PersonController@create')->name('person.create');
 Route::post('person','PersonController@store')->name('person.store');
 Route::get('person/{id}','PersonController@edit')->name('person.edit');
 Route::put('person/{id}','PersonController@update')->name('person.update');
+Route::get('person/search', 'PersonController@opensearch')->name('person.opensearch');
+Route::post('person/search', 'PersonController@search')->name('person.search');
 
 Route::get('markes', 'MarkaController@create')->name('markes.create');
 Route::post('markes', 'MarkaController@store')->name('markes.store');

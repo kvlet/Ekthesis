@@ -1,28 +1,29 @@
-$(document).ready( function(){
-    $('#create_diakrisis_form_ajax').on('submit', function(e) {
+$(document).ready( function (){
+    $('#create_diakrisis_form_ajax').on('submit',function (e){
         e.preventDefault();
-         let id_diakrisi = $("#id_diakrisi").val();
-         let Diakrisi = $("#Diakrisi").val();
-         let Mark_del = $("#Mark_del").val();
-         let Group_diakr = $("#Group_diakr").val();
+        let id_diakrisi = $("#id_diakrisi").val();
+        let Diakrisi = $("#Diakrisi").val();
+        let Mark_del = $("#Mark_del").val();
+        let Group_diakr = $("#Group_diakr").val();
 
-        window.axios.post('/diakrisis_ajax', {
+        window.axios.post('/diakrisis_ajax',{
             'id_diakrisi' : id_diakrisi,
             'Diakrisi': Diakrisi,
-            'Mark_del': Mark_del,
-            'Group_diakr': Group_diakr
-        }).then(response => {
+            'Mark_del' : Mark_del,
+            'Group_diakr' : Group_diakr,
+        }).then(response =>{
             $('#diakrisisModal').modal('hide');
             var ddl = document.getElementById('id_diakrisi');
 
             ddl.options[ddl.options.length] = new Option(response.data.Diakrisi, response.data.id_diakrisi, false, true);
 
-        }, (error) => {
+        },(error) => {
             console.log(error);
-
         });
     });
 });
+
+
 
 $(document).ready( function(){
     $('#create_place_form_ajax').on('submit', function(e) {
@@ -39,9 +40,9 @@ $(document).ready( function(){
 
         }).then(response => {
             $('#placeModal').modal('hide');
-            var ddl = document.getElementById('id_accident_place');
+            var ddl = document.getElementById('id_accedent_place');
 
-            ddl.options[ddl.options.length] = new Option(response.data.Place, response.data.id_accident_place, false, true);
+            ddl.options[ddl.options.length] = new Option(response.data.Place, response.data.id_accedent_place, false, true);
 
         }, (error) => {
             console.log(error);
@@ -136,43 +137,9 @@ $(document).ready( function(){
         }).then(response => {
 
             $('#compPathonRealModal').modal('hide');
-            var ddl1 = document.getElementById('id_company_pathon_real');
+            var ddl = document.getElementById('id_company_pathon_real');
 
-            ddl1.options[ddl1.options.length] = new Option(response.data.comp_name, response.data.id_company_pathon_real, false, true);
-
-        }, (error) => {
-            console.log(error);
-        });
-    });
-});
-
-$(document).ready( function(){
-    $('#create_companyYpaitiou_form_ajax').on('submit', function(e) {
-        e.preventDefault();
-        let yid_company = $("#yid_company").val();
-        let ycomp_name = $("#ycomp_name").val();
-        let yafm = $("#yafm").val();
-        let yaddress = $("#yaddress").val();
-        let ytk = $("#ytk").val();
-        let yFax = $("#yFax").val();
-        let yEmail = $("#yEmail").val();
-        let yMark_del = $("#yMark_del").val();
-
-        window.axios.post('/companyYpait_ajax', {
-            'id_company' : yid_company,
-            'comp_name': ycomp_name,
-            'afm': yafm,
-            'address': yaddress,
-            'tk': ytk,
-            'Fax': yFax,
-            'Email': yEmail,
-            'Mark_del': yMark_del
-        }).then(response => {
-
-            $('#compYpaitiouModal').modal('hide');
-            var ddl2 = document.getElementById('id_company_ypaitiou');
-
-            ddl2.options[ddl2.options.length] = new Option(response.data.comp_name, response.data.id_company_ypaitiou, false, true);
+            ddl.options[ddl.options.length] = new Option(response.data.comp_name, response.data.id_company_pathon_real, false, true);
 
         }, (error) => {
             console.log(error);
@@ -281,3 +248,38 @@ $(document).ready( function(){
         });
     });
 });
+$(document).ready( function(){
+    $('#create_companyYpaitiou_form_ajax').on('submit', function(e) {
+        e.preventDefault();
+        let yid_company = $("#yid_company").val();
+        let ycomp_name = $("#ycomp_name").val();
+        let yafm = $("#yafm").val();
+        let yaddress = $("#yaddress").val();
+        let ytk = $("#ytk").val();
+        let yFax = $("#yFax").val();
+        let yEmail = $("#yEmail").val();
+        let yMark_del = $("#yMark_del").val();
+
+        window.axios.post('/companyYpait_ajax', {
+            'id_company' : yid_company,
+            'comp_name': ycomp_name,
+            'afm': yafm,
+            'address': yaddress,
+            'tk': ytk,
+            'Fax': yFax,
+            'Email': yEmail,
+            'Mark_del': yMark_del
+        }).then(response => {
+
+            $('#compYpaitiouModal').modal('hide');
+            var ddl = document.getElementById('id_company_ypaitiou');
+
+            ddl.options[ddl.options.length] = new Option(response.data.comp_name, response.data.id_company, false, true);
+
+        }, (error) => {
+            console.log(error);
+        });
+    });
+});
+
+

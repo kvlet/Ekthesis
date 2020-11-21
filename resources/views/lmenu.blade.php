@@ -13,7 +13,15 @@
         <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Πρόσωπα</span></a>
         <div class="collapse" id="submenu1" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
-                <li class="nav-item"><a class="nav-link py-0" href="/person"><span>Παθόντες/Υπαίτιοι</span></a></li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#submenu1sub9" data-toggle="collapse" data-target="#submenu1sub9"><span>Παθόντες/Υπαίτιοι</span></a>
+                    <div class="collapse" id="submenu1sub9" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="/person"><span>Δημιουργία</span></a></li>
+                            <li class="nav-item"><a class="nav-link py-0" href="/person/search"><span>Αναζήτηση</span></a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="nav-item"><a class="nav-link py-0" href="/users_view"><span style="color: red">Χρήστες</span></a></li>
             </ul>
         </div>

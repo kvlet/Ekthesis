@@ -207,17 +207,17 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-5">
-                                                <div class="form-label{{ $errors->has('id_accident_place') ? ' has-danger' : '' }}">
-                                                    <label class="form-control-label" for="id_accident_place">{{ __('Τόπος Εξέτασης') }}</label>
-                                                    <select class="form-control form-select" id="id_accident_place" name="id_accident_place" >
+                                                <div class="form-label{{ $errors->has('id_accedent_place') ? ' has-danger' : '' }}">
+                                                    <label class="form-control-label" for="id_accedent_place">{{ __('Τόπος Εξέτασης') }}</label>
+                                                    <select class="form-control form-select" id="id_accedent_place" name="id_accedent_place" >
                                                         <option selected value value=-1>{{ " Επιλέξτε Τόπο Εξέτασης " }}</option>
                                                         @foreach($accedent_places as $accedent_place)
-                                                            <option value="{{$accedent_place->id_accident_place}}" @if(old('id_accident_place') == $accedent_place->id_accident_place) selected @endif>{{ $accedent_place->Place}}</option>
+                                                            <option value="{{$accedent_place->id_accident_place}}" @if($pragmatognomosini->id_accedent_place == $accedent_place->id_accident_place) selected @endif>{{ $accedent_place->Place}}</option>
                                                         @endforeach
                                                     </select>
-                                                    @if ($errors->has('id_accident_place'))
+                                                    @if ($errors->has('id_accedent_place'))
                                                         <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('id_accident_place') }}</strong>
+                                                                <strong>{{ $errors->first('id_accedent_place') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>

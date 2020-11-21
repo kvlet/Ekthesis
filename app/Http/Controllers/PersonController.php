@@ -93,6 +93,7 @@ class PersonController extends Controller
     public function edit($id_person)
     {
         $person=Person::findOrFail($id_person);
+        $person->Flag='2';
         $person->update();
         return view('person.edit',compact(['person']));
     }
@@ -108,7 +109,7 @@ class PersonController extends Controller
     {
         $person=Person::findOrFail($id_person);
 
-        $request->Flag='2';
+        $request->Flag='1';
         if ($request->Hm_gen != null){
             $hm_gen = Carbon::createFromFormat('d-m-Y', $request->Hm_gen)->format('Y-m-d');
             $request->Hm_gen = $hm_gen;
@@ -138,5 +139,26 @@ class PersonController extends Controller
         return redirect('person/'.$person->id_person);
     }
 
+    public function opensearch(){
 
+        $persons= Person::where([['Mark_del','Όχι'],['L_name','LIKE','%']])->orderBy('L_name')->get();
+
+
+        return view('person.search',compact([
+            'persons'
+        ]));
+    }
+
+    public function search(Request $request){
+        $lname= $request->L_name;
+        if ($lname == null){
+            $persons= Person::where([['Mark_del','Όχι'],['L_name','LIKE','%']])->orderBy('L_name')->get();
+        }else{
+            $persons= Person::where([['Mark_del','Όχι'],['L_name','LIKE','%'.$lname.'%']])->orderBy('L_name')->get();
+        }
+
+        return view('person.search',compact([
+            'persons'
+        ]));
+    }
 }
