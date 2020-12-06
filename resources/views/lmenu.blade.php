@@ -45,7 +45,7 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed text-truncate" href="#submenu3" data-toggle="collapse" data-target="#submenu3"><i class="fa fa-table"></i> <span class="d-none d-sm-inline" style="color: red">Οχήματα</span></a>
+        <a class="nav-link collapsed text-truncate" href="#submenu3" data-toggle="collapse" data-target="#submenu3"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Οχήματα</span></a>
         <div class="collapse" id="submenu3" aria-expanded="false">
             <ul class="flex-column pl-2 nav">
                 <li class="nav-item">
@@ -57,8 +57,24 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item"><a class="nav-link py-0" href="/parts"><span style="color: red">Ανταλλακτικά</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/jobs"><span style="color: red">Εργασίες</span></a></li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#submenu1sub10" data-toggle="collapse" data-target="#submenu1sub10"><span>Ανταλλακτικά</span></a>
+                    <div class="collapse" id="submenu1sub10" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="/parts"><span>Δημιουργία</span></a></li>
+                            <li class="nav-item"><a class="nav-link py-0" href="/parts/search"><span>Αναζήτηση</span></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#submenu1sub11" data-toggle="collapse" data-target="#submenu1sub11"><span>Εργασίες</span></a>
+                    <div class="collapse" id="submenu1sub11" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="/ergasies"><span>Δημιουργία</span></a></li>
+                            <li class="nav-item"><a class="nav-link py-0" href="/ergasies/search"><span>Αναζήτηση</span></a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </li>

@@ -103,6 +103,32 @@ Route::get('oximata/{id}', 'OximataController@edit')->name('oximata.edit');
 Route::put('oximata/{id}', 'OximataController@update')->name('oximata.update');
 // end Route for oximata
 
+// Route for parts
+Route::get('parts', 'PartsController@create')->name('parts.create');
+Route::post('parts', 'PartsController@store')->name('parts.store');
+Route::get('parts/search', 'PartsController@opensearch')->name('parts.opensearch');
+Route::post('parts/search', 'PartsController@search')->name('parts.search');
+Route::get('parts/{id}', 'PartsController@edit')->name('parts.edit');
+Route::put('parts/{id}', 'PartsController@update')->name('parts.update');
+Route::get('parts/{id}/add_ergasia', 'PartsController@create_part_ergasia')->name('parts.create_part_ergasia');
+Route::post('parts/{id}/add_ergasia', 'PartsController@store_part_ergasia')->name('parts.store_part_ergasia');
+Route::get('parts/{id}/delete_ergasia/{second_id}', 'PartsController@delete_part_ergasia')->name('parts.delete_part_ergasia');
+Route::delete('parts/delete_ergasia', 'PartsController@destroy_part_ergasia')->name('parts.destroy_part_ergasia');
+// end Route for parts
+
+// Route for ergasies
+Route::get('ergasies', 'ErgasiesController@create')->name('ergasies.create');
+Route::post('ergasies', 'ErgasiesController@store')->name('ergasies.store');
+Route::get('ergasies/search', 'ErgasiesController@opensearch')->name('ergasies.opensearch');
+Route::post('ergasies/search', 'ErgasiesController@search')->name('ergasies.search');
+Route::get('ergasies/{id}', 'ErgasiesController@edit')->name('ergasies.edit');
+Route::put('ergasies/{id}', 'ErgasiesController@update')->name('ergasies.update');
+Route::get('ergasies/{id}/add_part', 'ErgasiesController@create_ergasia_part')->name('ergasies.create_ergasia_part');
+Route::post('ergasies/{id}/add_part', 'ErgasiesController@store_ergasia_part')->name('ergasies.store_ergasia_part');
+Route::get('ergasies/{id}/delete_part/{second_id}', 'ErgasiesController@delete_ergasia_part')->name('ergasies.delete_ergasia_part');
+Route::delete('ergasies/delete_part', 'ErgasiesController@destroy_ergasia_part')->name('ergasies.destroy_ergasia_part');
+// end Route for parts
+
 // Route for keimena
 Route::get('manage_keimena', 'KeimenaController@create')->name('keimena.create');
 Route::post('manage_keimena', 'KeimenaController@store')->name('keimena.store');
@@ -149,10 +175,11 @@ Route::delete('synergeio/{id}','SynergeioController@destroy')->name('synergeio.d
 
 Route::get('person','PersonController@create')->name('person.create');
 Route::post('person','PersonController@store')->name('person.store');
-Route::get('person/{id}','PersonController@edit')->name('person.edit');
-Route::put('person/{id}','PersonController@update')->name('person.update');
 Route::get('person/search', 'PersonController@opensearch')->name('person.opensearch');
 Route::post('person/search', 'PersonController@search')->name('person.search');
+Route::get('person/{id}','PersonController@edit')->name('person.edit');
+Route::put('person/{id}','PersonController@update')->name('person.update');
+
 
 Route::get('markes', 'MarkaController@create')->name('markes.create');
 Route::post('markes', 'MarkaController@store')->name('markes.store');

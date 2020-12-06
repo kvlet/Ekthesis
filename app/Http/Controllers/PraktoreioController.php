@@ -98,7 +98,7 @@ class PraktoreioController extends Controller
      */
     public function update(Request $request, $id_praktoreio)
     {
-        $praktoreio = Praktoreio::find($id_praktoreio);
+        $praktoreio = Praktoreio::findOrFail($id_praktoreio);
 
         $request->flag='2';
 

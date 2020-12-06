@@ -5,30 +5,34 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header-cust">
+                    <?php $count=0?>
+                    @foreach($parts as $part)
+                        <?php $count++ ?>
+                    @endforeach
                     <h4 class="heading-small text-center text-muted">
-                        <strong>{{ __('Μάρκες') }}</strong>
+                        <strong>{{ __('Ανταλλακτικά'.' '.'( '.$count.' )') }}</strong>
                     </h4>
                 </div>
-                <form id="create_markes_form" method="post" action="{{ route('markes.store') }}" autocomplete="off">
+                <form id="create_parts_form" method="post" action="{{ route('parts.store') }}" autocomplete="off">
                     @csrf
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <div class="form-label{{ $errors->has('id_markes') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="id_markes">{{ __('Κωδικός') }} <span style="color:red;font-weight:bold">*</span></label>
-                                            <input type="text" name="id_markes" id="id_markes"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_markes') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('id_markes') }}" autofocus disabled>
+                                        <div class="form-label{{ $errors->has('id_parts') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="id_parts">{{ __('Κωδικός') }} <span style="color:red;font-weight:bold">*</span></label>
+                                            <input type="text" name="id_parts" id="id_parts"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('id_parts') ? ' is-invalid' : '' }}"
+                                                   value="{{ old('id_parts') }}" autofocus disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-label{{ $errors->has('marka') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="marka">{{ __(' Μάρκα') }} <span style="color:red;font-weight:bold">*</span></label>
-                                            <input type="text" name="marka" id="marka"
-                                                   class="form-control form-input form-control-alternative{{ $errors->has('marka') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('marka') }}" autofocus required>
+                                        <div class="form-label{{ $errors->has('part') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="part">{{ __(' Ανταλλακτικό ') }} <span style="color:red;font-weight:bold">*</span></label>
+                                            <input type="text" name="part" id="part"
+                                                   class="form-control form-input form-control-alternative{{ $errors->has('part') ? ' is-invalid' : '' }}"
+                                                   value="{{ old('part') }}" autofocus required>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -59,22 +63,22 @@
                     <div class="container-fluid mt-4">
                         <div class="row">
                             <div class="col">
-                                <table class="table table-bordered table-hover" id="markes_view">
+                                <table class="table table-bordered table-hover" id="parts_view">
                                     <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">Κωδικός</th>
-                                        <th scope="col">Μάρκα</th>
+                                        <th scope="col">Ανταλλακτικό</th>
                                         <th scope="col">Διαγραφή</th>
                                         <th scope="col">Επεξεργασία</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($markes as $marka)
+                                    @foreach($parts as $part)
                                         <tr>
-                                            <td>{{ $marka->id_markes }}</td>
-                                            <td>{{ $marka->marka }}</td>
-                                            <td>{{ $marka->Mark_del }}</td>
-                                            <td><a href="{{ URL('markes/'.$marka->id_markes) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
+                                            <td>{{ $part->id_parts }}</td>
+                                            <td>{{ $part->part }}</td>
+                                            <td>{{ $part->Mark_del }}</td>
+                                            <td><a href="{{ URL('parts/'.$part->id_parts) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -87,4 +91,5 @@
         </div>
     </div>
 @endsection
+
 

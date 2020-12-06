@@ -13,7 +13,7 @@
         <div class="col-10">
             <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-companys" role="tabpanel" aria-labelledby="v-pills-companys-tab">
-                    <form id="create_company_form" method="post" action="{{ route('company.update', $company->id_company) }}" autocomplete="off">
+                    <form id="edit_company_form" method="post" action="{{ route('company.update', $company->id_company) }}" autocomplete="off">
                         @csrf
                         {{ method_field('PUT') }}
                         <div class="row">
