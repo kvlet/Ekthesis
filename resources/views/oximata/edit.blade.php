@@ -346,8 +346,57 @@
                         @include('errors')
                     </form>
                 </div>
-                <div class="tab-pane fade" id="v-pills-specifications" role="tabpanel" aria-labelledby="v-pills-specifications-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-owners" role="tabpanel" aria-labelledby="v-pills-owners-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-specifications" role="tabpanel" aria-labelledby="v-pills-specifications-tab">
+                    ...
+                </div>
+                <div class="tab-pane fade" id="v-pills-owners" role="tabpanel" aria-labelledby="v-pills-owners-tab">
+                    <a href="{{ route('oximata.create_owner',$oxima->id_oximata) }}" target="" class="btn btn-primary">Προσθήκη Ιδιοκτήτη</a>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Λίστα Ιδιοκτητών οχήματος: '.$oxima->Ar_kyklo) }}</strong>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="owner" class="table table-bordered table-hover" style="width:100%">
+                                                <thead class="thead-dark">
+                                                <tr>
+                                                    <th>Ιδιοκτήτης</th>
+                                                    <th>Ημ/νια Μεταβίβασης</th>
+                                                    <th>Κατάσταση</th>
+                                                    <th>Επεξεργασία</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($owners as $own)
+                                                    <tr>
+                                                        <td> {{ $own->Own_name }} </td>
+                                                        <td> {{ $own->Transfer_date }} </td>
+                                                        <td> {{ $own->Active }} </td>
+                                                        <td>
+                                                            <a href="{{  URL('oximata/'.$oxima->id_oximata.'/edit_department/'.$own->id_oximata) }}"
+                                                               target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-pragmoxim" role="tabpanel" aria-labelledby="v-pills-pragmoxim-tab">
                     <div class="row">
                         <div class="col-md-12">

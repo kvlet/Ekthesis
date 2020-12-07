@@ -185,7 +185,6 @@
                                                             <a href="{{  URL('company/'.$company->id_company.'/delete_department/'.$depart->pivot->id_department) }}"
                                                                target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
                                                         </td>
-                                                        </td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>

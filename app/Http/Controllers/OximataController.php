@@ -7,6 +7,7 @@ use App\Company;
 use App\Http\Requests\OximataRequest;
 use App\Http\Requests\PragmRequest;
 use App\Marka;
+use App\Owner;
 use App\Oxima;
 use App\Paint;
 use App\Person;
@@ -84,6 +85,7 @@ class OximataController extends Controller
         $xromata = Xromata::where([['Mark_del','Όχι']])->orderBy('color')->get();
         $cartype = CarType::where([['Mark_del','Όχι']])->orderBy('Typos')->get();
         $paint = Paint::where([['Mark_del','Όχι']])->orderBy('paint_type')->get();
+        $owners = Owner::where([['id_oximata','=',$id_oximata]])->orderBy('Own_name')->get();
 
         $oxima = Oxima::findOrFail($id_oximata);
         //        fix date format for display in form
@@ -114,6 +116,12 @@ class OximataController extends Controller
                 }
             }
         // end ekthesis oximatos
+        // idioktites oximatos
+            foreach ($owners as $own){
+                $transferDate=Carbon::createFromFormat('Y-m-d', $own->Transfer_date)->format('d-m-Y');
+                $own->Transfer_date=$transferDate;
+            }
+        //end idioktites oximatos
 
 
         return view('oximata.edit',compact([
@@ -128,6 +136,7 @@ class OximataController extends Controller
             'pathontes',
             'oximata_pathon',
             'pragmatognomones',
+            'owners'
         ]));
     }
 
@@ -195,4 +204,14 @@ class OximataController extends Controller
             'xromata'
         ]));
     }
+    // manage owner
+    public function create_owner($id_oximata){
+        $oxima = Oxima::findOrFail($id_oximata);
+        $owners = Owner::where([['id_oximata','=',$id_oximata]])->orderBy('Own_name')->get();
+        return view('oximata.create_owner',compact([
+            'oxima',
+            'owners'
+        ]));
+    }
+    // end manage owner
 }

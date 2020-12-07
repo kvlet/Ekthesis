@@ -35,4 +35,5 @@ class Oxima extends Model
     public function paint(){
         return $this->hasOne(Paint::class,'id_paint_type' );
     }
+
 }
