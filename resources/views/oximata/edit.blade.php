@@ -383,7 +383,7 @@
                                                         <td> {{ $own->Transfer_date }} </td>
                                                         <td> {{ $own->Active }} </td>
                                                         <td>
-                                                            <a href="{{  URL('oximata/'.$oxima->id_oximata.'/edit_department/'.$own->id_oximata) }}"
+                                                            <a href="{{  URL('oximata/'.$oxima->id_oximata.'/edit_owner/'.$own->Own_name.'/'.$own->Transfer_date) }}"
                                                                target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                         </td>
                                                     </tr>
@@ -407,7 +407,7 @@
                                         <?php $count++ ?>
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Οχήματος:'.' '.$oxima->Ar_kyklo) }}</strong>
+                                        <strong>{{ __('Οχήματος: '.' '.$oxima->Ar_kyklo) }}</strong>
                                     </h4>
                                     <h4 class="heading-small text-center text-muted">
                                         <strong>{{ __('Λίστα Εκθέσεων'.' '.'('.$count.')') }}</strong>

@@ -213,5 +213,38 @@ class OximataController extends Controller
             'owners'
         ]));
     }
+
+    public function edit_owner($id_oximata,$Own_name,$Transfer_date){
+        $oxima = Oxima::findOrFail($id_oximata);
+
+        //        fix date format for DB
+            $dateTransDate = Carbon::createFromFormat('d-m-Y',  $Transfer_date)->format('Y-m-d');
+        $Transfer_date = $dateTransDate;
+        //        end fix date format for DB
+        $owner = Owner::where([['id_oximata','=',$id_oximata],['Own_name','=',$Own_name],['Transfer_date','=',$Transfer_date]])->orderBy('Own_name')->first();
+//        dd($owner);
+        $owners = Owner::where([['id_oximata','=',$id_oximata]])->orderBy('Own_name')->get();
+        return view('oximata.edit_owner',compact([
+            'oxima',
+            'owners',
+            'owner'
+        ]));
+    }
+
+    public function store_owner(Request $request){
+        $owner = new Owner();
+        //        fix date format for DB
+            $dateTransDate = Carbon::createFromFormat('d-m-Y', $request->Transfer_date)->format('Y-m-d');
+            $request->Transfer_date = $dateTransDate;
+        //        end fix date format for DB
+
+        $owner->id_oximata=$request->id_oximata;
+        $owner->Own_name=$request->Own_name;
+        $owner->Transfer_date=$request->Transfer_date;
+        $owner->Active=$request->Active;
+        $owner->save();
+
+        return redirect('oximata/'.$owner->id_oximata);
+    }
     // end manage owner
 }

@@ -9,7 +9,7 @@
                         <strong>{{ __('Ιδιοκτήτες οχήματος') }}</strong>
                     </h4>
                 </div>
-                <form id="create_owner_form" method="post" action="{{ route('oximata.store_owner',$oxima->id_oximata) }}" autocomplete="off">
+                <form id="edit_owner_form" method="post" action="{{ route('oximata.update_owner',$oxima->id_oximata) }}" autocomplete="off">
                     @csrf
                     <div class="container-fluid">
                         <div class="card">
@@ -29,7 +29,7 @@
                                             <label class="form-control-label" for="Own_name">{{ __('Ιδιοκτήτης') }} <span style="color:red;font-weight:bold">*</span></label>
                                             <input type="text" name="Own_name" id="Own_name"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('Own_name') ? ' is-invalid' : '' }}"
-                                                   value="{{  old('Own_name')  }}" autofocus required>
+                                                   value="{{  $owner->Own_name  }}" autofocus required>
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                             <label class="form-control-label" for="Transfer_date">{{ __('Ημ/νια Ατυχήματος') }}<span style="color:red;font-weight:bold">*</span></label>
                                             <input type="text" name="Transfer_date" id="Transfer_date" data-provide="datepicker" placeholder="HH-MM-YYYY"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('Transfer_date') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('Transfer_date') }}"  required autofocus>
+                                                   value="{{ $owner->Transfer_date }}"  required autofocus>
                                             <script type="text/javascript">
                                                 $('#Transfer_date').datepicker({
                                                     autoclose: true,
@@ -57,11 +57,10 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-label{{ $errors->has('Active') ? ' has-danger' : '' }}">
-                                            <input name="Active" type="hidden" value="Ενεργός">
-                                            <label class="form-control-label" for="Active">{{ __(' Κατάσταση ') }} <span style="color:red;font-weight:bold">*</span></label>
-                                            <select class="form-control form-select" id="Active" name="Active" required disabled>
-                                                <option value="Ενεργός" selected="selected">Ενεργός</option>
-                                                <option value="Μη Ενεργός">Μη Ενεργός</option>
+                                            <label class="form-control-label" for="Active">{{ __(' Διαγραφή') }} <span style="color:red;font-weight:bold">*</span></label>
+                                            <select class="form-control form-select" id="Active" name="Active" required >
+                                                <option value="Ενεργός" @if ($owner->Active='Ενεργός') selected="selected" @endif>Ενεργός</option>
+                                                <option value="Μη Ενεργός" @if ($owner->Active='Μη Ενεργός') selected="selected" @endif>Μη Ενεργός</option>
                                             </select>
                                             @if ($errors->has('Active'))
                                                 <span class="invalid-feedback" role="alert">
@@ -73,7 +72,7 @@
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                                        <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                                     </div>
                                 </div>
                             </div>
@@ -84,6 +83,7 @@
         </div>
     </div>
 @endsection
+
 
 
 

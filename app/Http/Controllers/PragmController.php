@@ -6,10 +6,12 @@ use App\Accedent_place;
 use App\Arxi_ekdosis_eggrafon;
 use App\Company;
 use App\Diakrisi;
+use App\Ergasies;
 use App\Grafeio;
 use App\Keimena;
 use App\Nomos;
 use App\Oxima;
+use App\Parts;
 use App\Person;
 use App\Pragmatognomosini;
 use App\Praktoreio;
@@ -203,10 +205,11 @@ class PragmController extends Controller
         $keimena = Keimena::where([['Mark_del','Όχι']])->get();
         $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
         $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
-
+        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->get();
+        $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
 
         // many to many for pragmatognomosini
-        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia')->findOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
 
         // calculate file position
@@ -284,7 +287,9 @@ class PragmController extends Controller
             'oximata_pathon',
             'keimena',
             'praktoreia',
-            'synergeia'
+            'synergeia',
+            'parts',
+            'ergasies'
         ]));
     }
 
@@ -778,4 +783,8 @@ class PragmController extends Controller
         }
     }
     //  end manage synergeia ekthesis
+
+    // manage details ekthesis
+
+    // end manage details ekthesis
 }

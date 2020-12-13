@@ -105,5 +105,8 @@ class Pragmatognomosini extends Model
         return $this->belongsToMany('App\Synergeio','db_synergeia_ekthesis','id_ekthesis','id_synergeia')->withPivot('Date_episkepsis','Date_episkepsis2','Date_episkepsis3','Note');
     }
 
+    public function parts_of_ergasies(){
+        return $this->belongsToMany('App\Parts','db_details_ekthesis','id_ekthesis','id_parts')->withPivot('id_ergasies','Cost_part','Cost_job','Type','quan','fpa_part','fpa_job','diax_fr_b','prod_code');
+    }
 
 }
