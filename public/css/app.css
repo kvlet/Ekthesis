@@ -11555,6 +11555,11 @@ input[type=date] {
   padding: 0;
 }
 
+.td-alnright {
+  text-align: right;
+  margin-right: 1em;
+}
+
 body {
   position: relative;
   padding: 0px;

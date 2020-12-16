@@ -785,6 +785,8 @@ class PragmController extends Controller
     //  end manage synergeia ekthesis
 
     // manage details ekthesis
+    public function create_details_ekth($id_ekthesis){
 
+    }
     // end manage details ekthesis
 }
