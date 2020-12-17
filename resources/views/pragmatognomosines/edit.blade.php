@@ -897,23 +897,24 @@
                             <div class="card">
                                 <div class="card-header-cust">
                                     <?php $sumPart=0;$sumErgasia=0;$sumFpaParts=0;$sumFpaErgasia=0;$count=0?>
+                                    {{ $total =0 }}
                                     @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
                                        @if ($ergasia->id_ergasies ==3)
                                             <?php $count++ ?>
                                            @if ($ergasia->pivot->fpa_part == 1)
-                                                $ergasia->pivot->Cost_part=$ergasia->pivot->Cost_part/1.24;
+                                                    {{$ergasia->pivot->Cost_part=$ergasia->pivot->Cost_part/1.24}}
                                            @endif
                                            @if ($ergasia->pivot->fpa_job == 1)
-                                                $ergasia->pivot->Cost_job=$ergasia->pivot->Cost_job/1.24;
+                                                {{$ergasia->pivot->Cost_job=$ergasia->pivot->Cost_job/1.24}}
                                            @endif
-<!--                                           --><?php //$sumPart=$sumPart+$ergasia->pivot->Cost_part?>
+                                           {{ $total += $ergasia->pivot->Cost_part }}
                                        @endif
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
                                         <strong>{{ __('Λίστα Ανταλλακτικών Αντικαταστάσεων'.' '.'('.$count.')') }}</strong>
                                     </h4>
                                     <h3>
-                                        <strong>{{ __('Κόστος Ανταλλακτικών'.' '.'('.$count.')') }}</strong>
+                                        <strong>{{ __('Κόστος Ανταλλακτικών'.' '.'('.round($total,2).')') }}</strong>
                                     </h3>
                                 </div>
                                 <div class="card-body">
@@ -948,7 +949,7 @@
                                                                         @endforeach
                                                                     </td>
                                                                     <td class="td-alnright">
-                                                                        {{ $ergasia->pivot->Cost_part }}
+                                                                        {{ round($ergasia->pivot->Cost_part,2) }}
                                                                     </td>
                                                                     <td>
                                                                         @if ($ergasia->pivot->fpa_part == 0)
