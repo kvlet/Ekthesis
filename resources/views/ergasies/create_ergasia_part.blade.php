@@ -35,8 +35,8 @@
                                             </select>
                                             @if ($errors->has('id_parts'))
                                                 <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('id_parts') }}</strong>
-                                        </span>
+                                                    <strong>{{ $errors->first('id_parts') }}</strong>
+                                                </span>
                                             @endif
                                         </div>
                                     </div>

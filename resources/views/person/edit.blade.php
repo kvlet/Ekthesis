@@ -253,7 +253,7 @@
                                     <div class="container-fluid mt-4">
                                         <div class="row">
                                             <div class="col">
-                                                <table class="table table-bordered table-hover" id="pragma_view">
+                                                <table class="table table-sm table-bordered table-hover" id="pragma_view">
                                                     <thead class="thead-dark">
                                                     <tr>
                                                         <th scope="col">Αρ. Πρωτοκόλλου</th>
@@ -347,7 +347,7 @@
                                     <div class="container-fluid mt-4">
                                         <div class="row">
                                             <div class="col">
-                                                <table class="table table-bordered table-hover" id="pragma_view">
+                                                <table class="table table-sm table-bordered table-hover" id="pragma_view">
                                                     <thead class="thead-dark">
                                                     <tr>
                                                         <th scope="col">Αρ. Πρωτοκόλλου</th>

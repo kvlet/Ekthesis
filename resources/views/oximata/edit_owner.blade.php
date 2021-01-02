@@ -11,6 +11,7 @@
                 </div>
                 <form id="edit_owner_form" method="post" action="{{ route('oximata.update_owner',$oxima->id_oximata) }}" autocomplete="off">
                     @csrf
+                    {{ method_field('PUT') }}
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-body">
@@ -25,21 +26,23 @@
                                         </div>
                                     </div>
                                     <div class="col-md-5">
+                                        <input name="Own_name" type="hidden" value="{{  $owner->Own_name }}">
                                         <div class="form-label{{ $errors->has('Own_name') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="Own_name">{{ __('Ιδιοκτήτης') }} <span style="color:red;font-weight:bold">*</span></label>
                                             <input type="text" name="Own_name" id="Own_name"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('Own_name') ? ' is-invalid' : '' }}"
-                                                   value="{{  $owner->Own_name  }}" autofocus required>
+                                                   value="{{  $owner->Own_name  }}" autofocus required disabled>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-5">
+                                        <input name="Transfer_date" type="hidden" value="{{  $owner->Transfer_date }}">
                                         <div class="form-label{{ $errors->has('Transfer_date') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="Transfer_date">{{ __('Ημ/νια Ατυχήματος') }}<span style="color:red;font-weight:bold">*</span></label>
                                             <input type="text" name="Transfer_date" id="Transfer_date" data-provide="datepicker" placeholder="HH-MM-YYYY"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('Transfer_date') ? ' is-invalid' : '' }}"
-                                                   value="{{ $owner->Transfer_date }}"  required autofocus>
+                                                   value="{{ $owner->Transfer_date }}"  required autofocus disabled>
                                             <script type="text/javascript">
                                                 $('#Transfer_date').datepicker({
                                                     autoclose: true,
@@ -57,10 +60,10 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-label{{ $errors->has('Active') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="Active">{{ __(' Διαγραφή') }} <span style="color:red;font-weight:bold">*</span></label>
+                                            <label class="form-control-label" for="Active">{{ __(' Κατάσταση') }} <span style="color:red;font-weight:bold">*</span></label>
                                             <select class="form-control form-select" id="Active" name="Active" required >
-                                                <option value="Ενεργός" @if ($owner->Active='Ενεργός') selected="selected" @endif>Ενεργός</option>
-                                                <option value="Μη Ενεργός" @if ($owner->Active='Μη Ενεργός') selected="selected" @endif>Μη Ενεργός</option>
+                                                <option value="Ενεργός" @if ($owner->Active=='Ενεργός') selected="selected" @endif>Ενεργός</option>
+                                                <option value="Μη Ενεργός" @if ($owner->Active=='Μη Ενεργός') selected="selected" @endif>Μη Ενεργός</option>
                                             </select>
                                             @if ($errors->has('Active'))
                                                 <span class="invalid-feedback" role="alert">

@@ -274,7 +274,7 @@
                                     <div class="container-fluid mt-4">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <table class="table table-bordered table-hover dislpay" style="width:100%" id="pragma_view">
+                                                <table class="table table-sm table-bordered table-hover dislpay" style="width:100%" id="pragma_view">
                                                     <thead class="thead-dark">
                                                     <tr>
                                                         <th scope="col">Αρ. Πρωτοκόλλου</th>

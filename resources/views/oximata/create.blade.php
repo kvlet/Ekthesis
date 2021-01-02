@@ -311,8 +311,8 @@
                                     </select>
                                     @if ($errors->has('Mark_del'))
                                         <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('Mark_del') }}</strong>
-                                </span>
+                                            <strong>{{ $errors->first('Mark_del') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>

@@ -10,6 +10,7 @@ class Owner extends Model
 
     protected $guarded = [];
     public $timestamps = false;
-    protected $primaryKey= 'id_oximata,Own_name,Transfer_date';
+    protected $primaryKey= 'Own_name';
     public $incrementing = false;
+    protected $keyType = 'string';
 }

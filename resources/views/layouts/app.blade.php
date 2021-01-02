@@ -91,11 +91,11 @@
                     <!--<button type="submit" class="btn btn-sm btn-primary" style="margin: 4px">Αποσύνδεση</button>-->
                     <a class="btn btn-sm btn-primary" style="margin: 4px" href="{{ url('/logout') }}"> Αποσύνδεση </a>
                 </div>
-                <div class="col-md-1 d-none d-md-block p-1">
-                    @if ((Request::is('pragmatognomosines/*') ||  (\Request::is('ereunes/*'))))
-                        @yield('onoffrmenu')
-                    @endif
-                </div>
+{{--                <div class="col-md-1 d-none d-md-block p-1">--}}
+{{--                    @if ((Request::is('pragmatognomosines/*') ||  (\Request::is('ereunes/*'))))--}}
+{{--                        @yield('onoffrmenu')--}}
+{{--                    @endif--}}
+{{--                </div>--}}
             </div>
             <div class="row flex-container">
                     <div class="col-md-2 d-none d-md-block p-1 flex-item flex-item-grow1" id="lmenu">

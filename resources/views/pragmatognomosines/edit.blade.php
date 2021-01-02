@@ -14,6 +14,7 @@
                     <a class="nav-link" id="v-pills-proasfalistikos-tab" data-toggle="pill" href="#v-pills-proasfalistikos" role="tab" aria-controls="v-pills-proasfalistikos" aria-selected="false" style="color: red">Προασφαλιστικός</a>
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
                     <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: red">Κατάσταση</a>
+                    <a class="nav-link" id="v-pills-foto-tab" data-toggle="pill" href="#v-pills-foto" role="tab" aria-controls="v-pills-foto" aria-selected="false" style="color: red">Φωτογραφίες</a>
                     <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" style="color: red">Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-proyparxouses-tab" data-toggle="pill" href="#v-pills-proyparxouses" role="tab" aria-controls="v-pills-proyparxouses" aria-selected="false" style="color: red">Προυπάρχουσες</a>
                     <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
@@ -21,6 +22,8 @@
                     <a class="nav-link" id="v-pills-praktoreia-tab" data-toggle="pill" href="#v-pills-praktoreia" role="tab" aria-controls="v-pills-praktoreia" aria-selected="false" >Πρακτορεία</a>
                     <a class="nav-link" id="v-pills-notes-tab" data-toggle="pill" href="#v-pills-notes" role="tab" aria-controls="v-pills-notes" aria-selected="false">Παρατηρήσεις</a>
                     <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#v-pills-eksodasynergati" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false" style="color: red">Έξοδα συνεργάτη</a>
+                    <a class="nav-link" id="v-pills-involv_cars-tab" data-toggle="pill" href="#v-pills-involv_cars" role="tab" aria-controls="v-pills-involv_cars" aria-selected="false" style="color: red">Εμπλεκόμενα Οχήματα</a>
+                    <a class="nav-link" id="v-pills-reports-tab" data-toggle="pill" href="#v-pills-reports" role="tab" aria-controls="v-pills-reports" aria-selected="false" style="color: red">Εκτυπώσεις</a>
                 </div>
             </div>
         @elseif ((\Request::is('ereunes/*')))
@@ -29,16 +32,19 @@
                     <a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab" aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
                     <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: red">Κατάσταση</a>
+                    <a class="nav-link" id="v-pills-foto-tab" data-toggle="pill" href="#v-pills-foto" role="tab" aria-controls="v-pills-foto" aria-selected="false" style="color: red">Φωτογραφίες</a>
                     <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" style="color: red">Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
                     <a class="nav-link" id="v-pills-provlepsis-tab" data-toggle="pill" href="#v-pills-provlepsis" role="tab" aria-controls="v-pills-provlepsis" aria-selected="false" style="color: red">Προβλέψεις</a>
                     <a class="nav-link" id="v-pills-praktoreia-tab" data-toggle="pill" href="#v-pills-praktoreia" role="tab" aria-controls="v-pills-praktoreia" aria-selected="false" >Πρακτορεία</a>
                     <a class="nav-link" id="v-pills-notes-tab" data-toggle="pill" href="#v-pills-notes" role="tab" aria-controls="v-pills-notes" aria-selected="false">Παρατηρήσεις</a>
                     <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#v-pills-eksodasynergati" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false" style="color: red">Έξοδα συνεργάτη</a>
+                    <a class="nav-link" id="v-pills-involv_cars-tab" data-toggle="pill" href="#v-pills-involv_cars" role="tab" aria-controls="v-pills-involv_cars" aria-selected="false" style="color: red">Εμπλεκόμενα Οχήματα</a>
+                    <a class="nav-link" id="v-pills-reports-tab" data-toggle="pill" href="#v-pills-reports" role="tab" aria-controls="v-pills-reports" aria-selected="false" style="color: red">Εκτυπώσεις</a>
                 </div>
             </div>
         @endif
-        <div class="col-8">
+        <div class="col-10">
             <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-genika" role="tabpanel" aria-labelledby="v-pills-genika-tab">
                     <form method="post" action="{{ route('pragmatognomosines.update', $pragmatognomosini->id_ekthesis) }}" autocomplete="off">
@@ -886,7 +892,9 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="v-pills-antikatastasis" role="tabpanel" aria-labelledby="v-pills-antikatastasis-tab">
-                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <?php $id_ergasia=3;?>
+{{--                    @dd($id_ergasia,$pragmatognomosini->id_ekthesis)--}}
+                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis)}}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -896,26 +904,30 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header-cust">
-                                    <?php $sumPart=0;$sumErgasia=0;$sumFpaParts=0;$sumFpaErgasia=0;$count=0?>
-                                    {{ $total =0 }}
+                                    <?php $count=0?>
                                     @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
-                                       @if ($ergasia->id_ergasies ==3)
-                                            <?php $count++ ?>
-                                           @if ($ergasia->pivot->fpa_part == 1)
-                                                    {{$ergasia->pivot->Cost_part=$ergasia->pivot->Cost_part/1.24}}
-                                           @endif
-                                           @if ($ergasia->pivot->fpa_job == 1)
-                                                {{$ergasia->pivot->Cost_job=$ergasia->pivot->Cost_job/1.24}}
-                                           @endif
-                                           {{ $total += $ergasia->pivot->Cost_part }}
+                                       @if ($ergasia->id_ergasies == 3)
+                                                <?php $count++ ?>
                                        @endif
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Λίστα Ανταλλακτικών Αντικαταστάσεων'.' '.'('.$count.')') }}</strong>
+                                        <strong>{{ __('Λίστα Ανταλλακτικών Αντικαταστάσεις'.' '.'('.$count.')') }}</strong>
                                     </h4>
-                                    <h3>
-                                        <strong>{{ __('Κόστος Ανταλλακτικών'.' '.'('.round($total,2).')') }}</strong>
-                                    </h3>
+                                </div>
+                                <div>
+                                    <h6>
+                                       {{ __('Κόστος Ανταλλακτικών: ')}}<strong>{{round($costPart3,2).('€')}}</strong>
+                                       {{ __(' Κόστος Εργασιών:')}}<strong>{{round($costJob3,2).('€')}}</strong>
+                                        {{ __(' Σύνολο:')}}<strong>{{round($costJob3,2)+round($costPart3,2).('€')}}</strong>
+                                    </h6>
+                                    <h6>
+                                        {{ __('Φ.Π.Α. Ανταλλακτικών: ')}}<strong>{{round($fpaPart3,2).('€')}}</strong>
+                                        {{ __(' Φ.Π.Α. Εργασιών:')}}<strong>{{round($fpaJob3,2).('€')}}</strong>
+                                        {{ __(' Σύνολο Φ.Π.Α.:')}}<strong>{{round($fpaPart3,2)+round($fpaJob3,2).('€')}}</strong>
+                                    </h6>
+                                    <h5>
+                                        {{ __(' Σύνολο:')}}<strong>{{round($fpaPart3,2)+round($fpaJob3,2)+round($costJob3,2)+round($costPart3,2).('€')}}</strong>
+                                    </h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -949,7 +961,7 @@
                                                                         @endforeach
                                                                     </td>
                                                                     <td class="td-alnright">
-                                                                        {{ round($ergasia->pivot->Cost_part,2) }}
+                                                                        {{ round($ergasia->pivot->Cost_part,2).'€' }}
                                                                     </td>
                                                                     <td>
                                                                         @if ($ergasia->pivot->fpa_part == 0)
@@ -959,7 +971,7 @@
                                                                         @endif
                                                                     </td>
                                                                     <td>
-                                                                        {{ $ergasia->pivot->Cost_job }}
+                                                                        {{ $ergasia->pivot->Cost_job.'€' }}
                                                                     </td>
                                                                     <td>
                                                                         @if ($ergasia->pivot->fpa_job == 0)
@@ -1001,12 +1013,529 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="v-pills-epanafores" role="tabpanel" aria-labelledby="v-pills-epanafores-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-eksagogi" role="tabpanel" aria-labelledby="v-pills-eksagogi-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-bafes" role="tabpanel" aria-labelledby="v-pills-bafes-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-ergasiesnoantallaktika" role="tabpanel" aria-labelledby="v-pills-ergasiesnoantallaktika-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-proasfalistikos" role="tabpanel" aria-labelledby="v-pills-proasfalistikos-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-epanafores" role="tabpanel" aria-labelledby="v-pills-epanafores-tab">
+                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis,'4') }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <?php $count=0?>
+                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                        @if ($ergasia->id_ergasies == 4)
+                                            <?php $count++ ?>
+                                        @endif
+                                    @endforeach
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Λίστα Ανταλλακτικών Επαναφορές'.' '.'('.$count.')') }}</strong>
+                                    </h4>
+                                </div>
+                                <div>
+                                    <h6>
+                                        {{ __('Κόστος Ανταλλακτικών: ')}}<strong>{{round($costPart4,2).('€')}}</strong>
+                                        {{ __(' Κόστος Εργασιών:')}}<strong>{{round($costJob4,2).('€')}}</strong>
+                                        {{ __(' Σύνολο:')}}<strong>{{round($costJob4,2)+round($costPart4,2).('€')}}</strong>
+                                    </h6>
+                                    <h6>
+                                        {{ __('Φ.Π.Α. Ανταλλακτικών: ')}}<strong>{{round($fpaPart4,2).('€')}}</strong>
+                                        {{ __(' Φ.Π.Α. Εργασιών:')}}<strong>{{round($fpaJob4,2).('€')}}</strong>
+                                        {{ __(' Σύνολο Φ.Π.Α.:')}}<strong>{{round($fpaPart4,2)+round($fpaJob4,2).('€')}}</strong>
+                                    </h6>
+                                    <h5>
+                                        {{ __(' Σύνολο:')}}<strong>{{round($fpaPart4,2)+round($fpaJob4,2)+round($costJob4,2)+round($costPart4,2).('€')}}</strong>
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="parts_epanaf" class="table-sm table table-bordered table-hover" style="width:100%">
+                                                    <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>Ανταλ/κό</th>
+                                                        <th>Κόστος Ανταλ/κού</th>
+                                                        <th>Φ.Π.Α Ανταλ/κού</th>
+                                                        <th>Κόστος Εργασίας</th>
+                                                        <th>Φ.Π.Α Εργασίας</th>
+                                                        <th>Τύπος</th>
+                                                        <th>Ποσότητα</th>
+                                                        <th>Ζημιά</th>
+                                                        <th>Κωδικός Αντ/σώπου</th>
+                                                        <th>Επεξεργασία</th>
+                                                        <th>Διαγραφή</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                                        @if ($ergasia->id_ergasies == 4)
+                                                            <tr>
+                                                                <td>
+                                                                    @foreach($parts as $part)
+                                                                        @if ($part->id_parts == $ergasia->pivot->id_parts)
+                                                                            {{ $part->part }}
+                                                                        @endif
+                                                                    @endforeach
+                                                                </td>
+                                                                <td class="td-alnright">
+                                                                    {{ round($ergasia->pivot->Cost_part,2).'€' }}
+                                                                </td>
+                                                                <td>
+                                                                    @if ($ergasia->pivot->fpa_part == 0)
+                                                                        <input type="checkbox" disabled>
+                                                                    @else
+                                                                        <input type="checkbox" disabled checked>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->Cost_job.'€' }}
+                                                                </td>
+                                                                <td>
+                                                                    @if ($ergasia->pivot->fpa_job == 0)
+                                                                        <input type="checkbox" disabled>
+                                                                    @else
+                                                                        <input type="checkbox" disabled checked>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->Type }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->quan }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->diax_fr_b }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->prod_code }}
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                       target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                       target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-eksagogi" role="tabpanel" aria-labelledby="v-pills-eksagogi-tab">
+                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <?php $count=0?>
+                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                        @if ($ergasia->id_ergasies == 5)
+                                            <?php $count++ ?>
+                                        @endif
+                                    @endforeach
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Λίστα Ανταλλακτικών Εξαγωγή / Επανατοποθέτηση'.' '.'('.$count.')') }}</strong>
+                                    </h4>
+                                </div>
+                                <div>
+                                    <h6>
+                                        {{ __('Κόστος Ανταλλακτικών: ')}}<strong>{{round($costPart5,2).('€')}}</strong>
+                                        {{ __(' Κόστος Εργασιών:')}}<strong>{{round($costJob5,2).('€')}}</strong>
+                                        {{ __(' Σύνολο:')}}<strong>{{round($costJob5,2)+round($costPart5,2).('€')}}</strong>
+                                    </h6>
+                                    <h6>
+                                        {{ __('Φ.Π.Α. Ανταλλακτικών: ')}}<strong>{{round($fpaPart5,2).('€')}}</strong>
+                                        {{ __(' Φ.Π.Α. Εργασιών:')}}<strong>{{round($fpaJob5,2).('€')}}</strong>
+                                        {{ __(' Σύνολο Φ.Π.Α.:')}}<strong>{{round($fpaPart5,2)+round($fpaJob5,2).('€')}}</strong>
+                                    </h6>
+                                    <h5>
+                                        {{ __(' Σύνολο:')}}<strong>{{round($fpaPart5,2)+round($fpaJob5,2)+round($costJob5,2)+round($costPart5,2).('€')}}</strong>
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="parts_eksag" class="table-sm table table-bordered table-hover" style="width:100%">
+                                                    <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>Ανταλ/κό</th>
+                                                        <th>Κόστος Ανταλ/κού</th>
+                                                        <th>Φ.Π.Α Ανταλ/κού</th>
+                                                        <th>Κόστος Εργασίας</th>
+                                                        <th>Φ.Π.Α Εργασίας</th>
+                                                        <th>Τύπος</th>
+                                                        <th>Ποσότητα</th>
+                                                        <th>Ζημιά</th>
+                                                        <th>Κωδικός Αντ/σώπου</th>
+                                                        <th>Επεξεργασία</th>
+                                                        <th>Διαγραφή</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                                        @if ($ergasia->id_ergasies == 5)
+                                                            <tr>
+                                                                <td>
+                                                                    @foreach($parts as $part)
+                                                                        @if ($part->id_parts == $ergasia->pivot->id_parts)
+                                                                            {{ $part->part }}
+                                                                        @endif
+                                                                    @endforeach
+                                                                </td>
+                                                                <td class="td-alnright">
+                                                                    {{ round($ergasia->pivot->Cost_part,2).'€' }}
+                                                                </td>
+                                                                <td>
+                                                                    @if ($ergasia->pivot->fpa_part == 0)
+                                                                        <input type="checkbox" disabled>
+                                                                    @else
+                                                                        <input type="checkbox" disabled checked>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->Cost_job.'€' }}
+                                                                </td>
+                                                                <td>
+                                                                    @if ($ergasia->pivot->fpa_job == 0)
+                                                                        <input type="checkbox" disabled>
+                                                                    @else
+                                                                        <input type="checkbox" disabled checked>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->Type }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->quan }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->diax_fr_b }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->prod_code }}
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                       target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                       target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-bafes" role="tabpanel" aria-labelledby="v-pills-bafes-tab">
+                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <?php $count=0?>
+                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                        @if ($ergasia->id_ergasies == 6)
+                                            <?php $count++ ?>
+                                        @endif
+                                    @endforeach
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Λίστα Ανταλλακτικών Βαφές'.' '.'('.$count.')') }}</strong>
+                                    </h4>
+                                </div>
+                                <div>
+                                    <h6>
+                                        {{ __('Κόστος Ανταλλακτικών: ')}}<strong>{{round($costPart6,2).('€')}}</strong>
+                                        {{ __(' Κόστος Εργασιών:')}}<strong>{{round($costJob6,2).('€')}}</strong>
+                                        {{ __(' Σύνολο:')}}<strong>{{round($costJob6,2)+round($costPart6,2).('€')}}</strong>
+                                    </h6>
+                                    <h6>
+                                        {{ __('Φ.Π.Α. Ανταλλακτικών: ')}}<strong>{{round($fpaPart6,2).('€')}}</strong>
+                                        {{ __(' Φ.Π.Α. Εργασιών:')}}<strong>{{round($fpaJob6,2).('€')}}</strong>
+                                        {{ __(' Σύνολο Φ.Π.Α.:')}}<strong>{{round($fpaPart6,2)+round($fpaJob6,2).('€')}}</strong>
+                                    </h6>
+                                    <h5>
+                                        {{ __(' Σύνολο:')}}<strong>{{round($fpaPart6,2)+round($fpaJob6,2)+round($costJob6,2)+round($costPart6,2).('€')}}</strong>
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="parts_bafes" class="table-sm table table-bordered table-hover" style="width:100%">
+                                                    <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>Ανταλ/κό</th>
+                                                        <th>Κόστος Ανταλ/κού</th>
+                                                        <th>Φ.Π.Α Ανταλ/κού</th>
+                                                        <th>Κόστος Εργασίας</th>
+                                                        <th>Φ.Π.Α Εργασίας</th>
+                                                        <th>Τύπος</th>
+                                                        <th>Ποσότητα</th>
+                                                        <th>Ζημιά</th>
+                                                        <th>Κωδικός Αντ/σώπου</th>
+                                                        <th>Επεξεργασία</th>
+                                                        <th>Διαγραφή</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                                        @if ($ergasia->id_ergasies == 6)
+                                                            <tr>
+                                                                <td>
+                                                                    @foreach($parts as $part)
+                                                                        @if ($part->id_parts == $ergasia->pivot->id_parts)
+                                                                            {{ $part->part }}
+                                                                        @endif
+                                                                    @endforeach
+                                                                </td>
+                                                                <td class="td-alnright">
+                                                                    {{ round($ergasia->pivot->Cost_part,2).'€' }}
+                                                                </td>
+                                                                <td>
+                                                                    @if ($ergasia->pivot->fpa_part == 0)
+                                                                        <input type="checkbox" disabled>
+                                                                    @else
+                                                                        <input type="checkbox" disabled checked>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->Cost_job.'€' }}
+                                                                </td>
+                                                                <td>
+                                                                    @if ($ergasia->pivot->fpa_job == 0)
+                                                                        <input type="checkbox" disabled>
+                                                                    @else
+                                                                        <input type="checkbox" disabled checked>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->Type }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->quan }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->diax_fr_b }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->prod_code }}
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                       target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                       target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-ergasiesnoantallaktika" role="tabpanel" aria-labelledby="v-pills-ergasiesnoantallaktika-tab">
+                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Εργασίας</a>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <?php $count=0?>
+                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                        @if ($ergasia->id_ergasies != 3 && $ergasia->id_ergasies != 4 && $ergasia->id_ergasies != 5 && $ergasia->id_ergasies != 6 && $ergasia->id_ergasies != 55)
+                                            <?php $count++ ?>
+                                        @endif
+                                    @endforeach
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Λίστα Εργασιών χωρίς ανταλλακτικά'.' '.'('.$count.')') }}</strong>
+                                    </h4>
+                                </div>
+                                <div>
+                                    <h6>
+                                        {{ __(' Κόστος Εργασιών:')}}<strong>{{round($costJobNoPart,2).('€')}}</strong>
+                                    </h6>
+                                    <h6>
+                                        {{ __(' Φ.Π.Α. Εργασιών:')}}<strong>{{round($fpaJobNoPart,2).('€')}}</strong>
+                                    </h6>
+                                    <h5>
+                                        {{ __(' Σύνολο:')}}<strong>{{round($costJobNoPart,2)+round($fpaJobNoPart,2).('€')}}</strong>
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="jobs_jobnopart" class="table-sm table table-bordered table-hover" style="width:100%">
+                                                    <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>Εργασία</th>
+                                                        <th>Κόστος Εργασίας</th>
+                                                        <th>Φ.Π.Α Εργασίας</th>
+                                                        <th>Ζημιά</th>
+                                                        <th>Επεξεργασία</th>
+                                                        <th>Διαγραφή</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                                        @if ($ergasia->id_ergasies != 3 && $ergasia->id_ergasies != 4 && $ergasia->id_ergasies != 5 && $ergasia->id_ergasies != 6 && $ergasia->id_ergasies != 55)
+                                                            <tr>
+                                                                <td>
+                                                                    @foreach($ergasies as $erg)
+                                                                        @if ($erg->id_ergasies == $ergasia->pivot->id_ergasies)
+                                                                            {{ $erg->ergasia }}
+                                                                        @endif
+                                                                    @endforeach
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->Cost_job.'€' }}
+                                                                </td>
+                                                                <td>
+                                                                    @if ($ergasia->pivot->fpa_job == 0)
+                                                                        <input type="checkbox" disabled>
+                                                                    @else
+                                                                        <input type="checkbox" disabled checked>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->diax_fr_b }}
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                       target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                       target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-proasfalistikos" role="tabpanel" aria-labelledby="v-pills-proasfalistikos-tab">
+                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <?php $count=0?>
+                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                        @if ($ergasia->id_ergasies == 55)
+                                            <?php $count++ ?>
+                                        @endif
+                                    @endforeach
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Λίστα Ανταλλακτικών Προασφαλιστικός'.' '.'('.$count.')') }}</strong>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="parts_proasf" class="table-sm table table-bordered table-hover" style="width:100%">
+                                                    <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>Ανταλ/κό</th>
+                                                        <th>Τύπος</th>
+                                                        <th>Επεξεργασία</th>
+                                                        <th>Διαγραφή</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                                        @if ($ergasia->id_ergasies == 55)
+                                                            <tr>
+                                                                <td>
+                                                                    @foreach($parts as $part)
+                                                                        @if ($part->id_parts == $ergasia->pivot->id_parts)
+                                                                            {{ $part->part }}
+                                                                        @endif
+                                                                    @endforeach
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->Type }}
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                       target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                       target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-katastasi" role="tabpanel" aria-labelledby="v-pills-katastasi-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-foto" role="tabpanel" aria-labelledby="v-pills-foto-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-keimena" role="tabpanel" aria-labelledby="v-pills-keimena-tab">
                     @if ((Request::is('pragmatognomosines/*')))
                         <a href="{{route('pragmatognomosines.create_keimena_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη κειμένου</a>
@@ -1316,11 +1845,13 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="v-pills-eksodasynergati" role="tabpanel" aria-labelledby="v-pills-eksodasynergati-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-involv_cars" role="tabpanel" aria-labelledby="v-pills-involv_cars-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-reports" role="tabpanel" aria-labelledby="v-pills-reports-tab">...</div>
             </div>
         </div>
-        <div class="col-2" id="rmenu">
-            @include('rmenu')
-        </div>
+{{--        <div class="col-2" id="rmenu">--}}
+{{--            @include('rmenu')--}}
+{{--        </div>--}}
     </div>
 
     @include('_modals.diakrisisModal', [ 'diakrisis' => $diakrisis])

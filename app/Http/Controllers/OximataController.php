@@ -12,6 +12,7 @@ use App\Oxima;
 use App\Paint;
 use App\Person;
 use App\Pragmatognomosini;
+use App\Specifications;
 use App\User;
 use App\Xrisi;
 use App\Xromata;
@@ -86,6 +87,7 @@ class OximataController extends Controller
         $cartype = CarType::where([['Mark_del','Όχι']])->orderBy('Typos')->get();
         $paint = Paint::where([['Mark_del','Όχι']])->orderBy('paint_type')->get();
         $owners = Owner::where([['id_oximata','=',$id_oximata]])->orderBy('Own_name')->get();
+        $specifications= Specifications::where([['id_oximata','=',$id_oximata]])->first();
 
         $oxima = Oxima::findOrFail($id_oximata);
         //        fix date format for display in form
@@ -124,6 +126,7 @@ class OximataController extends Controller
         //end idioktites oximatos
 
 
+
         return view('oximata.edit',compact([
             'oxima',
             'markes',
@@ -136,7 +139,8 @@ class OximataController extends Controller
             'pathontes',
             'oximata_pathon',
             'pragmatognomones',
-            'owners'
+            'owners',
+            'specifications'
         ]));
     }
 
@@ -204,6 +208,7 @@ class OximataController extends Controller
             'xromata'
         ]));
     }
+
     // manage owner
     public function create_owner($id_oximata){
         $oxima = Oxima::findOrFail($id_oximata);
@@ -219,10 +224,11 @@ class OximataController extends Controller
 
         //        fix date format for DB
             $dateTransDate = Carbon::createFromFormat('d-m-Y',  $Transfer_date)->format('Y-m-d');
-        $Transfer_date = $dateTransDate;
+            $Transfer_date = $dateTransDate;
         //        end fix date format for DB
         $owner = Owner::where([['id_oximata','=',$id_oximata],['Own_name','=',$Own_name],['Transfer_date','=',$Transfer_date]])->orderBy('Own_name')->first();
 //        dd($owner);
+
         $owners = Owner::where([['id_oximata','=',$id_oximata]])->orderBy('Own_name')->get();
         return view('oximata.edit_owner',compact([
             'oxima',
@@ -246,5 +252,122 @@ class OximataController extends Controller
 
         return redirect('oximata/'.$owner->id_oximata);
     }
+
+    public function update_owner(Request $request){
+
+        $oxima = Oxima::findOrFail($request->id_oximata);
+        //        fix date format for DB
+//        $dateTransDate = Carbon::createFromFormat('d-m-Y',  $request->Transfer_date)->format('Y-m-d');
+//        $request->Transfer_date = $dateTransDate;
+        //        end fix date format for DB
+        $owner = Owner::where([['id_oximata','=',$request->id_oximata],['Own_name','=',$request->Own_name],['Transfer_date','=',$request->Transfer_date]])->orderBy('Own_name')->first();
+//        dd( $owner );
+        $owners = Owner::where([['id_oximata','=',$request->id_oximata]])->orderBy('Own_name')->get();
+//        dd($owner,$request);
+        $owner->id_oximata=$request->id_oximata;
+        $owner->Own_name=$request->Own_name;
+        $owner->Transfer_date=$request->Transfer_date;
+        $owner->Active=$request->Active;
+
+        $owner->update();
+
+        return redirect('oximata/'.$owner->id_oximata);
+    }
     // end manage owner
+
+    // manage specifications
+    public function create_spec($id_oximata){
+        $oxima = Oxima::findOrFail($id_oximata);
+        $specifications = Specifications::where([['id_oximata','=',$id_oximata]])->get();
+        return view('oximata.create_spec',compact([
+            'oxima',
+            'specifications'
+        ]));
+    }
+
+    public function edit_spec($id_oximata){
+        $oxima = Oxima::findOrFail($id_oximata);
+        $specifications = Specifications::where([['id_oximata','=',$id_oximata]])->first();
+
+
+        return view('oximata.edit_spec',compact([
+            'oxima',
+            'specifications'
+        ]));
+    }
+
+    public function store_spec(Request $request){
+        $specifications = new Specifications();
+
+
+        $specifications->id_oximata=$request->id_oximata;
+        $specifications->amaxoma=$request->amaxoma;
+        $specifications->doors=$request->doors;
+        $specifications->metaxonio=$request->metaxonio;
+        $specifications->mikos=$request->mikos;
+        $specifications->platos=$request->platos;
+        $specifications->ypsos=$request->ypsos;
+        $specifications->apobaro=$request->apobaro;
+        $specifications->tepozito=$request->tepozito;
+        $specifications->gas=$request->gas;
+        $specifications->num_kilin=$request->num_kilin;
+        $specifications->num_valv=$request->num_valv;
+        $specifications->max_power=$request->max_power;
+        $specifications->strofes=$request->strofes;
+        $specifications->ropi=$request->ropi;
+        $specifications->ropi_strofes=$request->ropi_strofes;
+        $specifications->epitax=$request->epitax;
+        $specifications->taxitita=$request->taxitita;
+        $specifications->num_gear=$request->num_gear;
+        $specifications->gear=$request->gear;
+        $specifications->kinisi=$request->kinisi;
+        $specifications->fr_anartisi=$request->fr_anartisi;
+        $specifications->b_anart=$request->b_anart;
+        $specifications->fr_frena=$request->fr_frena;
+        $specifications->b_frena=$request->b_frena;
+        $specifications->abs=$request->abs;
+        $specifications->notes=$request->notes;
+        $specifications->save();
+
+        return redirect('oximata/'.$specifications->id_oximata);
+    }
+
+    public function update_spec(Request $request,$id_oximata){
+
+        $oxima = Oxima::findOrFail($id_oximata);
+        $specifications = Specifications::where([['id_oximata','=',$id_oximata]])->first();
+
+//        $specifications->id_oximata=$request->id_oximata;
+        $specifications->amaxoma=$request->amaxoma;
+        $specifications->doors=$request->doors;
+        $specifications->metaxonio=$request->metaxonio;
+        $specifications->mikos=$request->mikos;
+        $specifications->platos=$request->platos;
+        $specifications->ypsos=$request->ypsos;
+        $specifications->apobaro=$request->apobaro;
+        $specifications->tepozito=$request->tepozito;
+        $specifications->gas=$request->gas;
+        $specifications->num_kilin=$request->num_kilin;
+        $specifications->num_valv=$request->num_valv;
+        $specifications->max_power=$request->max_power;
+        $specifications->strofes=$request->strofes;
+        $specifications->ropi=$request->ropi;
+        $specifications->ropi_strofes=$request->ropi_strofes;
+        $specifications->epitax=$request->epitax;
+        $specifications->taxitita=$request->taxitita;
+        $specifications->num_gear=$request->num_gear;
+        $specifications->gear=$request->gear;
+        $specifications->kinisi=$request->kinisi;
+        $specifications->fr_anartisi=$request->fr_anartisi;
+        $specifications->b_anart=$request->b_anart;
+        $specifications->fr_frena=$request->fr_frena;
+        $specifications->b_frena=$request->b_frena;
+        $specifications->abs=$request->abs;
+        $specifications->notes=$request->notes;
+
+        $specifications->update();
+
+        return redirect('oximata/'.$specifications->id_oximata);
+    }
+    // end manage specifications
 }

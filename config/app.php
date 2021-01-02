@@ -178,6 +178,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+//        Laracasts\Flash\FlashServiceProvider::class,
 //        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
 //        Intervention\Image\ImageServiceProvider::class,
 

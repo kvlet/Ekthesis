@@ -246,32 +246,85 @@ class PragmController extends Controller
 
         // end make windows dir
 
-//        fix date format for display in form
-        $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_atiximatos)->format('d-m-Y');
-        $pragmatognomosini->Date_atiximatos = $dateAtiximatos;
-        if ($pragmatognomosini->Date_dikasimou != null){
-            $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_dikasimou)->format('d-m-Y');
-            $pragmatognomosini->Date_dikasimou = $dateDikasimou;
-        }
-        if ($pragmatognomosini->Date_eksetasis != null){
-            $dateEksetasis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_eksetasis)->format('d-m-Y');
-            $pragmatognomosini->Date_eksetasis = $dateEksetasis;
-        }
-        if ($pragmatognomosini->Date_paradosis != null){
-            $dateParadosis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_paradosis)->format('d-m-Y');
-            $pragmatognomosini->Date_paradosis = $dateParadosis;
-        }
-        foreach ($pragmatognomosini->synergeia as $synergeio){
-            $synergeio->pivot->Date_episkepsis=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis)->format('d-m-Y');
-            if ($synergeio->pivot->Date_episkepsis2 != null){
-                $synergeio->pivot->Date_episkepsis2=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis2)->format('d-m-Y');
+        //        fix date format for display in form
+            $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_atiximatos)->format('d-m-Y');
+            $pragmatognomosini->Date_atiximatos = $dateAtiximatos;
+            if ($pragmatognomosini->Date_dikasimou != null){
+                $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_dikasimou)->format('d-m-Y');
+                $pragmatognomosini->Date_dikasimou = $dateDikasimou;
             }
-            if ($synergeio->pivot->Date_episkepsis3 != null){
-                $synergeio->pivot->Date_episkepsis3=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
+            if ($pragmatognomosini->Date_eksetasis != null){
+                $dateEksetasis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_eksetasis)->format('d-m-Y');
+                $pragmatognomosini->Date_eksetasis = $dateEksetasis;
             }
-        }
-//        end fix date format for display in form
+            if ($pragmatognomosini->Date_paradosis != null){
+                $dateParadosis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_paradosis)->format('d-m-Y');
+                $pragmatognomosini->Date_paradosis = $dateParadosis;
+            }
+            foreach ($pragmatognomosini->synergeia as $synergeio){
+                $synergeio->pivot->Date_episkepsis=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis)->format('d-m-Y');
+                if ($synergeio->pivot->Date_episkepsis2 != null){
+                    $synergeio->pivot->Date_episkepsis2=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis2)->format('d-m-Y');
+                }
+                if ($synergeio->pivot->Date_episkepsis3 != null){
+                    $synergeio->pivot->Date_episkepsis3=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
+                }
+            }
+       //      end fix date format for display in form
 
+       // calculate ekthesi details costs
+
+            $costPart=0;$costJob=0;
+            $costPart3=0;$costJob3=0;$fpaPart3=0;$fpaJob3=0;
+            $costPart4=0;$costJob4=0;$fpaPart4=0;$fpaJob4=0;
+            $costPart5=0;$costJob5=0;$fpaPart5=0;$fpaJob5=0;
+            $costPart6=0;$costJob6=0;$fpaPart6=0;$fpaJob6=0;
+            $costJobNoPart=0;$fpaJobNoPart=0;
+            foreach ($pragmatognomosini->parts_of_ergasies as $ergasia) {
+                //dd($ergasia);
+                if ($ergasia->pivot->fpa_part == 1){
+                    $costPart=$ergasia->pivot->Cost_part / (1+($pragmatognomosini->Fpa/100));
+
+                }else{
+                    $costPart=$ergasia->pivot->Cost_part;
+                }
+
+                if ($ergasia->pivot->fpa_job == 1){
+                    $costJob=$ergasia->pivot->Cost_job / (1+($pragmatognomosini->Fpa/100));
+                }else{
+                    $costJob=$ergasia->pivot->Cost_job;
+                }
+
+                if ($ergasia->pivot->id_ergasies == 3) {
+                    $costPart3 += $costPart;
+                    $costJob3 += $costJob;
+                    $fpaPart3 += $costPart * $pragmatognomosini->Fpa/100;
+                    $fpaJob3 += $costJob * $pragmatognomosini->Fpa/100;
+                }
+                if ($ergasia->pivot->id_ergasies == 4) {
+                    $costPart4 += $costPart;
+                    $costJob4 += $costJob;
+                    $fpaPart4 += $costPart * $pragmatognomosini->Fpa/100;
+                    $fpaJob4 += $costJob * $pragmatognomosini->Fpa/100;
+                }
+                if ($ergasia->pivot->id_ergasies == 5) {
+                    $costPart5 += $costPart;
+                    $costJob5 += $costJob;
+                    $fpaPart5 += $costPart * $pragmatognomosini->Fpa/100;
+                    $fpaJob5 += $costJob * $pragmatognomosini->Fpa/100;
+                }
+                if ($ergasia->pivot->id_ergasies == 6) {
+                    $costPart6 += $costPart;
+                    $costJob6 += $costJob;
+                    $fpaPart6 += $costPart * $pragmatognomosini->Fpa/100;
+                    $fpaJob6 += $costJob * $pragmatognomosini->Fpa/100;
+                }
+                if (($ergasia->pivot->id_ergasies != 3) && ($ergasia->pivot->id_ergasies != 4) && ($ergasia->pivot->id_ergasies != 5) && ($ergasia->pivot->id_ergasies != 6) && ($ergasia->pivot->id_ergasies != 55)) {
+                    $costJobNoPart += $costJob;
+                    $fpaJobNoPart += $costJob * $pragmatognomosini->Fpa/100;
+                }
+            }
+       // end  calculate ekthesi details costs
 
 
         return view('pragmatognomosines.edit', compact([
@@ -289,7 +342,25 @@ class PragmController extends Controller
             'praktoreia',
             'synergeia',
             'parts',
-            'ergasies'
+            'ergasies',
+            'costPart3',
+            'costJob3',
+            'fpaPart3',
+            'fpaJob3',
+            'costPart4',
+            'costJob4',
+            'fpaPart4',
+            'fpaJob4',
+            'costPart5',
+            'costJob5',
+            'fpaPart5',
+            'fpaJob5',
+            'costPart6',
+            'costJob6',
+            'fpaPart6',
+            'fpaJob6',
+            'costJobNoPart',
+            'fpaJobNoPart'
         ]));
     }
 
@@ -483,7 +554,10 @@ class PragmController extends Controller
                 $pragm->Date_dikasimou = $dateDikasimou;
             }
         }
-        $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
+        // αυτό θα πρέπει να αλλάξει και να αντικατασταθεί απο την συσχέτηση με το μοντέλο
+            $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
+        // αυτό θα πρέπει να αλλάξει και να αντικατασταθεί απο την συσχέτηση με το μοντέλο
+
         return view('pragmatognomosines.search',compact([
             'pragmatognomosines',
             'companies',
@@ -786,7 +860,33 @@ class PragmController extends Controller
 
     // manage details ekthesis
     public function create_details_ekth($id_ekthesis){
+        $id_ergasia=3;
+        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->get();
+        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
 
+
+        return view('pragmatognomosines.create_details_ekth',compact([
+            'parts',
+            'ergasia',
+            'id_ekthesis',
+            'id_ergasia'
+        ]));
+    }
+
+    public function store_details_ekth(Request $request,$id_ekthesis){
+        $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($id_ekthesis);
+
+        if ($request->quan == " "){
+            $request->quan=1;
+        }
+//        dd($request);
+        $pragmatognomosini->parts_of_ergasies()->attach($request->id_ergasia,['id_parts'=>  $request->id_parts ],['Cost_part'=>  $request->Cost_part ],['Cost_job'=>  $request->Cost_job ],['Type'=>  $request->Type],['quan'=>  $request->quan],['fpa_part'=>  $request->fpa_part],['fpa_job'=>  $request->fpa_job],['diax_fr_b'=>  $request->diax_fr_b],['prod_code'=>  $request->prod_code]);
+
+        $id_ergasia=3;
+        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->get();
+        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
+
+        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis)->with(['parts','ergasia','id_ergasia','id_ekthesis']);
     }
     // end manage details ekthesis
 }

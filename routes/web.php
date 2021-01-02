@@ -108,10 +108,16 @@ Route::get('oximata/search', 'OximataController@opensearch')->name('oximata.open
 Route::post('oximata/search', 'OximataController@search')->name('oximata.search');
 Route::get('oximata/{id}', 'OximataController@edit')->name('oximata.edit');
 Route::put('oximata/{id}', 'OximataController@update')->name('oximata.update');
+
+Route::get('oximata/{id}/add_spec', 'OximataController@create_spec')->name('oximata.create_spec');
+Route::post('oximata/{id}/add_spec', 'OximataController@store_spec')->name('oximata.store_spec');
+Route::get('oximata/{id}/edit_spec','OximataController@edit_spec')->name('oximata.edit_spec');
+Route::put('oximata/{id}/update_spec','OximataController@update_spec')->name('oximata.update_spec');
+
 Route::get('oximata/{id}/add_owner', 'OximataController@create_owner')->name('oximata.create_owner');
 Route::post('oximata/{id}/add_owner', 'OximataController@store_owner')->name('oximata.store_owner');
+Route::put('oximata/{id}/update_owner','OximataController@update_owner')->name('oximata.update_owner');
 Route::get('oximata/{id}/edit_owner/{second_id}/{third_id}','OximataController@edit_owner')->name('oximata.edit_owner');
-Route::post('oximata/{id}/update_owner','OximataController@update_owner')->name('oximata.update_owner');
 // end Route for oximata
 
 // Route for parts

@@ -5,8 +5,8 @@
         <div class="col-2 menu-text-size">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-oximata-tab" data-toggle="pill" href="#v-pills-oximata" role="tab" aria-controls="v-pills-oximata" aria-selected="true">Όχημα</a>
-                <a class="nav-link" id="v-pills-specifications-tab" data-toggle="pill" href="#v-pills-specifications" role="tab" aria-controls="v-pills-specifications" aria-selected="false" style="color: red">Επιπλέον Χαρακτηριστικά</a>
-                <a class="nav-link" id="v-pills-owners-tab" data-toggle="pill" href="#v-pills-owners" role="tab" aria-controls="v-pills-owners" aria-selected="false" style="color: red">Ιδιοκτήτες</a>
+                <a class="nav-link" id="v-pills-specifications-tab" data-toggle="pill" href="#v-pills-specifications" role="tab" aria-controls="v-pills-specifications" aria-selected="false">Επιπλέον Χαρακτηριστικά</a>
+                <a class="nav-link" id="v-pills-owners-tab" data-toggle="pill" href="#v-pills-owners" role="tab" aria-controls="v-pills-owners" aria-selected="false">Ιδιοκτήτες</a>
                 <a class="nav-link" id="v-pills-pragmoxim-tab" data-toggle="pill" href="#v-pills-pragmoxim" role="tab" aria-controls="v-pills-pragmoxim" aria-selected="false" >Εκθέσεις Οχήματος</a>
             </div>
         </div>
@@ -347,7 +347,45 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="v-pills-specifications" role="tabpanel" aria-labelledby="v-pills-specifications-tab">
-                    ...
+                    @if (empty($specifications))
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header-cust">
+                                        <h4 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Επιπλέων χαρακτηριστικά οχήματος:'.' '.$oxima->Ar_kyklo) }}</strong>
+                                        </h4>
+                                    </div>
+                                    <form id="creat_spec__first_form" method="post" action="{{ route('oximata.store_spec',$oxima->id_oximata) }}" autocomplete="off">
+                                        @csrf
+                                        <div class="container-fluid">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <input name="id_oximata" type="hidden" value="{{ $oxima->id_oximata }}">
+                                                            <div class="form-label{{ $errors->has('id_oximata') ? ' has-danger' : '' }}">
+                                                                <label class="form-control-label"
+                                                                       for="Ar_kyklo">{{ __('Όχημα') }}</label>
+                                                                <input type="text" name="Ar_kyklo" id="Ar_kyklo"
+                                                                       class="form-control form-input form-control-alternative{{ $errors->has('Ar_kyklo') ? ' is-invalid' : '' }}"
+                                                                       value="{{ $oxima->Ar_kyklo }}" disabled autofocus>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col d-flex justify-content-end">
+                                                        <button type="submit" class="btn btn-primary">Δημιουργία χαρακτηριστικών</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        @include('oximata.edit_spec')
+                    @endif
                 </div>
                 <div class="tab-pane fade" id="v-pills-owners" role="tabpanel" aria-labelledby="v-pills-owners-tab">
                     <a href="{{ route('oximata.create_owner',$oxima->id_oximata) }}" target="" class="btn btn-primary">Προσθήκη Ιδιοκτήτη</a>
