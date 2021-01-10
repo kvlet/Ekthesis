@@ -35,10 +35,10 @@
                                             <label class="form-control-label" for="id_parts">{{ __('Ανταλλακτικό') }}<span style="color:red;font-weight:bold">*</span></label>
                                             <select class="form-control form-select" id="id_parts" name="id_parts" required >
                                                 <option selected value value=-1>{{ " Επιλέξτε Ανταλλακτικό " }}</option>
-{{--                                                @foreach($erg->ergasies_in_parts as $part_erg)--}}
-                                                @foreach($part_erg as $paerg)
+                                                @foreach($erg->ergasies_in_parts as $part_erg)
+{{--                                                @foreach($part_erg as $paerg)--}}
                                                     @foreach($parts as $part)
-                                                        @if($paerg->id_parts == $part->id_parts)
+                                                        @if($part_erg->id_parts == $part->id_parts)
                                                             <option value="{{$part->id_parts}}" @if(old('id_parts') == $part->id_parts) selected @endif>{{ $part->part }}</option>
                                                         @endif
                                                    @endforeach
