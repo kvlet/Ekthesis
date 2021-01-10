@@ -893,8 +893,7 @@
                 </div>
                 <div class="tab-pane fade" id="v-pills-antikatastasis" role="tabpanel" aria-labelledby="v-pills-antikatastasis-tab">
                     <?php $id_ergasia=3;?>
-{{--                    @dd($id_ergasia,$pragmatognomosini->id_ekthesis)--}}
-                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis)}}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_details/'.$id_ergasia) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -1014,7 +1013,8 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-epanafores" role="tabpanel" aria-labelledby="v-pills-epanafores-tab">
-                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis,'4') }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <?php $id_ergasia=4;?>
+                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_details/'.$id_ergasia) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -1134,7 +1134,8 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-eksagogi" role="tabpanel" aria-labelledby="v-pills-eksagogi-tab">
-                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <?php $id_ergasia=5;?>
+                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_details/'.$id_ergasia) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -1254,7 +1255,8 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-bafes" role="tabpanel" aria-labelledby="v-pills-bafes-tab">
-                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <?php $id_ergasia=84;?>
+                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_details/'.$id_ergasia) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -1374,7 +1376,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-ergasiesnoantallaktika" role="tabpanel" aria-labelledby="v-pills-ergasiesnoantallaktika-tab">
-                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Εργασίας</a>
+{{--                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Εργασίας</a>--}}
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -1466,7 +1468,8 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-proasfalistikos" role="tabpanel" aria-labelledby="v-pills-proasfalistikos-tab">
-                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <?php $id_ergasia=55;?>
+                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_details/'.$id_ergasia) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
                     <div class="row">
                         <div class="col">
                             <hr>

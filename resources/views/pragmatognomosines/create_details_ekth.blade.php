@@ -14,7 +14,7 @@
                         @endforeach
                     </h4>
                 </div>
-                <form id="create_owner_form" method="post" action="{{ route('pragmatognomosines.store_details_ekth',$id_ekthesis) }}" autocomplete="off">
+                <form id="create_detail_ekth_form" method="post" action="{{ route('pragmatognomosines.store_details_ekth',$id_ekthesis) }}" autocomplete="off">
                     @csrf
                     <div class="container-fluid">
                         <div class="card">
@@ -22,6 +22,7 @@
                                 <div class="row">
                                     <div class="col-md-5">
                                         <input name="id_ergasies" type="hidden" value="{{ $id_ergasia }}">
+                                        <input name="id_ekthesis" type="hidden" value="{{ $id_ekthesis }}">
                                         <div class="form-label{{ $errors->has('ergasia') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="ergasia">{{ __('Εργασία') }} <span style="color:red;font-weight:bold">*</span></label>
                                             <input type="text" name="ergasia" id="ergasia"
@@ -34,8 +35,13 @@
                                             <label class="form-control-label" for="id_parts">{{ __('Ανταλλακτικό') }}<span style="color:red;font-weight:bold">*</span></label>
                                             <select class="form-control form-select" id="id_parts" name="id_parts" required >
                                                 <option selected value value=-1>{{ " Επιλέξτε Ανταλλακτικό " }}</option>
-                                                @foreach($parts as $part)
-                                                    <option value="{{$part->id_parts}}" @if(old('id_parts') == $part->id_parts) selected @endif>{{ $part->part }}</option>
+{{--                                                @foreach($erg->ergasies_in_parts as $part_erg)--}}
+                                                @foreach($part_erg as $paerg)
+                                                    @foreach($parts as $part)
+                                                        @if($paerg->id_parts == $part->id_parts)
+                                                            <option value="{{$part->id_parts}}" @if(old('id_parts') == $part->id_parts) selected @endif>{{ $part->part }}</option>
+                                                        @endif
+                                                   @endforeach
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('id_parts'))
