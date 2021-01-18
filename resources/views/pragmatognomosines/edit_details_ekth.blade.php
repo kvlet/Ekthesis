@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header-cust">
                     <h4 class="heading-small text-center text-muted">
-{{--                        @dd($ergasia)--}}
+                        {{--                        @dd($ergasia)--}}
                         @foreach($ergasia as $erg)
                             @if ($erg->id_ergasies == $id_ergasia)
                                 <strong>{{ __('Έκθεση:'.'  '.$id_ekthesis) }}</strong>
@@ -15,8 +15,9 @@
                         @endforeach
                     </h4>
                 </div>
-                <form id="create_detail_ekth_form" method="post" action="{{ route('pragmatognomosines.store_details_ekth',$id_ekthesis) }}" autocomplete="off">
+                <form id="edit_detail_ekth_form" method="post" action="{{ route('pragmatognomosines.update_details_ekth',$id_ekthesis) }}" autocomplete="off">
                     @csrf
+{{--                    {{ method_field('PUT') }}--}}
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-body">
@@ -32,18 +33,15 @@
                                         </div>
                                     </div>
                                     <div class="col-md-5">
+                                        <input name="id_parts" type="hidden" value="{{ $id_part }}">
                                         <div class="form-label{{ $errors->has('id_parts') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="id_parts">{{ __('Ανταλλακτικό') }}<span style="color:red;font-weight:bold">*</span></label>
-                                            <select class="form-control form-select" id="id_parts" name="id_parts" required >
-                                                <option selected value value=-1>{{ " Επιλέξτε Ανταλλακτικό " }}</option>
-                                                @foreach($erg->ergasies_in_parts as $part_erg)
-{{--                                                @foreach($part_erg as $paerg)--}}
+                                            <select class="form-control form-select" id="id_parts" name="id_parts" required disabled>
                                                     @foreach($parts as $part)
-                                                        @if($part_erg->id_parts == $part->id_parts)
-                                                            <option value="{{$part->id_parts}}" @if(old('id_parts') == $part->id_parts) selected @endif>{{ $part->part }}</option>
+                                                        @if($detail->pivot->id_parts == $part->id_parts)
+                                                            <option value="{{$detail->pivot->id_parts}}" @if($detail->pivot->id_parts == $part->id_parts) selected @endif>{{ $part->part }}</option>
                                                         @endif
-                                                   @endforeach
-                                                @endforeach
+                                                    @endforeach
                                             </select>
                                             @if ($errors->has('id_parts'))
                                                 <span class="invalid-feedback" role="alert">
@@ -59,7 +57,7 @@
                                             <label class="form-control-label" for="Cost_part">{{ __('Κόστος Ανταλλακτικού') }}<span style="color:red;font-weight:bold">*</span></label>
                                             <input type="number" name="Cost_part" id="Cost_part"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('Cost_part') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('Cost_part') }}"  required autofocus>
+                                                   value="{{ $detail->pivot->Cost_part }}"  required autofocus>
                                             @if ($errors->has('Cost_part'))
                                                 <span class="invalid-feedback" role="alert">
                                                      <strong>{{ $errors->first('Cost_part') }}</strong>
@@ -71,8 +69,8 @@
                                         <div class="form-label{{ $errors->has('fpa_part') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="fpa_part">{{ __(' Φ.Π.Α. Ανταλλακτικού') }} </label>
                                             <select class="form-control form-select" id="fpa_part" name="fpa_part" >
-                                                <option value="0" selected="selected">Χωρίς Φ.Π.Α.</option>
-                                                <option value="1" >Με Φ.Π.Α.</option>
+                                                <option value="0" @if($detail->pivot->fpa_part==0)selected="selected" @endif>Χωρίς Φ.Π.Α.</option>
+                                                <option value="1" @if($detail->pivot->fpa_part==1)selected="selected" @endif>Με Φ.Π.Α.</option>
                                             </select>
                                             @if ($errors->has('fpa_part'))
                                                 <span class="invalid-feedback" role="alert">
@@ -88,7 +86,7 @@
                                             <label class="form-control-label" for="Cost_job">{{ __('Κόστος Εργασίας') }}</label>
                                             <input type="number" name="Cost_job" id="Cost_job"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('Cost_job') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('Cost_job') }}"  utofocus>
+                                                   value="{{ $detail->pivot->Cost_job }}"  utofocus>
                                             @if ($errors->has('Cost_job'))
                                                 <span class="invalid-feedback" role="alert">
                                                      <strong>{{ $errors->first('Cost_job') }}</strong>
@@ -100,8 +98,8 @@
                                         <div class="form-label{{ $errors->has('fpa_job') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="fpa_job">{{ __(' Φ.Π.Α. Εργασίας') }} </label>
                                             <select class="form-control form-select" id="fpa_job" name="fpa_job" >
-                                                <option value="0" selected="selected">Χωρίς Φ.Π.Α.</option>
-                                                <option value="1" >Με Φ.Π.Α.</option>
+                                                <option value="0" @if($detail->pivot->fpa_job==0)selected="selected" @endif>Χωρίς Φ.Π.Α.</option>
+                                                <option value="1" @if($detail->pivot->fpa_job==1)selected="selected" @endif>Με Φ.Π.Α.</option>
                                             </select>
                                             @if ($errors->has('fpa_job'))
                                                 <span class="invalid-feedback" role="alert">
@@ -117,7 +115,7 @@
                                             <label class="form-control-label" for="quan">{{ __('Ποσότητα') }}</label>
                                             <input type="number" name="quan" id="quan"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('quan') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('quan') }}"  utofocus>
+                                                   value="{{ $detail->pivot->quan }}"  utofocus>
                                             @if ($errors->has('quan'))
                                                 <span class="invalid-feedback" role="alert">
                                                      <strong>{{ $errors->first('quan') }}</strong>
@@ -129,11 +127,11 @@
                                         <div class="form-label{{ $errors->has('Type') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="Type">{{ __(' Τύπος ') }} </label>
                                             <select class="form-control form-select" id="Type" name="Type" >
-                                                <option value=" " selected="selected"> </option>
-                                                <option value="Γνήσιο">Γνήσιο</option>
-                                                <option value="Μεταχειρισμένο">Μεταχειρισμένο</option>
-                                                <option value="Μεταχειρισμένο Κομπλέ">Μεταχειρισμένο Κομπλέ</option>
-                                                <option value="Ιμιτασιόν">Ιμιτασιόν</option>
+                                                <option value=" " @if($detail->pivot->Type== null)selected="selected" @endif> </option>
+                                                <option value="Γνήσιο" @if($detail->pivot->Type=='Γνήσιο')selected="selected" @endif>Γνήσιο</option>
+                                                <option value="Μεταχειρισμένο" @if($detail->pivot->Type=='Μεταχειρισμένο')selected="selected" @endif>Μεταχειρισμένο</option>
+                                                <option value="Μεταχειρισμένο Κομπλέ" @if($detail->pivot->Type=='Μεταχειρισμένο Κομπλέ')selected="selected" @endif>Μεταχειρισμένο Κομπλέ</option>
+                                                <option value="Ιμιτασιόν" @if($detail->pivot->Type=='Ιμιτασιόν')selected="selected" @endif>Ιμιτασιόν</option>
                                             </select>
                                             @if ($errors->has('Type'))
                                                 <span class="invalid-feedback" role="alert">
@@ -149,8 +147,8 @@
                                             <label class="form-control-label" for="diax_fr_b">{{ __(' Τύπος ') }} </label>
                                             <select class="form-control form-select" id="diax_fr_b" name="diax_fr_b" >
                                                 <option value=" " selected="selected"> </option>
-                                                <option value="Ε">Ε</option>
-                                                <option value="Ο">Ο</option>
+                                                <option value="Ε" @if($detail->pivot->diax_fr_b=='Ε') selected="selected" @endif>Ε</option>
+                                                <option value="Ο" @if($detail->pivot->diax_fr_b=='Ο') selected="selected" @endif>Ο</option>
                                             </select>
                                             @if ($errors->has('diax_fr_b'))
                                                 <span class="invalid-feedback" role="alert">
@@ -164,7 +162,7 @@
                                             <label class="form-control-label" for="prod_code">{{ __('Κωδικός Αντιπροσώπου') }}</label>
                                             <input type="text" name="prod_code" id="prod_code"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('prod_code') ? ' is-invalid' : '' }}"
-                                                   value="{{ old('prod_code') }}"  utofocus>
+                                                   value="{{ $detail->pivot->prod_code }}"  utofocus>
                                             @if ($errors->has('prod_code'))
                                                 <span class="invalid-feedback" role="alert">
                                                      <strong>{{ $errors->first('prod_code') }}</strong>
@@ -175,7 +173,7 @@
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                                        <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                                     </div>
                                 </div>
                             </div>
@@ -186,6 +184,7 @@
         </div>
     </div>
 @endsection
+
 
 
 

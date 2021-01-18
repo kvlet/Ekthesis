@@ -910,6 +910,7 @@
                                        @endif
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                         <strong>{{ __('Λίστα Ανταλλακτικών Αντικαταστάσεις'.' '.'('.$count.')') }}</strong>
                                     </h4>
                                 </div>
@@ -992,11 +993,11 @@
                                                                         {{ $ergasia->pivot->prod_code }}
                                                                     </td>
                                                                     <td>
-                                                                            <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                            <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                                target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                     </td>
                                                                     <td>
-                                                                            <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                            <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                                target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
                                                                     </td>
                                                                 </tr>
@@ -1031,6 +1032,7 @@
                                         @endif
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                         <strong>{{ __('Λίστα Ανταλλακτικών Επαναφορές'.' '.'('.$count.')') }}</strong>
                                     </h4>
                                 </div>
@@ -1113,11 +1115,11 @@
                                                                     {{ $ergasia->pivot->prod_code }}
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
                                                                 </td>
                                                             </tr>
@@ -1152,6 +1154,7 @@
                                         @endif
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                         <strong>{{ __('Λίστα Ανταλλακτικών Εξαγωγή / Επανατοποθέτηση'.' '.'('.$count.')') }}</strong>
                                     </h4>
                                 </div>
@@ -1234,11 +1237,11 @@
                                                                     {{ $ergasia->pivot->prod_code }}
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
                                                                 </td>
                                                             </tr>
@@ -1255,7 +1258,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-bafes" role="tabpanel" aria-labelledby="v-pills-bafes-tab">
-                    <?php $id_ergasia=84;?>
+                    <?php $id_ergasia=6;?>
                     <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_details/'.$id_ergasia) }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
                     <div class="row">
                         <div class="col">
@@ -1273,6 +1276,7 @@
                                         @endif
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                         <strong>{{ __('Λίστα Ανταλλακτικών Βαφές'.' '.'('.$count.')') }}</strong>
                                     </h4>
                                 </div>
@@ -1355,11 +1359,11 @@
                                                                     {{ $ergasia->pivot->prod_code }}
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
                                                                 </td>
                                                             </tr>
@@ -1393,6 +1397,7 @@
                                         @endif
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                         <strong>{{ __('Λίστα Εργασιών χωρίς ανταλλακτικά'.' '.'('.$count.')') }}</strong>
                                     </h4>
                                 </div>
@@ -1447,11 +1452,11 @@
                                                                     {{ $ergasia->pivot->diax_fr_b }}
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
                                                                 </td>
                                                             </tr>
@@ -1486,6 +1491,7 @@
                                         @endif
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                         <strong>{{ __('Λίστα Ανταλλακτικών Προασφαλιστικός'.' '.'('.$count.')') }}</strong>
                                     </h4>
                                 </div>
@@ -1517,11 +1523,11 @@
                                                                     {{ $ergasia->pivot->Type }}
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
                                                                 </td>
                                                             </tr>
@@ -1555,6 +1561,7 @@
                             <div class="card">
                                 <div class="card-header-cust">
                                     <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                         <strong>{{ __('Λίστα Κειμένων') }}</strong>
                                     </h4>
                                 </div>
@@ -1633,6 +1640,7 @@
                             <div class="card">
                                 <div class="card-header-cust">
                                     <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                         <strong>{{ __('Λίστα Συνεργείων') }}</strong>
                                     </h4>
                                 </div>
@@ -1736,6 +1744,7 @@
                                 <div class="card">
                                     <div class="card-header-cust">
                                         <h4 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                             <strong>{{ __('Λίστα Πρακτορείων') }}</strong>
                                         </h4>
                                     </div>
