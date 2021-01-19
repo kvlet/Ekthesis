@@ -924,13 +924,15 @@ class PragmController extends Controller
     public function update_details_ekth(Request $request){
 
         $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($request->id_ekthesis);
-        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $request->id_ergasies)->where('id_parts','=',$request->id_parts)->first();
-
+//        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $request->id_ergasies)->where('id_parts','=',$request->id_parts)->first();
+        $detail = DetailPrag::where([['id_ekthesis',$request->id_ekthesis],['id_ergasies',$request->id_ergasies],['id_parts',$request->id_parts]])->first();
+//        dd($detail);
         if ($request->quan == " "){
             $request->quan=1;
         }
 //        dd($request);
-//        $detail = new DetailPrag();
+
+
         $detail->id_ekthesis = $request->id_ekthesis;
         $detail->id_ergasies = $request->id_ergasies;
         $detail->id_parts = $request->id_parts;
@@ -942,7 +944,7 @@ class PragmController extends Controller
         $detail->fpa_job = $request->fpa_job;
         $detail->diax_fr_b = $request->diax_fr_b;
         $detail->prod_code = $request->prod_code;
-        $detail->pivot->save();
+        $detail->save();
 
         $id_ergasia=$request->id_ergasia;
         $id_ekthesis=$request->id_ekthesis;
