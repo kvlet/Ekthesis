@@ -923,36 +923,37 @@ class PragmController extends Controller
 
     public function update_details_ekth(Request $request){
 
-        $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($request->id_ekthesis);
+//        $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($request->id_ekthesis);
 //        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $request->id_ergasies)->where('id_parts','=',$request->id_parts)->first();
-        $detail = DetailPrag::where([['id_ekthesis',$request->id_ekthesis],['id_ergasies',$request->id_ergasies],['id_parts',$request->id_parts]])->first();
-//        dd($detail);
         if ($request->quan == " "){
             $request->quan=1;
         }
+        $detail = DetailPrag::where([['id_ekthesis',$request->id_ekthesis],['id_ergasies',$request->id_ergasies],['id_parts',$request->id_parts]])->update($request->except(['_token']));
+//        dd($detail);
+
 //        dd($request);
 
-
-        $detail->id_ekthesis = $request->id_ekthesis;
-        $detail->id_ergasies = $request->id_ergasies;
-        $detail->id_parts = $request->id_parts;
-        $detail->Cost_part = $request->Cost_part;
-        $detail->Cost_job = $request->Cost_job;
-        $detail->Type = $request->Type;
-        $detail->quan = $request->quan;
-        $detail->fpa_part = $request->fpa_part;
-        $detail->fpa_job = $request->fpa_job;
-        $detail->diax_fr_b = $request->diax_fr_b;
-        $detail->prod_code = $request->prod_code;
+//        $detail->($request->all);
+//        $detail->id_ekthesis = $request->id_ekthesis;
+//        $detail->id_ergasies = $request->id_ergasies;
+//        $detail->id_parts = $request->id_parts;
+//        $detail->Cost_part = $request->Cost_part;
+//        $detail->Cost_job = $request->Cost_job;
+//        $detail->Type = $request->Type;
+//        $detail->quan = $request->quan;
+//        $detail->fpa_part = $request->fpa_part;
+//        $detail->fpa_job = $request->fpa_job;
+//        $detail->diax_fr_b = $request->diax_fr_b;
+//        $detail->prod_code = $request->prod_code;
         $detail->save();
 
-        $id_ergasia=$request->id_ergasia;
-        $id_ekthesis=$request->id_ekthesis;
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->get();
-        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
+//        $id_ergasia=$request->id_ergasia;
+//        $id_ekthesis=$request->id_ekthesis;
+//        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->get();
+//        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
 
 
-        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
 //        return view('pragmatognomosines.create_details_ekth',compact([
 //            'parts',
 //            'ergasia',
