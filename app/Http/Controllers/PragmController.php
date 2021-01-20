@@ -945,7 +945,7 @@ class PragmController extends Controller
 //        $detail->fpa_job = $request->fpa_job;
 //        $detail->diax_fr_b = $request->diax_fr_b;
 //        $detail->prod_code = $request->prod_code;
-        $detail->save();
+//        $detail->update();
 
 //        $id_ergasia=$request->id_ergasia;
 //        $id_ekthesis=$request->id_ekthesis;
