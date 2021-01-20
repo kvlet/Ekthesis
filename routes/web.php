@@ -34,7 +34,7 @@ Route::post('pragmatognomosines/{id}/add_details/', 'PragmController@store_detai
 Route::get('pragmatognomosines/{id}/edit_details/{second_id}/{third_id}', 'PragmController@edit_details_ekth');
 Route::get('pragmatognomosines/{id}/delete_details/{second_id}', 'PragmController@delete_details_ekth')->name('pragmatognomosines.delete_details_ekth');
 Route::post('pragmatognomosines/edit_details/{id}', 'PragmController@update_details_ekth')->name('pragmatognomosines.update_details_ekth');
-Route::delete('pragmatognomosines/delete_details', 'PragmController@destroy_details_ekth')->name('pragmatognomosines.destroy_details_ekth');
+Route::delete('pragmatognomosines/delete_details/{id}', 'PragmController@destroy_details_ekth')->name('pragmatognomosines.destroy_details_ekth');
 
 Route::get('pragmatognomosines/{id}/add_synergeia', 'PragmController@create_synergeia_ekth')->name('pragmatognomosines.create_synergeia_ekth');
 Route::post('pragmatognomosines/{id}/add_synergeia', 'PragmController@store_synergeia_ekth')->name('pragmatognomosines.store_synergeia_ekth');
