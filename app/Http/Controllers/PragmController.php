@@ -282,16 +282,15 @@ class PragmController extends Controller
             $costPart6=0;$costJob6=0;$fpaPart6=0;$fpaJob6=0;
             $costJobNoPart=0;$fpaJobNoPart=0;
             foreach ($pragmatognomosini->parts_of_ergasies as $ergasia) {
-                //dd($ergasia);
+//                dd($ergasia);
                 if ($ergasia->pivot->fpa_part == 1){
-                    $costPart=$ergasia->pivot->Cost_part / (1+($pragmatognomosini->Fpa/100));
-
+                    $costPart=$ergasia->pivot->Cost_part / (1+($ergasia->pivot->sint_fpa_part/100));
                 }else{
                     $costPart=$ergasia->pivot->Cost_part;
                 }
 
                 if ($ergasia->pivot->fpa_job == 1){
-                    $costJob=$ergasia->pivot->Cost_job / (1+($pragmatognomosini->Fpa/100));
+                    $costJob=$ergasia->pivot->Cost_job / (1+($ergasia->pivot->sint_fpa_job/100));
                 }else{
                     $costJob=$ergasia->pivot->Cost_job;
                 }
@@ -299,30 +298,30 @@ class PragmController extends Controller
                 if ($ergasia->pivot->id_ergasies == 3) {
                     $costPart3 += $costPart;
                     $costJob3 += $costJob;
-                    $fpaPart3 += $costPart * $pragmatognomosini->Fpa/100;
-                    $fpaJob3 += $costJob * $pragmatognomosini->Fpa/100;
+                    $fpaPart3 += $costPart * $ergasia->pivot->sint_fpa_part/100;
+                    $fpaJob3 += $costJob * $ergasia->pivot->sint_fpa_job/100;
                 }
                 if ($ergasia->pivot->id_ergasies == 4) {
                     $costPart4 += $costPart;
                     $costJob4 += $costJob;
-                    $fpaPart4 += $costPart * $pragmatognomosini->Fpa/100;
-                    $fpaJob4 += $costJob * $pragmatognomosini->Fpa/100;
+                    $fpaPart4 += $costPart * $ergasia->pivot->sint_fpa_part/100;
+                    $fpaJob4 += $costJob * $ergasia->pivot->sint_fpa_job/100;
                 }
                 if ($ergasia->pivot->id_ergasies == 5) {
                     $costPart5 += $costPart;
                     $costJob5 += $costJob;
-                    $fpaPart5 += $costPart * $pragmatognomosini->Fpa/100;
-                    $fpaJob5 += $costJob * $pragmatognomosini->Fpa/100;
+                    $fpaPart5 += $costPart * $ergasia->pivot->sint_fpa_part/100;
+                    $fpaJob5 += $costJob * $ergasia->pivot->sint_fpa_job/100;
                 }
                 if ($ergasia->pivot->id_ergasies == 6) {
                     $costPart6 += $costPart;
                     $costJob6 += $costJob;
-                    $fpaPart6 += $costPart * $pragmatognomosini->Fpa/100;
-                    $fpaJob6 += $costJob * $pragmatognomosini->Fpa/100;
+                    $fpaPart6 += $costPart * $ergasia->pivot->sint_fpa_part/100;
+                    $fpaJob6 += $costJob * $ergasia->pivot->sint_fpa_job/100;
                 }
                 if (($ergasia->pivot->id_ergasies != 3) && ($ergasia->pivot->id_ergasies != 4) && ($ergasia->pivot->id_ergasies != 5) && ($ergasia->pivot->id_ergasies != 6) && ($ergasia->pivot->id_ergasies != 55)) {
                     $costJobNoPart += $costJob;
-                    $fpaJobNoPart += $costJob * $pragmatognomosini->Fpa/100;
+                    $fpaJobNoPart += $costJob * $ergasia->pivot->sint_fpa_job/100;
                 }
             }
        // end  calculate ekthesi details costs
@@ -879,8 +878,14 @@ class PragmController extends Controller
     public function store_details_ekth(Request $request){
 //        $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($request->id_ekthesis);
         //dd($pragmatognomosini);
-        if ($request->quan == " "){
+        if ($request->quan == null){
             $request->quan=1;
+        }
+        if ($request->sint_fpa_part == null){
+            $request->sint_fpa_part=24.00;
+        }
+        if ($request->sint_fpa_job == null){
+            $request->sint_fpa_job=24.00;
         }
 //        dd($request);
         $detail = new DetailPrag();
@@ -895,6 +900,8 @@ class PragmController extends Controller
         $detail->fpa_job = $request->fpa_job;
         $detail->diax_fr_b = $request->diax_fr_b;
         $detail->prod_code = $request->prod_code;
+        $detail->sint_fpa_part = $request->sint_fpa_part;
+        $detail->sint_fpa_job = $request->sint_fpa_job;
         $detail->save();
 
         $id_ergasia=$request->id_ergasia;
@@ -923,10 +930,44 @@ class PragmController extends Controller
 
     public function update_details_ekth(Request $request){
 
+        if ($request->quan == null){
+            $request->quan=1;
+        }
+        if ($request->sint_fpa_part == null){
+            $request->sint_fpa_part=24.00;
+        }
+        if ($request->sint_fpa_job == null){
+            $request->sint_fpa_job=24.00;
+        }
+        $detail = DetailPrag::where([['id_ekthesis',$request->id_ekthesis],['id_ergasies',$request->id_ergasies],['id_parts',$request->id_parts]])->update($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+
+    }
+
+    public function delete_details_ekth($id_ekthesis,$id_ergasia,$id_part){
+        $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($id_ekthesis);
+        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasia)->where('id_parts','=',$id_part)->first();
+        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
+        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+//        dd($detail);
+
+        return view('pragmatognomosines.delete_details_ekth',compact([
+            'detail',
+            'id_ekthesis',
+            'id_ergasia',
+            'id_part',
+            'ergasia',
+            'parts'
+        ]));
+    }
+
+    public function destroy_details_ekth(Request $request){
+
         if ($request->quan == " "){
             $request->quan=1;
         }
-        $detail = DetailPrag::where([['id_ekthesis',$request->id_ekthesis],['id_ergasies',$request->id_ergasies],['id_parts',$request->id_parts]])->update($request->except(['_token']));
+        $detail = DetailPrag::where([['id_ekthesis',$request->id_ekthesis],['id_ergasies',$request->id_ergasies],['id_parts',$request->id_parts]])->delete($request->except(['_token']));
 
         return redirect('pragmatognomosines/'.$request->id_ekthesis);
 

@@ -6,12 +6,12 @@
             <div class="col-2 menu-text-size">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab" aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
-                    <a class="nav-link" id="v-pills-antikatastasis-tab" data-toggle="pill" href="#v-pills-antikatastasis" role="tab" aria-controls="v-pills-antikatastasis" aria-selected="false" style="color: red">Αντικαταστάσεις</a>
-                    <a class="nav-link" id="v-pills-epanafores-tab" data-toggle="pill" href="#v-pills-epanafores" role="tab" aria-controls="v-pills-epanafores" aria-selected="false" style="color: red">Επαναφορές</a>
-                    <a class="nav-link" id="v-pills-eksagogi-tab" data-toggle="pill" href="#v-pills-eksagogi" role="tab" aria-controls="v-pills-eksagogi" aria-selected="false" style="color: red">Εξαγωγή/Επανατοποθέτηση</a>
-                    <a class="nav-link" id="v-pills-bafes-tab" data-toggle="pill" href="#v-pills-bafes" role="tab" aria-controls="v-pills-bafes" aria-selected="false" style="color: red">Βαφές</a>
+                    <a class="nav-link" id="v-pills-antikatastasis-tab" data-toggle="pill" href="#v-pills-antikatastasis" role="tab" aria-controls="v-pills-antikatastasis" aria-selected="false" >Αντικαταστάσεις</a>
+                    <a class="nav-link" id="v-pills-epanafores-tab" data-toggle="pill" href="#v-pills-epanafores" role="tab" aria-controls="v-pills-epanafores" aria-selected="false" >Επαναφορές</a>
+                    <a class="nav-link" id="v-pills-eksagogi-tab" data-toggle="pill" href="#v-pills-eksagogi" role="tab" aria-controls="v-pills-eksagogi" aria-selected="false" >Εξαγωγή/Επανατοποθέτηση</a>
+                    <a class="nav-link" id="v-pills-bafes-tab" data-toggle="pill" href="#v-pills-bafes" role="tab" aria-controls="v-pills-bafes" aria-selected="false" >Βαφές</a>
                     <a class="nav-link" id="v-pills-ergasiesNoAntallaktika-tab" data-toggle="pill" href="#v-pills-ergasiesnoantallaktika" role="tab" aria-controls="v-pills-ergasiesnoantallaktika" aria-selected="false" style="color: red">Εργασίες χωρίς ανταλλακτικά</a>
-                    <a class="nav-link" id="v-pills-proasfalistikos-tab" data-toggle="pill" href="#v-pills-proasfalistikos" role="tab" aria-controls="v-pills-proasfalistikos" aria-selected="false" style="color: red">Προασφαλιστικός</a>
+                    <a class="nav-link" id="v-pills-proasfalistikos-tab" data-toggle="pill" href="#v-pills-proasfalistikos" role="tab" aria-controls="v-pills-proasfalistikos" aria-selected="false" >Προασφαλιστικός</a>
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
                     <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: red">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-foto-tab" data-toggle="pill" href="#v-pills-foto" role="tab" aria-controls="v-pills-foto" aria-selected="false" style="color: red">Φωτογραφίες</a>
@@ -939,8 +939,10 @@
                                                         <th>Ανταλ/κό</th>
                                                         <th>Κόστος Ανταλ/κού</th>
                                                         <th>Φ.Π.Α Ανταλ/κού</th>
+                                                        <th>Συντ. Φ.Π.Α Ανταλ/κού</th>
                                                         <th>Κόστος Εργασίας</th>
                                                         <th>Φ.Π.Α Εργασίας</th>
+                                                        <th>Συντ. Φ.Π.Α Εργασίας</th>
                                                         <th>Τύπος</th>
                                                         <th>Ποσότητα</th>
                                                         <th>Ζημιά</th>
@@ -971,6 +973,9 @@
                                                                         @endif
                                                                     </td>
                                                                     <td>
+                                                                        {{ $ergasia->pivot->sint_fpa_part.'%' }}
+                                                                    </td>
+                                                                    <td>
                                                                         {{ $ergasia->pivot->Cost_job.'€' }}
                                                                     </td>
                                                                     <td>
@@ -979,6 +984,9 @@
                                                                         @else
                                                                             <input type="checkbox" disabled checked>
                                                                         @endif
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ $ergasia->pivot->sint_fpa_job.'%' }}
                                                                     </td>
                                                                     <td>
                                                                         {{ $ergasia->pivot->Type }}
@@ -1061,8 +1069,10 @@
                                                         <th>Ανταλ/κό</th>
                                                         <th>Κόστος Ανταλ/κού</th>
                                                         <th>Φ.Π.Α Ανταλ/κού</th>
+                                                        <th>Συντ. Φ.Π.Α Ανταλ/κού</th>
                                                         <th>Κόστος Εργασίας</th>
                                                         <th>Φ.Π.Α Εργασίας</th>
+                                                        <th>Συντ. Φ.Π.Α Εργασίας</th>
                                                         <th>Τύπος</th>
                                                         <th>Ποσότητα</th>
                                                         <th>Ζημιά</th>
@@ -1093,6 +1103,9 @@
                                                                     @endif
                                                                 </td>
                                                                 <td>
+                                                                    {{ $ergasia->pivot->sint_fpa_part.'%' }}
+                                                                </td>
+                                                                <td>
                                                                     {{ $ergasia->pivot->Cost_job.'€' }}
                                                                 </td>
                                                                 <td>
@@ -1101,6 +1114,9 @@
                                                                     @else
                                                                         <input type="checkbox" disabled checked>
                                                                     @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->sint_fpa_job.'%' }}
                                                                 </td>
                                                                 <td>
                                                                     {{ $ergasia->pivot->Type }}
@@ -1183,8 +1199,10 @@
                                                         <th>Ανταλ/κό</th>
                                                         <th>Κόστος Ανταλ/κού</th>
                                                         <th>Φ.Π.Α Ανταλ/κού</th>
+                                                        <th>Συντ. Φ.Π.Α Ανταλ/κού</th>
                                                         <th>Κόστος Εργασίας</th>
                                                         <th>Φ.Π.Α Εργασίας</th>
+                                                        <th>Συντ. Φ.Π.Α Εργασίας</th>
                                                         <th>Τύπος</th>
                                                         <th>Ποσότητα</th>
                                                         <th>Ζημιά</th>
@@ -1215,7 +1233,10 @@
                                                                     @endif
                                                                 </td>
                                                                 <td>
-                                                                    {{ $ergasia->pivot->Cost_job.'€' }}
+                                                                    {{ $ergasia->pivot->sint_fpa_part.'%' }}
+                                                                </td>
+                                                                <td>
+                                                                      {{ $ergasia->pivot->Cost_job.'€' }}
                                                                 </td>
                                                                 <td>
                                                                     @if ($ergasia->pivot->fpa_job == 0)
@@ -1223,6 +1244,9 @@
                                                                     @else
                                                                         <input type="checkbox" disabled checked>
                                                                     @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->sint_fpa_job.'%' }}
                                                                 </td>
                                                                 <td>
                                                                     {{ $ergasia->pivot->Type }}
@@ -1305,8 +1329,10 @@
                                                         <th>Ανταλ/κό</th>
                                                         <th>Κόστος Ανταλ/κού</th>
                                                         <th>Φ.Π.Α Ανταλ/κού</th>
+                                                        <th>Συντ. Φ.Π.Α Ανταλ/κού</th>
                                                         <th>Κόστος Εργασίας</th>
                                                         <th>Φ.Π.Α Εργασίας</th>
+                                                        <th>Συντ. Φ.Π.Α Εργασίας</th>
                                                         <th>Τύπος</th>
                                                         <th>Ποσότητα</th>
                                                         <th>Ζημιά</th>
@@ -1337,14 +1363,20 @@
                                                                     @endif
                                                                 </td>
                                                                 <td>
+                                                                    {{ $ergasia->pivot->sint_fpa_part.'%' }}
+                                                                </td>
+                                                                <td>
                                                                     {{ $ergasia->pivot->Cost_job.'€' }}
                                                                 </td>
                                                                 <td>
                                                                     @if ($ergasia->pivot->fpa_job == 0)
-                                                                        <input type="checkbox" disabled>
+                                                                        <input type="checkbox" dijobsabled>
                                                                     @else
                                                                         <input type="checkbox" disabled checked>
                                                                     @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->sint_fpa_job.'%' }}
                                                                 </td>
                                                                 <td>
                                                                     {{ $ergasia->pivot->Type }}
@@ -1380,7 +1412,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-ergasiesnoantallaktika" role="tabpanel" aria-labelledby="v-pills-ergasiesnoantallaktika-tab">
-{{--                    <a href="{{route('pragmatognomosines.create_details_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη Εργασίας</a>--}}
+                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_details/'.$id_ergasia) }}" target="" class="btn btn-primary">Προσθήκη Εργασίας</a>
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -1422,6 +1454,7 @@
                                                         <th>Εργασία</th>
                                                         <th>Κόστος Εργασίας</th>
                                                         <th>Φ.Π.Α Εργασίας</th>
+                                                        <th>Συντ. Φ.Π.Α Εργασίας</th>
                                                         <th>Ζημιά</th>
                                                         <th>Επεξεργασία</th>
                                                         <th>Διαγραφή</th>
@@ -1447,6 +1480,9 @@
                                                                     @else
                                                                         <input type="checkbox" disabled checked>
                                                                     @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $ergasia->pivot->sint_fpa_job.'%' }}
                                                                 </td>
                                                                 <td>
                                                                     {{ $ergasia->pivot->diax_fr_b }}
@@ -1503,7 +1539,6 @@
                                                     <thead class="thead-dark">
                                                     <tr>
                                                         <th>Ανταλ/κό</th>
-                                                        <th>Τύπος</th>
                                                         <th>Επεξεργασία</th>
                                                         <th>Διαγραφή</th>
                                                     </tr>
@@ -1518,9 +1553,6 @@
                                                                             {{ $part->part }}
                                                                         @endif
                                                                     @endforeach
-                                                                </td>
-                                                                <td>
-                                                                    {{ $ergasia->pivot->Type }}
                                                                 </td>
                                                                 <td>
                                                                     <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"

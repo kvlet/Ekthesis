@@ -1,7 +1,7 @@
 @extends('forms')
 
 @section('formsdetails')
-    <form id="edit_synergeia_ekth_form" method="post" action="{{ route('pragmatognomosines.destroy_synergeia_ekth') }}" autocomplete="off">
+    <form id="delete_synergeia_ekth_form" method="post" action="{{ route('pragmatognomosines.destroy_synergeia_ekth') }}" autocomplete="off">
         @csrf
         {{ method_field('DELETE') }}
         <div class="row">
