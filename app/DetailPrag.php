@@ -22,4 +22,9 @@ class DetailPrag extends Model
        'diax_fr_b',
        'prod_code'
     ];
+    protected $attributes=[
+        'sint_fpa_job' => '24.00',
+        'sint_fpa_part' => '24.00',
+        'quan' => '1',
+    ];
 }

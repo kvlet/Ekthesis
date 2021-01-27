@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </form>
-                @else
+                @elseif($id_ergasia == 3 || $id_ergasia == 4 || $id_ergasia == 5 || $id_ergasia == 6)
                     <form id="create_detail_ekth_form" method="post" action="{{ route('pragmatognomosines.store_details_ekth',$id_ekthesis) }}" autocomplete="off">
                         @csrf
                         <div class="container-fluid">

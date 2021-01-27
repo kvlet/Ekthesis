@@ -864,14 +864,24 @@ class PragmController extends Controller
 //        dd($part_erg);
         $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
         $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
-
+        $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
 
         return view('pragmatognomosines.create_details_ekth',compact([
             'parts',
             'ergasia',
             'id_ergasia',
             'id_ekthesis',
+            'ergasies'
 //            'part_erg'
+        ]));
+    }
+    public function create_details_ekth_nop($id_ekthesis,$id_part){
+        $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
+
+        return view('pragmatognomosines.create_details_ekth_nop',compact([
+            'id_part',
+            'id_ekthesis',
+            'ergasies'
         ]));
     }
 
@@ -927,7 +937,23 @@ class PragmController extends Controller
             'parts'
         ]));
     }
+    public function edit_details_ekth_nop($id_ekthesis,$id_ergasies,$id_part){
+//        dd($id_ergasies,$id_part);
+        $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($id_ekthesis);
+        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasies)->where('id_parts','=',$id_part)->first();
+        $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
+        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+//        dd($detail);
 
+        return view('pragmatognomosines.edit_details_ekth_nop',compact([
+            'detail',
+            'id_ekthesis',
+            'id_ergasies',
+            'id_part',
+            'ergasies',
+            'parts'
+        ]));
+    }
     public function update_details_ekth(Request $request){
 
         if ($request->quan == null){
@@ -939,6 +965,7 @@ class PragmController extends Controller
         if ($request->sint_fpa_job == null){
             $request->sint_fpa_job=24.00;
         }
+//        dd($request);
         $detail = DetailPrag::where([['id_ekthesis',$request->id_ekthesis],['id_ergasies',$request->id_ergasies],['id_parts',$request->id_parts]])->update($request->except(['_token']));
 
         return redirect('pragmatognomosines/'.$request->id_ekthesis);
@@ -962,6 +989,22 @@ class PragmController extends Controller
         ]));
     }
 
+    public function delete_details_ekth_nop($id_ekthesis,$id_ergasies,$id_part){
+        $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($id_ekthesis);
+        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasies)->where('id_parts','=',$id_part)->first();
+        $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
+        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+//        dd($detail);
+
+        return view('pragmatognomosines.delete_details_ekth_nop',compact([
+            'detail',
+            'id_ekthesis',
+            'id_ergasies',
+            'id_part',
+            'ergasies',
+            'parts'
+        ]));
+    }
     public function destroy_details_ekth(Request $request){
 
         if ($request->quan == " "){

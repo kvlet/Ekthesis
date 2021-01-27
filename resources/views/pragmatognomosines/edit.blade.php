@@ -10,7 +10,7 @@
                     <a class="nav-link" id="v-pills-epanafores-tab" data-toggle="pill" href="#v-pills-epanafores" role="tab" aria-controls="v-pills-epanafores" aria-selected="false" >Επαναφορές</a>
                     <a class="nav-link" id="v-pills-eksagogi-tab" data-toggle="pill" href="#v-pills-eksagogi" role="tab" aria-controls="v-pills-eksagogi" aria-selected="false" >Εξαγωγή/Επανατοποθέτηση</a>
                     <a class="nav-link" id="v-pills-bafes-tab" data-toggle="pill" href="#v-pills-bafes" role="tab" aria-controls="v-pills-bafes" aria-selected="false" >Βαφές</a>
-                    <a class="nav-link" id="v-pills-ergasiesNoAntallaktika-tab" data-toggle="pill" href="#v-pills-ergasiesnoantallaktika" role="tab" aria-controls="v-pills-ergasiesnoantallaktika" aria-selected="false" style="color: red">Εργασίες χωρίς ανταλλακτικά</a>
+                    <a class="nav-link" id="v-pills-ergasiesNoAntallaktika-tab" data-toggle="pill" href="#v-pills-ergasiesnoantallaktika" role="tab" aria-controls="v-pills-ergasiesnoantallaktika" aria-selected="false">Εργασίες χωρίς ανταλλακτικά</a>
                     <a class="nav-link" id="v-pills-proasfalistikos-tab" data-toggle="pill" href="#v-pills-proasfalistikos" role="tab" aria-controls="v-pills-proasfalistikos" aria-selected="false" >Προασφαλιστικός</a>
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
                     <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: red">Κατάσταση</a>
@@ -1412,7 +1412,8 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-ergasiesnoantallaktika" role="tabpanel" aria-labelledby="v-pills-ergasiesnoantallaktika-tab">
-                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_details/'.$id_ergasia) }}" target="" class="btn btn-primary">Προσθήκη Εργασίας</a>
+                    <?php $id_part=1;?>
+                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_details_nop/'.$id_part) }}" target="" class="btn btn-primary">Προσθήκη Εργασίας</a>
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -1488,11 +1489,11 @@
                                                                     {{ $ergasia->pivot->diax_fr_b }}
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details_nop/'.$ergasia->pivot->id_ergasies.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details_nop/'.$ergasia->pivot->id_ergasies.'/'.$ergasia->pivot->id_parts) }}"
                                                                        target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
                                                                 </td>
                                                             </tr>
@@ -1538,8 +1539,7 @@
                                                 <table id="parts_proasf" class="table-sm table table-bordered table-hover" style="width:100%">
                                                     <thead class="thead-dark">
                                                     <tr>
-                                                        <th>Ανταλ/κό</th>
-                                                        <th>Επεξεργασία</th>
+                                                        <th>Ανταλλακτικό</th>
                                                         <th>Διαγραφή</th>
                                                     </tr>
                                                     </thead>
@@ -1553,10 +1553,6 @@
                                                                             {{ $part->part }}
                                                                         @endif
                                                                     @endforeach
-                                                                </td>
-                                                                <td>
-                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"
-                                                                       target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                                                 </td>
                                                                 <td>
                                                                     <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_details/'.$id_ergasia.'/'.$ergasia->pivot->id_parts) }}"

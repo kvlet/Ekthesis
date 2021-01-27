@@ -15,7 +15,57 @@
                         @endforeach
                     </h4>
                 </div>
-                <form id="edit_detail_ekth_form" method="post" action="{{ route('pragmatognomosines.update_details_ekth',$id_ekthesis) }}" autocomplete="off">
+                @if($id_ergasia == 55)
+                    <form id="edit_detail_ekth_form" method="post" action="{{ route('pragmatognomosines.update_details_ekth',$id_ekthesis) }}" autocomplete="off">
+                        @csrf
+                        <div class="container-fluid">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <input name="id_ergasies" type="hidden" value="{{ $id_ergasia }}">
+                                            <input name="id_ekthesis" type="hidden" value="{{ $id_ekthesis }}">
+                                            <input name="Cost_part" type="hidden" value="{{ 0.00 }}">
+                                            <input name="Cost_job" type="hidden" value="{{ 0.00 }}">
+                                            <div class="form-label{{ $errors->has('ergasia') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="ergasia">{{ __('Εργασία') }} <span style="color:red;font-weight:bold">*</span></label>
+                                                <input type="text" name="ergasia" id="ergasia"
+                                                       class="form-control form-input form-control-alternative{{ $errors->has('ergasia') ? ' is-invalid' : '' }}"
+                                                       value="{{  $erg->ergasia  }}" autofocus disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-label{{ $errors->has('id_parts') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="id_parts">{{ __('Ανταλλακτικό') }}<span style="color:red;font-weight:bold">*</span></label>
+                                                <select class="form-control form-select" id="id_parts" name="id_parts" required disabled>
+                                                        @foreach($parts as $part)
+                                                            @if($detail->pivot->id_parts == $part->id_parts)
+                                                                <option value="{{$detail->pivot->id_parts}}" @if($detail->pivot->id_parts == $part->id_parts) selected @endif>{{ $part->part }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                </select>
+                                                @if ($errors->has('id_parts'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('id_parts') }}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                                        </div>
+                                        <div class="col d-flex justify-content-end">
+                                            <a href="{{  URL('pragmatognomosines/'.$id_ekthesis) }}" class="btn btn-primary" role="button">Επιστροφή</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                @else
+                    <form id="edit_detail_ekth_form" method="post" action="{{ route('pragmatognomosines.update_details_ekth',$id_ekthesis) }}" autocomplete="off">
                     @csrf
 {{--                    {{ method_field('PUT') }}--}}
                     <div class="container-fluid">
@@ -209,6 +259,7 @@
                         </div>
                     </div>
                 </form>
+                @endif
             </div>
         </div>
     </div>
