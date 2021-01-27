@@ -42,7 +42,7 @@
                                                 <label class="form-control-label" for="Cost_job">{{ __('Κόστος Εργασίας') }}</label>
                                                 <input type="number" name="Cost_job" id="Cost_job"
                                                        class="form-control form-input form-control-alternative{{ $errors->has('Cost_job') ? ' is-invalid' : '' }}"
-                                                       value="{{ $detail->pivot->Cost_job }}"  autofocus>
+                                                       value="{{ $detail->pivot->Cost_job }}"  autofocus required>
                                                 @if ($errors->has('Cost_job'))
                                                     <span class="invalid-feedback" role="alert">
                                                      <strong>{{ $errors->first('Cost_job') }}</strong>
