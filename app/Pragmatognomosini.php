@@ -109,4 +109,7 @@ class Pragmatognomosini extends Model
         return $this->belongsToMany('App\Ergasies','db_details_ekthesis','id_ekthesis','id_ergasies')->withPivot('id_parts','Cost_part','Cost_job','Type','quan','fpa_part','fpa_job','diax_fr_b','prod_code','sint_fpa_part','sint_fpa_job');
     }
 
+    public function proiparxouses(){
+        return $this->belongsToMany('App\Parts','db_proiparx','id_ekthesis','id_parts')->withPivot('id_categ','diax_fr_b','value','quan','fpa_job','sint_fpa_job');
+    }
 }

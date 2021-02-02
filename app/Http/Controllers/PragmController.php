@@ -16,6 +16,7 @@ use App\Parts;
 use App\Person;
 use App\Pragmatognomosini;
 use App\Praktoreio;
+use App\Proiparxousa;
 use App\Status;
 use App\Synergeio;
 use App\User;
@@ -210,7 +211,7 @@ class PragmController extends Controller
         $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
 
         // many to many for pragmatognomosini
-        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies')->findOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
 
         // calculate file position
@@ -324,7 +325,20 @@ class PragmController extends Controller
                     $fpaJobNoPart += $costJob * $ergasia->pivot->sint_fpa_job/100;
                 }
             }
-       // end  calculate ekthesi details costs
+       // end calculate ekthesi details costs
+
+       // calculate proiparxouses costs
+        $costProiparx=0;$fpaProiparx=0;
+        foreach ($pragmatognomosini->proiparxouses as $proip){
+            if ($proip->pivot->fpa_job == 1){
+                $cost=$proip->pivot->value / (1+($proip->pivot->sint_fpa_job/100));
+            }else{
+                $cost=$proip->pivot->value;
+            }
+            $costProiparx +=$cost;
+            $fpaProiparx += $cost*$proip->pivot->sint_fpa_job/100;
+        }
+      // end calculate proiparxouses costs
 
 
         return view('pragmatognomosines.edit', compact([
@@ -360,7 +374,9 @@ class PragmController extends Controller
             'fpaPart6',
             'fpaJob6',
             'costJobNoPart',
-            'fpaJobNoPart'
+            'fpaJobNoPart',
+            'costProiparx',
+            'fpaProiparx'
         ]));
     }
 
@@ -462,7 +478,10 @@ class PragmController extends Controller
             $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
             $pragm->Date_atiximatos = $dateAtiximatos;
         }
-        $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
+        // αυτό θα πρέπει να αλλάξει και να αντικατασταθεί απο την συσχέτηση με το μοντέλο
+            $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
+        // αυτό θα πρέπει να αλλάξει και να αντικατασταθεί απο την συσχέτηση με το μοντέλο
+
 
         return view('pragmatognomosines.search',compact([
             'pragmatognomosines',
@@ -919,6 +938,7 @@ class PragmController extends Controller
         $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
 
         return redirect('pragmatognomosines/'.$request->id_ekthesis)->with(['parts','ergasia','id_ergasia','id_ekthesis']);
+
     }
 
     public function edit_details_ekth($id_ekthesis,$id_ergasia,$id_part){
@@ -1016,4 +1036,104 @@ class PragmController extends Controller
 
     }
     // end manage details ekthesis
+
+    // manage proiparxouses ekthesis
+    public function create_proiparxouses($id_ekthesis){
+        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','!=',55]])->get();
+        return view('pragmatognomosines.create_proiparx_ekth',compact([
+            'parts',
+            'id_ekthesis',
+            'ergasia'
+        ]));
+    }
+
+    public function store_proiparxouses(Request $request){
+
+        if ($request->quan == null){
+            $request->quan=1;
+        }
+
+        if ($request->sint_fpa_job == null){
+            $request->sint_fpa_job=24.00;
+        }
+//        dd($request);
+        $proiparx = new Proiparxousa();
+        $proiparx->id_ekthesis = $request->id_ekthesis;
+        $proiparx->id_parts = $request->id_parts;
+        $proiparx->quan = $request->quan;
+        $proiparx->id_categ = $request->id_categ;
+        $proiparx->value = $request->value;
+        $proiparx->fpa_job = $request->fpa_job;
+        $proiparx->sint_fpa_job = $request->sint_fpa_job;
+        $proiparx->diax_fr_b = $request->diax_fr_b;
+        $proiparx->save();
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+    }
+
+    public function edit_proiparxouses($id_ekthesis,$id_parts,$id_categ,$diax_fr_b){
+        $pragmatognomosini = Pragmatognomosini::with('proiparxouses')->findOrFail($id_ekthesis);
+//        dd($pragmatognomosini);
+        $proiparx = $pragmatognomosini->proiparxouses()->wherePivot('id_parts', $id_parts)->where([['id_categ','=',$id_categ],['diax_fr_b','=',$diax_fr_b]])->first();
+        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+//        dd($proiparx);
+
+        return view('pragmatognomosines.edit_proiparx_ekth',compact([
+            'proiparx',
+            'id_ekthesis',
+            'id_categ',
+            'id_parts',
+            'diax_fr_b',
+            'parts'
+        ]));
+    }
+    public function update_proiparxouses(Request $request){
+
+        if ($request->quan == null){
+            $request->quan=1;
+        }
+
+        if ($request->sint_fpa_job == null){
+            $request->sint_fpa_job=24.00;
+        }
+//        dd($request);
+        $proiparx = Proiparxousa::where([['id_ekthesis',$request->id_ekthesis],['id_parts',$request->id_parts],['id_categ',$request->id_categ],['diax_fr_b',$request->diax_fr_b]])->update($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+
+    }
+
+    public function delete_proiparxouses($id_ekthesis,$id_parts,$id_categ,$diax_fr_b){
+        $pragmatognomosini = Pragmatognomosini::with('proiparxouses')->findOrFail($id_ekthesis);
+//        dd($pragmatognomosini);
+        $proiparx = $pragmatognomosini->proiparxouses()->wherePivot('id_parts', $id_parts)->where([['id_categ','=',$id_categ],['diax_fr_b','=',$diax_fr_b]])->first();
+        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+//        dd($proiparx);
+
+        return view('pragmatognomosines.delete_proiparx_ekth',compact([
+            'proiparx',
+            'id_ekthesis',
+            'id_categ',
+            'id_parts',
+            'diax_fr_b',
+            'parts'
+        ]));
+    }
+
+    public function destroy_proiparxouses(Request $request){
+
+        if ($request->quan == null){
+            $request->quan=1;
+        }
+
+        if ($request->sint_fpa_job == null){
+            $request->sint_fpa_job=24.00;
+        }
+//        dd($request);
+        $proiparx = Proiparxousa::where([['id_ekthesis',$request->id_ekthesis],['id_parts',$request->id_parts],['id_categ',$request->id_categ],['diax_fr_b',$request->diax_fr_b]])->delete($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+    }
+    // end manage proiparxouses ekthesis
 }

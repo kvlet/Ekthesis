@@ -1649,7 +1649,123 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-eksodaekthesis" role="tabpanel" aria-labelledby="v-pills-eksodaekthesis-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-proyparxouses" role="tabpanel" aria-labelledby="v-pills-proyparxouses-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-proyparxouses" role="tabpanel" aria-labelledby="v-pills-proyparxouses-tab">
+                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_proiparxouses') }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <?php $count=0?>
+                                    @foreach($pragmatognomosini->proiparxouses as $proip)
+                                        <?php $count++ ?>
+                                    @endforeach
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                        <strong>{{ __('Λίστα Ανταλλακτικών Πρϋπάρχουσων Ζημιών'.' '.'('.$count.')') }}</strong>
+                                    </h4>
+                                </div>
+                                <div>
+                                    <h6>
+                                        {{ __('Κόστος Ανταλλακτικών / Εργασιών: ')}}<strong>{{round($costProiparx,2).('€')}}</strong>
+                                    </h6>
+                                    <h6>
+                                        {{ __('Φ.Π.Α. Ανταλλακτικών / Εργασιών:: ')}}<strong>{{round($fpaProiparx,2).('€')}}</strong>
+                                    </h6>
+                                    <h5>
+                                        {{ __(' Σύνολο:')}}<strong>{{round($costProiparx,2)+round($fpaProiparx,2).('€')}}</strong>
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="parts_bafes" class="table-sm table table-bordered table-hover" style="width:100%">
+                                                    <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>Ανταλ/κό</th>
+                                                        <th>Κατηγορία</th>
+                                                        <th>Φ.Π.Α</th>
+                                                        <th>Κόστος</th>
+                                                        <th>Συντ. Φ.Π.Α</th>
+                                                        <th>Ποσότητα</th>
+                                                        <th>Ζημιά</th>
+                                                        <th>Επεξεργασία</th>
+                                                        <th>Διαγραφή</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($pragmatognomosini->proiparxouses as $proip)
+                                                            <tr>
+                                                                <td>
+                                                                    @foreach($parts as $part)
+                                                                        @if ($part->id_parts == $proip->pivot->id_parts)
+                                                                            {{ $part->part }}
+                                                                        @endif
+                                                                    @endforeach
+                                                                </td>
+                                                                <td>
+                                                                    @if($proip->pivot->id_categ==1)
+                                                                        {{ 'Ανταλλακτικό' }}
+                                                                    @elseif($proip->pivot->id_categ==2)
+                                                                        {{ 'Αντικατάσταση' }}
+                                                                    @elseif($proip->pivot->id_categ==3)
+                                                                        {{ 'Επισκευή' }}
+                                                                    @elseif($proip->pivot->id_categ==4)
+                                                                        {{ 'Εξαγωγή και επανατοποθέτηση' }}
+                                                                    @elseif($proip->pivot->id_categ==5)
+                                                                        {{ 'Βαφές' }}
+                                                                    @elseif($proip->pivot->id_categ==6)
+                                                                        {{ 'Συνολικά' }}
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    @if ($proip->pivot->fpa_job == 0)
+                                                                        <input type="checkbox" disabled>
+                                                                    @else
+                                                                        <input type="checkbox" disabled checked>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $proip->pivot->value.'€' }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $proip->pivot->sint_fpa_job.'%' }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $proip->pivot->quan }}
+                                                                </td>
+                                                                <td>
+                                                                    @if ($proip->pivot->diax_fr_b != "Κ")
+                                                                        {{ $proip->pivot->diax_fr_b }}
+                                                                    @else
+                                                                        {{ " " }}
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_proiparxouses/'.$proip->pivot->id_parts.'/'.$proip->pivot->id_categ.'/'.$proip->pivot->diax_fr_b) }}"
+                                                                       target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_proiparxouses/'.$proip->pivot->id_parts.'/'.$proip->pivot->id_categ.'/'.$proip->pivot->diax_fr_b) }}"
+                                                                       target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                                </td>
+                                                            </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-synergeia" role="tabpanel" aria-labelledby="v-pills-synergeia-tab">
                     @if($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
 {{--                    @if ((Request::is('pragmatognomosines/*')))--}}
