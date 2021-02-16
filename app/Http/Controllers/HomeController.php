@@ -30,7 +30,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $pragmatognomosines = Pragmatognomosini::where([['Valid','true']])->get();
+        $pragmatognomosines = Pragmatognomosini::with('status_of_ekth')->where('Valid','=','true')->get();
+//        dd($pragmatognomosines);
         $companies = Company::where('Mark_del', 'Όχι')->get();
         $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
         $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
@@ -38,7 +39,10 @@ class HomeController extends Controller
         foreach ($pragmatognomosines as $pragm){
             $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
             $pragm->Date_atiximatos = $dateAtiximatos;
+//            $status = $pragm->status_of_ekth()->wherePivot('id_ekthesis',$pragm->id_ekthesis)->where('Valid','=','Ναι')->get();
         }
+//        $status = $pragmatognomosines->status_of_ekth()->wherePivot('Valid','=','Ναι')->get();
+//        dd($status);
         $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
 
         return view('home',compact([
@@ -125,10 +129,13 @@ class HomeController extends Controller
         foreach ($pragmatognomosines as $pragm){
             $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
             $pragm->Date_atiximatos = $dateAtiximatos;
-            $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragm->Date_dikasimou)->format('d-m-Y');
-            $pragm->Date_dikasimou = $dateDikasimou;
+            if ($pragm->Date_dikasimou !=null) {
+                $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragm->Date_dikasimou)->format('d-m-Y');
+                $pragm->Date_dikasimou = $dateDikasimou;
+            }
         }
         $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
+//        $status = $pragmatognomosines->status_of_ekth()->where('Valid','=','Ναι')->get();
         return view('home',compact([
             'pragmatognomosines',
             'companies',

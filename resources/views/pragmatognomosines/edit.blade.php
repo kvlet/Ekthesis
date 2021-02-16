@@ -13,7 +13,7 @@
                     <a class="nav-link" id="v-pills-ergasiesNoAntallaktika-tab" data-toggle="pill" href="#v-pills-ergasiesnoantallaktika" role="tab" aria-controls="v-pills-ergasiesnoantallaktika" aria-selected="false">Εργασίες χωρίς ανταλλακτικά</a>
                     <a class="nav-link" id="v-pills-proasfalistikos-tab" data-toggle="pill" href="#v-pills-proasfalistikos" role="tab" aria-controls="v-pills-proasfalistikos" aria-selected="false" >Προασφαλιστικός</a>
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
-                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: red">Κατάσταση</a>
+                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-foto-tab" data-toggle="pill" href="#v-pills-foto" role="tab" aria-controls="v-pills-foto" aria-selected="false" style="color: red">Φωτογραφίες</a>
                     <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" style="color: red">Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-proyparxouses-tab" data-toggle="pill" href="#v-pills-proyparxouses" role="tab" aria-controls="v-pills-proyparxouses" aria-selected="false" >Προυπάρχουσες</a>
@@ -31,7 +31,7 @@
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-genika-tab" data-toggle="pill" href="#v-pills-genika" role="tab" aria-controls="v-pills-genika" aria-selected="true">Γενικά</a>
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
-                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false" style="color: red">Κατάσταση</a>
+                    <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-foto-tab" data-toggle="pill" href="#v-pills-foto" role="tab" aria-controls="v-pills-foto" aria-selected="false" style="color: red">Φωτογραφίες</a>
                     <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" style="color: red">Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
@@ -55,6 +55,7 @@
                                 <div class="card">
                                     <div class="card-header-cust">
                                         <h6 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                             <strong>{{ __('Γενικά') }}</strong>
                                         </h6>
                                     </div>
@@ -429,6 +430,7 @@
                                 <div class="card">
                                     <div class="card-header-cust">
                                         <h6 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                             <strong>{{ __('Οικονομικά') }}</strong>
                                         </h6>
                                     </div>
@@ -568,6 +570,7 @@
                                 <div class="card">
                                     <div class="card-header-cust">
                                         <h6 class="heading-small text-center text-muted">
+                                            <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                             <strong>{{ __('Παθών') }}</strong>
                                         </h6>
                                     </div>
@@ -757,6 +760,7 @@
                                                     <div class="card">
                                                         <div class="card-header-cust">
                                                             <h6 class="heading-small text-center text-muted">
+                                                                <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
                                                                 <strong>{{ __('Υπαίτιος') }}</strong>
                                                             </h6>
                                                         </div>
@@ -1571,7 +1575,110 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="v-pills-katastasi" role="tabpanel" aria-labelledby="v-pills-katastasi-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-katastasi" role="tabpanel" aria-labelledby="v-pills-katastasi-tab">
+                    @if($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                        <a href="{{URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_status') }}" target="" class="btn btn-primary">Προσθήκη Κατάστασης</a>
+                    @else
+                        <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_status') }}" target="" class="btn btn-primary">Προσθήκη Κατάστασης</a>
+                    @endif
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                        <strong>{{ __('Κατάσταση') }}</strong>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="synergeio" class="table table-sm table-bordered table-hover" style="width:100%">
+                                                <thead class="thead-dark">
+                                                <tr>
+                                                    <th>Κατάσταση</th>
+                                                    <th>Ημερομηνία κατάστασης</th>
+                                                    <th>Ημερομηνία διεκπαιρέωσης</th>
+                                                    <th>Ενεργή</th>
+                                                    <th>Παρατηρήσεις</th>
+                                                    <th>Επεξεργασία</th>
+                                                    <th>Διαγραφή</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($pragmatognomosini->status_of_ekth as $stat)
+                                                    <tr @if($stat->pivot->Valid=='Όχι') style="background: grey" @endif>
+                                                        <td>
+                                                            @foreach($status as $sta)
+                                                                @if ($sta->id_status == $stat->pivot->id_status)
+                                                                    {{ $sta->Status }}
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td id="d1">{{$stat->pivot->Status_date}}
+                                                            <script type="text/javascript">
+                                                                $('#d1').datepicker({
+                                                                    autoclose: true,
+                                                                    format: 'dd-mm-yyyy',
+                                                                    language: 'el',
+                                                                    todayHighlight: true,
+                                                                });
+                                                            </script>
+                                                        </td>
+                                                        <td id="d2">{{$stat->pivot->Process_date}}
+                                                            <script type="text/javascript">
+                                                                $('#d2').datepicker({
+                                                                    autoclose: true,
+                                                                    format: 'dd-mm-yyyy',
+                                                                    language: 'el',
+                                                                    todayHighlight: true,
+                                                                });
+                                                            </script>
+                                                        </td>
+                                                        <td>
+                                                            {{$stat->pivot->Valid}}
+                                                        </td>
+                                                        <td>
+                                                            {{$stat->pivot->Notes}}
+                                                        </td>
+                                                        <td>
+                                                            @if($stat->pivot->Valid=='Ναι')
+                                                                @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                                    <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_status/'.$stat->pivot->id_status) }}"
+                                                                       target="" ><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                @else
+                                                                    <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_status/'.$stat->pivot->id_status) }}"
+                                                                       target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                                @endif
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if($stat->pivot->Valid=='Ναι' && $stat->pivot->id_status >1 )
+                                                                @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                                    <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_status/'.$stat->pivot->id_status) }}"
+                                                                       target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                                @else
+                                                                    <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/delete_status/'.$stat->pivot->id_status) }}"
+                                                                       target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                                @endif
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-foto" role="tabpanel" aria-labelledby="v-pills-foto-tab">...</div>
                 <div class="tab-pane fade" id="v-pills-keimena" role="tabpanel" aria-labelledby="v-pills-keimena-tab">
                     @if ((Request::is('pragmatognomosines/*')))
@@ -1878,11 +1985,11 @@
                     @elseif ((\Request::is('ereunes/*')))
                         <a href="{{ route('pragmatognomosines.create_praktoreia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη πρακτορείου</a>
                     @endif
-                    <div class="row">
-                        <div class="col">
-                            <hr>
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
                         </div>
-                    </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">

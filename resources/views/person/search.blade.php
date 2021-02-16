@@ -7,9 +7,15 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header-cust">
-                        <h4 class="heading-small text-center text-muted">
-                            <strong>{{ __('Αναζήτηση Παθών / Υπαιτίου') }}</strong>
-                        </h4>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-header-cust">
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Αναζήτηση Παθών / Υπαιτίου') }}</strong>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -23,9 +29,6 @@
                                         <button class="btn btn-outline-primary" type="submit">Αναζήτηση</button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-
                             </div>
                         </div>
                     </div>

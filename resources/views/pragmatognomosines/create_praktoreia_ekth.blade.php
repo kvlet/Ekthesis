@@ -26,7 +26,7 @@
                             <div class="form-label{{ $errors->has('id_praktoreio') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="id_praktoreio">{{ __('Πρακτορείο') }}<span style="color:red;font-weight:bold">*</span></label>
                                 <select class="form-control form-select" id="id_praktoreio" name="id_praktoreio" required >
-                                    <option selected value value=-1>{{ " Επιλέξτε Κείμενο " }}</option>
+                                    <option selected value value=-1>{{ " Επιλέξτε Πρακτορείο " }}</option>
                                     @foreach($praktoreia as $praktoreio)
                                         <option value="{{$praktoreio->id_praktoreio}}" @if(old('id_praktoreio') == $praktoreio->id_praktoreio) selected @endif>{{ $praktoreio->eponymia }}</option>
                                     @endforeach
@@ -52,6 +52,9 @@
                     <div class="row mt-4">
                         <div class="col d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <a href="{{  URL('pragmatognomosines/'.$id_ekthesis) }}" class="btn btn-primary" role="button">Επιστροφή</a>
                         </div>
                     </div>
                 </div>

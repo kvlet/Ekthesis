@@ -67,6 +67,9 @@
                             <div class="col d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary">Αποθήκευση</button>
                             </div>
+                            <div class="col d-flex justify-content-end">
+                                <a href="{{  URL('pragmatognomosines/'.$id_ekthesis) }}" class="btn btn-primary" role="button">Επιστροφή</a>
+                            </div>
                         </div>
                     </div>
                 </div>

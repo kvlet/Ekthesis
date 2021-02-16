@@ -189,6 +189,7 @@ class PragmController extends Controller
 
     public function edit($id_ekthesis)
     {
+
         $grafeia = Grafeio::all('id_grafeio', 'Name');
         $nomoi = Nomos::where([['Mark_del','Όχι']])->get();
         if (\Request::is('pragmatognomosines/*')) {
@@ -209,9 +210,10 @@ class PragmController extends Controller
         $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
         $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->get();
         $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
+        $status = Status::where([['Mark_del','Όχι']])->get();
 
         // many to many for pragmatognomosini
-        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses')->findOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses','status_of_ekth')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
 
         // calculate file position
@@ -270,6 +272,12 @@ class PragmController extends Controller
                 }
                 if ($synergeio->pivot->Date_episkepsis3 != null){
                     $synergeio->pivot->Date_episkepsis3=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
+                }
+            }
+            foreach ($pragmatognomosini->status_of_ekth as $stat){
+                $stat->pivot->Status_date=Carbon::createFromFormat('Y-m-d', $stat->pivot->Status_date)->format('d-m-Y');
+                if ($stat->pivot->Process_date !=null){
+                    $stat->pivot->Process_date=Carbon::createFromFormat('Y-m-d', $stat->pivot->Process_date)->format('d-m-Y');
                 }
             }
        //      end fix date format for display in form
@@ -376,7 +384,8 @@ class PragmController extends Controller
             'costJobNoPart',
             'fpaJobNoPart',
             'costProiparx',
-            'fpaProiparx'
+            'fpaProiparx',
+            'status'
         ]));
     }
 
@@ -565,6 +574,8 @@ class PragmController extends Controller
         $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
         $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
         $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+//        $status = $pragmatognomosines->status_of_ekth()->wherePivot()->where('Valid','=','Ναι')->get();
+//        dd($status);
         foreach ($pragmatognomosines as $pragm){
             $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
             $pragm->Date_atiximatos = $dateAtiximatos;
@@ -879,8 +890,7 @@ class PragmController extends Controller
 
     // manage details ekthesis
     public function create_details_ekth($id_ekthesis,$id_ergasia){
-        $part_erg = Ergasies::with('ergasies_in_parts')->where('id_ergasies','=',$id_ergasia)->get();
-//        dd($part_erg);
+
         $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
         $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
         $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
@@ -1136,4 +1146,134 @@ class PragmController extends Controller
         return redirect('pragmatognomosines/'.$request->id_ekthesis);
     }
     // end manage proiparxouses ekthesis
+
+    // manage katastasi ekthesis
+    public function create_status_ekth($id_ekthesis){
+        $pragmatognomosini = Pragmatognomosini::with('status_of_ekth')->findOrFail($id_ekthesis);
+        $status = $pragmatognomosini->status_of_ekth()->get();
+        foreach ($status as $stat){
+            if($stat->pivot->Valid == 'Ναι'){
+                $next_status = $stat->pivot->id_status+1;
+            }
+        }
+        $status_to_view = Status::where([['id_status',$next_status]])->get();
+        return view('pragmatognomosines.create_status_ekth',compact(['status_to_view','id_ekthesis']));
+    }
+
+    public function store_status_ekth(Request $request,$id_ekthesis){
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+
+        $request->Valid='Ναι';
+        $Status_date = Carbon::createFromFormat('d-m-Y', $request->Status_date)->format('Y-m-d');
+        $request->Status_date = $Status_date;
+        $Pdate = Carbon::now();
+
+
+        if ($request->id_status==1 ){
+            $Pdate=Carbon::parse($Status_date)->addDays(2)->format('Y-m-d');
+        }elseif ($request->id_status==2){
+            $Pdate=Carbon::parse($Status_date)->addDays(3)->format('Y-m-d');
+        }elseif ($request->id_status==3){
+            $Pdate=Carbon::parse($Status_date)->addDays(2)->format('Y-m-d');
+        }elseif ($request->id_status==4){
+            $Pdate=Carbon::parse($Status_date)->addDays(1)->format('Y-m-d');
+        }elseif ($request->id_status==5){
+            $Pdate=Carbon::parse($Status_date)->addDays(1)->format('Y-m-d');
+        }
+//        $request->Process_date = $Pdate;
+//        dd($request->Process_date,$request->Status_date,$Pdate,$request);
+
+        $pragmatognomosini->status_of_ekth()->attach($request->id_status,['Status_date'=>  $request->Status_date ],['Valid'=>  $request->Valid ],['Process_date'=>  $Pdate ],['Notes'=>  $request->Notes ]);
+        $status = $pragmatognomosini->status_of_ekth()->get();
+        foreach ($status as $stat){
+            if ($stat->pivot->id_status < $request->id_status ){
+                $stat->pivot->Valid = 'Όχι';
+                $stat->pivot->save();
+            }
+            if ($stat->pivot->id_status == $request->id_status ){
+                $stat->pivot->Process_date = $Pdate;
+                $stat->pivot->Notes =  $request->Notes;
+                $stat->pivot->save();
+            }
+        }
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        }
+    }
+
+    public function edit_status_ekth($id_ekthesis,$id_status){
+        $pragmatognomosini = Pragmatognomosini::with('status_of_ekth')->findOrFail($id_ekthesis);
+        $status_ekth = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $id_status)->first();
+        $status_ekth->pivot->Status_date=Carbon::createFromFormat('Y-m-d',$status_ekth->pivot->Status_date)->format('d-m-Y');
+        $status_ekth->pivot->Process_date=Carbon::createFromFormat('Y-m-d',$status_ekth->pivot->Process_date)->format('d-m-Y');
+        $status = Status::where([['Mark_del','Όχι'],['id_status',$id_status]])->get();
+//        dd($status);
+        return view('pragmatognomosines.edit_status_ekth',compact(['status_ekth','id_ekthesis','status']));
+    }
+
+    public function update_status_ekth(Request $request){
+        $id_ekthesis = $request->id_ekthesis;
+        $pragmatognomosini = Pragmatognomosini::with('status_of_ekth')->findOrFail($id_ekthesis);
+        $status_ekth = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $request->id_status)->first();
+
+        $sDate=Carbon::createFromFormat('d-m-Y',$request->Status_date)->format('Y-m-d');
+        $pdate=Carbon::createFromFormat('d-m-Y',$request->Process_date)->format('Y-m-d');
+
+        $request->Status_date = $sDate;
+        $request->Process_date=$pdate;
+        $status_ekth->pivot->Status_date=$request->Status_date;
+        $status_ekth->pivot->Process_date=$request->Process_date;
+        $status_ekth->pivot->Valid=$request->Valid;
+        $status_ekth->pivot->Notes=$request->Notes;
+        $status_ekth->pivot->save();
+
+//        dd($status);
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        }
+    }
+
+    public function delete_status_ekth($id_ekthesis,$id_status){
+        $pragmatognomosini = Pragmatognomosini::with('status_of_ekth')->findOrFail($id_ekthesis);
+        $status_ekth = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $id_status)->first();
+        $status_ekth->pivot->Status_date=Carbon::createFromFormat('Y-m-d',$status_ekth->pivot->Status_date)->format('d-m-Y');
+        $status_ekth->pivot->Process_date=Carbon::createFromFormat('Y-m-d',$status_ekth->pivot->Process_date)->format('d-m-Y');
+        $status = Status::where([['Mark_del','Όχι'],['id_status',$id_status]])->get();
+//        dd($status);
+        return view('pragmatognomosines.delete_status_ekth',compact(['status_ekth','id_ekthesis','status']));
+    }
+
+    public function destroy_status_ekth(Request $request){
+        $id_ekthesis = $request->id_ekthesis;
+        $pragmatognomosini = Pragmatognomosini::with('status_of_ekth')->findOrFail($id_ekthesis);
+        $status_ekth = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $request->id_status)->first();
+
+        $sDate=Carbon::createFromFormat('d-m-Y',$request->Status_date)->format('Y-m-d');
+        $pdate=Carbon::createFromFormat('d-m-Y',$request->Process_date)->format('Y-m-d');
+
+        $request->Status_date = $sDate;
+        $request->Process_date=$pdate;
+        $prevStat = $request->id_status -1;
+        $status = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $prevStat )->first();
+//        dd($status);
+
+        $status->pivot->Valid = 'Ναι';
+        $status->pivot->update();
+
+
+        $pragmatognomosini->status_of_ekth()->detach($request->id_status);
+//        dd($request->id_status);
+
+//        dd($status);
+        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
+            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        }else{
+            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        }
+    }
+    // end manage katastasi ekthesis
 }

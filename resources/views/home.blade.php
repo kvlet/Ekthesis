@@ -182,7 +182,7 @@
                         @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==2)
                             <?php $count_anath++ ?>
                         @endif
-                        @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==3)
+                        @if ($pragmatognomosini->id_ekthesis ==$status_ekth->id_ekthesis && $status_ekth->id_status==3)
                             <?php $count_eleg++ ?>
                         @endif
                         @if ($pragmatognomosini->id_ekthesis == $status_ekth->id_ekthesis && $status_ekth->id_status==4)

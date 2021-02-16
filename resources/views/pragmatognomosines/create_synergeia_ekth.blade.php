@@ -26,7 +26,7 @@
                                 <div class="form-label{{ $errors->has('id_synergeia') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="id_synergeia">{{ __('Συνεργείο') }}<span style="color:red;font-weight:bold">*</span></label>
                                     <select class="form-control form-select" id="id_synergeia" name="id_synergeia" required >
-                                        <option selected value value=-1>{{ " Επιλέξτε Κείμενο " }}</option>
+                                        <option selected value value=-1>{{ " Επιλέξτε Συνεργείο " }}</option>
                                         @foreach($synergeia as $synergeio)
                                             <option value="{{$synergeio->id_synergeia}}" @if(old('id_synergeia') == $synergeio->id_synergeia) selected @endif>{{ $synergeio->Name_syner }}</option>
                                         @endforeach
@@ -45,7 +45,7 @@
                                     <label class="form-control-label" for="Date_episkepsis">{{ __('1η Επίσκεψη') }}<span style="color:red;font-weight:bold">*</span></label>
                                     <input type="text" name="Date_episkepsis" id="Date_episkepsis" data-provide="datepicker" data-date-format="dd-mm-yyyy" placeholder="HH-MM-YYYY"
                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_episkepsis') ? ' is-invalid' : '' }}"
-                                           value="{{ $synergeio->Date_episkepsis }}" required >
+                                           value="{{ old('Date_episkepsis') }}" required >
                                     <script type="text/javascript">
                                         $('#Date_episkepsis').datepicker({
                                             autoclose: true,
@@ -68,7 +68,7 @@
                                     </label>
                                     <input type="text" name="Date_episkepsis2" id="Date_episkepsis2" data-provide="datepicker" data-date-format="dd-mm-yyyy" placeholder="HH-MM-YYYY"
                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_episkepsis2') ? ' is-invalid' : '' }}"
-                                           value="{{ $synergeio->Date_episkepsis2 }}" >
+                                           value="{{ old('Date_episkepsis2') }}" >
                                     <script type="text/javascript">
                                         $('#Date_episkepsis2').datepicker({
                                             autoclose: true,
@@ -93,7 +93,7 @@
                                     </label>
                                     <input type="text" name="Date_episkepsis3" id="Date_episkepsis3" data-provide="datepicker" data-date-format="dd-mm-yyyy" placeholder="HH-MM-YYYY"
                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_episkepsis3') ? ' is-invalid' : '' }}"
-                                           value="{{ $synergeio->Date_episkepsis3 }}" >
+                                           value="{{ old('Date_episkepsis3') }}" >
                                     <script type="text/javascript">
                                         $('#Date_episkepsis3').datepicker({
                                             autoclose: true,
@@ -123,6 +123,9 @@
                         <div class="row mt-4">
                             <div class="col d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                            </div>
+                            <div class="col d-flex justify-content-end">
+                                <a href="{{  URL('pragmatognomosines/'.$id_ekthesis) }}" class="btn btn-primary" role="button">Επιστροφή</a>
                             </div>
                         </div>
                     </div>
