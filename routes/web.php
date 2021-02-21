@@ -59,6 +59,13 @@ Route::post('pragmatognomosines/edit_status', 'PragmController@update_status_ekt
 Route::get('pragmatognomosines/{id}/delete_status/{second_id}', 'PragmController@delete_status_ekth')->name('pragmatognomosines.delete_status_ekth');
 Route::delete('pragmatognomosines/delete_status', 'PragmController@destroy_status_ekth')->name('pragmatognomosines.destroy_status_ekth');
 
+Route::get('pragmatognomosines/{id}/add_provlep', 'PragmController@create_provlep_ekth')->name('pragmatognomosines.create_provlep_ekth');
+Route::post('pragmatognomosines/{id}/add_provlep', 'PragmController@store_provlep_ekth')->name('pragmatognomosines.store_provlep_ekth');
+Route::get('pragmatognomosines/{id}/edit_provlep/{second_id}', 'PragmController@edit_provlep_ekth');
+Route::post('pragmatognomosines/edit_provlep/{id}', 'PragmController@update_provlep_ekth')->name('pragmatognomosines.update_provlep_ekth');
+Route::get('pragmatognomosines/{id}/delete_provlep/{second_id}', 'PragmController@delete_provlep_ekth')->name('pragmatognomosines.delete_provlep_ekth');
+Route::delete('pragmatognomosines/delete_provlep', 'PragmController@destroy_provlep_ekth')->name('pragmatognomosines.destroy_provlep_ekth');
+
 Route::get('ereunes', 'PragmController@create')->name('pragmatognomosines.create');
 Route::post('ereunes', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('ereunes/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
@@ -92,6 +99,13 @@ Route::get('ereunes/{id}/edit_status/{second_id}', 'PragmController@edit_status_
 Route::post('ereunes/edit_status', 'PragmController@update_status_ekth')->name('pragmatognomosines.update_status_ekth');
 Route::get('ereunes/{id}/delete_status/{second_id}', 'PragmController@delete_status_ekth')->name('pragmatognomosines.delete_status_ekth');
 Route::delete('ereunes/delete_status', 'PragmController@destroy_status_ekth')->name('pragmatognomosines.destroy_status_ekth');
+
+Route::get('ereunes/{id}/add_provlep', 'PragmController@create_provlep_ekth')->name('pragmatognomosines.create_provlep_ekth');
+Route::post('ereunes/{id}/add_provlep', 'PragmController@store_provlep_ekth')->name('pragmatognomosines.store_provlep_ekth');
+Route::get('ereunes/{id}/edit_provlep/{second_id}', 'PragmController@edit_provlep_ekth');
+Route::post('ereunes/edit_provlep/{id}', 'PragmController@update_provlep_ekth')->name('pragmatognomosines.update_provlep_ekth');
+Route::get('ereunes/{id}/delete_provlep/{second_id}', 'PragmController@delete_provlep_ekth')->name('pragmatognomosines.delete_provlep_ekth');
+Route::delete('ereunes/delete_provlep', 'PragmController@destroy_provlep_ekth')->name('pragmatognomosines.destroy_provlep_ekth');
 //Route::get('pragmatognomosines/{id}', 'PragmController@show')->name('pragmatognomosines.show');
 // end routes for pragmatognomisines
 

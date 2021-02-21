@@ -17,6 +17,7 @@ use App\Person;
 use App\Pragmatognomosini;
 use App\Praktoreio;
 use App\Proiparxousa;
+use App\Provlepseis;
 use App\Status;
 use App\Synergeio;
 use App\User;
@@ -211,6 +212,7 @@ class PragmController extends Controller
         $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->get();
         $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
         $status = Status::where([['Mark_del','Όχι']])->get();
+        $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis]])->get();
 
         // many to many for pragmatognomosini
         $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses','status_of_ekth')->findOrFail($id_ekthesis);
@@ -385,7 +387,8 @@ class PragmController extends Controller
             'fpaJobNoPart',
             'costProiparx',
             'fpaProiparx',
-            'status'
+            'status',
+            'provlepseis'
         ]));
     }
 
@@ -1276,4 +1279,61 @@ class PragmController extends Controller
         }
     }
     // end manage katastasi ekthesis
+
+    // manage provlepseis ekthesis
+    public function create_provlep_ekth($id_ekthesis){
+        $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis]])->get();
+
+        return view('pragmatognomosines.create_provle_ekth',compact(['id_ekthesis','provlepseis']));
+
+    }
+
+    public function store_provlep_ekth(Request $request,$id_ekthesis){
+
+        $provlep = new Provlepseis();
+        $provlep->id_ekthesis = $request->id_ekthesis;
+        $provlep->id_provlepseis = $request->id_provlepseis;
+        $provlep->Date_provl = $request->Date_provl;
+        $provlep->Amount = $request->Amount;
+
+        $provlep->save();
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+    }
+
+    public function edit_provlep_ekth($id_ekthesis,$id_provlepseis){
+        $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis],['id_provlepseis',$id_provlepseis]])->first();
+
+        return view('pragmatognomosines.edit_provle_ekth',compact([
+            'id_ekthesis',
+            'id_provlepseis',
+            'provlepseis'
+        ]));
+
+    }
+
+    public function update_provlep_ekth(Request $request){
+//        dd($request);
+        $provlepseis = Provlepseis::where([['id_ekthesis',$request->id_ekthesis],['id_provlepseis',$request->id_provlepseis]])->update($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+    }
+
+    public function delete_provlep_ekth($id_ekthesis,$id_provlepseis){
+        $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis],['id_provlepseis',$id_provlepseis]])->first();
+
+        return view('pragmatognomosines.delete_provle_ekth',compact([
+            'id_ekthesis',
+            'id_provlepseis',
+            'provlepseis'
+        ]));
+    }
+
+    public function destroy_provlep_ekth(Request $request){
+//        dd($request);
+        $provlepseis = Provlepseis::where([['id_ekthesis',$request->id_ekthesis],['id_provlepseis',$request->id_provlepseis]])->delete($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+    }
+    // end manage provlepseis ekthesis
 }
