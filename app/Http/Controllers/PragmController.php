@@ -9,6 +9,7 @@ use App\DetailPrag;
 use App\Diakrisi;
 use App\Ergasies;
 use App\Grafeio;
+use App\InvolvCar;
 use App\Keimena;
 use App\Nomos;
 use App\Oxima;
@@ -213,6 +214,7 @@ class PragmController extends Controller
         $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
         $status = Status::where([['Mark_del','Όχι']])->get();
         $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis]])->get();
+        $involv_cars = InvolvCar::where([['id_ekthesis',$id_ekthesis]])->get();
 
         // many to many for pragmatognomosini
         $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses','status_of_ekth')->findOrFail($id_ekthesis);
@@ -388,7 +390,8 @@ class PragmController extends Controller
             'costProiparx',
             'fpaProiparx',
             'status',
-            'provlepseis'
+            'provlepseis',
+            'involv_cars'
         ]));
     }
 
@@ -1336,4 +1339,94 @@ class PragmController extends Controller
         return redirect('pragmatognomosines/'.$request->id_ekthesis);
     }
     // end manage provlepseis ekthesis
+
+    // manage involv cars ekthesis
+    public function create_involv_cars($id_ekthesis){
+        $companies = Company::where('Mark_del', 'Όχι')->get();
+        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+
+        return view('pragmatognomosines.create_involv_cars_ekth',compact([
+            'id_ekthesis',
+            'companies',
+            'pathontes',
+            'oximata_pathon'
+        ]));
+    }
+
+    public function store_involv_cars(Request $request){
+        $inv_car = new InvolvCar();
+        $inv_car->id_ekthesis = $request->id_ekthesis;
+        $inv_car->id_oxima = $request->id_oxima;
+        $inv_car->id_person = $request->id_person;
+        $inv_car->id_company = $request->id_company;
+        $inv_car->xiliometra = $request->xiliometra;
+        $inv_car->value_car = $request->value_car;
+        $inv_car->driver = $request->driver;
+        $inv_car->note = $request->note;
+        $inv_car->save();
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+    }
+
+    public function edit_involv_cars($id_ekthesis,$id_oxima,$id_person) {
+        $pragmatognomosini = Pragmatognomosini::with('invol_cars')->findOrFail($id_ekthesis);
+//        dd($pragmatognomosini);
+        $inv_car = $pragmatognomosini->invol_cars()->wherePivot('id_oxima', $id_oxima)->where([['id_person', '=', $id_person]])->first();
+        $companies = Company::where('Mark_del', 'Όχι')->get();
+        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata',$id_oxima]])->get();
+        $pathontes = Person::where([['Mark_del','Όχι'],['id_person',$id_person]])->get();
+//        dd($proiparx);
+
+        return view('pragmatognomosines.edit_involv_cars_ekth', compact([
+            'inv_car',
+            'id_ekthesis',
+            'companies',
+            'id_oxima',
+            'id_person',
+            'oximata_pathon',
+            'pathontes'
+        ]));
+    }
+
+    public function update_involv_cars(Request $request){
+
+
+//        dd($request);
+        $inv_car = InvolvCar::where([['id_ekthesis',$request->id_ekthesis],['id_oxima',$request->id_oxima],['id_person',$request->id_person]])->update($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+
+    }
+
+    public function delete_involv_cars($id_ekthesis,$id_oxima,$id_person) {
+        $pragmatognomosini = Pragmatognomosini::with('invol_cars')->findOrFail($id_ekthesis);
+//        dd($pragmatognomosini);
+        $inv_car = $pragmatognomosini->invol_cars()->wherePivot('id_oxima', $id_oxima)->where([['id_person', '=', $id_person]])->first();
+        $companies = Company::where('Mark_del', 'Όχι')->get();
+        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata',$id_oxima]])->get();
+        $pathontes = Person::where([['Mark_del','Όχι'],['id_person',$id_person]])->get();
+//        dd($proiparx);
+
+        return view('pragmatognomosines.delete_involv_cars_ekth', compact([
+            'inv_car',
+            'id_ekthesis',
+            'companies',
+            'id_oxima',
+            'id_person',
+            'oximata_pathon',
+            'pathontes'
+        ]));
+    }
+
+    public function destroy_involv_cars(Request $request){
+
+
+//        dd($request);
+        $inv_car = InvolvCar::where([['id_ekthesis',$request->id_ekthesis],['id_oxima',$request->id_oxima],['id_person',$request->id_person]])->delete($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+
+    }
+    // end manage involv cars ekthesis
 }

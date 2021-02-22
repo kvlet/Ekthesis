@@ -8,7 +8,8 @@
                 <div class="card">
                     <div class="card-header-cust">
                         <h4 class="heading-small text-center text-muted">
-                            <strong>{{ __('Συνεργεία Έκθεσης') }}</strong>
+                            <strong>{{ __('Συνεργεία Έκθεσης:') }}</strong>
+                            <strong>{{ __($id_ekthesis) }}</strong>
                         </h4>
                     </div>
                     <div class="card-body">

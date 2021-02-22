@@ -22,7 +22,7 @@
                     <a class="nav-link" id="v-pills-praktoreia-tab" data-toggle="pill" href="#v-pills-praktoreia" role="tab" aria-controls="v-pills-praktoreia" aria-selected="false" >Πρακτορεία</a>
                     <a class="nav-link" id="v-pills-notes-tab" data-toggle="pill" href="#v-pills-notes" role="tab" aria-controls="v-pills-notes" aria-selected="false">Παρατηρήσεις</a>
                     <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#v-pills-eksodasynergati" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false" style="color: red">Έξοδα συνεργάτη</a>
-                    <a class="nav-link" id="v-pills-involv_cars-tab" data-toggle="pill" href="#v-pills-involv_cars" role="tab" aria-controls="v-pills-involv_cars" aria-selected="false" style="color: red">Εμπλεκόμενα Οχήματα</a>
+                    <a class="nav-link" id="v-pills-involv_cars-tab" data-toggle="pill" href="#v-pills-involv_cars" role="tab" aria-controls="v-pills-involv_cars" aria-selected="false" >Εμπλεκόμενα Οχήματα</a>
                     <a class="nav-link" id="v-pills-reports-tab" data-toggle="pill" href="#v-pills-reports" role="tab" aria-controls="v-pills-reports" aria-selected="false" style="color: red">Εκτυπώσεις</a>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     <a class="nav-link" id="v-pills-praktoreia-tab" data-toggle="pill" href="#v-pills-praktoreia" role="tab" aria-controls="v-pills-praktoreia" aria-selected="false" >Πρακτορεία</a>
                     <a class="nav-link" id="v-pills-notes-tab" data-toggle="pill" href="#v-pills-notes" role="tab" aria-controls="v-pills-notes" aria-selected="false">Παρατηρήσεις</a>
                     <a class="nav-link" id="v-pills-eksodasynergati-tab" data-toggle="pill" href="#v-pills-eksodasynergati" role="tab" aria-controls="v-pills-eksodasynergati" aria-selected="false" style="color: red">Έξοδα συνεργάτη</a>
-                    <a class="nav-link" id="v-pills-involv_cars-tab" data-toggle="pill" href="#v-pills-involv_cars" role="tab" aria-controls="v-pills-involv_cars" aria-selected="false" style="color: red">Εμπλεκόμενα Οχήματα</a>
+                    <a class="nav-link" id="v-pills-involv_cars-tab" data-toggle="pill" href="#v-pills-involv_cars" role="tab" aria-controls="v-pills-involv_cars" aria-selected="false" >Εμπλεκόμενα Οχήματα</a>
                     <a class="nav-link" id="v-pills-reports-tab" data-toggle="pill" href="#v-pills-reports" role="tab" aria-controls="v-pills-reports" aria-selected="false" style="color: red">Εκτυπώσεις</a>
                 </div>
             </div>
@@ -2187,7 +2187,108 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="v-pills-eksodasynergati" role="tabpanel" aria-labelledby="v-pills-eksodasynergati-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-involv_cars" role="tabpanel" aria-labelledby="v-pills-involv_cars-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-involv_cars" role="tabpanel" aria-labelledby="v-pills-involv_cars-tab">
+                    @if($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                        <a href="{{route('pragmatognomosines.create_involv_cars',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη εμπλεκόμενου οχήματος</a>
+                    @else
+                        <a href="{{ route('pragmatognomosines.create_involv_cars',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη εμπλεκόμενου οχήματος</a>
+                    @endif
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                        <strong>{{ __('Εμπλεκόμενα οχήματα') }}</strong>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="synergeio" class="table table-sm table-bordered table-hover" style="width:100%">
+                                                <thead class="thead-dark">
+                                                <tr>
+                                                    <th>Όχημα</th>
+                                                    <th>Εμπλεκόμενος</th>
+                                                    <th>Εταιρεία</th>
+                                                    <th>Χιλιόμετρα</th>
+                                                    <th>Αξία</th>
+                                                    <th>Οδηγός</th>
+                                                    <th>Παρατηρήσεις</th>
+                                                    <th>Επεξεργασία</th>
+                                                    <th>Διαγραφή</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($involv_cars as $inv_car)
+                                                    <tr>
+                                                        <td>
+                                                            @foreach($oximata_pathon as $oxim)
+                                                                @if($inv_car->id_oxima == $oxim->id_oximata )
+                                                                    {{ $oxim->Ar_kyklo }}
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td>
+                                                            @foreach($pathontes as $person)
+                                                                @if($inv_car->id_person == $person->id_person )
+                                                                    {{ $person->L_name.' '.$person->F_name }}
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td>
+                                                            @foreach($companies as $comp)
+                                                                @if($inv_car->id_company == $comp->id_company )
+                                                                    {{ $comp->comp_name }}
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td>
+                                                            {{ $inv_car->xiliometra }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $inv_car->value_car.'€' }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $inv_car->driver }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $inv_car->note }}
+                                                        </td>
+                                                        <td>
+                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                                <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_involv_cars/'.$inv_car->id_oxima.'/'.$inv_car->id_person) }}"
+                                                                   target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                            @else
+                                                                <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_involv_cars/'.$inv_car->id_oxima.'/'.$inv_car->id_person) }}"
+                                                                   target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                                <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_involv_cars/'.$inv_car->id_oxima.'/'.$inv_car->id_person) }}"
+                                                                   target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                            @else
+                                                                <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/delete_involv_cars/'.$inv_car->id_oxima.'/'.$inv_car->id_person) }}"
+                                                                   target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-reports" role="tabpanel" aria-labelledby="v-pills-reports-tab">...</div>
             </div>
         </div>

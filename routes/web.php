@@ -66,6 +66,13 @@ Route::post('pragmatognomosines/edit_provlep/{id}', 'PragmController@update_prov
 Route::get('pragmatognomosines/{id}/delete_provlep/{second_id}', 'PragmController@delete_provlep_ekth')->name('pragmatognomosines.delete_provlep_ekth');
 Route::delete('pragmatognomosines/delete_provlep', 'PragmController@destroy_provlep_ekth')->name('pragmatognomosines.destroy_provlep_ekth');
 
+Route::get('pragmatognomosines/{id}/add_involv_cars', 'PragmController@create_involv_cars')->name('pragmatognomosines.create_involv_cars');
+Route::post('pragmatognomosines/{id}/add_involv_cars', 'PragmController@store_involv_cars')->name('pragmatognomosines.store_involv_cars');
+Route::get('pragmatognomosines/{id}/edit_involv_cars/{second_id}/{third_id}', 'PragmController@edit_involv_cars');
+Route::post('pragmatognomosines/edit_involv_cars/{id}', 'PragmController@update_involv_cars')->name('pragmatognomosines.update_involv_cars');
+Route::get('pragmatognomosines/{id}/delete_involv_cars/{second_id}/{third_id}', 'PragmController@delete_involv_cars')->name('pragmatognomosines.delete_involv_cars');
+Route::delete('pragmatognomosines/delete_involv_cars/{id}', 'PragmController@destroy_involv_cars')->name('pragmatognomosines.destroy_involv_cars');
+
 Route::get('ereunes', 'PragmController@create')->name('pragmatognomosines.create');
 Route::post('ereunes', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('ereunes/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
@@ -106,6 +113,13 @@ Route::get('ereunes/{id}/edit_provlep/{second_id}', 'PragmController@edit_provle
 Route::post('ereunes/edit_provlep/{id}', 'PragmController@update_provlep_ekth')->name('pragmatognomosines.update_provlep_ekth');
 Route::get('ereunes/{id}/delete_provlep/{second_id}', 'PragmController@delete_provlep_ekth')->name('pragmatognomosines.delete_provlep_ekth');
 Route::delete('ereunes/delete_provlep', 'PragmController@destroy_provlep_ekth')->name('pragmatognomosines.destroy_provlep_ekth');
+
+Route::get('ereunes/{id}/add_involv_cars', 'PragmController@create_involv_cars')->name('pragmatognomosines.create_involv_cars');
+Route::post('ereunes/{id}/add_involv_cars', 'PragmController@store_involv_cars')->name('pragmatognomosines.store_involv_cars');
+Route::get('ereunes/{id}/edit_involv_cars/{second_id}/{third_id}', 'PragmController@edit_involv_cars');
+Route::post('ereunes/edit_involv_cars/{id}', 'PragmController@update_involv_cars')->name('pragmatognomosines.update_involv_cars');
+Route::get('ereunes/{id}/delete_involv_cars/{second_id}/{third_id}', 'PragmController@delete_involv_cars')->name('pragmatognomosines.delete_involv_cars');
+Route::delete('ereunes/delete_involv_cars/{id}', 'PragmController@destroy_involv_cars')->name('pragmatognomosines.destroy_involv_cars');
 //Route::get('pragmatognomosines/{id}', 'PragmController@show')->name('pragmatognomosines.show');
 // end routes for pragmatognomisines
 
