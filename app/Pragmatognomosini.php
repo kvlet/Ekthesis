@@ -120,4 +120,8 @@ class Pragmatognomosini extends Model
     public function invol_cars(){
         return $this->belongsToMany('App\Oxima','db_involv_cars','id_ekthesis','id_oxima')->withPivot('id_person','id_company','xiliometra','value_car','driver','note');
     }
+
+    public function expen_ekth(){
+        return $this->belongsToMany('App\Expense','db_expen_ekthesis','id_ekthesis','id_expenses')->withPivot('Quan','Value','Value_fpa');
+    }
 }

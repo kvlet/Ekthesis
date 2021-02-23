@@ -15,7 +15,7 @@
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
                     <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-foto-tab" data-toggle="pill" href="#v-pills-foto" role="tab" aria-controls="v-pills-foto" aria-selected="false" style="color: red">Φωτογραφίες</a>
-                    <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" style="color: red">Έξοδα έκθεσεις</a>
+                    <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" >Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-proyparxouses-tab" data-toggle="pill" href="#v-pills-proyparxouses" role="tab" aria-controls="v-pills-proyparxouses" aria-selected="false" >Προυπάρχουσες</a>
                     <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
                     <a class="nav-link" id="v-pills-provlepsis-tab" data-toggle="pill" href="#v-pills-provlepsis" role="tab" aria-controls="v-pills-provlepsis" aria-selected="false">Προβλέψεις</a>
@@ -33,7 +33,7 @@
                     <a class="nav-link" id="v-pills-keimena-tab" data-toggle="pill" href="#v-pills-keimena" role="tab" aria-controls="v-pills-keimena" aria-selected="false">Κείμενα</a>
                     <a class="nav-link" id="v-pills-katastasi-tab" data-toggle="pill" href="#v-pills-katastasi" role="tab" aria-controls="v-pills-katastasi" aria-selected="false">Κατάσταση</a>
                     <a class="nav-link" id="v-pills-foto-tab" data-toggle="pill" href="#v-pills-foto" role="tab" aria-controls="v-pills-foto" aria-selected="false" style="color: red">Φωτογραφίες</a>
-                    <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false" style="color: red">Έξοδα έκθεσεις</a>
+                    <a class="nav-link" id="v-pills-eksodaekthesis-tab" data-toggle="pill" href="#v-pills-eksodaekthesis" role="tab" aria-controls="v-pills-eksodaekthesis" aria-selected="false">Έξοδα έκθεσεις</a>
                     <a class="nav-link" id="v-pills-synergeia-tab" data-toggle="pill" href="#v-pills-synergeia" role="tab" aria-controls="v-pills-synergeia" aria-selected="false">Συνεργεία</a>
                     <a class="nav-link" id="v-pills-provlepsis-tab" data-toggle="pill" href="#v-pills-provlepsis" role="tab" aria-controls="v-pills-provlepsis" aria-selected="false">Προβλέψεις</a>
                     <a class="nav-link" id="v-pills-praktoreia-tab" data-toggle="pill" href="#v-pills-praktoreia" role="tab" aria-controls="v-pills-praktoreia" aria-selected="false" >Πρακτορεία</a>
@@ -1755,7 +1755,92 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="v-pills-eksodaekthesis" role="tabpanel" aria-labelledby="v-pills-eksodaekthesis-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-eksodaekthesis" role="tabpanel" aria-labelledby="v-pills-eksodaekthesis-tab">
+                    @if($pragmatognomosini->id_diakrisi=="Π" || $pragmatognomosini->id_diakrisi=="ΠΕ")
+                        <a href="{{route('pragmatognomosines.create_expen_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη εξόδου</a>
+                    @else
+                        <a href="{{ route('pragmatognomosines.create_expen_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη εξόδου</a>
+                    @endif
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <?php $count=0?>
+                                    @foreach($pragmatognomosini->expen_ekth as $expen_ekth)
+                                        <?php $count++ ?>
+                                    @endforeach
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                        <strong>{{ __('Λίστα Εξόδων'.' '.'('.$count.')') }}</strong>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="synergeio" class="table table-sm table-bordered table-hover" style="width:100%">
+                                                <thead class="thead-dark">
+                                                <tr>
+                                                    <th>Έξοδο</th>
+                                                    <th>Ποσότητα</th>
+                                                    <th>Αξία</th>
+                                                    <th>Αξία Φ.Π.Α.</th>
+                                                    <th>Επεξεργασία</th>
+                                                    <th>Διαγραφή</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($pragmatognomosini->expen_ekth as $expen_ekth)
+                                                    <tr>
+                                                        <td>
+                                                            @foreach($expenses as $expen)
+                                                                @if ($expen->id_expenses == $expen_ekth->pivot->id_expenses)
+                                                                    {{ $expen->eksodo }}
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td>
+                                                            {{$expen_ekth->pivot->Quan}}
+                                                        </td>
+                                                        <td>
+                                                            {{$expen_ekth->pivot->Value.'€'}}
+                                                        </td>
+                                                        <td>
+                                                            {{$expen_ekth->pivot->Value_fpa.'€'}}
+                                                        </td>
+                                                        <td>
+                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                                <a href="{{ URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_expen_ekth/'.$expen_ekth->pivot->id_expenses) }}"
+                                                                   target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                            @else
+                                                                <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_expen_ekth/'.$expen_ekth->pivot->id_expenses) }}"
+                                                                   target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                                <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_expen_ekth/'.$expen_ekth->pivot->id_expenses) }}"
+                                                                   target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                            @else
+                                                                <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/delete_expen_ekth/'.$expen_ekth->pivot->id_expenses) }}"
+                                                                   target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-proyparxouses" role="tabpanel" aria-labelledby="v-pills-proyparxouses-tab">
                     <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/add_proiparxouses') }}" target="" class="btn btn-primary">Προσθήκη Ανταλλακτικού</a>
                     <div class="row">

@@ -8,6 +8,7 @@ use App\Company;
 use App\DetailPrag;
 use App\Diakrisi;
 use App\Ergasies;
+use App\Expense;
 use App\Grafeio;
 use App\InvolvCar;
 use App\Keimena;
@@ -215,9 +216,9 @@ class PragmController extends Controller
         $status = Status::where([['Mark_del','Όχι']])->get();
         $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis]])->get();
         $involv_cars = InvolvCar::where([['id_ekthesis',$id_ekthesis]])->get();
-
+        $expenses = Expense::where([['Mark_del','Όχι']])->get();
         // many to many for pragmatognomosini
-        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses','status_of_ekth')->findOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses','status_of_ekth','expen_ekth')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
 
         // calculate file position
@@ -391,7 +392,8 @@ class PragmController extends Controller
             'fpaProiparx',
             'status',
             'provlepseis',
-            'involv_cars'
+            'involv_cars',
+            'expenses'
         ]));
     }
 
@@ -1228,7 +1230,7 @@ class PragmController extends Controller
         $pdate=Carbon::createFromFormat('d-m-Y',$request->Process_date)->format('Y-m-d');
 
         $request->Status_date = $sDate;
-        $request->Process_date=$pdate;
+        $request->Process_date = $pdate;
         $status_ekth->pivot->Status_date=$request->Status_date;
         $status_ekth->pivot->Process_date=$request->Process_date;
         $status_ekth->pivot->Valid=$request->Valid;
@@ -1420,13 +1422,92 @@ class PragmController extends Controller
     }
 
     public function destroy_involv_cars(Request $request){
-
-
-//        dd($request);
         $inv_car = InvolvCar::where([['id_ekthesis',$request->id_ekthesis],['id_oxima',$request->id_oxima],['id_person',$request->id_person]])->delete($request->except(['_token']));
 
         return redirect('pragmatognomosines/'.$request->id_ekthesis);
-
     }
     // end manage involv cars ekthesis
+
+    // manage expen ekthesis
+    public function create_expen_ekth($id_ekthesis){
+        $pragmatognomosini = Pragmatognomosini::with('expen_ekth')->findOrFail($id_ekthesis);
+        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
+        return view('pragmatognomosines.create_expen_ekth',compact([
+            'pragmatognomosini',
+            'id_ekthesis',
+            'expenses'
+        ]));
+    }
+    public function store_expen_ekth(Request $request,$id_ekthesis){
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+
+        if($request->id_expenses == 9){
+            $Value_fpa = 0;
+        }else{
+            $Value_fpa = $request->Value * $pragmatognomosini->Fpa / 100;
+        }
+        if ($request->Quan == null){
+            $request->Quan = 1;
+        }
+        $pragmatognomosini->expen_ekth()->attach($request->id_expenses,['Quan'=> $request->Quan,'Value'=> $request->Value,'Value_fpa'=> $Value_fpa ]);
+
+        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+    }
+
+    public function edit_expen_ekth($id_ekthesis,$id_expenses){
+        $pragmatognomosini = Pragmatognomosini::with('expen_ekth')->findOrFail($id_ekthesis);
+        $expen_ekth = $pragmatognomosini->expen_ekth()->wherePivot('id_expenses', $id_expenses)->first();
+        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
+
+        return view('pragmatognomosines.edit_expen_ekth',compact([
+            'expen_ekth',
+            'id_ekthesis',
+            'id_expenses',
+            'expenses'
+        ]));
+    }
+
+    public function update_expen_ekth(Request $request){
+        $pragmatognomosini = Pragmatognomosini::with('expen_ekth')->findOrFail($request->id_ekthesis);
+        $expen_ekth = $pragmatognomosini->expen_ekth()->wherePivot('id_expenses', $request->id_expenses)->first();
+
+        if($request->id_expenses == 9){
+            $Value_fpa = 0;
+        }else{
+            $Value_fpa = $request->Value * $pragmatognomosini->Fpa / 100;
+        }
+        if ($request->Quan == null){
+            $request->Quan = 1;
+        }
+        $expen_ekth->pivot->Quan = $request->Quan;
+        $expen_ekth->pivot->Value = $request->Value;
+        $expen_ekth->pivot->Value_fpa = $Value_fpa;
+        $expen_ekth->pivot->save();
+
+        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+    }
+
+    public function delete_expen_ekth($id_ekthesis,$id_expenses){
+        $pragmatognomosini = Pragmatognomosini::with('expen_ekth')->findOrFail($id_ekthesis);
+        $expen_ekth = $pragmatognomosini->expen_ekth()->wherePivot('id_expenses', $id_expenses)->first();
+        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
+
+        return view('pragmatognomosines.delete_expen_ekth',compact([
+            'expen_ekth',
+            'id_ekthesis',
+            'id_expenses',
+            'expenses'
+        ]));
+    }
+
+    public function destroy_expen_ekth(Request $request){
+        $pragmatognomosini = Pragmatognomosini::with('expen_ekth')->findOrFail($request->id_ekthesis);
+        $expen_ekth = $pragmatognomosini->expen_ekth()->wherePivot('id_expenses', $request->id_expenses)->first();
+
+        $pragmatognomosini->expen_ekth()->detach($request->id_expenses);
+
+        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+
+    }
+    // end manage expen ekthesis
 }
