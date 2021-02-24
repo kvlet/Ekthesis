@@ -8,6 +8,7 @@ use App\Company;
 use App\DetailPrag;
 use App\Diakrisi;
 use App\Ergasies;
+use App\ExpenEkthPartner;
 use App\Expense;
 use App\Grafeio;
 use App\InvolvCar;
@@ -218,7 +219,7 @@ class PragmController extends Controller
         $involv_cars = InvolvCar::where([['id_ekthesis',$id_ekthesis]])->get();
         $expenses = Expense::where([['Mark_del','Όχι']])->get();
         // many to many for pragmatognomosini
-        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses','status_of_ekth','expen_ekth')->findOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses','status_of_ekth','expen_ekth','expen_ekth_partner')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
 
         // calculate file position
@@ -1510,4 +1511,120 @@ class PragmController extends Controller
 
     }
     // end manage expen ekthesis
+
+    // manage expen partner ekthesis
+    public function create_expen_partner_ekth($id_ekthesis){
+        $pragmatognomosini = Pragmatognomosini::with('expen_ekth_partner')->findOrFail($id_ekthesis);
+        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
+        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+
+        return view('pragmatognomosines.create_expen_partner_ekth',compact([
+            'pragmatognomosini',
+            'id_ekthesis',
+            'expenses',
+            'pragmatognomones'
+        ]));
+    }
+    public function store_expen_partner_ekth(Request $request,$id_ekthesis){
+
+        $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+        if($request->id_expenses == 9){
+            $Value_fpa = 0;
+        }else{
+            $Value_fpa = $request->value * $pragmatognomosini->Fpa / 100;
+        }
+        if ($request->quan == null){
+            $request->quan = 1;
+        }
+        $expen_partner = new ExpenEkthPartner();
+        $expen_partner->id_ekthesis = $request->id_ekthesis;
+        $expen_partner->id_expenses = $request->id_expenses;
+        $expen_partner->id_users = $request->id_users;
+        $expen_partner->quan = $request->quan;
+        $expen_partner->value = $request->value;
+        $expen_partner->value_fpa = $Value_fpa;
+
+        $expen_partner->save();
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+
+
+    }
+
+    public function edit_expen_partner_ekth($id_ekthesis,$id_expenses,$id_users){
+
+        $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis',$id_ekthesis],['id_expenses',$id_expenses],['id_users',$id_users]])->first();
+        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
+        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+
+        return view('pragmatognomosines.edit_expen_partner_ekth',compact([
+            'expen_ekth_part',
+            'id_ekthesis',
+            'id_expenses',
+            'expenses',
+            'id_users',
+            'pragmatognomones'
+        ]));
+    }
+
+    public function update_expen_partner_ekth(Request $request){
+        $pragmatognomosini = Pragmatognomosini::with('expen_ekth_partner')->findOrFail($request->id_ekthesis);
+        $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->first();
+
+        if($request->id_expenses == 9){
+            $value_fpa = 0;
+        }else{
+            $value_fpa = $request->value * $pragmatognomosini->Fpa / 100;
+        }
+        $request->value_fpa = $value_fpa;
+
+        if ($request->quan == null){
+            $request->quan = 1;
+        }
+        $expen_ekth_part->id_ekthesis = $request->id_ekthesis;
+        $expen_ekth_part->id_expenses = $request->id_expenses;
+        $expen_ekth_part->id_users = $request->id_users;
+        $expen_ekth_part->quan = $request->quan;
+        $expen_ekth_part->value = $request->value;
+        $expen_ekth_part->value_fpa = $value_fpa;
+
+        $expen_ekth_part->save();
+//        $expen_partner = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->update($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+    }
+
+    public function delete_expen_partner_ekth($id_ekthesis,$id_expenses,$id_users){
+        $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis',$id_ekthesis],['id_expenses',$id_expenses],['id_users',$id_users]])->first();
+        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
+        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+
+        return view('pragmatognomosines.delete_expen_partner_ekth',compact([
+            'expen_ekth_part',
+            'id_ekthesis',
+            'id_expenses',
+            'expenses',
+            'id_users',
+            'pragmatognomones'
+        ]));
+    }
+
+    public function destroy_expen_partner_ekth(Request $request){
+        $pragmatognomosini = Pragmatognomosini::with('expen_ekth_partner')->findOrFail($request->id_ekthesis);
+
+        if($request->id_expenses == 9){
+            $Value_fpa = 0;
+        }else{
+            $Value_fpa = $request->Value * $pragmatognomosini->Fpa / 100;
+        }
+        if ($request->Quan == null){
+            $request->Quan = 1;
+        }
+
+        $expen_partner = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->delete($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+
+    }
+    // end manage expen  partner ekthesis
 }

@@ -124,4 +124,8 @@ class Pragmatognomosini extends Model
     public function expen_ekth(){
         return $this->belongsToMany('App\Expense','db_expen_ekthesis','id_ekthesis','id_expenses')->withPivot('Quan','Value','Value_fpa');
     }
+
+    public function expen_ekth_partner(){
+        return $this->belongsToMany('App\Expense','db_expen_ekthesis_partner','id_ekthesis','id_expenses')->withPivot('id_users','quan','value','value_fpa');
+    }
 }
