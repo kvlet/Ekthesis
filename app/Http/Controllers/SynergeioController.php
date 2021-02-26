@@ -57,7 +57,7 @@ class SynergeioController extends Controller
 
         $synergeio->save();
 
-        return redirect('synergeio/'.$synergeio->id_synergeia);
+        return redirect('synergeio/search');
     }
 
     /**
@@ -110,7 +110,7 @@ class SynergeioController extends Controller
         $synergeio->Mark_del = $request->Mark_del;
 
         $synergeio->update();
-        return redirect('synergeio/'.$synergeio->id_synergeia);
+        return redirect('synergeio/search');
     }
 
     /**
@@ -130,5 +130,26 @@ class SynergeioController extends Controller
         }else{
             return back()->with('error','Το συνεργείο δεν γίνεται να διαγραφεί συμμετέχει σε εκθέσεις');
         }
+    }
+
+    public  function opensearch(){
+        $synergeia= Synergeio::where([['Mark_del','Όχι'],['Name_syner','LIKE','%']])->orderBy('Name_syner')->get();
+
+        return view('synergeio.search',compact([
+            'synergeia'
+        ]));
+    }
+
+    public function search(Request $request){
+        $syner= $request->Name_syner;
+        if ($syner == null){
+            $synergeia= Synergeio::where([['Mark_del','Όχι'],['Name_syner','LIKE','%']])->orderBy('Name_syner')->get();
+        }else{
+            $synergeia= Synergeio::where([['Mark_del','Όχι'],['Name_syner','LIKE','%'.$syner.'%']])->orderBy('Name_syner')->get();
+        }
+
+        return view('synergeio.search',compact([
+            'synergeia'
+        ]));
     }
 }

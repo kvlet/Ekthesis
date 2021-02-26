@@ -248,7 +248,7 @@
                                                 <div class="form-label{{ $errors->has('Date_dikasimou') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="Date_dikasimou">{{ __('Ημ/νια Δικάσιμου') }}</label>
-                                                    <input type="text" name="date_dikasimou" id="Date_dikasimou" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                                    <input type="text" name="Date_dikasimou" id="Date_dikasimou" data-provide="datepicker" placeholder="HH-MM-YYYY"
                                                            class="form-control form-input form-control-alternative{{ $errors->has('Date_dikasimou') ? ' is-invalid' : '' }}"
                                                            value="{{ $pragmatognomosini->Date_dikasimou }}" autofocus>
                                                     <script type="text/javascript">

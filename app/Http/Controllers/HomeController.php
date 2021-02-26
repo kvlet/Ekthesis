@@ -39,6 +39,10 @@ class HomeController extends Controller
         foreach ($pragmatognomosines as $pragm){
             $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
             $pragm->Date_atiximatos = $dateAtiximatos;
+            if ($pragm->Date_dikasimou !=null) {
+                $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragm->Date_dikasimou)->format('d-m-Y');
+                $pragm->Date_dikasimou = $dateDikasimou;
+            }
 //            $status = $pragm->status_of_ekth()->wherePivot('id_ekthesis',$pragm->id_ekthesis)->where('Valid','=','Ναι')->get();
         }
 //        $status = $pragmatognomosines->status_of_ekth()->wherePivot('Valid','=','Ναι')->get();

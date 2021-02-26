@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('id_synergeia') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="id_synergeia">{{ __('Κωδικός') }} </label>
                                     <input type="text" name="id_synergeia" id="id_synergeia"
@@ -21,7 +21,7 @@
                                            value="{{ old('id_synergeia') }}"   autofocus disabled>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('Name_syner') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Name_syner">{{ __(' Επωνυμία') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <input type="text" name="Name_syner" id="Name_syner"
@@ -29,9 +29,7 @@
                                            value="{{ old('Name_syner') }}" autofocus required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('Addres') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Addres">{{ __('Διεύθυνση') }} </label>
                                     <input type="text" name="Addres" id="Addres"
@@ -39,7 +37,9 @@
                                            value="{{ old('Addres') }}"   autofocus>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('Phone') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Phone">{{ __(' Τηλέφωνο') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <input type="text" name="Phone" id="Phone"  pattern="[0-9]{10}" maxlength="10"
@@ -47,9 +47,7 @@
                                            value="{{ old('Phone') }}" autofocus required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('Kinito') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Kinito">{{ __('Κινητό') }} </label>
                                     <input type="text" name="Kinito" id="Kinito" maxlength="10" pattern="[0-9]{10}"
@@ -57,7 +55,7 @@
                                            value="{{ old('Kinito') }}"   autofocus>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('Fax') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Fax">{{ __(' Fax') }} </label>
                                     <input type="text" name="Fax" id="Fax" maxlength="10"  pattern="[0-9]{10}"
@@ -67,7 +65,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('Email') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Email">{{ __('Email') }} </label>
                                     <input type="email" name="Email" id="Email"
@@ -75,7 +73,7 @@
                                            value="{{ old('Email') }}"   autofocus>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('Respon') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Respon">{{ __(' Υπεύθυνος') }} </label>
                                     <input type="text" name="Respon" id="Respon" maxlength="50"
@@ -83,9 +81,7 @@
                                            value="{{ old('Respon') }}" autofocus>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('id_typos_synergeiou') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="id_typos_synergeiou">{{ __(' Τύπος Συνεργείου') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <select class="form-control form-select" id="id_typos_synergeiou" name="id_typos_synergeiou" required>
@@ -99,7 +95,9 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('Mark_del') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Mark_del">{{ __(' Διαγραφή') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <select class="form-control form-select" id="Mark_del" name="Mark_del" required disabled>
@@ -131,7 +129,6 @@
                                     });
                                 </script>
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col">
@@ -142,6 +139,9 @@
                             <div class="col d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary">Καταχώρηση</button>
                             </div>
+                            <div class="col d-flex justify-content-end">
+                                <a href="{{  URL('synergeio/search') }}" class="btn btn-primary" role="button">Επιστροφή</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,64 +149,6 @@
         </div>
         @include('errors')
     </form>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header-cust">
-                    <h4 class="heading-small text-center text-muted">
-                        <strong>{{ __('Λίστα συνεργείων') }}</strong>
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table id="synergeio" class="table table-bordered table-hover" style="width:100%">
-                                <thead class="thead-dark">
-                                <tr>
-                                    <th>Κωδικός</th>
-                                    <th>Επωνυμία</th>
-                                    <th>Διεύθυνση</th>
-                                    <th>Τηλέφωνο</th>
-                                    <th>Email</th>
-                                    <th>Επεξεργασία</th>
-                                    <th>Διαγραφή</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($synergeia as $synergeio)
-                                    <tr>
-                                        <td> {{ $synergeio->id_synergeia }} </td>
-                                        <td> {{ $synergeio->Name_syner }} </td>
-                                        <td> {{ $synergeio->Addres }} </td>
-                                        <td> {{ $synergeio->Phone }} </td>
-                                        <td> <a href="mailto: {{ $synergeio->Email }} " alt="send mail to {{ $synergeio->Name_syner }}">{{ $synergeio->Email }}</a></td>
-                                        <td>
-                                            <a href="{{ URL('synergeio/'.$synergeio->id_synergeia) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
-                                        </td>
-                                        <td>
-                                            <form action=" {{ action('SynergeioController@destroy',$synergeio->id_synergeia) }}" method="post">
-                                                @csrf
-                                                {{ method_field('DELETE') }}
-                                                <button type="submit" class="btn btn-danger" style="background-color:transparent; border-color:transparent;">
-                                                    <img src="/images/delete.jpg" height="25"/>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 

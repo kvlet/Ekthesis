@@ -39,8 +39,24 @@
                         </ul>
                     </div>
                </li>
-                <li class="nav-item"><a class="nav-link py-0" href="/praktoreiο"><span>Πρακτορεία</span></a></li>
-                <li class="nav-item"><a class="nav-link py-0" href="/synergeio"><span>Συνεργεία</span></a></li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#submenu1sub12" data-toggle="collapse" data-target="#submenu1sub12"><span>Πρακτορεία</span></a>
+                    <div class="collapse" id="submenu1sub12" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="/praktoreiο"><span>Δημιουργία</span></a></li>
+                            <li class="nav-item"><a class="nav-link py-0" href="/praktoreiο/search"><span>Αναζήτηση</span></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#submenu1sub13" data-toggle="collapse" data-target="#submenu1sub13"><span>Συνεργείο</span></a>
+                    <div class="collapse" id="submenu1sub13" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="/synergeio"><span>Δημιουργία</span></a></li>
+                            <li class="nav-item"><a class="nav-link py-0" href="/synergeio/search"><span>Αναζήτηση</span></a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </li>

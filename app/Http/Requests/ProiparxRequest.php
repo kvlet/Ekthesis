@@ -24,7 +24,8 @@ class ProiparxRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id_categ'=>'required',
+            'diax_fr_b'=>'required'
         ];
     }
 }

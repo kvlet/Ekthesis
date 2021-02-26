@@ -259,12 +259,16 @@ Route::put('arxi/{id}', 'ArxiController@update')->name('arxi_eggrafon.update');
 
 Route::get('praktoreiο','PraktoreioController@create')->name('praktoreio.create');
 Route::post('praktoreiο','PraktoreioController@store')->name('praktoreio.store');
+Route::get('praktoreiο/search', 'PraktoreioController@opensearch')->name('praktoreiο.opensearch');
+Route::post('praktoreiο/search', 'PraktoreioController@search')->name('praktoreiο.search');
 Route::get('praktoreiο/{id}','PraktoreioController@edit')->name('praktoreio.edit');
 Route::put('praktoreiο/{id}','PraktoreioController@update')->name('praktoreio.update');
 Route::delete('praktoreiο/{id}','PraktoreioController@destroy')->name('praktoreio.destroy');
 
 Route::get('synergeio','SynergeioController@create')->name('synergeio.create');
 Route::post('synergeio','SynergeioController@store')->name('synergeio.store');
+Route::get('synergeio/search', 'SynergeioController@opensearch')->name('synergeio.opensearch');
+Route::post('synergeio/search', 'SynergeioController@search')->name('synergeio.search');
 Route::get('synergeio/{id}','SynergeioController@edit')->name('synergeio.edit');
 Route::put('synergeio/{id}','SynergeioController@update')->name('synergeio.update');
 Route::delete('synergeio/{id}','SynergeioController@destroy')->name('synergeio.destroy');

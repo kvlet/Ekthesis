@@ -24,7 +24,7 @@ class ExpenEkthPartnerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id_users'=>'required'
         ];
     }
 }

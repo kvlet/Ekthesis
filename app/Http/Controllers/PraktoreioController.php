@@ -60,7 +60,7 @@ class PraktoreioController extends Controller
 
         $praktoreio->save();
 
-        return redirect('praktoreiο/'.$praktoreio->id_praktoreio);
+        return redirect('praktoreiο/search');
 
     }
 
@@ -113,7 +113,7 @@ class PraktoreioController extends Controller
         $praktoreio->flag = $request->flag;
 
         $praktoreio->update();
-        return redirect('praktoreiο/'.$praktoreio->id_praktoreio);
+        return redirect('praktoreiο/search');
 
     }
 
@@ -137,5 +137,26 @@ class PraktoreioController extends Controller
 //            return view('praktoreio.create', compact(['praktoreia']))->with('error','Το πρακτορείο δεν γίνεται να διαγραφεί συμμετέχει σε εκθέσεις');
         }
 
+    }
+
+    public  function opensearch(){
+        $praktoreia= Praktoreio::where([['mark_del','Όχι'],['eponymia','LIKE','%']])->orderBy('eponymia')->get();
+
+        return view('praktoreio.search',compact([
+            'praktoreia'
+        ]));
+    }
+
+    public function search(Request $request){
+        $prakt= $request->eponymia;
+        if ($prakt == null){
+            $praktoreia= Praktoreio::where([['mark_del','Όχι'],['eponymia','LIKE','%']])->orderBy('eponymia')->get();
+        }else{
+            $praktoreia= Praktoreio::where([['mark_del','Όχι'],['eponymia','LIKE','%'.$prakt.'%']])->orderBy('eponymia')->get();
+        }
+
+        return view('praktoreio.search',compact([
+            'praktoreia'
+        ]));
     }
 }

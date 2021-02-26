@@ -1,7 +1,7 @@
 @extends('forms')
 
 @section('formsdetails')
-    <form id="create_praktoreio_form" method="post" action="{{ route('praktoreio.update', $praktoreio->id_praktoreio) }}" autocomplete="off">
+    <form id="edit_praktoreio_form" method="post" action="{{ route('praktoreio.update', $praktoreio->id_praktoreio) }}" autocomplete="off">
         @csrf
         {{ method_field('PUT') }}
         <div class="row">
@@ -14,7 +14,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('id_praktoreio') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="id_praktoreio">{{ __('Κωδικός') }} </label>
                                     <input type="text" name="id_praktoreio" id="id_praktoreio"
@@ -22,7 +22,7 @@
                                            value="{{ $praktoreio->id_praktoreio }}"   autofocus disabled>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('eponymia') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="eponymia">{{ __(' Επωνυμία') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <input type="text" name="eponymia" id="eponymia"
@@ -30,9 +30,7 @@
                                            value="{{ $praktoreio->eponymia }}" autofocus required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('address') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="address">{{ __('Διεύθυνση') }} </label>
                                     <input type="text" name="address" id="address"
@@ -40,7 +38,9 @@
                                            value="{{ $praktoreio->address }}"   autofocus>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('tel') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="tel">{{ __(' Τηλέφωνο') }} <span style="color:red;font-weight:bold">*</span></label>
                                     <input type="text" name="tel" id="tel" maxlength="10"
@@ -48,9 +48,7 @@
                                            value="{{ $praktoreio->tel }}" autofocus required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('kinito') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="kinito">{{ __('Κινητό') }} </label>
                                     <input type="text" name="kinito" id="kinito" maxlength="10" pattern="[0-9]{10}"
@@ -58,7 +56,7 @@
                                            value="{{ $praktoreio->kinito }}"   autofocus>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('fax') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="fax">{{ __(' Fax') }} </label>
                                     <input type="text" name="fax" id="fax" maxlength="10"  pattern="[0-9]{10}"
@@ -68,7 +66,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('email') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="email">{{ __('Email') }} </label>
                                     <input type="email" name="email" id="email"
@@ -76,16 +74,16 @@
                                            value="{{ $praktoreio->email }}"   autofocus>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-label{{ $errors->has('Mark_del') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="Mark_del">{{ __(' Διαγραφή') }} <span style="color:red;font-weight:bold">*</span></label>
-                                    <select class="form-control form-select" id="Mark_del" name="Mark_del" required>
-                                        <option value="Ναι">Ναι</option>
-                                        <option value="Όχι" selected="selected">Όχι</option>
+                            <div class="col-md-4">
+                                <div class="form-label{{ $errors->has('mark_del') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="mark_del">{{ __(' Διαγραφή') }} <span style="color:red;font-weight:bold">*</span></label>
+                                    <select class="form-control form-select" id="mark_del" name="mark_del" required>
+                                        <option value="Ναι" @if($praktoreio->mark_del == 'Ναι') selected="selected"@endif>Ναι</option>
+                                        <option value="Όχι"@if($praktoreio->mark_del == 'Όχι') selected="selected"@endif>Όχι</option>
                                     </select>
-                                    @if ($errors->has('Mark_del'))
+                                    @if ($errors->has('mark_del'))
                                         <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('Mark_del') }}</strong>
+                                                    <strong>{{ $errors->first('mark_del') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -97,7 +95,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <textarea id="note" name="note" style="width: 650px; height: 200px;">
                                     {{ $praktoreio->note }}
                                 </textarea>
@@ -115,23 +113,11 @@
                             </div>
                         </div>
                         <div class="row mt-4">
-                            <div class="col">
-                                <div class="text-center">
-                                    <a href="{{ route('praktoreio.create') }}"><img width="50" src="/images/add_rec.jpg" /></a> {{--onMouseOut="this.src='/images/add_rec.jpg'" onMouseOver="this.src='/images/logo.jpg'" --}}
-                                </div>
+                            <div class="col d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Αποθηκευση</button>
                             </div>
                             <div class="col d-flex justify-content-end">
-                                <form action=" {{ action('PraktoreioController@destroy',$praktoreio->id_praktoreio) }}" method="post">
-                                    @csrf
-                                    {{ method_field('DELETE') }}
-                                    <button type="submit" class="btn btn-danger">
-{{--                                        <img src="/images/delete.jpg" height="25"/>--}}
-                                        Διαγραφή
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="col d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Αποθήκευση</button>
+                                <a href="{{  URL('praktoreiο/search') }}" class="btn btn-primary" role="button">Επιστροφή</a>
                             </div>
                         </div>
                     </div>
@@ -140,64 +126,6 @@
         </div>
         @include('errors')
     </form>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header-cust">
-                    <h4 class="heading-small text-center text-muted">
-                        <strong>{{ __('Λίστα πρακτορείων') }}</strong>
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table id="praktoreio" class="table table-bordered table-hover" style="width:100%">
-                                <thead class="thead-dark">
-                                <tr>
-                                    <th>Κωδικός</th>
-                                    <th>Επωνυμία</th>
-                                    <th>Διεύθυνση</th>
-                                    <th>Τηλέφωνο</th>
-                                    <th>Email</th>
-                                    <th>Επεξεργασία</th>
-                                    <th>Διαγραφή</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($praktoreia as $praktoreio)
-                                    <tr>
-                                        <td> {{ $praktoreio->id_praktoreio }} </td>
-                                        <td> {{ $praktoreio->eponymia }} </td>
-                                        <td> {{ $praktoreio->address }} </td>
-                                        <td> {{ $praktoreio->tel }} </td>
-                                        <td> <a href="mailto: {{ $praktoreio->email }} " alt="send mail to {{ $praktoreio->eponymia }}">{{ $praktoreio->email }}</a></td>
-                                        <td>
-                                            <a href="{{ URL('praktoreiο/'.$praktoreio->id_praktoreio) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
-                                        </td>
-                                        <td>
-                                            <form action=" {{ action('PraktoreioController@destroy',$praktoreio->id_praktoreio) }}" method="post">
-                                                @csrf
-                                                {{ method_field('DELETE') }}
-                                                <button type="submit" class="btn btn-danger" style="background-color:transparent; border-color:transparent;">
-                                                    <img src="/images/delete.jpg" height="25"/>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 
