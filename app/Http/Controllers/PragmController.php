@@ -899,19 +899,15 @@ class PragmController extends Controller
 
     // manage details ekthesis
     public function create_details_ekth($id_ekthesis,$id_ergasia){
+        $ergasia = Ergasies::with(['ergasies_in_parts' => function($query) {
+            $query->where([['Mark_del','Όχι'],['db_parts_of_ergasies.id_parts','>','1']])->orderBy('part');
+        }])->where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
 
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
-        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
-        $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
-
-        return view('pragmatognomosines.create_details_ekth',compact([
-            'parts',
-            'ergasia',
-            'id_ergasia',
-            'id_ekthesis',
-            'ergasies'
-//            'part_erg'
-        ]));
+        return view('pragmatognomosines.create_details_ekth',[
+            'ergasia' => $ergasia,
+            'id_ergasia' => $id_ergasia,
+            'id_ekthesis' => $id_ekthesis
+        ]);
     }
     public function create_details_ekth_nop($id_ekthesis,$id_part){
         $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();

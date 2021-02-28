@@ -40,12 +40,7 @@
                                             <select class="form-control form-select" id="id_parts" name="id_parts" required >
                                                 <option selected value value=-1>{{ " Επιλέξτε Ανταλλακτικό " }}</option>
                                                 @foreach($erg->ergasies_in_parts as $part_erg)
-{{--                                                @foreach($part_erg as $paerg)--}}
-                                                    @foreach($parts as $part)
-                                                        @if($part_erg->id_parts == $part->id_parts)
-                                                            <option value="{{$part->id_parts}}" @if(old('id_parts') == $part->id_parts) selected @endif>{{ $part->part }}</option>
-                                                        @endif
-                                                   @endforeach
+                                                            <option value="{{$part_erg->id_parts}}" @if(old('id_parts') == $part_erg->id_parts) selected @endif>{{ $part_erg->part }}</option>
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('id_parts'))
@@ -91,12 +86,7 @@
                                                 <select class="form-control form-select" id="id_parts" name="id_parts" required >
                                                     <option selected value value=-1>{{ " Επιλέξτε Ανταλλακτικό " }}</option>
                                                     @foreach($erg->ergasies_in_parts as $part_erg)
-                                                        {{--                                                @foreach($part_erg as $paerg)--}}
-                                                        @foreach($parts as $part)
-                                                            @if($part_erg->id_parts == $part->id_parts)
-                                                                <option value="{{$part->id_parts}}" @if(old('id_parts') == $part->id_parts) selected @endif>{{ $part->part }}</option>
-                                                            @endif
-                                                        @endforeach
+                                                                <option value="{{$part_erg->id_parts}}" @if(old('id_parts') == $part_erg->id_parts) selected @endif>{{ $part_erg->part }}</option>
                                                     @endforeach
                                                 </select>
                                                 @if ($errors->has('id_parts'))
