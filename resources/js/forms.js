@@ -13,7 +13,7 @@ $(document).ready( function (){
             'Group_diakr' : Group_diakr,
         }).then(response =>{
             $('#diakrisisModal').modal('hide');
-            var ddl = document.getElementById('id_diakrisi');
+            let ddl = document.getElementById('id_diakrisi');
 
             ddl.options[ddl.options.length] = new Option(response.data.Diakrisi, response.data.id_diakrisi, false, true);
 
@@ -40,7 +40,7 @@ $(document).ready( function(){
 
         }).then(response => {
             $('#placeModal').modal('hide');
-            var ddl = document.getElementById('id_accedent_place');
+            let ddl = document.getElementById('id_accedent_place');
 
             ddl.options[ddl.options.length] = new Option(response.data.Place, response.data.id_accedent_place, false, true);
 
@@ -69,7 +69,7 @@ $(document).ready( function(){
         }).then(response => {
 
             $('#arxiModal').modal('hide');
-            var ddl = document.getElementById('id_arxi_ekdosis_eggrafon');
+            let ddl = document.getElementById('id_arxi_ekdosis_eggrafon');
 
             ddl.options[ddl.options.length] = new Option(response.data.Arxi, response.data.id_arxi_ekdosis_eggrafon, false, true);
 
@@ -103,7 +103,7 @@ $(document).ready( function(){
         }).then(response => {
 
             $('#compPathonModal').modal('hide');
-            var ddl = document.getElementById('id_company_pathon');
+            let ddl = document.getElementById('id_company_pathon');
 
             ddl.options[ddl.options.length] = new Option(response.data.comp_name, response.data.id_company_pathon, false, true);
 
@@ -137,7 +137,7 @@ $(document).ready( function(){
         }).then(response => {
 
             $('#compPathonRealModal').modal('hide');
-            var ddl = document.getElementById('id_company_pathon_real');
+            let ddl = document.getElementById('id_company_pathon_real');
 
             ddl.options[ddl.options.length] = new Option(response.data.comp_name, response.data.id_company_pathon_real, false, true);
 
@@ -161,7 +161,7 @@ $(document).ready( function(){
         }).then(response => {
 
             $('#nomoiModal').modal('hide');
-            var ddl = document.getElementById('id_nomoi');
+            let ddl = document.getElementById('id_nomoi');
 
             ddl.options[ddl.options.length] = new Option(response.data.Nomos, response.data.id_nomoi, false, true);
 

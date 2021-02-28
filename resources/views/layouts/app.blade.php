@@ -12,9 +12,9 @@
 <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 <!-- Scripts -->
@@ -40,12 +40,7 @@
     <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
     <script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script>
 {{--                                Quiil editor                              --}}
-{{--    LaraBerg editor--}}
-            <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
-            <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
-            <script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
-            <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
-{{--    LaraBerg editor--}}
+
 {{--    editor--}}
 
 {{--    tables--}}
@@ -60,6 +55,11 @@
 {{--    Styles--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 {{--    Styles--}}
+
+{{--    images--}}
+    <link href="{{asset('node_modules/lightbox2/dist/css/lightbox.min.css')}}" rel="stylesheet" />
+    <script src="{{asset('node_modules/lightbox2/dist/js/lightbox.min.js')}}"></script>
+{{--    images--}}
 
 {{--    fonts--}}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700&display=swap" rel="stylesheet">

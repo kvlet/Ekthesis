@@ -1,4 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/node_modules/lightbox2/dist/css/lightbox.min.css": "/node_modules/lightbox2/dist/css/lightbox.min.css",
+    "/node_modules/lightbox2/dist/js/lightbox.min.js": "/node_modules/lightbox2/dist/js/lightbox.min.js"
 }
