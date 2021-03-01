@@ -344,6 +344,17 @@ Route::get('/reports/check_stats/pros_diekpereosi/anathesi_se_sinergati', functi
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@search')->name('search');
+
+// Settings and storage routes
+Route::get('/settings', 'SettingsController@index')->name('settings');
+
+Route::get('/storage/connect', 'StorageController@connect')->name('storage.connect');
+Route::group(['middleware' => ['auth', 'DropboxAuthenticated']], function() {
+    Route::get('/storage/disconnect', 'StorageController@disconnect')->name('storage.disconnect');
+    Route::get('/storage/files/{path?}', 'StorageController@index')->where('path', '(.*)')->name('storage.index');
+});
+
+
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // end  routs for auth
 
