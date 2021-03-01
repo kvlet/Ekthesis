@@ -339,9 +339,6 @@
                                             <a href="{{ URL('ereunes/'.$pragmatognomosini->id_ekthesis) }}" target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
                                         @endif
                                     </td>
-                                    <td>
-                                        <a href="{{ asset('/images/Childhood_Dream.png') }}" data-lightbox="image-1" data-title="My caption">Image #1</a>
-                                    </td>
                                 </tr>
                             @endif
                         @endforeach
