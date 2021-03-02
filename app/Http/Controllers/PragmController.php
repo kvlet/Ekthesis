@@ -10,6 +10,7 @@ use App\Diakrisi;
 use App\Ergasies;
 use App\ExpenEkthPartner;
 use App\Expense;
+use App\Foto;
 use App\Grafeio;
 use App\InvolvCar;
 use App\Keimena;
@@ -218,6 +219,7 @@ class PragmController extends Controller
         $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis]])->get();
         $involv_cars = InvolvCar::where([['id_ekthesis',$id_ekthesis]])->get();
         $expenses = Expense::where([['Mark_del','Όχι']])->get();
+        $fotos = Foto::where([['id_ekthesis',$id_ekthesis]])->get();
         // many to many for pragmatognomosini
         $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses','status_of_ekth','expen_ekth','expen_ekth_partner')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
@@ -394,7 +396,8 @@ class PragmController extends Controller
             'status',
             'provlepseis',
             'involv_cars',
-            'expenses'
+            'expenses',
+            'fotos'
         ]));
     }
 

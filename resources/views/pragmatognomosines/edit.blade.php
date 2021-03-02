@@ -1679,7 +1679,51 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="v-pills-foto" role="tabpanel" aria-labelledby="v-pills-foto-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-foto" role="tabpanel" aria-labelledby="v-pills-foto-tab">
+                    @if ((Request::is('pragmatognomosines/*')))
+                        <a href="{{route('pragmatognomosines.create_praktoreia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη φωτογραφιών</a>
+                    @elseif ((\Request::is('ereunes/*')))
+                        <a href="{{ route('pragmatognomosines.create_praktoreia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη φωτογραφιών</a>
+                    @endif
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-cust">
+                                    <?php $count=0?>
+                                    @foreach($fotos as $foto)
+                                        <?php $count++ ?>
+                                    @endforeach
+                                    <h4 class="heading-small text-center text-muted">
+                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                        <strong>{{ __('Λίστα Φωτογραφιών'.' '.'('.$count.')') }}</strong>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <table id="foto" class="table table-sm table-bordered table-hover" style="width:100%">
+                                                <tbody>
+                                                    @foreach($fotos as $foto)
+                                                        <tr>
+                                                            <td>
+                                                                <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-1"  data-title="My caption"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/>{{$foto->id_foto}}</a>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="v-pills-keimena" role="tabpanel" aria-labelledby="v-pills-keimena-tab">
                     @if ((Request::is('pragmatognomosines/*')))
                         <a href="{{route('pragmatognomosines.create_keimena_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη κειμένου</a>
@@ -1975,9 +2019,13 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header-cust">
+                                    <?php $count=0?>
+                                    @foreach($pragmatognomosini->synergeia as $synergeio)
+                                        <?php $count++ ?>
+                                    @endforeach
                                     <h4 class="heading-small text-center text-muted">
                                         <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                        <strong>{{ __('Λίστα Συνεργείων') }}</strong>
+                                        <strong>{{ __('Λίστα Συνεργείων'.' '.'('.$count.')') }}</strong>
                                     </h4>
                                 </div>
                                 <div class="card-body">
@@ -2158,9 +2206,13 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header-cust">
+                                        <?php $count=0?>
+                                        @foreach($pragmatognomosini->praktoreia as $praktoreio)
+                                            <?php $count++ ?>
+                                        @endforeach
                                         <h4 class="heading-small text-center text-muted">
                                             <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                            <strong>{{ __('Λίστα Πρακτορείων') }}</strong>
+                                            <strong>{{ __('Λίστα Πρακτορείων'.' '.'('.$count.')') }}</strong>
                                         </h4>
                                     </div>
                                     <div class="card-body">
