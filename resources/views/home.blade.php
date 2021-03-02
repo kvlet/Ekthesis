@@ -424,7 +424,7 @@
             </script>
         </div>
         <div class="tab-pane fade" id="apostoli" role="tabpanel" aria-labelledby="apostoli-tab">
-            <table id="apostoli" class="table table-bordered table-hover display table-sm" style="width:100%">
+            <table id="apostoli" class="table table-bordered table-hover dislpay" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Αρ. Πρωτοκόλλου</th>
