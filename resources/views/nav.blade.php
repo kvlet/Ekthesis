@@ -5,31 +5,31 @@
     <div class="collapse navbar-collapse" id="main_nav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/">Αρχική</a>
+                <a class="nav-link text-primary" href="/">Αρχική</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Εκθέσεις</a>
+                <a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown">Εκθέσεις</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/pragmatognomosines">Δημιουργία</a></li>
                     <li><a class="dropdown-item" href="/pragma_search">Αναζήτηση</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Έρευνες</a>
+                <a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown">Έρευνες</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/ereunes">Δημιουργία</a></li>
                     <li><a class="dropdown-item" href="/pragma_search">Αναζήτηση</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Παθόντες / Υπαίτιοι</a>
+                <a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown">Παθόντες / Υπαίτιοι</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/person">Δημιουργία</a></li>
                     <li><a class="dropdown-item" href="/person/search">Αναζήτηση</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Εταιρείες</a>
+                <a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown">Εταιρείες</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Εταιρεία &raquo</a>
                         <ul class="submenu dropdown-menu">
@@ -37,13 +37,13 @@
                             <li><a class="dropdown-item" href="/company/search">Αναζήτηση</a></li>
                         </ul>
                     </li>
-                    <li><a class="dropdown-item" href="#">Πρακτορεία &raquo</a>
+                    <li><a class="dropdown-item text-primary" href="#">Πρακτορεία &raquo</a>
                         <ul class="submenu dropdown-menu">
                             <li><a class="dropdown-item" href="/praktoreiο">Δημιουργία</a></li>
                             <li><a class="dropdown-item" href="/praktoreiο/search">Αναζήτηση</a></li>
                         </ul>
                     </li>
-                    <li><a class="dropdown-item" href="#">Συνεργείο &raquo</a>
+                    <li><a class="dropdown-item text-primary" href="#">Συνεργείο &raquo</a>
                         <ul class="submenu dropdown-menu">
                             <li><a class="dropdown-item" href="/synergeio">Δημιουργία</a></li>
                             <li><a class="dropdown-item" href="/synergeio/search">Αναζήτηση</a></li>
@@ -53,7 +53,7 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Οχήματα</a>
+                <a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown">Οχήματα</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Όχημα &raquo</a>
                         <ul class="submenu dropdown-menu">
@@ -61,13 +61,13 @@
                             <li><a class="dropdown-item" href="/oximata/search">Αναζήτηση</a></li>
                         </ul>
                     </li>
-                    <li><a class="dropdown-item" href="#">Ανταλλακτικά &raquo</a>
+                    <li><a class="dropdown-item text-primary" href="#">Ανταλλακτικά &raquo</a>
                         <ul class="submenu dropdown-menu">
                             <li><a class="dropdown-item" href="/parts">Δημιουργία</a></li>
                             <li><a class="dropdown-item" href="/parts/search">Αναζήτηση</a></li>
                         </ul>
                     </li>
-                    <li><a class="dropdown-item" href="#">Εργασίες &raquo</a>
+                    <li><a class="dropdown-item text-primary" href="#">Εργασίες &raquo</a>
                         <ul class="submenu dropdown-menu">
                             <li><a class="dropdown-item" href="/ergasies">Δημιουργία</a></li>
                             <li><a class="dropdown-item" href="/ergasies/search">Αναζήτηση</a></li>
@@ -257,11 +257,11 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/manage_keimena">Κείμενα</a>
+                <a class="nav-link text-primary" href="/manage_keimena">Κείμενα</a>
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Βοηθητικά</a>
+                <a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown">Βοηθητικά</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/diakrisis">Τύπος Έκθεσης</a></li>
                     <li><a class="dropdown-item" href="/nomoi">Νομοί</a></li>
@@ -275,8 +275,6 @@
                     <li><a class="dropdown-item" href="/expense">Έξοδα</a></li>
                 </ul>
             </li>
-
-
         </ul>
     </div> <!-- navbar-collapse.// -->
 </nav>
