@@ -268,11 +268,6 @@
                     @endforeach
                 </tbody>
             </table>
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#entoli').DataTable();
-                });
-            </script>
         </div>
         <div class="tab-pane fade" id="anathesi" role="tabpanel" aria-labelledby="anathesi-tab">
             <table id="anathesi" class="table table-bordered table-hover" style="width:100%">
@@ -417,11 +412,6 @@
                     @endforeach
                 </tbody>
             </table>
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#elegxo').DataTable();
-                } );
-            </script>
         </div>
         <div class="tab-pane fade" id="apostoli" role="tabpanel" aria-labelledby="apostoli-tab">
             <table id="apostoli" class="table table-bordered table-hover dislpay" style="width:100%">
@@ -494,11 +484,6 @@
                     @endforeach
                 </tbody>
             </table>
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#apostoli').DataTable();
-                } );
-            </script>
         </div>
     </div>
 @endsection

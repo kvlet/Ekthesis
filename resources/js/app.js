@@ -32,9 +32,7 @@ $(document).ready(function(){
 
 });
 
-$(document).ready(function() {
-    $("#diakr_view").DataTable();
-});
+
 
 $(document).on('click', '.dropdown-menu', function (e) {
     e.stopPropagation();
