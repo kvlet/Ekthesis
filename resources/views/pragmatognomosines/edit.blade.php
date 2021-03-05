@@ -1705,19 +1705,15 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-1">
-                                            <table id="foto" class="table table-sm table-bordered table-hover" style="width:100%">
-                                                <tbody>
-                                                    @foreach($fotos as $foto)
-                                                        <tr>
-                                                            <td>
-                                                                <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-1"  data-title="My caption"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/>{{$foto->id_foto}}</a>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                        <div class="col-md-12">
+                                            <div id="grid">
+                                                @foreach($fotos as $index=>$foto)
+                                                    <div>
+                                                        <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-1"  data-title="My caption"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>

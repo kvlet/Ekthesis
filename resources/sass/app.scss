@@ -92,4 +92,17 @@ main {
     .dropdown-menu > li:hover > .submenu{
         display: block;
     }
+
+    #grid {
+        column-width: 250px;
+        column-gap: 8px;
+    }
+
+    #grid > div {
+        break-inside: avoid-column; /* Prevent element from breaking */
+        page-break-inside: avoid; /* Prevent element from breaking in Firefox */
+        width: 200px;
+        height: 200px;
+        margin-bottom: 10px;
+    }
 }
