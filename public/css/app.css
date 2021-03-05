@@ -11567,6 +11567,10 @@ body {
   height: 100vh;
 }
 
+main {
+  padding-bottom: 31px;
+}
+
 .bg-wel-ekthesis {
   background-image: url("/images/pragm.jpg");
   background-repeat: no-repeat;
@@ -11614,5 +11618,64 @@ body {
   width: 30px;
   border-radius: 12px;
   font-size: 12px;
+}
+
+@media (min-width: 992px) {
+  .dropdown-menu .dropdown-toggle:after {
+    border-top: 0.3em solid transparent;
+    border-right: 0;
+    border-bottom: 0.3em solid transparent;
+    border-left: 0.3em solid;
+  }
+
+  .dropdown-menu .dropdown-menu {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .dropdown-menu li {
+    position: relative;
+  }
+
+  .nav-item .submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+  }
+
+  .nav-item .submenu-left {
+    right: 100%;
+    left: auto;
+  }
+
+  .dropdown-menu > li:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown-menu > li:hover > .submenu {
+    display: block;
+  }
+
+  #grid {
+    -webkit-column-width: 250px;
+       -moz-column-width: 250px;
+            column-width: 250px;
+    -webkit-column-gap: 8px;
+       -moz-column-gap: 8px;
+            column-gap: 8px;
+  }
+
+  #grid > div {
+    -webkit-column-break-inside: avoid;
+       -moz-column-break-inside: avoid;
+            break-inside: avoid-column;
+    /* Prevent element from breaking */
+    page-break-inside: avoid;
+    /* Prevent element from breaking in Firefox */
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+  }
 }
 
