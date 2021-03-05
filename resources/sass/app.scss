@@ -101,8 +101,8 @@ main {
     #grid > div {
         break-inside: avoid-column; /* Prevent element from breaking */
         page-break-inside: avoid; /* Prevent element from breaking in Firefox */
-        width: 200px;
-        height: 200px;
+        //width: 350px;
+        //height: 350px;
         margin-bottom: 10px;
     }
 }
