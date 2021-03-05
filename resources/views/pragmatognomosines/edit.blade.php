@@ -1709,7 +1709,7 @@
                                             <div id="grid">
                                                 @foreach($fotos as $index=>$foto)
                                                     <div>
-                                                        <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-1"  data-title="My caption"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                        <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-1"  data-title="{{'Φωτογραφία'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                     </div>
                                                 @endforeach
                                             </div>
