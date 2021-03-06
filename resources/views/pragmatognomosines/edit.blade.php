@@ -907,16 +907,61 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header-cust">
-                                    <?php $count=0?>
-                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
-                                       @if ($ergasia->id_ergasies == 3)
-                                                <?php $count++ ?>
-                                       @endif
-                                    @endforeach
-                                    <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                        <strong>{{ __('Λίστα Ανταλλακτικών Αντικαταστάσεις'.' '.'('.$count.')') }}</strong>
-                                    </h4>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <?php $count=0?>
+                                            @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                               @if ($ergasia->id_ergasies == 3)
+                                                        <?php $count++ ?>
+                                               @endif
+                                            @endforeach
+                                            <h4 class="heading-small text-center text-muted">
+                                                <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                                <strong>{{ __('Λίστα Ανταλλακτικών Αντικαταστάσεις'.' '.'('.$count.')') }}</strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <ul class="nav flex-column flex-nowrap overflow-hidden">
+                                                <li class="nav-item">
+                                                    <input type="checkbox"  data-toggle="toggle" id="ant_foto_show" class="btn btn-sm btn-primary" style="margin: 4px;">
+                                                </li>
+                                                <script type="text/javascript">
+                                                    $("#ant_foto_show").change(function() {
+                                                        var e = document.getElementById("foto_ant");
+                                                        if(!this.checked) {
+                                                            $('#foto_ant').addClass('g-hide');
+                                                        } else {
+                                                            $('#foto_ant').removeClass('g-hide');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#ant_foto_show").change(function() {
+                                                        var e = document.getElementById("antikat");
+                                                        if(!this.checked) {
+                                                            $('#antikat').removeClass('col-md-10');
+                                                            $('#antikat').addClass('col-md-12');
+                                                        } else {
+                                                            $('#antikat').removeClass('col-md-12');
+                                                            $('#antikat').addClass('col-md-10');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#ant_foto_show").change(function() {
+                                                        var e = document.getElementById("parts_antikat");
+                                                        if(!this.checked) {
+                                                            $('#parts_antikat').removeClass('table-condensed');
+                                                            $('#parts_antikat').addClass('table-sm');
+                                                        } else {
+                                                            $('#parts_antikat').removeClass('table-sm');
+                                                            $('#parts_antikat').addClass('table-condensed');
+                                                        }
+                                                    });
+                                                </script>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <h6>
@@ -933,9 +978,9 @@
                                         {{ __(' Σύνολο:')}}<strong>{{round($fpaPart3,2)+round($fpaJob3,2)+round($costJob3,2)+round($costPart3,2).('€')}}</strong>
                                     </h5>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" >
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" id="antikat">
                                             <div class="table-responsive">
                                                 <table id="parts_antikat" class="table-sm table table-bordered table-hover" style="width:100%">
                                                     <thead class="thead-dark">
@@ -1017,6 +1062,17 @@
                                                         @endforeach
                                                     </tbody>
                                                 </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 g-hide" id="foto_ant">
+                                            <div class="row">
+                                                <div id="grid">
+                                                    @foreach($fotos as $foto)
+                                                        <div>
+                                                           <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-1"  data-title="{{'Φωτογραφία'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1709,7 +1765,11 @@
                                             <div id="grid">
                                                 @foreach($fotos as $index=>$foto)
                                                     <div>
-                                                        <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-1"  data-title="{{'Φωτογραφία'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                        <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                           data-lightbox="image-1"
+                                                           data-title="{{'Φωτογραφία'.' '.$foto->file_name}}">
+                                                            <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                                 width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                     </div>
                                                 @endforeach
                                             </div>
