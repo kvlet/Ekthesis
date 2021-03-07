@@ -11683,7 +11683,7 @@ main {
     -webkit-column-gap: 8px;
        -moz-column-gap: 8px;
             column-gap: 8px;
-    overflow-x: scroll;
+    overflow-y: scroll;
     height: 500px;
   }
 
