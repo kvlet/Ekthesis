@@ -1066,7 +1066,7 @@
                                         </div>
                                         <div class="col-md-2 g-hide" id="foto_ant">
                                             <div class="row">
-                                                <div id="grid">
+                                                <div id="grid_det">
                                                     @foreach($fotos as $foto)
                                                         <div>
                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-1"  data-title="{{'Φωτογραφία'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
