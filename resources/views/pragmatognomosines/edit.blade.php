@@ -1069,7 +1069,7 @@
                                                 <div id="grid_det">
                                                     @foreach($fotos as $foto)
                                                         <div>
-                                                           <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-1"  data-title="{{'Φωτογραφία'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                           <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-ant"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -1093,16 +1093,61 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header-cust">
-                                    <?php $count=0?>
-                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
-                                        @if ($ergasia->id_ergasies == 4)
-                                            <?php $count++ ?>
-                                        @endif
-                                    @endforeach
-                                    <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                        <strong>{{ __('Λίστα Ανταλλακτικών Επαναφορές'.' '.'('.$count.')') }}</strong>
-                                    </h4>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <?php $count=0?>
+                                            @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                                @if ($ergasia->id_ergasies == 4)
+                                                    <?php $count++ ?>
+                                                @endif
+                                            @endforeach
+                                            <h4 class="heading-small text-center text-muted">
+                                                <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                                <strong>{{ __('Λίστα Ανταλλακτικών Επαναφορές'.' '.'('.$count.')') }}</strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <ul class="nav flex-column flex-nowrap overflow-hidden">
+                                                <li class="nav-item">
+                                                    <input type="checkbox"  data-toggle="toggle" id="epanaf_foto_show" class="btn btn-sm btn-primary" style="margin: 4px;">
+                                                </li>
+                                                <script type="text/javascript">
+                                                    $("#epanaf_foto_show").change(function() {
+                                                        var e = document.getElementById("foto_epanaf");
+                                                        if(!this.checked) {
+                                                            $('#foto_epanaf').addClass('g-hide');
+                                                        } else {
+                                                            $('#foto_epanaf').removeClass('g-hide');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#epanaf_foto_show").change(function() {
+                                                        var e = document.getElementById("epanaf");
+                                                        if(!this.checked) {
+                                                            $('#epanaf').removeClass('col-md-10');
+                                                            $('#epanaf').addClass('col-md-12');
+                                                        } else {
+                                                            $('#epanaf').removeClass('col-md-12');
+                                                            $('#epanaf').addClass('col-md-10');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#epanaf_foto_show").change(function() {
+                                                        var e = document.getElementById("parts_epanaf");
+                                                        if(!this.checked) {
+                                                            $('#parts_epanaf').removeClass('table-condensed');
+                                                            $('#parts_epanaf').addClass('table-sm');
+                                                        } else {
+                                                            $('#parts_epanaf').removeClass('table-sm');
+                                                            $('#parts_epanaf').addClass('table-condensed');
+                                                        }
+                                                    });
+                                                </script>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <h6>
@@ -1121,7 +1166,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" id="epanaf">
                                             <div class="table-responsive">
                                                 <table id="parts_epanaf" class="table-sm table table-bordered table-hover" style="width:100%">
                                                     <thead class="thead-dark">
@@ -1205,6 +1250,17 @@
                                                 </table>
                                             </div>
                                         </div>
+                                        <div class="col-md-2 g-hide" id="foto_epanaf">
+                                            <div class="row">
+                                                <div id="grid_det">
+                                                    @foreach($fotos as $foto)
+                                                        <div>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-epanaf"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1223,16 +1279,61 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header-cust">
-                                    <?php $count=0?>
-                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
-                                        @if ($ergasia->id_ergasies == 5)
-                                            <?php $count++ ?>
-                                        @endif
-                                    @endforeach
-                                    <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                        <strong>{{ __('Λίστα Ανταλλακτικών Εξαγωγή / Επανατοποθέτηση'.' '.'('.$count.')') }}</strong>
-                                    </h4>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <?php $count=0?>
+                                            @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                                @if ($ergasia->id_ergasies == 5)
+                                                    <?php $count++ ?>
+                                                @endif
+                                            @endforeach
+                                            <h4 class="heading-small text-center text-muted">
+                                                <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                                <strong>{{ __('Λίστα Ανταλλακτικών Εξαγωγή / Επανατοποθέτηση'.' '.'('.$count.')') }}</strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <ul class="nav flex-column flex-nowrap overflow-hidden">
+                                                <li class="nav-item">
+                                                    <input type="checkbox"  data-toggle="toggle" id="eksag_foto_show" class="btn btn-sm btn-primary" style="margin: 4px;">
+                                                </li>
+                                                <script type="text/javascript">
+                                                    $("#eksag_foto_show").change(function() {
+                                                        var e = document.getElementById("foto_eksag");
+                                                        if(!this.checked) {
+                                                            $('#foto_eksag').addClass('g-hide');
+                                                        } else {
+                                                            $('#foto_eksag').removeClass('g-hide');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#eksag_foto_show").change(function() {
+                                                        var e = document.getElementById("eksag");
+                                                        if(!this.checked) {
+                                                            $('#eksag').removeClass('col-md-10');
+                                                            $('#eksag').addClass('col-md-12');
+                                                        } else {
+                                                            $('#eksag').removeClass('col-md-12');
+                                                            $('#eksag').addClass('col-md-10');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#eksag_foto_show").change(function() {
+                                                        var e = document.getElementById("parts_eksag");
+                                                        if(!this.checked) {
+                                                            $('#parts_eksag').removeClass('table-condensed');
+                                                            $('#parts_eksag').addClass('table-sm');
+                                                        } else {
+                                                            $('#parts_eksag').removeClass('table-sm');
+                                                            $('#parts_eksag').addClass('table-condensed');
+                                                        }
+                                                    });
+                                                </script>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <h6>
@@ -1251,7 +1352,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" id="eksag">
                                             <div class="table-responsive">
                                                 <table id="parts_eksag" class="table-sm table table-bordered table-hover" style="width:100%">
                                                     <thead class="thead-dark">
@@ -1335,6 +1436,17 @@
                                                 </table>
                                             </div>
                                         </div>
+                                        <div class="col-md-2 g-hide" id="foto_eksag">
+                                            <div class="row">
+                                                <div id="grid_det">
+                                                    @foreach($fotos as $foto)
+                                                        <div>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-eksag"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1353,16 +1465,61 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header-cust">
-                                    <?php $count=0?>
-                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
-                                        @if ($ergasia->id_ergasies == 6)
-                                            <?php $count++ ?>
-                                        @endif
-                                    @endforeach
-                                    <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                        <strong>{{ __('Λίστα Ανταλλακτικών Βαφές'.' '.'('.$count.')') }}</strong>
-                                    </h4>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <?php $count=0?>
+                                            @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                                @if ($ergasia->id_ergasies == 6)
+                                                    <?php $count++ ?>
+                                                @endif
+                                            @endforeach
+                                            <h4 class="heading-small text-center text-muted">
+                                                <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                                <strong>{{ __('Λίστα Ανταλλακτικών Βαφές'.' '.'('.$count.')') }}</strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <ul class="nav flex-column flex-nowrap overflow-hidden">
+                                                <li class="nav-item">
+                                                    <input type="checkbox"  data-toggle="toggle" id="bafes_foto_show" class="btn btn-sm btn-primary" style="margin: 4px;">
+                                                </li>
+                                                <script type="text/javascript">
+                                                    $("#bafes_foto_show").change(function() {
+                                                        var e = document.getElementById("foto_bafes");
+                                                        if(!this.checked) {
+                                                            $('#foto_bafes').addClass('g-hide');
+                                                        } else {
+                                                            $('#foto_bafes').removeClass('g-hide');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#bafes_foto_show").change(function() {
+                                                        var e = document.getElementById("bafes");
+                                                        if(!this.checked) {
+                                                            $('#bafes').removeClass('col-md-10');
+                                                            $('#bafes').addClass('col-md-12');
+                                                        } else {
+                                                            $('#bafes').removeClass('col-md-12');
+                                                            $('#bafes').addClass('col-md-10');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#bafes_foto_show").change(function() {
+                                                        var e = document.getElementById("parts_bafes");
+                                                        if(!this.checked) {
+                                                            $('#parts_bafes').removeClass('table-condensed');
+                                                            $('#parts_bafes').addClass('table-sm');
+                                                        } else {
+                                                            $('#parts_bafes').removeClass('table-sm');
+                                                            $('#parts_bafes').addClass('table-condensed');
+                                                        }
+                                                    });
+                                                </script>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <h6>
@@ -1381,7 +1538,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" id="bafes">
                                             <div class="table-responsive">
                                                 <table id="parts_bafes" class="table-sm table table-bordered table-hover" style="width:100%">
                                                     <thead class="thead-dark">
@@ -1465,6 +1622,17 @@
                                                 </table>
                                             </div>
                                         </div>
+                                        <div class="col-md-2 g-hide" id="foto_bafes">
+                                            <div class="row">
+                                                <div id="grid_det">
+                                                    @foreach($fotos as $foto)
+                                                        <div>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-bafes"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1483,16 +1651,61 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header-cust">
-                                    <?php $count=0?>
-                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
-                                        @if ($ergasia->id_ergasies != 3 && $ergasia->id_ergasies != 4 && $ergasia->id_ergasies != 5 && $ergasia->id_ergasies != 6 && $ergasia->id_ergasies != 55)
-                                            <?php $count++ ?>
-                                        @endif
-                                    @endforeach
-                                    <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                        <strong>{{ __('Λίστα Εργασιών χωρίς ανταλλακτικά'.' '.'('.$count.')') }}</strong>
-                                    </h4>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <?php $count=0?>
+                                            @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                                @if ($ergasia->id_ergasies != 3 && $ergasia->id_ergasies != 4 && $ergasia->id_ergasies != 5 && $ergasia->id_ergasies != 6 && $ergasia->id_ergasies != 55)
+                                                    <?php $count++ ?>
+                                                @endif
+                                            @endforeach
+                                            <h4 class="heading-small text-center text-muted">
+                                                <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                                <strong>{{ __('Λίστα Εργασιών χωρίς ανταλλακτικά'.' '.'('.$count.')') }}</strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <ul class="nav flex-column flex-nowrap overflow-hidden">
+                                                <li class="nav-item">
+                                                    <input type="checkbox"  data-toggle="toggle" id="job_no_part_foto_show" class="btn btn-sm btn-primary" style="margin: 4px;">
+                                                </li>
+                                                <script type="text/javascript">
+                                                    $("#job_no_part_foto_show").change(function() {
+                                                        var e = document.getElementById("foto_no_part");
+                                                        if(!this.checked) {
+                                                            $('#foto_no_part').addClass('g-hide');
+                                                        } else {
+                                                            $('#foto_no_part').removeClass('g-hide');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#job_no_part_foto_show").change(function() {
+                                                        var e = document.getElementById("j_no_part");
+                                                        if(!this.checked) {
+                                                            $('#j_no_part').removeClass('col-md-10');
+                                                            $('#j_no_part').addClass('col-md-12');
+                                                        } else {
+                                                            $('#j_no_part').removeClass('col-md-12');
+                                                            $('#j_no_part').addClass('col-md-10');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#job_no_part_foto_show").change(function() {
+                                                        var e = document.getElementById("jobs_jobnopart");
+                                                        if(!this.checked) {
+                                                            $('#jobs_jobnopart').removeClass('table-condensed');
+                                                            $('#jobs_jobnopart').addClass('table-sm');
+                                                        } else {
+                                                            $('#jobs_jobnopart').removeClass('table-sm');
+                                                            $('#jobs_jobnopart').addClass('table-condensed');
+                                                        }
+                                                    });
+                                                </script>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <h6>
@@ -1507,7 +1720,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" id="j_no_part">
                                             <div class="table-responsive">
                                                 <table id="jobs_jobnopart" class="table-sm table table-bordered table-hover" style="width:100%">
                                                     <thead class="thead-dark">
@@ -1563,6 +1776,17 @@
                                                 </table>
                                             </div>
                                         </div>
+                                        <div class="col-md-2 g-hide" id="foto_no_part">
+                                            <div class="row">
+                                                <div id="grid_det">
+                                                    @foreach($fotos as $foto)
+                                                        <div>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-nopart"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1581,20 +1805,65 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header-cust">
-                                    <?php $count=0?>
-                                    @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
-                                        @if ($ergasia->id_ergasies == 55)
-                                            <?php $count++ ?>
-                                        @endif
-                                    @endforeach
-                                    <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                        <strong>{{ __('Λίστα Ανταλλακτικών Προασφαλιστικός'.' '.'('.$count.')') }}</strong>
-                                    </h4>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <?php $count=0?>
+                                            @foreach($pragmatognomosini->parts_of_ergasies as $ergasia)
+                                                @if ($ergasia->id_ergasies == 55)
+                                                    <?php $count++ ?>
+                                                @endif
+                                            @endforeach
+                                            <h4 class="heading-small text-center text-muted">
+                                                <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                                <strong>{{ __('Λίστα Ανταλλακτικών Προασφαλιστικός'.' '.'('.$count.')') }}</strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <ul class="nav flex-column flex-nowrap overflow-hidden">
+                                                <li class="nav-item">
+                                                    <input type="checkbox"  data-toggle="toggle" id="proasf_foto_show" class="btn btn-sm btn-primary" style="margin: 4px;">
+                                                </li>
+                                                <script type="text/javascript">
+                                                    $("#proasf_foto_show").change(function() {
+                                                        var e = document.getElementById("foto_proasf");
+                                                        if(!this.checked) {
+                                                            $('#foto_proasf').addClass('g-hide');
+                                                        } else {
+                                                            $('#foto_proasf').removeClass('g-hide');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#proasf_foto_show").change(function() {
+                                                        var e = document.getElementById("proasf");
+                                                        if(!this.checked) {
+                                                            $('#proasf').removeClass('col-md-10');
+                                                            $('#proasf').addClass('col-md-12');
+                                                        } else {
+                                                            $('#proasf').removeClass('col-md-12');
+                                                            $('#proasf').addClass('col-md-10');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#proasf_foto_show").change(function() {
+                                                        var e = document.getElementById("parts_proasf");
+                                                        if(!this.checked) {
+                                                            $('#parts_proasf').removeClass('table-condensed');
+                                                            $('#parts_proasf').addClass('table-sm');
+                                                        } else {
+                                                            $('#parts_proasf').removeClass('table-sm');
+                                                            $('#parts_proasf').addClass('table-condensed');
+                                                        }
+                                                    });
+                                                </script>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" id="proasf">
                                             <div class="table-responsive">
                                                 <table id="parts_proasf" class="table-sm table table-bordered table-hover" style="width:100%">
                                                     <thead class="thead-dark">
@@ -1623,6 +1892,17 @@
                                                     @endforeach
                                                     </tbody>
                                                 </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 g-hide" id="foto_proasf">
+                                            <div class="row">
+                                                <div id="grid_det">
+                                                    @foreach($fotos as $foto)
+                                                        <div>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-proasf"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1767,7 +2047,7 @@
                                                     <div>
                                                         <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
                                                            data-lightbox="image-1"
-                                                           data-title="{{'Φωτογραφία'.' '.$foto->file_name}}">
+                                                           data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
                                                             <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
                                                                  width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                     </div>
@@ -1795,15 +2075,60 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header-cust">
-                                    <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                        <strong>{{ __('Λίστα Κειμένων') }}</strong>
-                                    </h4>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <h4 class="heading-small text-center text-muted">
+                                                <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                                <strong>{{ __('Λίστα Κειμένων') }}</strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <ul class="nav flex-column flex-nowrap overflow-hidden">
+                                                <li class="nav-item">
+                                                    <input type="checkbox"  data-toggle="toggle" id="keimena_foto_show" class="btn btn-sm btn-primary" style="margin: 4px;">
+                                                </li>
+                                                <script type="text/javascript">
+                                                    $("#keimena_foto_show").change(function() {
+                                                        var e = document.getElementById("foto_keimena");
+                                                        if(!this.checked) {
+                                                            $('#foto_keimena').addClass('g-hide');
+                                                        } else {
+                                                            $('#foto_keimena').removeClass('g-hide');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#keimena_foto_show").change(function() {
+                                                        var e = document.getElementById("keimena");
+                                                        if(!this.checked) {
+                                                            $('#keimena').removeClass('col-md-10');
+                                                            $('#keimena').addClass('col-md-12');
+                                                        } else {
+                                                            $('#keimena').removeClass('col-md-12');
+                                                            $('#keimena').addClass('col-md-10');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#keimena_foto_show").change(function() {
+                                                        var e = document.getElementById("keimena_list");
+                                                        if(!this.checked) {
+                                                            $('#keimena_list').removeClass('table-condensed');
+                                                            $('#keimena_list').addClass('table-sm');
+                                                        } else {
+                                                            $('#keimena_list').removeClass('table-sm');
+                                                            $('#keimena_list').addClass('table-condensed');
+                                                        }
+                                                    });
+                                                </script>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <table id="praktoreio" class="table table-bordered table-hover" style="width:100%">
+                                        <div class="col-md-12" id="keimena">
+                                            <table id="keimena_list" class="table table-bordered table-hover" style="width:100%">
                                                 <thead class="thead-dark">
                                                 <tr>
                                                     <th>Κωδικός Κειμένου</th>
@@ -1848,6 +2173,17 @@
                                                 @endforeach
                                                 </tbody>
                                             </table>
+                                        </div>
+                                        <div class="col-md-2 g-hide" id="foto_keimena">
+                                            <div class="row">
+                                                <div id="grid_det">
+                                                    @foreach($fotos as $foto)
+                                                        <div>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-keimena"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1952,14 +2288,59 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header-cust">
-                                    <?php $count=0?>
-                                    @foreach($pragmatognomosini->proiparxouses as $proip)
-                                        <?php $count++ ?>
-                                    @endforeach
-                                    <h4 class="heading-small text-center text-muted">
-                                        <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                        <strong>{{ __('Λίστα Ανταλλακτικών Πρϋπάρχουσων Ζημιών'.' '.'('.$count.')') }}</strong>
-                                    </h4>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <?php $count=0?>
+                                            @foreach($pragmatognomosini->proiparxouses as $proip)
+                                                <?php $count++ ?>
+                                            @endforeach
+                                            <h4 class="heading-small text-center text-muted">
+                                                <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
+                                                <strong>{{ __('Λίστα Ανταλλακτικών Πρϋπάρχουσων Ζημιών'.' '.'('.$count.')') }}</strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <ul class="nav flex-column flex-nowrap overflow-hidden">
+                                                <li class="nav-item">
+                                                    <input type="checkbox"  data-toggle="toggle" id="proip_foto_show" class="btn btn-sm btn-primary" style="margin: 4px;">
+                                                </li>
+                                                <script type="text/javascript">
+                                                    $("#proip_foto_show").change(function() {
+                                                        var e = document.getElementById("foto_proip");
+                                                        if(!this.checked) {
+                                                            $('#foto_proip').addClass('g-hide');
+                                                        } else {
+                                                            $('#foto_proip').removeClass('g-hide');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#proip_foto_show").change(function() {
+                                                        var e = document.getElementById("proip");
+                                                        if(!this.checked) {
+                                                            $('#proip').removeClass('col-md-10');
+                                                            $('#proip').addClass('col-md-12');
+                                                        } else {
+                                                            $('#proip').removeClass('col-md-12');
+                                                            $('#proip').addClass('col-md-10');
+                                                        }
+                                                    });
+                                                </script>
+                                                <script type="text/javascript">
+                                                    $("#proip_foto_show").change(function() {
+                                                        var e = document.getElementById("parts_proip");
+                                                        if(!this.checked) {
+                                                            $('#parts_proip').removeClass('table-condensed');
+                                                            $('#parts_proip').addClass('table-sm');
+                                                        } else {
+                                                            $('#parts_proip').removeClass('table-sm');
+                                                            $('#parts_proip').addClass('table-condensed');
+                                                        }
+                                                    });
+                                                </script>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <h6>
@@ -1974,9 +2355,9 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" id="proip">
                                             <div class="table-responsive">
-                                                <table id="parts_bafes" class="table-sm table table-bordered table-hover" style="width:100%">
+                                                <table id="parts_proip" class="table-sm table table-bordered table-hover" style="width:100%">
                                                     <thead class="thead-dark">
                                                     <tr>
                                                         <th>Ανταλ/κό</th>
@@ -2050,6 +2431,17 @@
                                                     @endforeach
                                                     </tbody>
                                                 </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 g-hide" id="foto_proip">
+                                            <div class="row">
+                                                <div id="grid_det">
+                                                    @foreach($fotos as $foto)
+                                                        <div>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-proip"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

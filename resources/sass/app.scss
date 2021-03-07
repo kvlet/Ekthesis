@@ -109,13 +109,17 @@ main {
         column-width: 250px;
         column-gap: 8px;
         overflow-y:scroll;
-        height:500px;
+        height:620px;
+        -ms-overflow-x: -moz-scrollbars-vertical;
+        -ms-grid-row: 1;
         //overflow:-moz-scrollbars-vertical;
     }
 
     #grid_det > div {
         break-inside: avoid-column; /* Prevent element from breaking */
         page-break-inside: avoid; /* Prevent element from breaking in Firefox */
+        -ms-overflow-x: -moz-scrollbars-vertical;
+        -ms-grid-row: 1;
         //width: 350px;
         //height: 350px;
         margin-bottom: 10px;
