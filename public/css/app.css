@@ -11684,7 +11684,7 @@ main {
        -moz-column-gap: 8px;
             column-gap: 8px;
     overflow-y: scroll;
-    height: 620px;
+    height: 670px;
     -ms-overflow-x: -moz-scrollbars-vertical;
     -ms-grid-row: 1;
   }
