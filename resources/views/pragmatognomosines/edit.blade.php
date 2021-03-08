@@ -1069,7 +1069,10 @@
                                                 <div id="grid_det">
                                                     @foreach($fotos as $foto)
                                                         <div>
-                                                           <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-ant"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                           <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                              data-lightbox="image-ant"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
+                                                               <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                                    width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -1255,7 +1258,10 @@
                                                 <div id="grid_det">
                                                     @foreach($fotos as $foto)
                                                         <div>
-                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-epanaf"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                               data-lightbox="image-epanaf"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
+                                                                <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                                     width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -1441,7 +1447,10 @@
                                                 <div id="grid_det">
                                                     @foreach($fotos as $foto)
                                                         <div>
-                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-eksag"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                               data-lightbox="image-eksag"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
+                                                                <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                                     width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -1627,7 +1636,10 @@
                                                 <div id="grid_det">
                                                     @foreach($fotos as $foto)
                                                         <div>
-                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-bafes"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                               data-lightbox="image-bafes"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
+                                                                <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                                     width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -1781,7 +1793,10 @@
                                                 <div id="grid_det">
                                                     @foreach($fotos as $foto)
                                                         <div>
-                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-nopart"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                               data-lightbox="image-nopart"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
+                                                                <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                                     width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -1899,7 +1914,10 @@
                                                 <div id="grid_det">
                                                     @foreach($fotos as $foto)
                                                         <div>
-                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-proasf"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                               data-lightbox="image-proasf"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
+                                                                <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                                     width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -2179,7 +2197,10 @@
                                                 <div id="grid_det">
                                                     @foreach($fotos as $foto)
                                                         <div>
-                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-keimena"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                               data-lightbox="image-keimena"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
+                                                                <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                                     width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -2438,7 +2459,10 @@
                                                 <div id="grid_det">
                                                     @foreach($fotos as $foto)
                                                         <div>
-                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" data-lightbox="image-proip"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}"><img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}" width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                            <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                               data-lightbox="image-proip"  data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
+                                                                <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
+                                                                     width="200" height="200" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                         </div>
                                                     @endforeach
                                                 </div>
