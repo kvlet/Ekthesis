@@ -2049,7 +2049,7 @@
                                                            data-lightbox="image-1"
                                                            data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
                                                             <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
-                                                                 width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/></a>
+                                                                 width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/>{{ $foto->notes }}</a>
                                                     </div>
                                                 @endforeach
                                             </div>
