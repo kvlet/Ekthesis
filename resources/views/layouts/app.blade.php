@@ -33,15 +33,15 @@
 
     {{--                                Quiil editor                              --}}
     {{--                              Main Quill library                        --}}
-    <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+{{--    <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>--}}
     <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
     {{--    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>--}}
     {{--                             Theme included stylesheets                 --}}
     <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
     {{--          Core build with no theme, formatting, non-essential modules--}}
-    <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
-    <script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script>
+{{--    <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">--}}
+{{--    <script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script>--}}
     {{--                                Quiil editor                              --}}
 
     {{--    editor--}}

@@ -108,17 +108,28 @@
                             <div class="col-md-6">
                                 <div class="form-label{{ $errors->has('note') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="note">{{ __(' Παρατηρήσεις ') }}</label>
-                                    <div id="note">
-                                        <textarea id="note" name="note" style="width: 500px; height: 200px;"
-                                                  class="form-control form-input form-control-alternative{{ $errors->has('note') ? ' is-invalid' : '' }}">
-                                                  {{ $inv_car->pivot->note }}
-                                        </textarea>
+                                    <div id="editor_inv" style="height: 250px">
+                                        <p>{{ $inv_car->pivot->note }}</p>
                                     </div>
                                     <script>
-                                        var editor = new Quill('#note', {
-                                            modules: { toolbar: '#toolbar' },
-                                            theme: 'Snow'
+                                        var quill = new Quill('#editor_inv', {
+                                            modules: {
+                                                toolbar: [
+                                                    ['bold', 'italic'],
+                                                    ['link', 'blockquote', 'image'],
+                                                    [{ list: 'ordered' }, { list: 'bullet' }]
+                                                ]
+                                            },
+                                            placeholder: 'Πληκτρολογίστε εδώ το κείμενο...',
+                                            theme: 'snow'
                                         });
+
+                                        var form = document.querySelector('form');
+                                        form.onsubmit = function() {
+                                            // Populate hidden form on submit
+                                            var note = document.querySelector('input[name=note]');
+                                            note.value = JSON.stringify(quill.getContents());
+                                        };
                                     </script>
                                 </div>
                             </div>
