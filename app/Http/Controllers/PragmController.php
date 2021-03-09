@@ -1626,4 +1626,13 @@ class PragmController extends Controller
 
     }
     // end manage expen  partner ekthesis
+
+    // manage foto ekthesis
+    public function create_foto_ekth($id_ekthesis){
+
+        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+        return view('pragmatognomosines.create_foto_ekth',compact(['pathontes','id_ekthesis','oximata_pathon']));
+    }
+    // end manage foto ekthesis
 }

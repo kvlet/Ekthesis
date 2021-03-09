@@ -2035,9 +2035,9 @@
                 </div>
                 <div class="tab-pane fade" id="v-pills-foto" role="tabpanel" aria-labelledby="v-pills-foto-tab">
                     @if ((Request::is('pragmatognomosines/*')))
-                        <a href="{{route('pragmatognomosines.create_praktoreia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη φωτογραφιών</a>
+                        <a href="{{route('pragmatognomosines.create_foto_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη φωτογραφιών</a>
                     @elseif ((\Request::is('ereunes/*')))
-                        <a href="{{ route('pragmatognomosines.create_praktoreia_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη φωτογραφιών</a>
+                        <a href="{{ route('pragmatognomosines.create_foto_ekth',$pragmatognomosini->id_ekthesis) }}" target="" class="btn btn-primary">Προσθήκη φωτογραφιών</a>
                     @endif
                     <div class="row">
                         <div class="col">
@@ -2071,7 +2071,7 @@
                                                     </div>
                                                 @endforeach
                                             </div>
-                                    </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

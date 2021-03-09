@@ -87,6 +87,13 @@ Route::post('pragmatognomosines/edit_expen_partner_ekth/{id}', 'PragmController@
 Route::get('pragmatognomosines/{id}/delete_expen_partner_ekth/{second_id}/{third_id}', 'PragmController@delete_expen_partner_ekth')->name('pragmatognomosines.delete_expen_partner_ekth');
 Route::delete('pragmatognomosines/delete_expen_partner_ekth', 'PragmController@destroy_expen_partner_ekth')->name('pragmatognomosines.destroy_expen_partner_ekth');
 
+Route::get('pragmatognomosines/{id}/add_foto', 'PragmController@create_foto_ekth')->name('pragmatognomosines.create_foto_ekth');
+Route::post('pragmatognomosines/{id}/add_foto', 'PragmController@store_foto_ekth')->name('pragmatognomosines.store_foto_ekth');
+Route::get('pragmatognomosines/{id}/edit_foto/{second_id}', 'PragmController@edit_foto_ekth');
+Route::post('pragmatognomosines/edit_foto', 'PragmController@update_foto_ekth')->name('pragmatognomosines.update_foto_ekth');
+Route::get('pragmatognomosines/{id}/delete_foto/{second_id}', 'PragmController@delete_foto_ekth')->name('pragmatognomosines.delete_foto_ekth');
+Route::delete('pragmatognomosines/delete_foto', 'PragmController@destroy_foto_ekth')->name('pragmatognomosines.destroy_foto_ekth');
+
 Route::get('ereunes', 'PragmController@create')->name('pragmatognomosines.create');
 Route::post('ereunes', 'PragmController@store')->name('pragmatognomosines.store');
 Route::get('ereunes/{id}', 'PragmController@edit')->name('pragmatognomosines.edit');
@@ -148,6 +155,13 @@ Route::get('ereunes/{id}/edit_expen_partner_ekth/{second_id}/{third_id}', 'Pragm
 Route::post('ereunes/edit_expen_partner_ekth/{id}', 'PragmController@update_expen_partner_ekth')->name('pragmatognomosines.update_expen_partner_ekth');
 Route::get('ereunes/{id}/delete_expen_partner_ekth/{second_id}/{third_id}', 'PragmController@delete_expen_partner_ekth')->name('pragmatognomosines.delete_expen_partner_ekth');
 Route::delete('ereunes/delete_expen_partner_ekth', 'PragmController@destroy_expen_partner_ekth')->name('pragmatognomosines.destroy_expen_partner_ekth');
+
+Route::get('ereunes/{id}/add_foto', 'PragmController@create_foto_ekth')->name('pragmatognomosines.create_foto_ekth');
+Route::post('ereunes/{id}/add_foto', 'PragmController@store_foto_ekth')->name('pragmatognomosines.store_foto_ekth');
+Route::get('ereunes/{id}/edit_foto/{second_id}', 'PragmController@edit_foto_ekth');
+Route::post('ereunes/edit_foto', 'PragmController@update_foto_ekth')->name('pragmatognomosines.update_foto_ekth');
+Route::get('ereunes/{id}/delete_foto/{second_id}', 'PragmController@delete_foto_ekth')->name('pragmatognomosines.delete_foto_ekth');
+Route::delete('ereunes/delete_foto', 'PragmController@destroy_foto_ekth')->name('pragmatognomosines.destroy_foto_ekth');
 //Route::get('pragmatognomosines/{id}', 'PragmController@show')->name('pragmatognomosines.show');
 // end routes for pragmatognomisines
 
