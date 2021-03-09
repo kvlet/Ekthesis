@@ -117,13 +117,12 @@
                                         var quill = new Quill('#editor_inv', {
                                             modules: {
                                                 toolbar: [
-                                                    [{ 'font': ['arial','times new roman'] }],
                                                     [{ 'size': ['small', false, 'large', 'huge'] }],
                                                     ['bold', 'italic', 'underline', 'strike'],
                                                     [{color: ['black', 'red', 'blue', 'yellow', 'orange', 'white']}],
                                                     [{ 'background': ['black', 'red', 'blue', 'yellow', 'orange', 'white'] }],
                                                     [{ 'align': ['', 'center', 'justify'] }],
-                                                    ['link', 'blockquote', 'image'],
+                                                    ['link', 'image'],
                                                     [{ list: 'ordered' }, { list: 'bullet' }]
                                                 ]
                                             },
