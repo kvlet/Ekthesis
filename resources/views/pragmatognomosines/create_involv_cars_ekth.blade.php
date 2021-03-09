@@ -110,14 +110,19 @@
                                 <div class="form-label{{ $errors->has('note') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="note">{{ __(' Παρατηρήσεις ') }}</label>
                                     <input name="note" type="hidden">
-                                    <div id="editor_inv" style="height: 250px">
+                                    <div id="editor_inv" style="height: 150px">
                                         <p> </p>
                                     </div>
                                     <script>
                                         var quill = new Quill('#editor_inv', {
                                             modules: {
                                                 toolbar: [
-                                                    ['bold', 'italic'],
+                                                    [{ 'font': ['arial','times new roman'] }],
+                                                    [{ 'size': ['small', false, 'large', 'huge'] }],
+                                                    ['bold', 'italic', 'underline', 'strike'],
+                                                    [{color: ['black', 'red', 'blue', 'yellow', 'orange', 'white']}],
+                                                    [{ 'background': ['black', 'red', 'blue', 'yellow', 'orange', 'white'] }],
+                                                    [{ 'align': ['', 'center', 'justify'] }],
                                                     ['link', 'blockquote', 'image'],
                                                     [{ list: 'ordered' }, { list: 'bullet' }]
                                                 ]
