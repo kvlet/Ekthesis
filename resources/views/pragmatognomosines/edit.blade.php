@@ -2068,6 +2068,20 @@
                                                            data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">
                                                             <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"
                                                                  width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/>{{ $foto->notes }}</a>
+                                                        @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                            <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_foto/'.$foto->id_foto) }}"
+                                                               target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                        @else
+                                                            <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/edit_foto/'.$foto->id_foto) }}"
+                                                               target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>
+                                                        @endif
+                                                        @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
+                                                            <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/delete_foto/'.$foto->id_foto) }}"
+                                                               target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                        @else
+                                                            <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/delete_foto/'.$foto->id_foto) }}"
+                                                               target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>
+                                                        @endif
                                                     </div>
                                                 @endforeach
                                             </div>

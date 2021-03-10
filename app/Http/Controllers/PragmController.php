@@ -1634,5 +1634,60 @@ class PragmController extends Controller
         $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
         return view('pragmatognomosines.create_foto_ekth',compact(['pathontes','id_ekthesis','oximata_pathon']));
     }
+
+    public function edit_foto_ekth($id_ekthesis,$id_foto){
+
+        $fotos = Foto::where([['id_ekthesis',$id_ekthesis],['id_foto',$id_foto]])->first();
+        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+
+        return view('pragmatognomosines.edit_foto_ekth',compact([
+            'id_foto',
+            'id_ekthesis',
+            'fotos',
+            'pathontes',
+            'oximata_pathon',
+        ]));
+    }
+
+    public function update_foto_ekth(Request $request){
+        $fotos = Foto::where([['id_ekthesis',$request->id_ekthesis],['id_foto',$request->id_foto]])->first();
+//        dd($fotos);
+
+
+        $fotos->id_ekthesis = $request->id_ekthesis;
+        $fotos->id_foto = $request->id_foto;
+        $fotos->print_group = $request->print_group;
+        $fotos->id_oximata = $request->id_oximata;
+        $fotos->id_person = $request->id_person;
+        $fotos->path = $request->path;
+        $fotos->file_name = $request->file_name;
+        $fotos->notes = $request->notes;
+        $fotos->save();
+//        $expen_partner = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->update($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+    }
+    public function delete_foto_ekth($id_ekthesis,$id_foto){
+
+        $fotos = Foto::where([['id_ekthesis',$id_ekthesis],['id_foto',$id_foto]])->first();
+        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+
+        return view('pragmatognomosines.delete_foto_ekth',compact([
+            'id_foto',
+            'id_ekthesis',
+            'fotos',
+            'pathontes',
+            'oximata_pathon',
+        ]));
+    }
+
+    public function destroy_foto_ekth(Request $request){
+
+        $fotos = Foto::where([['id_ekthesis',$request->id_ekthesis],['id_foto',$request->id_foto]])->delete($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+    }
     // end manage foto ekthesis
 }
