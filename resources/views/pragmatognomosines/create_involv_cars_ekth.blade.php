@@ -134,7 +134,8 @@
                                         form.onsubmit = function() {
                                             // Populate hidden form on submit
                                             var note = document.querySelector('input[name=note]');
-                                            note.value = JSON.stringify(quill.getContents());
+                                            // note.value = JSON.stringify(quill.getContents());
+                                            note.value = quill.container.firstChild.innerHTML;
                                         };
                                     </script>
                                 </div>

@@ -2063,6 +2063,7 @@
                                             <div id="grid">
                                                 @foreach($fotos as $index=>$foto)
                                                     <div>
+                                                        {{ $foto->file_name }}
                                                         @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')
                                                             <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_foto/'.$foto->id_foto) }}"
                                                                target=""><img src="/images/edit_rec.jpg" width="25" height="25" alt="Επεξεργασία" /></a>

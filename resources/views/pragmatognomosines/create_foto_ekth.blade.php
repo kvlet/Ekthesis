@@ -15,6 +15,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
+                                <input name="id_ekthesis" type="hidden" value="{{ $id_ekthesis }}">
                                 <div class="form-label{{ $errors->has('id_ekthesis') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="id_ekthesis">{{ __('Αρ. Πρωτοκόλλου') }}</label>
                                     <input type="text" name="id_ekthesis" id="id_ekthesis"
@@ -57,13 +58,13 @@
                             <div class="col-md-3">
                                 <div class="form-label{{ $errors->has('print_group') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="print_group">{{ __('Σειρά εκτύπωσης') }}<span style="color:red;font-weight:bold">*</span></label>
-                                    <input type="number" name="value" id="print_group"
+                                    <input type="number" name="print_group" id="print_group"
                                            class="form-control form-input form-control-alternative{{ $errors->has('print_group') ? ' is-invalid' : '' }}"
                                            value="{{ old('print_group') }}"  autofocus placeholder="1">
                                     @if ($errors->has('print_group'))
                                         <span class="invalid-feedback" role="alert">
-                                                     <strong>{{ $errors->first('print_group') }}</strong>
-                                                </span>
+                                              <strong>{{ $errors->first('print_group') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>

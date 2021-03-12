@@ -219,7 +219,7 @@ class PragmController extends Controller
         $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis]])->get();
         $involv_cars = InvolvCar::where([['id_ekthesis',$id_ekthesis]])->get();
         $expenses = Expense::where([['Mark_del','Όχι']])->get();
-        $fotos = Foto::where([['id_ekthesis',$id_ekthesis]])->get();
+        $fotos = Foto::where([['id_ekthesis',$id_ekthesis]])->orderBy('file_name')->get();
         // many to many for pragmatognomosini
         $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses','status_of_ekth','expen_ekth','expen_ekth_partner')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
@@ -1650,9 +1650,43 @@ class PragmController extends Controller
         ]));
     }
 
+    public function store_foto_ekth(Request $request){
+        $pragmatognomosini = Pragmatognomosini::findOrFail($request->id_ekthesis);
+        $oximata_pathon = Oxima::where([['id_oximata',$pragmatognomosini->id_oximatos_pathon]])->first();
+//        $fotos = Foto::where([['id_ekthesis',$request->id_ekthesis],['id_foto',$request->id_foto]])->first();
+        // calculate file path
+            if ($pragmatognomosini->id_oximatos_pathon != 1){
+                $pinakida=$oximata_pathon->Ar_kyklo;
+            }
+            if ($pragmatognomosini->Object == null){
+                $$request->path = 'oximata\\'.$pinakida.'\\'.$pragmatognomosini->id_ekthesis;
+            }else{
+                $$request->path = 'oximata\\'.'object'.'\\'.$pragmatognomosini->id_ekthesis;
+            }
+        // end calculate file path
+        if ($request->print_group == null) {
+            $request->print_group =1;
+        }
+
+
+        $fotos = new Foto();
+        $fotos->id_ekthesis = $request->id_ekthesis;
+        $fotos->id_foto = $request->id_foto;
+        $fotos->print_group = $request->print_group;
+        $fotos->id_oximata = $request->id_oximata;
+        $fotos->id_person = $request->id_person;
+//        $fotos->path = $request->path;
+//        $fotos->file_name = $request->file_name;
+        $fotos->notes = $request->notes;
+        $fotos->save();
+//        $expen_partner = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->update($request->except(['_token']));
+
+        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+    }
+
     public function update_foto_ekth(Request $request){
         $fotos = Foto::where([['id_ekthesis',$request->id_ekthesis],['id_foto',$request->id_foto]])->first();
-//        dd($fotos);
+
 
 
         $fotos->id_ekthesis = $request->id_ekthesis;
