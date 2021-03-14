@@ -38,7 +38,8 @@ class Pragmatognomosini extends Model
     ];
 
     protected $with = [
-        'oxima_pathon'
+        'oxima_pathon',
+        'pragmatognomonas'
     ];
 
     public function pragm_path(){
@@ -59,49 +60,49 @@ class Pragmatognomosini extends Model
 
     public function pragmatognomonas()
     {
-        return $this->hasOne(User::class,'id');
+        return $this->hasOne(User::class,'id','id');
     }
 
 
     public function grafeio()
     {
-        return $this->hasOne(Grafeio::class,'id_grafeio');
+        return $this->hasOne(Grafeio::class,'id_grafeio','id_grafeio');
     }
 
     public function nomoi()
     {
-        return $this->hasOne(Nomos::class,'id_nomoi');
+        return $this->hasOne(Nomos::class,'id_nomoi','id_nomoi');
     }
 
     public function diakrisi()
     {
-        return $this->hasOne(Diakrisi::class,'id_diakrisi');
+        return $this->hasOne(Diakrisi::class,'id_diakrisi','id_diakrisi');
     }
 
     public function arxi_ekdosis_eggrafon(){
-        return $this->hasOne(Arxi_ekdosis_eggrafon::class,'id_Arxi_ekdosis_eggrafon');
+        return $this->hasOne(Arxi_ekdosis_eggrafon::class,'id_Arxi_ekdosis_eggrafon','id_arxi_ekdosis_eggrafon');
     }
 
     public function accident_place(){
-        return $this->hasOne(Accedent_place::class,'id_accident_place');
+        return $this->hasOne(Accedent_place::class,'id_accident_place','id_accedent_place');
     }
 
     public function company_ypaitiou(){
-        return $this->hasOne(Company::class,'id_company_ypaitiou');
+        return $this->hasOne(Company::class,'id_company_ypaitiou','id_company_ypaitiou');
     }
     public function company_pathon_real(){
-        return $this->hasOne(Company::class,'id_company_pathon_real');
+        return $this->hasOne(Company::class,'id_company_pathon_real','id_company_pathon_real');
     }
     public function company_pathon(){
-        return $this->hasOne(Company::class,'id_company');
+        return $this->hasOne(Company::class,'id_company','id_company_pathon');
     }
 
     public function pathon(){
-        return $this->hasOne(Person::class,'id_person');
+        return $this->hasOne(Person::class,'id_person','id_pathon');
     }
 
     public function ypaitios(){
-        return $this->hasOne(Person::class,'id_person');
+        return $this->hasOne(Person::class,'id_person','id_ypaitiou');
     }
 
     public function oxima_pathon(){
@@ -109,7 +110,7 @@ class Pragmatognomosini extends Model
     }
 
     public function oxima_ypatiou(){
-        return $this->hasOne(Oxima::class,'id_oximata');
+        return $this->hasOne(Oxima::class,'id_oximata','id_oximatos_ypaitiou');
     }
 
     public function keimena(){

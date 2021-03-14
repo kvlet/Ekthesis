@@ -223,19 +223,8 @@ class PragmController extends Controller
         $pragmatognomosini = Pragmatognomosini::with('keimena', 'praktoreia', 'synergeia', 'parts_of_ergasies', 'proiparxouses', 'status_of_ekth', 'expen_ekth', 'expen_ekth_partner')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
 
-        // calculate file position
-        if ($pragmatognomosini->id_oximatos_pathon != 1) {
-            foreach ($oximata_pathon as $oxima) {
-                if ($pragmatognomosini->id_oximatos_pathon == $oxima->id_oximata) {
-                    $pinakida = $oxima->Ar_kyklo;
-                }
-            }
-        }
-        if ($pragmatognomosini->Object == null) {
-            $pragmatognomosini->File_position = 'oximata\\' . $pinakida . '\\' . $pragmatognomosini->id_ekthesis;
-        } else {
-            $pragmatognomosini->File_position = 'oximata\\' . 'object' . '\\' . $pragmatognomosini->id_ekthesis;
-        }
+         //calculate file position
+        $pragmatognomosini->File_position = $pragmatognomosini->pragm_path();
         // create folder
         $dir = 'X:' . '\\' . $pragmatognomosini->File_position;
         if (is_dir($dir) === false) {
