@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -15,6 +16,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    protected $dates = [
+        'Date_activ',
+        'Date_expire'
+    ];
 
 
     protected $fillable = [
@@ -41,5 +47,9 @@ class User extends Authenticatable
 
     public function pragmatognomosini(){
         return $this->belongsToMany(Pragmatognomosini::class,'db_ekthesis','id_ekthesis');
+    }
+
+    public function isSubscribed(){
+        return auth()->user()->Date_expire->diffInDays(Carbon::now()) <= 0 ;
     }
 }
