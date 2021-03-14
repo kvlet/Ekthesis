@@ -21,7 +21,7 @@ Route::group(['middleware' => ['auth', 'subscribed']], function () {
         Route::get('/storage/disconnect', 'StorageController@disconnect')->name('storage.disconnect');
         Route::get('/storage/files/{path?}', 'StorageController@index')->where('path', '(.*)')->name('storage.index');
     });
-    
+
     Route::get('pragma_search', 'PragmController@opensearch')->name('pragmatognomosines.opensearch');
     Route::post('pragma_search', 'PragmController@search')->name('pragmatognomosines.search');
 
