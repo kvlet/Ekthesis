@@ -50,6 +50,6 @@ class User extends Authenticatable
     }
 
     public function isSubscribed(){
-        return auth()->user()->Date_expire->diffInDays(Carbon::now()) <= 0 ;
+        return auth()->user()->Date_expire->diffInDays(Carbon::now()) > 0;
     }
 }
