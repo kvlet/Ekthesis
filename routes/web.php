@@ -9,13 +9,13 @@
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/settings', 'SettingsController@index')->name('settings');
 
 // end  routs for auth
 Route::group(['middleware' => ['auth', 'subscribed']], function () {
     Route::post('/', 'HomeController@search')->name('search');
 
 // Settings and storage routes
-    Route::get('/settings', 'SettingsController@index')->name('settings');
 
     Route::get('/storage/connect', 'StorageController@connect')->name('storage.connect');
     Route::group(['middleware' => ['auth', 'DropboxAuthenticated']], function () {
