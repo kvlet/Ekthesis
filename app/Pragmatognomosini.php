@@ -37,6 +37,25 @@ class Pragmatognomosini extends Model
         'Amibi_partner'=>'float'
     ];
 
+    protected $with = [
+        'oxima_pathon'
+    ];
+
+    public function pragm_path(){
+        if ($this->id_oximatos_pathon !== 1){
+            $pinakida = $this->oxima_pathon->Ar_kyklo;
+        }
+        if ($this->Object == null){
+            return 'oximata\\'. $pinakida .'\\'. $this->id_ekthesis;
+        }else{
+            return 'oximata\\'.'object'.'\\'. $this->id_ekthesis;
+        }
+    }
+
+    public function getRouteKey(){
+        return 'id_ekthesis';
+    }
+
 
     public function pragmatognomonas()
     {
@@ -86,7 +105,7 @@ class Pragmatognomosini extends Model
     }
 
     public function oxima_pathon(){
-        return $this->hasOne(Oxima::class,'id_oximata');
+        return $this->hasOne(Oxima::class,'id_oximata', 'id_oximatos_pathon');
     }
 
     public function oxima_ypatiou(){

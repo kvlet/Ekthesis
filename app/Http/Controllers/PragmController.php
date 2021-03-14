@@ -59,25 +59,24 @@ class PragmController extends Controller
      */
 
 
-
     public function create()
     {
         $grafeia = Grafeio::all('id_grafeio', 'Name');
-        $nomoi = Nomos::where([['Mark_del','Όχι']])->get();
+        $nomoi = Nomos::where([['Mark_del', 'Όχι']])->get();
         if (\Request::is('pragmatognomosines')) {
-            $diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
-        }elseif (\Request::is('ereunes')){
-            $diakrisis = Diakrisi::where([['Group_diakr','>=','3'],['Mark_del','Όχι']])->get();
-        }else{
-            $diakrisis = Diakrisi::where([['Mark_del','Όχι']])->get();
+            $diakrisis = Diakrisi::where([['Group_diakr', '<', '3'], ['Mark_del', 'Όχι']])->get();
+        } elseif (\Request::is('ereunes')) {
+            $diakrisis = Diakrisi::where([['Group_diakr', '>=', '3'], ['Mark_del', 'Όχι']])->get();
+        } else {
+            $diakrisis = Diakrisi::where([['Mark_del', 'Όχι']])->get();
         }
 
-        $accedent_places=Accedent_place::where('Mark_del', 'Όχι')->get();
+        $accedent_places = Accedent_place::where('Mark_del', 'Όχι')->get();
         $arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del', 'Όχι')->get();
-        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
         $companies = Company::where('Mark_del', 'Όχι')->get();
-        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
-        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1']])->get();
 
         return view('pragmatognomosines.create', compact([
             'grafeia',
@@ -102,25 +101,25 @@ class PragmController extends Controller
 
         $request->partially_lock = 'Όχι';
         $request->total_lock = 'Όχι';
-        $request->Amibi_partner='0';
-        $request->Flag='2';
+        $request->Amibi_partner = '0';
+        $request->Flag = '2';
 
-        if ($request->Object != null){
-            $request->id_oximatos_pathon='1';
+        if ($request->Object != null) {
+            $request->id_oximatos_pathon = '1';
         }
 
 //        fix date format for DB
         $dateAtiximatos = Carbon::createFromFormat('d-m-Y', $request->Date_atiximatos)->format('Y-m-d');
         $request->Date_atiximatos = $dateAtiximatos;
-        if ($request->Date_dikasimou != null){
+        if ($request->Date_dikasimou != null) {
             $dateDikasimou = Carbon::createFromFormat('d-m-Y', $request->Date_dikasimou)->format('Y-m-d');
             $request->Date_dikasimou = $dateDikasimou;
         }
-        if ($request->Date_eksetasis != null){
+        if ($request->Date_eksetasis != null) {
             $dateEksetasis = Carbon::createFromFormat('d-m-Y', $request->Date_eksetasis)->format('Y-m-d');
             $request->Date_eksetasis = $dateEksetasis;
         }
-        if ($request->Date_paradosis != null){
+        if ($request->Date_paradosis != null) {
             $dateParadosis = Carbon::createFromFormat('d-m-Y', $request->Date_paradosis)->format('Y-m-d');
             $request->Date_paradosis = $dateParadosis;
         }
@@ -159,36 +158,36 @@ class PragmController extends Controller
         $pragmatognomosini->value_car_pathon = $request->value_car_pathon;
         $pragmatognomosini->billing_notes = $request->billing_notes;
         $pragmatognomosini->driver_pathon = $request->driver_pathon;
-        $pragmatognomosini->Amibi_partner =$request->Amibi_partner;
+        $pragmatognomosini->Amibi_partner = $request->Amibi_partner;
         $pragmatognomosini->Flag = $request->Flag;
 
 
-        if ($request->id_oximatos_pathon != null){
+        if ($request->id_oximatos_pathon != null) {
             $pragmatognomosini->id_oximatos_pathon = $request->id_oximatos_pathon;
-        }else{
-            $pragmatognomosini->id_oximatos_pathon=1;
+        } else {
+            $pragmatognomosini->id_oximatos_pathon = 1;
         }
         $pragmatognomosini->save();
 
         // insert to table status ekthesis
-            $procDate = new DateTime(date('Y-m-d'));
-            $procDate->add(new DateInterval('P2D'));
-            $query = array(['id_status' => 1, 'id_ekthesis' => $pragmatognomosini->id_ekthesis, 'Status_date' => date('Y-m-d'), 'Valid' => 'Ναι','Process_date'=>$procDate]);
-            DB::table('db_status_ekthesis')->insert($query);
-            //$procDate = new DateTime(date('Y-m-d'));
-            //$procDate->add(new DateInterval('P2D'));
-            //$procDate=Carbon::createFromFormat('Y-m-d',date('Y-m-d'));
-            //$daysToAdd =3;
-            //$procDate = $procDate->addDays($daysToAdd);
-            //dd($procDate) ;
-            //$val='Ναι';
-            //$pragmatognomosini->status_ek()->attach('1',['Status_date'=>date('Y-m-d')],['Valid'=>$val],['Process_date'=>date('Y-m-d')]);
+        $procDate = new DateTime(date('Y-m-d'));
+        $procDate->add(new DateInterval('P2D'));
+        $query = array(['id_status' => 1, 'id_ekthesis' => $pragmatognomosini->id_ekthesis, 'Status_date' => date('Y-m-d'), 'Valid' => 'Ναι', 'Process_date' => $procDate]);
+        DB::table('db_status_ekthesis')->insert($query);
+        //$procDate = new DateTime(date('Y-m-d'));
+        //$procDate->add(new DateInterval('P2D'));
+        //$procDate=Carbon::createFromFormat('Y-m-d',date('Y-m-d'));
+        //$daysToAdd =3;
+        //$procDate = $procDate->addDays($daysToAdd);
+        //dd($procDate) ;
+        //$val='Ναι';
+        //$pragmatognomosini->status_ek()->attach('1',['Status_date'=>date('Y-m-d')],['Valid'=>$val],['Process_date'=>date('Y-m-d')]);
         // end insert to to table status ekthesis
 
-        if ($request->id_diakrisi=='Π' || $request->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($request->id_diakrisi == 'Π' || $request->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
     }
 
@@ -196,52 +195,51 @@ class PragmController extends Controller
     {
 
         $grafeia = Grafeio::all('id_grafeio', 'Name');
-        $nomoi = Nomos::where([['Mark_del','Όχι']])->get();
+        $nomoi = Nomos::where([['Mark_del', 'Όχι']])->get();
         if (\Request::is('pragmatognomosines/*')) {
-            $diakrisis = Diakrisi::where([['Group_diakr','<','3'],['Mark_del','Όχι']])->get();
-        }elseif (\Request::is('ereunes/*')){
-            $diakrisis = Diakrisi::where([['Group_diakr','>=','3'],['Mark_del','Όχι']])->get();
-        }else{
-            $diakrisis = Diakrisi::where([['Mark_del','Όχι']])->get();
+            $diakrisis = Diakrisi::where([['Group_diakr', '<', '3'], ['Mark_del', 'Όχι']])->get();
+        } elseif (\Request::is('ereunes/*')) {
+            $diakrisis = Diakrisi::where([['Group_diakr', '>=', '3'], ['Mark_del', 'Όχι']])->get();
+        } else {
+            $diakrisis = Diakrisi::where([['Mark_del', 'Όχι']])->get();
         }
-        $accedent_places=Accedent_place::where('Mark_del', 'Όχι')->get();
+        $accedent_places = Accedent_place::where('Mark_del', 'Όχι')->get();
         $arxes_ekdosis_eggrafon = Arxi_ekdosis_eggrafon::where('Mark_del', 'Όχι')->get();
-        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
         $companies = Company::where('Mark_del', 'Όχι')->get();
-        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
-        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
-        $keimena = Keimena::where([['Mark_del','Όχι']])->get();
-        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
-        $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->get();
-        $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
-        $status = Status::where([['Mark_del','Όχι']])->get();
-        $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis]])->get();
-        $involv_cars = InvolvCar::where([['id_ekthesis',$id_ekthesis]])->get();
-        $expenses = Expense::where([['Mark_del','Όχι']])->get();
-        $fotos = Foto::where([['id_ekthesis',$id_ekthesis]])->orderBy('file_name')->get();
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1']])->get();
+        $keimena = Keimena::where([['Mark_del', 'Όχι']])->get();
+        $praktoreia = Praktoreio::where([['mark_del', 'Όχι']])->get();
+        $synergeia = Synergeio::where([['Mark_del', 'Όχι']])->get();
+        $parts = Parts::where([['Mark_del', 'Όχι'], ['id_parts', '>', '1']])->get();
+        $ergasies = Ergasies::where([['Mark_del', 'Όχι']])->get();
+        $status = Status::where([['Mark_del', 'Όχι']])->get();
+        $provlepseis = Provlepseis::where([['id_ekthesis', $id_ekthesis]])->get();
+        $involv_cars = InvolvCar::where([['id_ekthesis', $id_ekthesis]])->get();
+        $expenses = Expense::where([['Mark_del', 'Όχι']])->get();
+        $fotos = Foto::where([['id_ekthesis', $id_ekthesis]])->orderBy('file_name')->get();
         // many to many for pragmatognomosini
-        $pragmatognomosini = Pragmatognomosini::with('keimena','praktoreia','synergeia','parts_of_ergasies','proiparxouses','status_of_ekth','expen_ekth','expen_ekth_partner')->findOrFail($id_ekthesis);
+        $pragmatognomosini = Pragmatognomosini::with('keimena', 'praktoreia', 'synergeia', 'parts_of_ergasies', 'proiparxouses', 'status_of_ekth', 'expen_ekth', 'expen_ekth_partner')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
 
         // calculate file position
-        if ($pragmatognomosini->id_oximatos_pathon != 1){
-            foreach ($oximata_pathon as $oxima){
-                if($pragmatognomosini->id_oximatos_pathon == $oxima->id_oximata){
-                     $pinakida=$oxima->Ar_kyklo;
+        if ($pragmatognomosini->id_oximatos_pathon != 1) {
+            foreach ($oximata_pathon as $oxima) {
+                if ($pragmatognomosini->id_oximatos_pathon == $oxima->id_oximata) {
+                    $pinakida = $oxima->Ar_kyklo;
                 }
             }
         }
-        if ($pragmatognomosini->Object == null){
-            $pragmatognomosini->File_position = 'oximata\\'.$pinakida.'\\'.$pragmatognomosini->id_ekthesis;
-        }else{
-            $pragmatognomosini->File_position = 'oximata\\'.'object'.'\\'.$pragmatognomosini->id_ekthesis;
+        if ($pragmatognomosini->Object == null) {
+            $pragmatognomosini->File_position = 'oximata\\' . $pinakida . '\\' . $pragmatognomosini->id_ekthesis;
+        } else {
+            $pragmatognomosini->File_position = 'oximata\\' . 'object' . '\\' . $pragmatognomosini->id_ekthesis;
         }
         // create folder
-        $dir='X:'.'\\'.$pragmatognomosini->File_position;
-        if( is_dir($dir) === false )
-        {
-            File::makeDirectory($dir,$mode = 0777, true, true);
+        $dir = 'X:' . '\\' . $pragmatognomosini->File_position;
+        if (is_dir($dir) === false) {
+            File::makeDirectory($dir, $mode = 0777, true, true);
         }
         //end create folder , end calculate file position
         $pragmatognomosini->update();
@@ -250,111 +248,125 @@ class PragmController extends Controller
         ///make windows dir
 
         $newdir = new Filesystem();
-        $path='X:\\'.$pragmatognomosini->File_position;
-        if ( !$newdir->isDirectory(storage_path($path)) )
-        {
+        $path = 'X:\\' . $pragmatognomosini->File_position;
+        if (!$newdir->isDirectory(storage_path($path))) {
             $newdir->makeDirectory(storage_path($path), 755, true, true);
         }
 
         // end make windows dir
 
         //        fix date format for display in form
-            $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_atiximatos)->format('d-m-Y');
-            $pragmatognomosini->Date_atiximatos = $dateAtiximatos;
-            if ($pragmatognomosini->Date_dikasimou != null){
-                $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_dikasimou)->format('d-m-Y');
-                $pragmatognomosini->Date_dikasimou = $dateDikasimou;
-            }
-            if ($pragmatognomosini->Date_eksetasis != null){
-                $dateEksetasis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_eksetasis)->format('d-m-Y');
-                $pragmatognomosini->Date_eksetasis = $dateEksetasis;
-            }
-            if ($pragmatognomosini->Date_paradosis != null){
-                $dateParadosis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_paradosis)->format('d-m-Y');
-                $pragmatognomosini->Date_paradosis = $dateParadosis;
-            }
-            foreach ($pragmatognomosini->synergeia as $synergeio){
-                $synergeio->pivot->Date_episkepsis=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis)->format('d-m-Y');
-                if ($synergeio->pivot->Date_episkepsis2 != null){
-                    $synergeio->pivot->Date_episkepsis2=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis2)->format('d-m-Y');
-                }
-                if ($synergeio->pivot->Date_episkepsis3 != null){
-                    $synergeio->pivot->Date_episkepsis3=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
-                }
-            }
-            foreach ($pragmatognomosini->status_of_ekth as $stat){
-                $stat->pivot->Status_date=Carbon::createFromFormat('Y-m-d', $stat->pivot->Status_date)->format('d-m-Y');
-                if ($stat->pivot->Process_date !=null){
-                    $stat->pivot->Process_date=Carbon::createFromFormat('Y-m-d', $stat->pivot->Process_date)->format('d-m-Y');
-                }
-            }
-       //      end fix date format for display in form
-
-       // calculate ekthesi details costs
-
-            $costPart=0;$costJob=0;
-            $costPart3=0;$costJob3=0;$fpaPart3=0;$fpaJob3=0;
-            $costPart4=0;$costJob4=0;$fpaPart4=0;$fpaJob4=0;
-            $costPart5=0;$costJob5=0;$fpaPart5=0;$fpaJob5=0;
-            $costPart6=0;$costJob6=0;$fpaPart6=0;$fpaJob6=0;
-            $costJobNoPart=0;$fpaJobNoPart=0;
-            foreach ($pragmatognomosini->parts_of_ergasies as $ergasia) {
-//                dd($ergasia);
-                if ($ergasia->pivot->fpa_part == 1){
-                    $costPart=$ergasia->pivot->Cost_part / (1+($ergasia->pivot->sint_fpa_part/100));
-                }else{
-                    $costPart=$ergasia->pivot->Cost_part;
-                }
-
-                if ($ergasia->pivot->fpa_job == 1){
-                    $costJob=$ergasia->pivot->Cost_job / (1+($ergasia->pivot->sint_fpa_job/100));
-                }else{
-                    $costJob=$ergasia->pivot->Cost_job;
-                }
-
-                if ($ergasia->pivot->id_ergasies == 3) {
-                    $costPart3 += $costPart;
-                    $costJob3 += $costJob;
-                    $fpaPart3 += $costPart * $ergasia->pivot->sint_fpa_part/100;
-                    $fpaJob3 += $costJob * $ergasia->pivot->sint_fpa_job/100;
-                }
-                if ($ergasia->pivot->id_ergasies == 4) {
-                    $costPart4 += $costPart;
-                    $costJob4 += $costJob;
-                    $fpaPart4 += $costPart * $ergasia->pivot->sint_fpa_part/100;
-                    $fpaJob4 += $costJob * $ergasia->pivot->sint_fpa_job/100;
-                }
-                if ($ergasia->pivot->id_ergasies == 5) {
-                    $costPart5 += $costPart;
-                    $costJob5 += $costJob;
-                    $fpaPart5 += $costPart * $ergasia->pivot->sint_fpa_part/100;
-                    $fpaJob5 += $costJob * $ergasia->pivot->sint_fpa_job/100;
-                }
-                if ($ergasia->pivot->id_ergasies == 6) {
-                    $costPart6 += $costPart;
-                    $costJob6 += $costJob;
-                    $fpaPart6 += $costPart * $ergasia->pivot->sint_fpa_part/100;
-                    $fpaJob6 += $costJob * $ergasia->pivot->sint_fpa_job/100;
-                }
-                if (($ergasia->pivot->id_ergasies != 3) && ($ergasia->pivot->id_ergasies != 4) && ($ergasia->pivot->id_ergasies != 5) && ($ergasia->pivot->id_ergasies != 6) && ($ergasia->pivot->id_ergasies != 55)) {
-                    $costJobNoPart += $costJob;
-                    $fpaJobNoPart += $costJob * $ergasia->pivot->sint_fpa_job/100;
-                }
-            }
-       // end calculate ekthesi details costs
-
-       // calculate proiparxouses costs
-        $costProiparx=0;$fpaProiparx=0;
-        foreach ($pragmatognomosini->proiparxouses as $proip){
-            if ($proip->pivot->fpa_job == 1){
-                $cost=$proip->pivot->value / (1+($proip->pivot->sint_fpa_job/100));
-            }else{
-                $cost=$proip->pivot->value;
-            }
-            $costProiparx +=$cost;
-            $fpaProiparx += $cost*$proip->pivot->sint_fpa_job/100;
+        $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_atiximatos)->format('d-m-Y');
+        $pragmatognomosini->Date_atiximatos = $dateAtiximatos;
+        if ($pragmatognomosini->Date_dikasimou != null) {
+            $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_dikasimou)->format('d-m-Y');
+            $pragmatognomosini->Date_dikasimou = $dateDikasimou;
         }
-      // end calculate proiparxouses costs
+        if ($pragmatognomosini->Date_eksetasis != null) {
+            $dateEksetasis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_eksetasis)->format('d-m-Y');
+            $pragmatognomosini->Date_eksetasis = $dateEksetasis;
+        }
+        if ($pragmatognomosini->Date_paradosis != null) {
+            $dateParadosis = Carbon::createFromFormat('Y-m-d', $pragmatognomosini->Date_paradosis)->format('d-m-Y');
+            $pragmatognomosini->Date_paradosis = $dateParadosis;
+        }
+        foreach ($pragmatognomosini->synergeia as $synergeio) {
+            $synergeio->pivot->Date_episkepsis = Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis)->format('d-m-Y');
+            if ($synergeio->pivot->Date_episkepsis2 != null) {
+                $synergeio->pivot->Date_episkepsis2 = Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis2)->format('d-m-Y');
+            }
+            if ($synergeio->pivot->Date_episkepsis3 != null) {
+                $synergeio->pivot->Date_episkepsis3 = Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
+            }
+        }
+        foreach ($pragmatognomosini->status_of_ekth as $stat) {
+            $stat->pivot->Status_date = Carbon::createFromFormat('Y-m-d', $stat->pivot->Status_date)->format('d-m-Y');
+            if ($stat->pivot->Process_date != null) {
+                $stat->pivot->Process_date = Carbon::createFromFormat('Y-m-d', $stat->pivot->Process_date)->format('d-m-Y');
+            }
+        }
+        //      end fix date format for display in form
+
+        // calculate ekthesi details costs
+
+        $costPart = 0;
+        $costJob = 0;
+        $costPart3 = 0;
+        $costJob3 = 0;
+        $fpaPart3 = 0;
+        $fpaJob3 = 0;
+        $costPart4 = 0;
+        $costJob4 = 0;
+        $fpaPart4 = 0;
+        $fpaJob4 = 0;
+        $costPart5 = 0;
+        $costJob5 = 0;
+        $fpaPart5 = 0;
+        $fpaJob5 = 0;
+        $costPart6 = 0;
+        $costJob6 = 0;
+        $fpaPart6 = 0;
+        $fpaJob6 = 0;
+        $costJobNoPart = 0;
+        $fpaJobNoPart = 0;
+        foreach ($pragmatognomosini->parts_of_ergasies as $ergasia) {
+//                dd($ergasia);
+            if ($ergasia->pivot->fpa_part == 1) {
+                $costPart = $ergasia->pivot->Cost_part / (1 + ($ergasia->pivot->sint_fpa_part / 100));
+            } else {
+                $costPart = $ergasia->pivot->Cost_part;
+            }
+
+            if ($ergasia->pivot->fpa_job == 1) {
+                $costJob = $ergasia->pivot->Cost_job / (1 + ($ergasia->pivot->sint_fpa_job / 100));
+            } else {
+                $costJob = $ergasia->pivot->Cost_job;
+            }
+
+            if ($ergasia->pivot->id_ergasies == 3) {
+                $costPart3 += $costPart;
+                $costJob3 += $costJob;
+                $fpaPart3 += $costPart * $ergasia->pivot->sint_fpa_part / 100;
+                $fpaJob3 += $costJob * $ergasia->pivot->sint_fpa_job / 100;
+            }
+            if ($ergasia->pivot->id_ergasies == 4) {
+                $costPart4 += $costPart;
+                $costJob4 += $costJob;
+                $fpaPart4 += $costPart * $ergasia->pivot->sint_fpa_part / 100;
+                $fpaJob4 += $costJob * $ergasia->pivot->sint_fpa_job / 100;
+            }
+            if ($ergasia->pivot->id_ergasies == 5) {
+                $costPart5 += $costPart;
+                $costJob5 += $costJob;
+                $fpaPart5 += $costPart * $ergasia->pivot->sint_fpa_part / 100;
+                $fpaJob5 += $costJob * $ergasia->pivot->sint_fpa_job / 100;
+            }
+            if ($ergasia->pivot->id_ergasies == 6) {
+                $costPart6 += $costPart;
+                $costJob6 += $costJob;
+                $fpaPart6 += $costPart * $ergasia->pivot->sint_fpa_part / 100;
+                $fpaJob6 += $costJob * $ergasia->pivot->sint_fpa_job / 100;
+            }
+            if (($ergasia->pivot->id_ergasies != 3) && ($ergasia->pivot->id_ergasies != 4) && ($ergasia->pivot->id_ergasies != 5) && ($ergasia->pivot->id_ergasies != 6) && ($ergasia->pivot->id_ergasies != 55)) {
+                $costJobNoPart += $costJob;
+                $fpaJobNoPart += $costJob * $ergasia->pivot->sint_fpa_job / 100;
+            }
+        }
+        // end calculate ekthesi details costs
+
+        // calculate proiparxouses costs
+        $costProiparx = 0;
+        $fpaProiparx = 0;
+        foreach ($pragmatognomosini->proiparxouses as $proip) {
+            if ($proip->pivot->fpa_job == 1) {
+                $cost = $proip->pivot->value / (1 + ($proip->pivot->sint_fpa_job / 100));
+            } else {
+                $cost = $proip->pivot->value;
+            }
+            $costProiparx += $cost;
+            $fpaProiparx += $cost * $proip->pivot->sint_fpa_job / 100;
+        }
+        // end calculate proiparxouses costs
 
 
         return view('pragmatognomosines.edit', compact([
@@ -406,27 +418,27 @@ class PragmController extends Controller
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
         $request->partially_lock = 'Όχι';
         $request->total_lock = 'Όχι';
-        $request->Amibi_partner='0';
-        $request->Flag='1';
+        $request->Amibi_partner = '0';
+        $request->Flag = '1';
 
-        if ($request->Object != null){
-            $request->id_oximatos_pathon='1';
+        if ($request->Object != null) {
+            $request->id_oximatos_pathon = '1';
         }
 
         //        fix date format for DB
-        if( $request->Date_atiximatos != null){
+        if ($request->Date_atiximatos != null) {
             $dateAtiximatos = Carbon::createFromFormat('d-m-Y', $request->Date_atiximatos)->format('Y-m-d');
             $request->Date_atiximatos = $dateAtiximatos;
         }
-        if ($request->Date_dikasimou != null){
+        if ($request->Date_dikasimou != null) {
             $dateDikasimou = Carbon::createFromFormat('d-m-Y', $request->Date_dikasimou)->format('Y-m-d');
             $request->Date_dikasimou = $dateDikasimou;
         }
-        if ($request->Date_eksetasis != null){
+        if ($request->Date_eksetasis != null) {
             $dateEksetasis = Carbon::createFromFormat('d-m-Y', $request->Date_eksetasis)->format('Y-m-d');
             $request->Date_eksetasis = $dateEksetasis;
         }
-        if ($request->Date_paradosis != null){
+        if ($request->Date_paradosis != null) {
             $dateParadosis = Carbon::createFromFormat('d-m-Y', $request->Date_paradosis)->format('Y-m-d');
             $request->Date_paradosis = $dateParadosis;
         }
@@ -464,20 +476,20 @@ class PragmController extends Controller
         $pragmatognomosini->value_car_pathon = $request->value_car_pathon;
         $pragmatognomosini->billing_notes = $request->billing_notes;
         $pragmatognomosini->driver_pathon = $request->driver_pathon;
-        $pragmatognomosini->Amibi_partner =$request->Amibi_partner;
+        $pragmatognomosini->Amibi_partner = $request->Amibi_partner;
         $pragmatognomosini->Flag = $request->Flag;
 
-        if ($request->id_oximatos_pathon != null){
+        if ($request->id_oximatos_pathon != null) {
             $pragmatognomosini->id_oximatos_pathon = $request->id_oximatos_pathon;
-        }else{
-            $pragmatognomosini->id_oximatos_pathon=1;
+        } else {
+            $pragmatognomosini->id_oximatos_pathon = 1;
         }
 
         $pragmatognomosini->update();
-        if ($request->id_diakrisi=='Π' || $request->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($request->id_diakrisi == 'Π' || $request->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
 
     }
@@ -486,25 +498,26 @@ class PragmController extends Controller
     {
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
 
-        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
     }
 
-    public function opensearch(){
-        $pragmatognomosines = Pragmatognomosini::where([['Valid','true']])->get();
+    public function opensearch()
+    {
+        $pragmatognomosines = Pragmatognomosini::where([['Valid', 'true']])->get();
         $companies = Company::where('Mark_del', 'Όχι')->get();
-        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
-        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
-        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
-        foreach ($pragmatognomosines as $pragm){
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1']])->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
+        foreach ($pragmatognomosines as $pragm) {
             $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
             $pragm->Date_atiximatos = $dateAtiximatos;
         }
         // αυτό θα πρέπει να αλλάξει και να αντικατασταθεί απο την συσχέτηση με το μοντέλο
-            $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
+        $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
         // αυτό θα πρέπει να αλλάξει και να αντικατασταθεί απο την συσχέτηση με το μοντέλο
 
 
-        return view('pragmatognomosines.search',compact([
+        return view('pragmatognomosines.search', compact([
             'pragmatognomosines',
             'companies',
             'pathontes',
@@ -514,93 +527,94 @@ class PragmController extends Controller
         ]));
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $pragm = (new Pragmatognomosini)->newQuery();
 
-        if ($request->id_ekthesis != null){
-            $pragm->where('id_ekthesis','LIKE','%'.$request->id_ekthesis.'%');
-        }else{
+        if ($request->id_ekthesis != null) {
+            $pragm->where('id_ekthesis', 'LIKE', '%' . $request->id_ekthesis . '%');
+        } else {
             $pragm->get()->all();
         }
 
-        if ($request->Prot_bibliou != null){
-            $pragm->where('Prot_bibliou','LIKE','%'.$request->Prot_bibliou.'%');
-        }else{
+        if ($request->Prot_bibliou != null) {
+            $pragm->where('Prot_bibliou', 'LIKE', '%' . $request->Prot_bibliou . '%');
+        } else {
             $pragm->get()->all();
         }
-        if ($request->company != null){
-            $companies= Company::where([['Mark_del','Όχι'],['comp_name','LIKE','%'.$request->company.'%']])->get('id_company');
-            $pragm->whereIn('id_company_pathon',$companies)->get();
-        }else{
+        if ($request->company != null) {
+            $companies = Company::where([['Mark_del', 'Όχι'], ['comp_name', 'LIKE', '%' . $request->company . '%']])->get('id_company');
+            $pragm->whereIn('id_company_pathon', $companies)->get();
+        } else {
             $pragm->get()->all();
         }
-        if ($request->user != null){
-            $users= User::where([['Active','Ναι'],['L_name','LIKE','%'.$request->user.'%']])->get('id');
-            $pragm->whereIn('id_company_pathon',$users)->get();
-        }else{
+        if ($request->user != null) {
+            $users = User::where([['Active', 'Ναι'], ['L_name', 'LIKE', '%' . $request->user . '%']])->get('id');
+            $pragm->whereIn('id_company_pathon', $users)->get();
+        } else {
             $pragm->get()->all();
         }
-        if ($request->Ar_kyklo_p != null){
-            $oximata = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1'],['Ar_kyklo','LIKE','%'.$request->Ar_kyklo_p.'%']])->get('id_oximata');
-            $pragm->whereIn('id_oximatos_pathon',$oximata)->get();
+        if ($request->Ar_kyklo_p != null) {
+            $oximata = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1'], ['Ar_kyklo', 'LIKE', '%' . $request->Ar_kyklo_p . '%']])->get('id_oximata');
+            $pragm->whereIn('id_oximatos_pathon', $oximata)->get();
 //            dd($oximata);
-        }else{
+        } else {
             $pragm->get()->all();
         }
-        if ($request->pathon != null){
-            $persons=Person::where([['Mark_del','Όχι'],['id_person','>','1'],['L_name','LIKE','%'.$request->pathon.'%']])->get('id_person');
-            $pragm->whereIn('id_pathon',$persons)->get();
-        }else{
+        if ($request->pathon != null) {
+            $persons = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1'], ['L_name', 'LIKE', '%' . $request->pathon . '%']])->get('id_person');
+            $pragm->whereIn('id_pathon', $persons)->get();
+        } else {
             $pragm->get()->all();
         }
-        if ($request->Ar_kyklo_y != null){
-            $oximata = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1'],['Ar_kyklo','LIKE','%'.$request->Ar_kyklo_y.'%']])->get('id_oximata');
-            $pragm->whereIn('id_oximatos_ypaitiou',$oximata)->get();
+        if ($request->Ar_kyklo_y != null) {
+            $oximata = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1'], ['Ar_kyklo', 'LIKE', '%' . $request->Ar_kyklo_y . '%']])->get('id_oximata');
+            $pragm->whereIn('id_oximatos_ypaitiou', $oximata)->get();
 //            dd($oximata);
-        }else{
+        } else {
             $pragm->get()->all();
         }
-        if ($request->ypaitios != null){
-            $persons=Person::where([['Mark_del','Όχι'],['id_person','>','1'],['L_name','LIKE','%'.$request->ypaitios.'%']])->get('id_person');
-            $pragm->whereIn('id_ypaitiou',$persons)->get();
-        }else{
+        if ($request->ypaitios != null) {
+            $persons = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1'], ['L_name', 'LIKE', '%' . $request->ypaitios . '%']])->get('id_person');
+            $pragm->whereIn('id_ypaitiou', $persons)->get();
+        } else {
             $pragm->get()->all();
         }
-        if ($request->sDate_atiximatos !=null && $request->eDate_atiximatos !=null){
-            $sdate=Carbon::createFromFormat('d-m-Y',$request->sDate_atiximatos)->format('Y-m-d');
-            $edate=Carbon::createFromFormat('d-m-Y',$request->eDate_atiximatos)->format('Y-m-d');
-            $pragm->whereBetween('Date_atiximatos',[$sdate,$edate])->get();
-        }elseif ($request->sDate_atiximatos !=null){
-            $sdate=Carbon::createFromFormat('d-m-Y',$request->sDate_atiximatos)->format('Y-m-d');
-            $pragm->where('Date_atiximatos','>=',$sdate)->get();
-        }elseif ($request->eDate_atiximatos !=null){
-            $edate=Carbon::createFromFormat('d-m-Y',$request->eDate_atiximatos)->format('Y-m-d');
-            $pragm->where('Date_atiximatos','=',$edate)->get();
-        }else{
+        if ($request->sDate_atiximatos != null && $request->eDate_atiximatos != null) {
+            $sdate = Carbon::createFromFormat('d-m-Y', $request->sDate_atiximatos)->format('Y-m-d');
+            $edate = Carbon::createFromFormat('d-m-Y', $request->eDate_atiximatos)->format('Y-m-d');
+            $pragm->whereBetween('Date_atiximatos', [$sdate, $edate])->get();
+        } elseif ($request->sDate_atiximatos != null) {
+            $sdate = Carbon::createFromFormat('d-m-Y', $request->sDate_atiximatos)->format('Y-m-d');
+            $pragm->where('Date_atiximatos', '>=', $sdate)->get();
+        } elseif ($request->eDate_atiximatos != null) {
+            $edate = Carbon::createFromFormat('d-m-Y', $request->eDate_atiximatos)->format('Y-m-d');
+            $pragm->where('Date_atiximatos', '=', $edate)->get();
+        } else {
             $pragm->get()->all();
         }
 
-        $pragmatognomosines= $pragm->get();
+        $pragmatognomosines = $pragm->get();
 
         $companies = Company::where('Mark_del', 'Όχι')->get();
-        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
-        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
-        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1']])->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
 //        $status = $pragmatognomosines->status_of_ekth()->wherePivot()->where('Valid','=','Ναι')->get();
 //        dd($status);
-        foreach ($pragmatognomosines as $pragm){
+        foreach ($pragmatognomosines as $pragm) {
             $dateAtiximatos = Carbon::createFromFormat('Y-m-d', $pragm->Date_atiximatos)->format('d-m-Y');
             $pragm->Date_atiximatos = $dateAtiximatos;
-            if ($pragm->Date_dikasimou != null){
+            if ($pragm->Date_dikasimou != null) {
                 $dateDikasimou = Carbon::createFromFormat('Y-m-d', $pragm->Date_dikasimou)->format('d-m-Y');
                 $pragm->Date_dikasimou = $dateDikasimou;
             }
         }
         // αυτό θα πρέπει να αλλάξει και να αντικατασταθεί απο την συσχέτηση με το μοντέλο
-            $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
+        $status = DB::select('select * from db_status_ekthesis where Valid = ?', ['Ναι']);
         // αυτό θα πρέπει να αλλάξει και να αντικατασταθεί απο την συσχέτηση με το μοντέλο
 
-        return view('pragmatognomosines.search',compact([
+        return view('pragmatognomosines.search', compact([
             'pragmatognomosines',
             'companies',
             'pathontes',
@@ -609,6 +623,7 @@ class PragmController extends Controller
             'status'
         ]));
     }
+
     public function update_note(Request $request, $id_ekthesis)
     {
 
@@ -618,118 +633,131 @@ class PragmController extends Controller
 
 
         $pragmatognomosini->save();
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
     }
-    //  manage keimena ekthesis
-    public function create_keimena_ekth($id_ekthesis){
 
-        $keimena = Keimena::where([['Mark_del','Όχι']])->get();
-        return view('pragmatognomosines.create_keimena_ekth',compact(['keimena','id_ekthesis']));
+    //  manage keimena ekthesis
+    public function create_keimena_ekth($id_ekthesis)
+    {
+
+        $keimena = Keimena::where([['Mark_del', 'Όχι']])->get();
+        return view('pragmatognomosines.create_keimena_ekth', compact(['keimena', 'id_ekthesis']));
     }
 
-    public function store_keimena_ekth(Request $request,$id_ekthesis){
+    public function store_keimena_ekth(Request $request, $id_ekthesis)
+    {
 
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
-        $keimena_note=Keimena::where([['Mark_del','Όχι'],['id_keimena','=',$request->id_keimena]])->pluck('Note');
+        $keimena_note = Keimena::where([['Mark_del', 'Όχι'], ['id_keimena', '=', $request->id_keimena]])->pluck('Note');
         $request->Note = $keimena_note[0];
-        $pragmatognomosini->keimena()->attach($request->id_keimena, ['Note'=>  $request->Note ],['Print'=>$request->Print],['print_group'=>$request->print_group]);
+        $pragmatognomosini->keimena()->attach($request->id_keimena, ['Note' => $request->Note], ['Print' => $request->Print], ['print_group' => $request->print_group]);
 //        $pragmatognomosini->keimena()->sync([$request->id_keimena]);
 //        return back();
-        $keimena = Keimena::where([['Mark_del','Όχι']])->get();
+        $keimena = Keimena::where([['Mark_del', 'Όχι']])->get();
 
 //        return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['keimena','id_ekthesis']);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis)->with(['keimena', 'id_ekthesis']);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis)->with(['keimena', 'id_ekthesis']);
         }
     }
 
-    public function edit_keimena_ekth($id_ekthesis,$id_keimena){
+    public function edit_keimena_ekth($id_ekthesis, $id_keimena)
+    {
 
         $pragmatognomosini = Pragmatognomosini::with('keimena')->findOrFail($id_ekthesis);
-        $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena',$id_keimena)->first();
+        $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena', $id_keimena)->first();
 
-        $keimena = Keimena::where([['Mark_del','Όχι']])->get();
+        $keimena = Keimena::where([['Mark_del', 'Όχι']])->get();
 
-        return view('pragmatognomosines.edit_keimena_ekth',compact(['keimeno','id_ekthesis','keimena']));
+        return view('pragmatognomosines.edit_keimena_ekth', compact(['keimeno', 'id_ekthesis', 'keimena']));
 
 
     }
 
-    public function update_keimena_ekth(Request $request){
+    public function update_keimena_ekth(Request $request)
+    {
         $id_ekthesis = $request->id_ekthesis;
         $pragmatognomosini = Pragmatognomosini::with('keimena')->findOrFail($id_ekthesis);
-        $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena',$request->id_keimena)->first();
+        $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena', $request->id_keimena)->first();
 
         $keimeno->pivot->Note = $request->Note;
         $keimeno->pivot->Print = $request->Print;
         $keimeno->pivot->print_group = $request->print_group;
 
         $keimeno->pivot->save();
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
 
     }
-    public function delete_keimena_ekth($id_ekthesis,$id_keimena){
+
+    public function delete_keimena_ekth($id_ekthesis, $id_keimena)
+    {
 
         $pragmatognomosini = Pragmatognomosini::with('keimena')->findOrFail($id_ekthesis);
-        $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena',$id_keimena)->first();
-        $keimena = Keimena::where([['Mark_del','Όχι']])->get();
+        $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena', $id_keimena)->first();
+        $keimena = Keimena::where([['Mark_del', 'Όχι']])->get();
 
-        return view('pragmatognomosines.delete_keimena_ekth',compact(['keimeno','id_ekthesis','keimena']));
+        return view('pragmatognomosines.delete_keimena_ekth', compact(['keimeno', 'id_ekthesis', 'keimena']));
     }
 
-    public function destroy_keimena_ekth(Request $request){
+    public function destroy_keimena_ekth(Request $request)
+    {
         $id_ekthesis = $request->id_ekthesis;
         $pragmatognomosini = Pragmatognomosini::with('keimena')->findOrFail($id_ekthesis);
-        $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena',$request->id_keimena)->first();
+        $keimeno = $pragmatognomosini->keimena()->wherePivot('id_keimena', $request->id_keimena)->first();
         $pragmatognomosini->keimena()->detach($request->id_keimena);
 
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
     }
     //  end manage keimena ekthesis
 
     // manage praktoreia ekthesis
-    public function create_praktoreia_ekth($id_ekthesis){
+    public function create_praktoreia_ekth($id_ekthesis)
+    {
 
-        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
-        return view('pragmatognomosines.create_praktoreia_ekth',compact(['praktoreia','id_ekthesis']));
+        $praktoreia = Praktoreio::where([['mark_del', 'Όχι']])->get();
+        return view('pragmatognomosines.create_praktoreia_ekth', compact(['praktoreia', 'id_ekthesis']));
     }
 
-    public function store_praktoreia_ekth(Request $request,$id_ekthesis){
+    public function store_praktoreia_ekth(Request $request, $id_ekthesis)
+    {
 
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
 
         $pragmatognomosini->praktoreia()->attach($request->id_praktoreio);
 
-        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis)->with(['praktoreia','id_ekthesis']);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['praktoreia','id_ekthesis']);
+        $praktoreia = Praktoreio::where([['mark_del', 'Όχι']])->get();
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis)->with(['praktoreia', 'id_ekthesis']);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis)->with(['praktoreia', 'id_ekthesis']);
         }
     }
-    public function edit_praktoreia_ekth($id_ekthesis,$id_praktoreio){
+
+    public function edit_praktoreia_ekth($id_ekthesis, $id_praktoreio)
+    {
 
         $pragmatognomosini = Pragmatognomosini::with('praktoreia')->findOrFail($id_ekthesis);
 
         $praktoreio = $pragmatognomosini->praktoreia()->wherePivot('id_praktoreio', $id_praktoreio)->first();
-        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+        $praktoreia = Praktoreio::where([['mark_del', 'Όχι']])->get();
 
-        return view('pragmatognomosines.edit_praktoreia_ekth',compact(['praktoreio','id_ekthesis','praktoreia']));
+        return view('pragmatognomosines.edit_praktoreia_ekth', compact(['praktoreio', 'id_ekthesis', 'praktoreia']));
     }
+
     public function update_praktoreia_ekth(Request $request)
     {
         $id_ekthesis = $request->id_ekthesis;
@@ -740,22 +768,25 @@ class PragmController extends Controller
 
         $praktoreio->pivot->note = $request->Note;
         $praktoreio->pivot->save();
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
 //
     }
-    public function delete_praktoreia_ekth($id_ekthesis,$id_praktoreio){
+
+    public function delete_praktoreia_ekth($id_ekthesis, $id_praktoreio)
+    {
 
         $pragmatognomosini = Pragmatognomosini::with('praktoreia')->findOrFail($id_ekthesis);
 
         $praktoreio = $pragmatognomosini->praktoreia()->wherePivot('id_praktoreio', $id_praktoreio)->first();
-        $praktoreia = Praktoreio::where([['mark_del','Όχι']])->get();
+        $praktoreia = Praktoreio::where([['mark_del', 'Όχι']])->get();
 
-        return view('pragmatognomosines.delete_praktoreia_ekth',compact(['praktoreio','id_ekthesis','praktoreia']));
+        return view('pragmatognomosines.delete_praktoreia_ekth', compact(['praktoreio', 'id_ekthesis', 'praktoreia']));
     }
+
     public function destroy_praktoreia_ekth(Request $request)
     {
         $id_ekthesis = $request->id_ekthesis;
@@ -765,62 +796,66 @@ class PragmController extends Controller
         $praktoreio = $pragmatognomosini->praktoreia()->wherePivot('id_praktoreio', $request->id_praktoreio)->first();
         $pragmatognomosini->praktoreia()->detach($request->id_praktoreio);
 
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
     }
     //  end manage praktoreia ekthesis
 
     //  manage synergeia ekthesis
-    public function create_synergeia_ekth($id_ekthesis){
+    public function create_synergeia_ekth($id_ekthesis)
+    {
 
-        $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
-        return view('pragmatognomosines.create_synergeia_ekth',compact(['synergeia','id_ekthesis']));
+        $synergeia = Synergeio::where([['Mark_del', 'Όχι']])->get();
+        return view('pragmatognomosines.create_synergeia_ekth', compact(['synergeia', 'id_ekthesis']));
     }
 
-    public function store_synergeia_ekth(Request $request,$id_ekthesis){
+    public function store_synergeia_ekth(Request $request, $id_ekthesis)
+    {
 
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
 
-        if ($request->Date_episkepsis != null){
+        if ($request->Date_episkepsis != null) {
             $date_ep = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis)->format('Y-m-d');
             $request->Date_episkepsis = $date_ep;
         }
-        if ($request->Date_episkepsis2 != null){
+        if ($request->Date_episkepsis2 != null) {
             $date_ep2 = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis2)->format('Y-m-d');
             $request->Date_episkepsis2 = $date_ep2;
         }
-        if ($request->Date_episkepsis3 != null){
+        if ($request->Date_episkepsis3 != null) {
             $date_ep3 = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis3)->format('Y-m-d');
             $request->Date_episkepsis3 = $date_ep3;
         }
-        $pragmatognomosini->synergeia()->attach($request->id_synergeia,['Date_episkepsis'=>  $request->Date_episkepsis ],['Date_episkepsis2'=>  $request->Date_episkepsis2 ],['Date_episkepsis3'=>  $request->Date_episkepsis3 ]);
+        $pragmatognomosini->synergeia()->attach($request->id_synergeia, ['Date_episkepsis' => $request->Date_episkepsis], ['Date_episkepsis2' => $request->Date_episkepsis2], ['Date_episkepsis3' => $request->Date_episkepsis3]);
 
-        $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis)->with(['synergeia','id_ekthesis']);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis)->with(['synergeia','id_ekthesis']);
+        $synergeia = Synergeio::where([['Mark_del', 'Όχι']])->get();
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis)->with(['synergeia', 'id_ekthesis']);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis)->with(['synergeia', 'id_ekthesis']);
         }
     }
-    public function edit_synergeia_ekth($id_ekthesis,$id_synergeia){
+
+    public function edit_synergeia_ekth($id_ekthesis, $id_synergeia)
+    {
 
         $pragmatognomosini = Pragmatognomosini::with('synergeia')->findOrFail($id_ekthesis);
         $synergeio = $pragmatognomosini->synergeia()->wherePivot('id_synergeia', $id_synergeia)->first();
 
-        $synergeio->pivot->Date_episkepsis=Carbon::createFromFormat('Y-m-d',$synergeio->pivot->Date_episkepsis)->format('d-m-Y');
-        if ($synergeio->pivot->Date_episkepsis2 != null){
-            $synergeio->pivot->Date_episkepsis2=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis2)->format('d-m-Y');
+        $synergeio->pivot->Date_episkepsis = Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis)->format('d-m-Y');
+        if ($synergeio->pivot->Date_episkepsis2 != null) {
+            $synergeio->pivot->Date_episkepsis2 = Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis2)->format('d-m-Y');
         }
-        if ($synergeio->pivot->Date_episkepsis3 != null){
-            $synergeio->pivot->Date_episkepsis3=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
+        if ($synergeio->pivot->Date_episkepsis3 != null) {
+            $synergeio->pivot->Date_episkepsis3 = Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
         }
 
 
-        $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
-        return view('pragmatognomosines.edit_synergeia_ekth',compact(['synergeio','id_ekthesis','synergeia']));
+        $synergeia = Synergeio::where([['Mark_del', 'Όχι']])->get();
+        return view('pragmatognomosines.edit_synergeia_ekth', compact(['synergeio', 'id_ekthesis', 'synergeia']));
     }
 
     public function update_synergeia_ekth(Request $request)
@@ -833,11 +868,11 @@ class PragmController extends Controller
 
         $date_ep = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis)->format('Y-m-d');
         $request->Date_episkepsis = $date_ep;
-        if ($request->Date_episkepsis2 != null){
+        if ($request->Date_episkepsis2 != null) {
             $date_ep2 = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis2)->format('Y-m-d');
             $request->Date_episkepsis2 = $date_ep2;
         }
-        if ($request->Date_episkepsis3 != null){
+        if ($request->Date_episkepsis3 != null) {
             $date_ep3 = Carbon::createFromFormat('d-m-Y', $request->Date_episkepsis3)->format('Y-m-d');
             $request->Date_episkepsis3 = $date_ep3;
         }
@@ -848,30 +883,33 @@ class PragmController extends Controller
         $synergeio->pivot->Note = $request->Note;
 
         $synergeio->pivot->save();
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
 //
     }
-    public function delete_synergeia_ekth($id_ekthesis,$id_synergeia){
+
+    public function delete_synergeia_ekth($id_ekthesis, $id_synergeia)
+    {
 
         $pragmatognomosini = Pragmatognomosini::with('synergeia')->findOrFail($id_ekthesis);
         $synergeio = $pragmatognomosini->synergeia()->wherePivot('id_synergeia', $id_synergeia)->first();
 
-        $synergeio->pivot->Date_episkepsis=Carbon::createFromFormat('Y-m-d',$synergeio->pivot->Date_episkepsis)->format('d-m-Y');
-        if ($synergeio->pivot->Date_episkepsis2 != null){
-            $synergeio->pivot->Date_episkepsis2=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis2)->format('d-m-Y');
+        $synergeio->pivot->Date_episkepsis = Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis)->format('d-m-Y');
+        if ($synergeio->pivot->Date_episkepsis2 != null) {
+            $synergeio->pivot->Date_episkepsis2 = Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis2)->format('d-m-Y');
         }
-        if ($synergeio->pivot->Date_episkepsis3 != null){
-            $synergeio->pivot->Date_episkepsis3=Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
+        if ($synergeio->pivot->Date_episkepsis3 != null) {
+            $synergeio->pivot->Date_episkepsis3 = Carbon::createFromFormat('Y-m-d', $synergeio->pivot->Date_episkepsis3)->format('d-m-Y');
         }
 
 
-        $synergeia = Synergeio::where([['Mark_del','Όχι']])->get();
-        return view('pragmatognomosines.delete_synergeia_ekth',compact(['synergeio','id_ekthesis','synergeia']));
+        $synergeia = Synergeio::where([['Mark_del', 'Όχι']])->get();
+        return view('pragmatognomosines.delete_synergeia_ekth', compact(['synergeio', 'id_ekthesis', 'synergeia']));
     }
+
     public function destroy_synergeia_ekth(Request $request)
     {
 
@@ -892,47 +930,51 @@ class PragmController extends Controller
         }
         $pragmatognomosini->synergeia()->detach($request->id_synergeia);
 
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
     }
     //  end manage synergeia ekthesis
 
     // manage details ekthesis
-    public function create_details_ekth($id_ekthesis,$id_ergasia){
-        $ergasia = Ergasies::with(['ergasies_in_parts' => function($query) {
-            $query->where([['Mark_del','Όχι'],['db_parts_of_ergasies.id_parts','>','1']])->orderBy('part');
-        }])->where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
+    public function create_details_ekth($id_ekthesis, $id_ergasia)
+    {
+        $ergasia = Ergasies::with(['ergasies_in_parts' => function ($query) {
+            $query->where([['Mark_del', 'Όχι'], ['db_parts_of_ergasies.id_parts', '>', '1']])->orderBy('part');
+        }])->where([['Mark_del', 'Όχι'], ['id_ergasies', '=', $id_ergasia]])->get();
 
-        return view('pragmatognomosines.create_details_ekth',[
+        return view('pragmatognomosines.create_details_ekth', [
             'ergasia' => $ergasia,
             'id_ergasia' => $id_ergasia,
             'id_ekthesis' => $id_ekthesis
         ]);
     }
-    public function create_details_ekth_nop($id_ekthesis,$id_part){
-        $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
 
-        return view('pragmatognomosines.create_details_ekth_nop',compact([
+    public function create_details_ekth_nop($id_ekthesis, $id_part)
+    {
+        $ergasies = Ergasies::where([['Mark_del', 'Όχι']])->get();
+
+        return view('pragmatognomosines.create_details_ekth_nop', compact([
             'id_part',
             'id_ekthesis',
             'ergasies'
         ]));
     }
 
-    public function store_details_ekth(Request $request){
+    public function store_details_ekth(Request $request)
+    {
 //        $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($request->id_ekthesis);
         //dd($pragmatognomosini);
-        if ($request->quan == null){
-            $request->quan=1;
+        if ($request->quan == null) {
+            $request->quan = 1;
         }
-        if ($request->sint_fpa_part == null){
-            $request->sint_fpa_part=24.00;
+        if ($request->sint_fpa_part == null) {
+            $request->sint_fpa_part = 24.00;
         }
-        if ($request->sint_fpa_job == null){
-            $request->sint_fpa_job=24.00;
+        if ($request->sint_fpa_job == null) {
+            $request->sint_fpa_job = 24.00;
         }
 //        dd($request);
         $detail = new DetailPrag();
@@ -951,22 +993,23 @@ class PragmController extends Controller
         $detail->sint_fpa_job = $request->sint_fpa_job;
         $detail->save();
 
-        $id_ergasia=$request->id_ergasia;
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->get();
-        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
+        $id_ergasia = $request->id_ergasia;
+        $parts = Parts::where([['Mark_del', 'Όχι'], ['id_parts', '>', '1']])->get();
+        $ergasia = Ergasies::where([['Mark_del', 'Όχι'], ['id_ergasies', '=', $id_ergasia]])->get();
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis)->with(['parts','ergasia','id_ergasia','id_ekthesis']);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis)->with(['parts', 'ergasia', 'id_ergasia', 'id_ekthesis']);
 
     }
 
-    public function edit_details_ekth($id_ekthesis,$id_ergasia,$id_part){
+    public function edit_details_ekth($id_ekthesis, $id_ergasia, $id_part)
+    {
         $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($id_ekthesis);
-        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasia)->where('id_parts','=',$id_part)->first();
-        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasia)->where('id_parts', '=', $id_part)->first();
+        $ergasia = Ergasies::where([['Mark_del', 'Όχι'], ['id_ergasies', '=', $id_ergasia]])->get();
+        $parts = Parts::where([['Mark_del', 'Όχι'], ['id_parts', '>', '1']])->orderBy('part')->get();
 //        dd($detail);
 
-        return view('pragmatognomosines.edit_details_ekth',compact([
+        return view('pragmatognomosines.edit_details_ekth', compact([
             'detail',
             'id_ekthesis',
             'id_ergasia',
@@ -975,15 +1018,17 @@ class PragmController extends Controller
             'parts'
         ]));
     }
-    public function edit_details_ekth_nop($id_ekthesis,$id_ergasies,$id_part){
+
+    public function edit_details_ekth_nop($id_ekthesis, $id_ergasies, $id_part)
+    {
 //        dd($id_ergasies,$id_part);
         $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($id_ekthesis);
-        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasies)->where('id_parts','=',$id_part)->first();
-        $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasies)->where('id_parts', '=', $id_part)->first();
+        $ergasies = Ergasies::where([['Mark_del', 'Όχι']])->get();
+        $parts = Parts::where([['Mark_del', 'Όχι'], ['id_parts', '>', '1']])->orderBy('part')->get();
 //        dd($detail);
 
-        return view('pragmatognomosines.edit_details_ekth_nop',compact([
+        return view('pragmatognomosines.edit_details_ekth_nop', compact([
             'detail',
             'id_ekthesis',
             'id_ergasies',
@@ -992,32 +1037,35 @@ class PragmController extends Controller
             'parts'
         ]));
     }
-    public function update_details_ekth(Request $request){
 
-        if ($request->quan == null){
-            $request->quan=1;
+    public function update_details_ekth(Request $request)
+    {
+
+        if ($request->quan == null) {
+            $request->quan = 1;
         }
-        if ($request->sint_fpa_part == null){
-            $request->sint_fpa_part=24.00;
+        if ($request->sint_fpa_part == null) {
+            $request->sint_fpa_part = 24.00;
         }
-        if ($request->sint_fpa_job == null){
-            $request->sint_fpa_job=24.00;
+        if ($request->sint_fpa_job == null) {
+            $request->sint_fpa_job = 24.00;
         }
 //        dd($request);
-        $detail = DetailPrag::where([['id_ekthesis',$request->id_ekthesis],['id_ergasies',$request->id_ergasies],['id_parts',$request->id_parts]])->update($request->except(['_token']));
+        $detail = DetailPrag::where([['id_ekthesis', $request->id_ekthesis], ['id_ergasies', $request->id_ergasies], ['id_parts', $request->id_parts]])->update($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
 
     }
 
-    public function delete_details_ekth($id_ekthesis,$id_ergasia,$id_part){
+    public function delete_details_ekth($id_ekthesis, $id_ergasia, $id_part)
+    {
         $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($id_ekthesis);
-        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasia)->where('id_parts','=',$id_part)->first();
-        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','=',$id_ergasia]])->get();
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasia)->where('id_parts', '=', $id_part)->first();
+        $ergasia = Ergasies::where([['Mark_del', 'Όχι'], ['id_ergasies', '=', $id_ergasia]])->get();
+        $parts = Parts::where([['Mark_del', 'Όχι'], ['id_parts', '>', '1']])->orderBy('part')->get();
 //        dd($detail);
 
-        return view('pragmatognomosines.delete_details_ekth',compact([
+        return view('pragmatognomosines.delete_details_ekth', compact([
             'detail',
             'id_ekthesis',
             'id_ergasia',
@@ -1027,14 +1075,15 @@ class PragmController extends Controller
         ]));
     }
 
-    public function delete_details_ekth_nop($id_ekthesis,$id_ergasies,$id_part){
+    public function delete_details_ekth_nop($id_ekthesis, $id_ergasies, $id_part)
+    {
         $pragmatognomosini = Pragmatognomosini::with('parts_of_ergasies')->findOrFail($id_ekthesis);
-        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasies)->where('id_parts','=',$id_part)->first();
-        $ergasies = Ergasies::where([['Mark_del','Όχι']])->get();
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+        $detail = $pragmatognomosini->parts_of_ergasies()->wherePivot('id_ergasies', $id_ergasies)->where('id_parts', '=', $id_part)->first();
+        $ergasies = Ergasies::where([['Mark_del', 'Όχι']])->get();
+        $parts = Parts::where([['Mark_del', 'Όχι'], ['id_parts', '>', '1']])->orderBy('part')->get();
 //        dd($detail);
 
-        return view('pragmatognomosines.delete_details_ekth_nop',compact([
+        return view('pragmatognomosines.delete_details_ekth_nop', compact([
             'detail',
             'id_ekthesis',
             'id_ergasies',
@@ -1043,37 +1092,41 @@ class PragmController extends Controller
             'parts'
         ]));
     }
-    public function destroy_details_ekth(Request $request){
 
-        if ($request->quan == " "){
-            $request->quan=1;
+    public function destroy_details_ekth(Request $request)
+    {
+
+        if ($request->quan == " ") {
+            $request->quan = 1;
         }
-        $detail = DetailPrag::where([['id_ekthesis',$request->id_ekthesis],['id_ergasies',$request->id_ergasies],['id_parts',$request->id_parts]])->delete($request->except(['_token']));
+        $detail = DetailPrag::where([['id_ekthesis', $request->id_ekthesis], ['id_ergasies', $request->id_ergasies], ['id_parts', $request->id_parts]])->delete($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
 
     }
     // end manage details ekthesis
 
     // manage proiparxouses ekthesis
-    public function create_proiparxouses($id_ekthesis){
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
-        $ergasia = Ergasies::where([['Mark_del','Όχι'],['id_ergasies','!=',55]])->get();
-        return view('pragmatognomosines.create_proiparx_ekth',compact([
+    public function create_proiparxouses($id_ekthesis)
+    {
+        $parts = Parts::where([['Mark_del', 'Όχι'], ['id_parts', '>', '1']])->orderBy('part')->get();
+        $ergasia = Ergasies::where([['Mark_del', 'Όχι'], ['id_ergasies', '!=', 55]])->get();
+        return view('pragmatognomosines.create_proiparx_ekth', compact([
             'parts',
             'id_ekthesis',
             'ergasia'
         ]));
     }
 
-    public function store_proiparxouses(Request $request){
+    public function store_proiparxouses(Request $request)
+    {
 
-        if ($request->quan == null){
-            $request->quan=1;
+        if ($request->quan == null) {
+            $request->quan = 1;
         }
 
-        if ($request->sint_fpa_job == null){
-            $request->sint_fpa_job=24.00;
+        if ($request->sint_fpa_job == null) {
+            $request->sint_fpa_job = 24.00;
         }
 //        dd($request);
         $proiparx = new Proiparxousa();
@@ -1087,49 +1140,18 @@ class PragmController extends Controller
         $proiparx->diax_fr_b = $request->diax_fr_b;
         $proiparx->save();
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
 
-    public function edit_proiparxouses($id_ekthesis,$id_parts,$id_categ,$diax_fr_b){
+    public function edit_proiparxouses($id_ekthesis, $id_parts, $id_categ, $diax_fr_b)
+    {
         $pragmatognomosini = Pragmatognomosini::with('proiparxouses')->findOrFail($id_ekthesis);
 //        dd($pragmatognomosini);
-        $proiparx = $pragmatognomosini->proiparxouses()->wherePivot('id_parts', $id_parts)->where([['id_categ','=',$id_categ],['diax_fr_b','=',$diax_fr_b]])->first();
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
+        $proiparx = $pragmatognomosini->proiparxouses()->wherePivot('id_parts', $id_parts)->where([['id_categ', '=', $id_categ], ['diax_fr_b', '=', $diax_fr_b]])->first();
+        $parts = Parts::where([['Mark_del', 'Όχι'], ['id_parts', '>', '1']])->orderBy('part')->get();
 //        dd($proiparx);
 
-        return view('pragmatognomosines.edit_proiparx_ekth',compact([
-            'proiparx',
-            'id_ekthesis',
-            'id_categ',
-            'id_parts',
-            'diax_fr_b',
-            'parts'
-        ]));
-    }
-    public function update_proiparxouses(Request $request){
-
-        if ($request->quan == null){
-            $request->quan=1;
-        }
-
-        if ($request->sint_fpa_job == null){
-            $request->sint_fpa_job=24.00;
-        }
-//        dd($request);
-        $proiparx = Proiparxousa::where([['id_ekthesis',$request->id_ekthesis],['id_parts',$request->id_parts],['id_categ',$request->id_categ],['diax_fr_b',$request->diax_fr_b]])->update($request->except(['_token']));
-
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
-
-    }
-
-    public function delete_proiparxouses($id_ekthesis,$id_parts,$id_categ,$diax_fr_b){
-        $pragmatognomosini = Pragmatognomosini::with('proiparxouses')->findOrFail($id_ekthesis);
-//        dd($pragmatognomosini);
-        $proiparx = $pragmatognomosini->proiparxouses()->wherePivot('id_parts', $id_parts)->where([['id_categ','=',$id_categ],['diax_fr_b','=',$diax_fr_b]])->first();
-        $parts = Parts::where([['Mark_del','Όχι'],['id_parts','>','1']])->orderBy('part')->get();
-//        dd($proiparx);
-
-        return view('pragmatognomosines.delete_proiparx_ekth',compact([
+        return view('pragmatognomosines.edit_proiparx_ekth', compact([
             'proiparx',
             'id_ekthesis',
             'id_categ',
@@ -1139,134 +1161,176 @@ class PragmController extends Controller
         ]));
     }
 
-    public function destroy_proiparxouses(Request $request){
+    public function update_proiparxouses(Request $request)
+    {
 
-        if ($request->quan == null){
-            $request->quan=1;
+        if ($request->quan == null) {
+            $request->quan = 1;
         }
 
-        if ($request->sint_fpa_job == null){
-            $request->sint_fpa_job=24.00;
+        if ($request->sint_fpa_job == null) {
+            $request->sint_fpa_job = 24.00;
         }
 //        dd($request);
-        $proiparx = Proiparxousa::where([['id_ekthesis',$request->id_ekthesis],['id_parts',$request->id_parts],['id_categ',$request->id_categ],['diax_fr_b',$request->diax_fr_b]])->delete($request->except(['_token']));
+        $proiparx = Proiparxousa::where([['id_ekthesis', $request->id_ekthesis], ['id_parts', $request->id_parts], ['id_categ', $request->id_categ], ['diax_fr_b', $request->diax_fr_b]])->update($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
+
+    }
+
+    public function delete_proiparxouses($id_ekthesis, $id_parts, $id_categ, $diax_fr_b)
+    {
+        $pragmatognomosini = Pragmatognomosini::with('proiparxouses')->findOrFail($id_ekthesis);
+//        dd($pragmatognomosini);
+        $proiparx = $pragmatognomosini->proiparxouses()->wherePivot('id_parts', $id_parts)->where([['id_categ', '=', $id_categ], ['diax_fr_b', '=', $diax_fr_b]])->first();
+        $parts = Parts::where([['Mark_del', 'Όχι'], ['id_parts', '>', '1']])->orderBy('part')->get();
+//        dd($proiparx);
+
+        return view('pragmatognomosines.delete_proiparx_ekth', compact([
+            'proiparx',
+            'id_ekthesis',
+            'id_categ',
+            'id_parts',
+            'diax_fr_b',
+            'parts'
+        ]));
+    }
+
+    public function destroy_proiparxouses(Request $request)
+    {
+
+        if ($request->quan == null) {
+            $request->quan = 1;
+        }
+
+        if ($request->sint_fpa_job == null) {
+            $request->sint_fpa_job = 24.00;
+        }
+//        dd($request);
+        $proiparx = Proiparxousa::where([['id_ekthesis', $request->id_ekthesis], ['id_parts', $request->id_parts], ['id_categ', $request->id_categ], ['diax_fr_b', $request->diax_fr_b]])->delete($request->except(['_token']));
+
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
     // end manage proiparxouses ekthesis
 
     // manage katastasi ekthesis
-    public function create_status_ekth($id_ekthesis){
+    public function create_status_ekth($id_ekthesis)
+    {
         $pragmatognomosini = Pragmatognomosini::with('status_of_ekth')->findOrFail($id_ekthesis);
         $status = $pragmatognomosini->status_of_ekth()->get();
-        foreach ($status as $stat){
-            if($stat->pivot->Valid == 'Ναι'){
-                $next_status = $stat->pivot->id_status+1;
+        foreach ($status as $stat) {
+            if ($stat->pivot->Valid == 'Ναι') {
+                $next_status = $stat->pivot->id_status + 1;
             }
         }
-        $status_to_view = Status::where([['id_status',$next_status]])->get();
-        return view('pragmatognomosines.create_status_ekth',compact(['status_to_view','id_ekthesis']));
+        $status_to_view = Status::where([['id_status', $next_status]])->get();
+        return view('pragmatognomosines.create_status_ekth', compact(['status_to_view', 'id_ekthesis']));
     }
 
-    public function store_status_ekth(Request $request,$id_ekthesis){
+    public function store_status_ekth(Request $request, $id_ekthesis)
+    {
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
 
-        $request->Valid='Ναι';
+        $request->Valid = 'Ναι';
         $Status_date = Carbon::createFromFormat('d-m-Y', $request->Status_date)->format('Y-m-d');
         $request->Status_date = $Status_date;
         $Pdate = Carbon::now();
 
 
-        if ($request->id_status==1 ){
-            $Pdate=Carbon::parse($Status_date)->addDays(2)->format('Y-m-d');
-        }elseif ($request->id_status==2){
-            $Pdate=Carbon::parse($Status_date)->addDays(3)->format('Y-m-d');
-        }elseif ($request->id_status==3){
-            $Pdate=Carbon::parse($Status_date)->addDays(2)->format('Y-m-d');
-        }elseif ($request->id_status==4){
-            $Pdate=Carbon::parse($Status_date)->addDays(1)->format('Y-m-d');
-        }elseif ($request->id_status==5){
-            $Pdate=Carbon::parse($Status_date)->addDays(1)->format('Y-m-d');
+        if ($request->id_status == 1) {
+            $Pdate = Carbon::parse($Status_date)->addDays(2)->format('Y-m-d');
+        } elseif ($request->id_status == 2) {
+            $Pdate = Carbon::parse($Status_date)->addDays(3)->format('Y-m-d');
+        } elseif ($request->id_status == 3) {
+            $Pdate = Carbon::parse($Status_date)->addDays(2)->format('Y-m-d');
+        } elseif ($request->id_status == 4) {
+            $Pdate = Carbon::parse($Status_date)->addDays(1)->format('Y-m-d');
+        } elseif ($request->id_status == 5) {
+            $Pdate = Carbon::parse($Status_date)->addDays(1)->format('Y-m-d');
         }
 //        $request->Process_date = $Pdate;
 //        dd($request->Process_date,$request->Status_date,$Pdate,$request);
 
-        $pragmatognomosini->status_of_ekth()->attach($request->id_status,['Status_date'=>  $request->Status_date ],['Valid'=>  $request->Valid ],['Process_date'=>  $Pdate ],['Notes'=>  $request->Notes ]);
+        $pragmatognomosini->status_of_ekth()->attach($request->id_status, ['Status_date' => $request->Status_date], ['Valid' => $request->Valid], ['Process_date' => $Pdate], ['Notes' => $request->Notes]);
         $status = $pragmatognomosini->status_of_ekth()->get();
-        foreach ($status as $stat){
-            if ($stat->pivot->id_status < $request->id_status ){
+        foreach ($status as $stat) {
+            if ($stat->pivot->id_status < $request->id_status) {
                 $stat->pivot->Valid = 'Όχι';
                 $stat->pivot->save();
             }
-            if ($stat->pivot->id_status == $request->id_status ){
+            if ($stat->pivot->id_status == $request->id_status) {
                 $stat->pivot->Process_date = $Pdate;
-                $stat->pivot->Notes =  $request->Notes;
+                $stat->pivot->Notes = $request->Notes;
                 $stat->pivot->save();
             }
         }
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
     }
 
-    public function edit_status_ekth($id_ekthesis,$id_status){
+    public function edit_status_ekth($id_ekthesis, $id_status)
+    {
         $pragmatognomosini = Pragmatognomosini::with('status_of_ekth')->findOrFail($id_ekthesis);
         $status_ekth = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $id_status)->first();
-        $status_ekth->pivot->Status_date=Carbon::createFromFormat('Y-m-d',$status_ekth->pivot->Status_date)->format('d-m-Y');
-        $status_ekth->pivot->Process_date=Carbon::createFromFormat('Y-m-d',$status_ekth->pivot->Process_date)->format('d-m-Y');
-        $status = Status::where([['Mark_del','Όχι'],['id_status',$id_status]])->get();
+        $status_ekth->pivot->Status_date = Carbon::createFromFormat('Y-m-d', $status_ekth->pivot->Status_date)->format('d-m-Y');
+        $status_ekth->pivot->Process_date = Carbon::createFromFormat('Y-m-d', $status_ekth->pivot->Process_date)->format('d-m-Y');
+        $status = Status::where([['Mark_del', 'Όχι'], ['id_status', $id_status]])->get();
 //        dd($status);
-        return view('pragmatognomosines.edit_status_ekth',compact(['status_ekth','id_ekthesis','status']));
+        return view('pragmatognomosines.edit_status_ekth', compact(['status_ekth', 'id_ekthesis', 'status']));
     }
 
-    public function update_status_ekth(Request $request){
+    public function update_status_ekth(Request $request)
+    {
         $id_ekthesis = $request->id_ekthesis;
         $pragmatognomosini = Pragmatognomosini::with('status_of_ekth')->findOrFail($id_ekthesis);
         $status_ekth = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $request->id_status)->first();
 
-        $sDate=Carbon::createFromFormat('d-m-Y',$request->Status_date)->format('Y-m-d');
-        $pdate=Carbon::createFromFormat('d-m-Y',$request->Process_date)->format('Y-m-d');
+        $sDate = Carbon::createFromFormat('d-m-Y', $request->Status_date)->format('Y-m-d');
+        $pdate = Carbon::createFromFormat('d-m-Y', $request->Process_date)->format('Y-m-d');
 
         $request->Status_date = $sDate;
         $request->Process_date = $pdate;
-        $status_ekth->pivot->Status_date=$request->Status_date;
-        $status_ekth->pivot->Process_date=$request->Process_date;
-        $status_ekth->pivot->Valid=$request->Valid;
-        $status_ekth->pivot->Notes=$request->Notes;
+        $status_ekth->pivot->Status_date = $request->Status_date;
+        $status_ekth->pivot->Process_date = $request->Process_date;
+        $status_ekth->pivot->Valid = $request->Valid;
+        $status_ekth->pivot->Notes = $request->Notes;
         $status_ekth->pivot->save();
 
 //        dd($status);
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
     }
 
-    public function delete_status_ekth($id_ekthesis,$id_status){
+    public function delete_status_ekth($id_ekthesis, $id_status)
+    {
         $pragmatognomosini = Pragmatognomosini::with('status_of_ekth')->findOrFail($id_ekthesis);
         $status_ekth = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $id_status)->first();
-        $status_ekth->pivot->Status_date=Carbon::createFromFormat('Y-m-d',$status_ekth->pivot->Status_date)->format('d-m-Y');
-        $status_ekth->pivot->Process_date=Carbon::createFromFormat('Y-m-d',$status_ekth->pivot->Process_date)->format('d-m-Y');
-        $status = Status::where([['Mark_del','Όχι'],['id_status',$id_status]])->get();
+        $status_ekth->pivot->Status_date = Carbon::createFromFormat('Y-m-d', $status_ekth->pivot->Status_date)->format('d-m-Y');
+        $status_ekth->pivot->Process_date = Carbon::createFromFormat('Y-m-d', $status_ekth->pivot->Process_date)->format('d-m-Y');
+        $status = Status::where([['Mark_del', 'Όχι'], ['id_status', $id_status]])->get();
 //        dd($status);
-        return view('pragmatognomosines.delete_status_ekth',compact(['status_ekth','id_ekthesis','status']));
+        return view('pragmatognomosines.delete_status_ekth', compact(['status_ekth', 'id_ekthesis', 'status']));
     }
 
-    public function destroy_status_ekth(Request $request){
+    public function destroy_status_ekth(Request $request)
+    {
         $id_ekthesis = $request->id_ekthesis;
         $pragmatognomosini = Pragmatognomosini::with('status_of_ekth')->findOrFail($id_ekthesis);
         $status_ekth = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $request->id_status)->first();
 
-        $sDate=Carbon::createFromFormat('d-m-Y',$request->Status_date)->format('Y-m-d');
-        $pdate=Carbon::createFromFormat('d-m-Y',$request->Process_date)->format('Y-m-d');
+        $sDate = Carbon::createFromFormat('d-m-Y', $request->Status_date)->format('Y-m-d');
+        $pdate = Carbon::createFromFormat('d-m-Y', $request->Process_date)->format('Y-m-d');
 
         $request->Status_date = $sDate;
-        $request->Process_date=$pdate;
-        $prevStat = $request->id_status -1;
-        $status = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $prevStat )->first();
+        $request->Process_date = $pdate;
+        $prevStat = $request->id_status - 1;
+        $status = $pragmatognomosini->status_of_ekth()->wherePivot('id_status', $prevStat)->first();
 //        dd($status);
 
         $status->pivot->Valid = 'Ναι';
@@ -1277,23 +1341,25 @@ class PragmController extends Controller
 //        dd($request->id_status);
 
 //        dd($status);
-        if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ'){
-            return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
-        }else{
-            return redirect('ereunes/'.$pragmatognomosini->id_ekthesis);
+        if ($pragmatognomosini->id_diakrisi == 'Π' || $pragmatognomosini->id_diakrisi == 'ΠΕ') {
+            return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
+        } else {
+            return redirect('ereunes/' . $pragmatognomosini->id_ekthesis);
         }
     }
     // end manage katastasi ekthesis
 
     // manage provlepseis ekthesis
-    public function create_provlep_ekth($id_ekthesis){
-        $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis]])->get();
+    public function create_provlep_ekth($id_ekthesis)
+    {
+        $provlepseis = Provlepseis::where([['id_ekthesis', $id_ekthesis]])->get();
 
-        return view('pragmatognomosines.create_provle_ekth',compact(['id_ekthesis','provlepseis']));
+        return view('pragmatognomosines.create_provle_ekth', compact(['id_ekthesis', 'provlepseis']));
 
     }
 
-    public function store_provlep_ekth(Request $request,$id_ekthesis){
+    public function store_provlep_ekth(Request $request, $id_ekthesis)
+    {
 
         $provlep = new Provlepseis();
         $provlep->id_ekthesis = $request->id_ekthesis;
@@ -1303,13 +1369,14 @@ class PragmController extends Controller
 
         $provlep->save();
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
 
-    public function edit_provlep_ekth($id_ekthesis,$id_provlepseis){
-        $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis],['id_provlepseis',$id_provlepseis]])->first();
+    public function edit_provlep_ekth($id_ekthesis, $id_provlepseis)
+    {
+        $provlepseis = Provlepseis::where([['id_ekthesis', $id_ekthesis], ['id_provlepseis', $id_provlepseis]])->first();
 
-        return view('pragmatognomosines.edit_provle_ekth',compact([
+        return view('pragmatognomosines.edit_provle_ekth', compact([
             'id_ekthesis',
             'id_provlepseis',
             'provlepseis'
@@ -1317,38 +1384,42 @@ class PragmController extends Controller
 
     }
 
-    public function update_provlep_ekth(Request $request){
+    public function update_provlep_ekth(Request $request)
+    {
 //        dd($request);
-        $provlepseis = Provlepseis::where([['id_ekthesis',$request->id_ekthesis],['id_provlepseis',$request->id_provlepseis]])->update($request->except(['_token']));
+        $provlepseis = Provlepseis::where([['id_ekthesis', $request->id_ekthesis], ['id_provlepseis', $request->id_provlepseis]])->update($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
 
-    public function delete_provlep_ekth($id_ekthesis,$id_provlepseis){
-        $provlepseis = Provlepseis::where([['id_ekthesis',$id_ekthesis],['id_provlepseis',$id_provlepseis]])->first();
+    public function delete_provlep_ekth($id_ekthesis, $id_provlepseis)
+    {
+        $provlepseis = Provlepseis::where([['id_ekthesis', $id_ekthesis], ['id_provlepseis', $id_provlepseis]])->first();
 
-        return view('pragmatognomosines.delete_provle_ekth',compact([
+        return view('pragmatognomosines.delete_provle_ekth', compact([
             'id_ekthesis',
             'id_provlepseis',
             'provlepseis'
         ]));
     }
 
-    public function destroy_provlep_ekth(Request $request){
+    public function destroy_provlep_ekth(Request $request)
+    {
 //        dd($request);
-        $provlepseis = Provlepseis::where([['id_ekthesis',$request->id_ekthesis],['id_provlepseis',$request->id_provlepseis]])->delete($request->except(['_token']));
+        $provlepseis = Provlepseis::where([['id_ekthesis', $request->id_ekthesis], ['id_provlepseis', $request->id_provlepseis]])->delete($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
     // end manage provlepseis ekthesis
 
     // manage involv cars ekthesis
-    public function create_involv_cars($id_ekthesis){
+    public function create_involv_cars($id_ekthesis)
+    {
         $companies = Company::where('Mark_del', 'Όχι')->get();
-        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
-        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1']])->get();
 
-        return view('pragmatognomosines.create_involv_cars_ekth',compact([
+        return view('pragmatognomosines.create_involv_cars_ekth', compact([
             'id_ekthesis',
             'companies',
             'pathontes',
@@ -1356,7 +1427,8 @@ class PragmController extends Controller
         ]));
     }
 
-    public function store_involv_cars(Request $request){
+    public function store_involv_cars(Request $request)
+    {
         $inv_car = new InvolvCar();
         $inv_car->id_ekthesis = $request->id_ekthesis;
         $inv_car->id_oxima = $request->id_oxima;
@@ -1368,16 +1440,17 @@ class PragmController extends Controller
         $inv_car->note = $request->note;
         $inv_car->save();
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
 
-    public function edit_involv_cars($id_ekthesis,$id_oxima,$id_person) {
+    public function edit_involv_cars($id_ekthesis, $id_oxima, $id_person)
+    {
         $pragmatognomosini = Pragmatognomosini::with('invol_cars')->findOrFail($id_ekthesis);
 //        dd($pragmatognomosini);
         $inv_car = $pragmatognomosini->invol_cars()->wherePivot('id_oxima', $id_oxima)->where([['id_person', '=', $id_person]])->first();
         $companies = Company::where('Mark_del', 'Όχι')->get();
-        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata',$id_oxima]])->get();
-        $pathontes = Person::where([['Mark_del','Όχι'],['id_person',$id_person]])->get();
+        $oximata_pathon = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', $id_oxima]])->get();
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', $id_person]])->get();
 //        dd($proiparx);
 
         return view('pragmatognomosines.edit_involv_cars_ekth', compact([
@@ -1391,23 +1464,25 @@ class PragmController extends Controller
         ]));
     }
 
-    public function update_involv_cars(Request $request){
+    public function update_involv_cars(Request $request)
+    {
 
 
 //        dd($request);
-        $inv_car = InvolvCar::where([['id_ekthesis',$request->id_ekthesis],['id_oxima',$request->id_oxima],['id_person',$request->id_person]])->update($request->except(['_token']));
+        $inv_car = InvolvCar::where([['id_ekthesis', $request->id_ekthesis], ['id_oxima', $request->id_oxima], ['id_person', $request->id_person]])->update($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
 
     }
 
-    public function delete_involv_cars($id_ekthesis,$id_oxima,$id_person) {
+    public function delete_involv_cars($id_ekthesis, $id_oxima, $id_person)
+    {
         $pragmatognomosini = Pragmatognomosini::with('invol_cars')->findOrFail($id_ekthesis);
 //        dd($pragmatognomosini);
         $inv_car = $pragmatognomosini->invol_cars()->wherePivot('id_oxima', $id_oxima)->where([['id_person', '=', $id_person]])->first();
         $companies = Company::where('Mark_del', 'Όχι')->get();
-        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata',$id_oxima]])->get();
-        $pathontes = Person::where([['Mark_del','Όχι'],['id_person',$id_person]])->get();
+        $oximata_pathon = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', $id_oxima]])->get();
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', $id_person]])->get();
 //        dd($proiparx);
 
         return view('pragmatognomosines.delete_involv_cars_ekth', compact([
@@ -1421,45 +1496,50 @@ class PragmController extends Controller
         ]));
     }
 
-    public function destroy_involv_cars(Request $request){
-        $inv_car = InvolvCar::where([['id_ekthesis',$request->id_ekthesis],['id_oxima',$request->id_oxima],['id_person',$request->id_person]])->delete($request->except(['_token']));
+    public function destroy_involv_cars(Request $request)
+    {
+        $inv_car = InvolvCar::where([['id_ekthesis', $request->id_ekthesis], ['id_oxima', $request->id_oxima], ['id_person', $request->id_person]])->delete($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
     // end manage involv cars ekthesis
 
     // manage expen ekthesis
-    public function create_expen_ekth($id_ekthesis){
+    public function create_expen_ekth($id_ekthesis)
+    {
         $pragmatognomosini = Pragmatognomosini::with('expen_ekth')->findOrFail($id_ekthesis);
-        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
-        return view('pragmatognomosines.create_expen_ekth',compact([
+        $expenses = Expense::where([['Mark_del', 'Όχι'], ['Where_use', '=', 'Ε' or 'Where_use', '=', 'Ε/Γ']])->get();
+        return view('pragmatognomosines.create_expen_ekth', compact([
             'pragmatognomosini',
             'id_ekthesis',
             'expenses'
         ]));
     }
-    public function store_expen_ekth(Request $request,$id_ekthesis){
+
+    public function store_expen_ekth(Request $request, $id_ekthesis)
+    {
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
 
-        if($request->id_expenses == 9){
+        if ($request->id_expenses == 9) {
             $Value_fpa = 0;
-        }else{
+        } else {
             $Value_fpa = $request->Value * $pragmatognomosini->Fpa / 100;
         }
-        if ($request->Quan == null){
+        if ($request->Quan == null) {
             $request->Quan = 1;
         }
-        $pragmatognomosini->expen_ekth()->attach($request->id_expenses,['Quan'=> $request->Quan,'Value'=> $request->Value,'Value_fpa'=> $Value_fpa ]);
+        $pragmatognomosini->expen_ekth()->attach($request->id_expenses, ['Quan' => $request->Quan, 'Value' => $request->Value, 'Value_fpa' => $Value_fpa]);
 
-        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
     }
 
-    public function edit_expen_ekth($id_ekthesis,$id_expenses){
+    public function edit_expen_ekth($id_ekthesis, $id_expenses)
+    {
         $pragmatognomosini = Pragmatognomosini::with('expen_ekth')->findOrFail($id_ekthesis);
         $expen_ekth = $pragmatognomosini->expen_ekth()->wherePivot('id_expenses', $id_expenses)->first();
-        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
+        $expenses = Expense::where([['Mark_del', 'Όχι'], ['Where_use', '=', 'Ε' or 'Where_use', '=', 'Ε/Γ']])->get();
 
-        return view('pragmatognomosines.edit_expen_ekth',compact([
+        return view('pragmatognomosines.edit_expen_ekth', compact([
             'expen_ekth',
             'id_ekthesis',
             'id_expenses',
@@ -1467,16 +1547,17 @@ class PragmController extends Controller
         ]));
     }
 
-    public function update_expen_ekth(Request $request){
+    public function update_expen_ekth(Request $request)
+    {
         $pragmatognomosini = Pragmatognomosini::with('expen_ekth')->findOrFail($request->id_ekthesis);
         $expen_ekth = $pragmatognomosini->expen_ekth()->wherePivot('id_expenses', $request->id_expenses)->first();
 
-        if($request->id_expenses == 9){
+        if ($request->id_expenses == 9) {
             $Value_fpa = 0;
-        }else{
+        } else {
             $Value_fpa = $request->Value * $pragmatognomosini->Fpa / 100;
         }
-        if ($request->Quan == null){
+        if ($request->Quan == null) {
             $request->Quan = 1;
         }
         $expen_ekth->pivot->Quan = $request->Quan;
@@ -1484,15 +1565,16 @@ class PragmController extends Controller
         $expen_ekth->pivot->Value_fpa = $Value_fpa;
         $expen_ekth->pivot->save();
 
-        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
     }
 
-    public function delete_expen_ekth($id_ekthesis,$id_expenses){
+    public function delete_expen_ekth($id_ekthesis, $id_expenses)
+    {
         $pragmatognomosini = Pragmatognomosini::with('expen_ekth')->findOrFail($id_ekthesis);
         $expen_ekth = $pragmatognomosini->expen_ekth()->wherePivot('id_expenses', $id_expenses)->first();
-        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
+        $expenses = Expense::where([['Mark_del', 'Όχι'], ['Where_use', '=', 'Ε' or 'Where_use', '=', 'Ε/Γ']])->get();
 
-        return view('pragmatognomosines.delete_expen_ekth',compact([
+        return view('pragmatognomosines.delete_expen_ekth', compact([
             'expen_ekth',
             'id_ekthesis',
             'id_expenses',
@@ -1500,39 +1582,43 @@ class PragmController extends Controller
         ]));
     }
 
-    public function destroy_expen_ekth(Request $request){
+    public function destroy_expen_ekth(Request $request)
+    {
         $pragmatognomosini = Pragmatognomosini::with('expen_ekth')->findOrFail($request->id_ekthesis);
         $expen_ekth = $pragmatognomosini->expen_ekth()->wherePivot('id_expenses', $request->id_expenses)->first();
 
         $pragmatognomosini->expen_ekth()->detach($request->id_expenses);
 
-        return redirect('pragmatognomosines/'.$pragmatognomosini->id_ekthesis);
+        return redirect('pragmatognomosines/' . $pragmatognomosini->id_ekthesis);
 
     }
     // end manage expen ekthesis
 
     // manage expen partner ekthesis
-    public function create_expen_partner_ekth($id_ekthesis){
+    public function create_expen_partner_ekth($id_ekthesis)
+    {
         $pragmatognomosini = Pragmatognomosini::with('expen_ekth_partner')->findOrFail($id_ekthesis);
-        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
-        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+        $expenses = Expense::where([['Mark_del', 'Όχι'], ['Where_use', '=', 'Ε' or 'Where_use', '=', 'Ε/Γ']])->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
 
-        return view('pragmatognomosines.create_expen_partner_ekth',compact([
+        return view('pragmatognomosines.create_expen_partner_ekth', compact([
             'pragmatognomosini',
             'id_ekthesis',
             'expenses',
             'pragmatognomones'
         ]));
     }
-    public function store_expen_partner_ekth(Request $request,$id_ekthesis){
+
+    public function store_expen_partner_ekth(Request $request, $id_ekthesis)
+    {
 
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
-        if($request->id_expenses == 9){
+        if ($request->id_expenses == 9) {
             $Value_fpa = 0;
-        }else{
+        } else {
             $Value_fpa = $request->value * $pragmatognomosini->Fpa / 100;
         }
-        if ($request->quan == null){
+        if ($request->quan == null) {
             $request->quan = 1;
         }
         $expen_partner = new ExpenEkthPartner();
@@ -1545,18 +1631,19 @@ class PragmController extends Controller
 
         $expen_partner->save();
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
 
 
     }
 
-    public function edit_expen_partner_ekth($id_ekthesis,$id_expenses,$id_users){
+    public function edit_expen_partner_ekth($id_ekthesis, $id_expenses, $id_users)
+    {
 
-        $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis',$id_ekthesis],['id_expenses',$id_expenses],['id_users',$id_users]])->first();
-        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
-        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+        $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis', $id_ekthesis], ['id_expenses', $id_expenses], ['id_users', $id_users]])->first();
+        $expenses = Expense::where([['Mark_del', 'Όχι'], ['Where_use', '=', 'Ε' or 'Where_use', '=', 'Ε/Γ']])->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
 
-        return view('pragmatognomosines.edit_expen_partner_ekth',compact([
+        return view('pragmatognomosines.edit_expen_partner_ekth', compact([
             'expen_ekth_part',
             'id_ekthesis',
             'id_expenses',
@@ -1566,18 +1653,19 @@ class PragmController extends Controller
         ]));
     }
 
-    public function update_expen_partner_ekth(Request $request){
+    public function update_expen_partner_ekth(Request $request)
+    {
         $pragmatognomosini = Pragmatognomosini::with('expen_ekth_partner')->findOrFail($request->id_ekthesis);
-        $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->first();
+        $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis', $request->id_ekthesis], ['id_expenses', $request->id_expenses], ['id_users', $request->id_users]])->first();
 
-        if($request->id_expenses == 9){
+        if ($request->id_expenses == 9) {
             $value_fpa = 0;
-        }else{
+        } else {
             $value_fpa = $request->value * $pragmatognomosini->Fpa / 100;
         }
         $request->value_fpa = $value_fpa;
 
-        if ($request->quan == null){
+        if ($request->quan == null) {
             $request->quan = 1;
         }
         $expen_ekth_part->id_ekthesis = $request->id_ekthesis;
@@ -1590,15 +1678,16 @@ class PragmController extends Controller
         $expen_ekth_part->save();
 //        $expen_partner = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->update($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
 
-    public function delete_expen_partner_ekth($id_ekthesis,$id_expenses,$id_users){
-        $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis',$id_ekthesis],['id_expenses',$id_expenses],['id_users',$id_users]])->first();
-        $expenses = Expense::where([['Mark_del','Όχι'],['Where_use','=','Ε' or 'Where_use','=','Ε/Γ']])->get();
-        $pragmatognomones = User::where([['thesi','LIKE','ΠΡΑΓ%'],['Active','Ναι']])->get();
+    public function delete_expen_partner_ekth($id_ekthesis, $id_expenses, $id_users)
+    {
+        $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis', $id_ekthesis], ['id_expenses', $id_expenses], ['id_users', $id_users]])->first();
+        $expenses = Expense::where([['Mark_del', 'Όχι'], ['Where_use', '=', 'Ε' or 'Where_use', '=', 'Ε/Γ']])->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
 
-        return view('pragmatognomosines.delete_expen_partner_ekth',compact([
+        return view('pragmatognomosines.delete_expen_partner_ekth', compact([
             'expen_ekth_part',
             'id_ekthesis',
             'id_expenses',
@@ -1608,40 +1697,43 @@ class PragmController extends Controller
         ]));
     }
 
-    public function destroy_expen_partner_ekth(Request $request){
+    public function destroy_expen_partner_ekth(Request $request)
+    {
         $pragmatognomosini = Pragmatognomosini::with('expen_ekth_partner')->findOrFail($request->id_ekthesis);
 
-        if($request->id_expenses == 9){
+        if ($request->id_expenses == 9) {
             $Value_fpa = 0;
-        }else{
+        } else {
             $Value_fpa = $request->Value * $pragmatognomosini->Fpa / 100;
         }
-        if ($request->Quan == null){
+        if ($request->Quan == null) {
             $request->Quan = 1;
         }
 
-        $expen_partner = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->delete($request->except(['_token']));
+        $expen_partner = ExpenEkthPartner::where([['id_ekthesis', $request->id_ekthesis], ['id_expenses', $request->id_expenses], ['id_users', $request->id_users]])->delete($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
 
     }
     // end manage expen  partner ekthesis
 
     // manage foto ekthesis
-    public function create_foto_ekth($id_ekthesis){
+    public function create_foto_ekth($id_ekthesis)
+    {
 
-        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
-        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
-        return view('pragmatognomosines.create_foto_ekth',compact(['pathontes','id_ekthesis','oximata_pathon']));
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1']])->get();
+        return view('pragmatognomosines.create_foto_ekth', compact(['pathontes', 'id_ekthesis', 'oximata_pathon']));
     }
 
-    public function edit_foto_ekth($id_ekthesis,$id_foto){
+    public function edit_foto_ekth($id_ekthesis, $id_foto)
+    {
 
-        $fotos = Foto::where([['id_ekthesis',$id_ekthesis],['id_foto',$id_foto]])->first();
-        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
-        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+        $fotos = Foto::where([['id_ekthesis', $id_ekthesis], ['id_foto', $id_foto]])->first();
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1']])->get();
 
-        return view('pragmatognomosines.edit_foto_ekth',compact([
+        return view('pragmatognomosines.edit_foto_ekth', compact([
             'id_foto',
             'id_ekthesis',
             'fotos',
@@ -1650,22 +1742,16 @@ class PragmController extends Controller
         ]));
     }
 
-    public function store_foto_ekth(Request $request){
+    public function store_foto_ekth(Request $request)
+    {
         $pragmatognomosini = Pragmatognomosini::findOrFail($request->id_ekthesis);
-        $oximata_pathon = Oxima::where([['id_oximata',$pragmatognomosini->id_oximatos_pathon]])->first();
+        $oximata_pathon = Oxima::where([['id_oximata', $pragmatognomosini->id_oximatos_pathon]])->first();
 //        $fotos = Foto::where([['id_ekthesis',$request->id_ekthesis],['id_foto',$request->id_foto]])->first();
         // calculate file path
-            if ($pragmatognomosini->id_oximatos_pathon != 1){
-                $pinakida=$oximata_pathon->Ar_kyklo;
-            }
-            if ($pragmatognomosini->Object == null){
-                $$request->path = 'oximata\\'.$pinakida.'\\'.$pragmatognomosini->id_ekthesis;
-            }else{
-                $$request->path = 'oximata\\'.'object'.'\\'.$pragmatognomosini->id_ekthesis;
-            }
+        $request->path = $pragmatognomosini->pragm_path();
         // end calculate file path
         if ($request->print_group == null) {
-            $request->print_group =1;
+            $request->print_group = 1;
         }
 
 
@@ -1681,12 +1767,12 @@ class PragmController extends Controller
         $fotos->save();
 //        $expen_partner = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->update($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
 
-    public function update_foto_ekth(Request $request){
-        $fotos = Foto::where([['id_ekthesis',$request->id_ekthesis],['id_foto',$request->id_foto]])->first();
-
+    public function update_foto_ekth(Request $request)
+    {
+        $fotos = Foto::where([['id_ekthesis', $request->id_ekthesis], ['id_foto', $request->id_foto]])->first();
 
 
         $fotos->id_ekthesis = $request->id_ekthesis;
@@ -1700,15 +1786,17 @@ class PragmController extends Controller
         $fotos->save();
 //        $expen_partner = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->update($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
-    public function delete_foto_ekth($id_ekthesis,$id_foto){
 
-        $fotos = Foto::where([['id_ekthesis',$id_ekthesis],['id_foto',$id_foto]])->first();
-        $pathontes = Person::where([['Mark_del','Όχι'],['id_person','>','1']])->get();
-        $oximata_pathon = Oxima::where([['Mark_del','Όχι'],['id_oximata','>','1']])->get();
+    public function delete_foto_ekth($id_ekthesis, $id_foto)
+    {
 
-        return view('pragmatognomosines.delete_foto_ekth',compact([
+        $fotos = Foto::where([['id_ekthesis', $id_ekthesis], ['id_foto', $id_foto]])->first();
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1']])->get();
+        $oximata_pathon = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1']])->get();
+
+        return view('pragmatognomosines.delete_foto_ekth', compact([
             'id_foto',
             'id_ekthesis',
             'fotos',
@@ -1717,11 +1805,12 @@ class PragmController extends Controller
         ]));
     }
 
-    public function destroy_foto_ekth(Request $request){
+    public function destroy_foto_ekth(Request $request)
+    {
 
-        $fotos = Foto::where([['id_ekthesis',$request->id_ekthesis],['id_foto',$request->id_foto]])->delete($request->except(['_token']));
+        $fotos = Foto::where([['id_ekthesis', $request->id_ekthesis], ['id_foto', $request->id_foto]])->delete($request->except(['_token']));
 
-        return redirect('pragmatognomosines/'.$request->id_ekthesis);
+        return redirect('pragmatognomosines/' . $request->id_ekthesis);
     }
     // end manage foto ekthesis
 }
