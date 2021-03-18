@@ -2064,7 +2064,7 @@
                                                 @foreach($fotosd['entries'] as $fotod)
                                                     <a href="{{asset($fotod['path_display']) }}"
                                                        data-lightbox="image-1"
-                                                       data-title="{{$fotod['name'}}">
+                                                       data-title="{{$fotod['name']}}">
                                                         <img src="{{ asset($fotod['path_display']) }}"
                                                              width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                 @endforeach
