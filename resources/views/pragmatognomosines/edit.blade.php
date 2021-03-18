@@ -2062,10 +2062,10 @@
                                         <div class="col-md-12">
                                             <div id="grid">
                                                 @foreach($fotosd['entries'] as $fotod)
-                                                    <a href="{{asset($fotod['path_display']) }}"
+                                                    <a href="{{asset($fotod['path_lower']) }}"
                                                        data-lightbox="image-1"
                                                        data-title="{{$fotod['name']}}">
-                                                        <img src="{{ asset($fotod['path_display']) }}"
+                                                        <img src="{{ asset($fotod['path_lower']) }}"
                                                              width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/></a>
                                                 @endforeach
 {{--                                                @foreach($fotos as $index=>$foto)--}}
