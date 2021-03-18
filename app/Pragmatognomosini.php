@@ -47,9 +47,9 @@ class Pragmatognomosini extends Model
             $pinakida = $this->oxima_pathon->Ar_kyklo;
         }
         if ($this->Object == null){
-            return 'oximata\\'. $pinakida .'\\'. $this->id_ekthesis;
+            return 'oximata/'. $pinakida .'/'. $this->id_ekthesis;
         }else{
-            return 'oximata\\'.'object'.'\\'. $this->id_ekthesis;
+            return 'oximata/'.'object'.'/'. $this->id_ekthesis;
         }
     }
 
