@@ -36,6 +36,8 @@ use File;
 use DateTime;
 use DateInterval;
 use Illuminate\Support\Facades\DB;
+use Spatie\Dropbox\Client;
+use App\Traits\DropboxFiles;
 
 
 /**
@@ -44,6 +46,8 @@ use Illuminate\Support\Facades\DB;
  */
 class PragmController extends Controller
 {
+
+    public $dropbox;
     /**
      * Create a new controller instance.
      *
@@ -52,6 +56,8 @@ class PragmController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+//        $this->dropbox = new Client([config('dropbox.clientId'), config('dropbox.clientSecret')]);
+        $this->dropbox = new Client('sl.AtYQhvEPRTjFTBsYMm1e_pSM5hgznuomZ1Va181xJn4TUXS40-HQ1B88JiUmnBa_Ss-G2IJJSfc5QbpuVke14x6XnmskWChtuHR0WoktbFJ8HFuHPZ1qbK8TbJq72og21k7y0gvP');
     }
 
     /**
@@ -227,6 +233,15 @@ class PragmController extends Controller
         // end many to many for pragmatognomosini
         $path = $pragmatognomosini->pragm_path();
         $fotosd = Dropbox::files()->listContents($path);
+
+        foreach ($fotosd['entries'] as $key => $file){
+            $extension = strtolower(explode('.', $file['name'])[1]);
+            if ($extension === 'jpeg' || $extension === 'jpg'){
+                $thumbnail = $this->dropbox->getTemporaryLink($file['path_lower']);
+                $fotosd['entries'][$key]['thumbnail'] = $thumbnail;
+            }
+
+        }
 //        dd($fotosd,$path);
          //calculate file position
         $pragmatognomosini->File_position = $pragmatognomosini->pragm_path();

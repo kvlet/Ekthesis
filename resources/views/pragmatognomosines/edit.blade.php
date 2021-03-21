@@ -2062,14 +2062,11 @@
                                         <div class="col-md-12">
                                             <div id="grid">
                                                 @foreach($fotosd['entries'] as $fotod)
-                                                    <a href="{{ ($fotod['path_lower']) }}"
+                                                    <a href="{{ ($fotod['thumbnail']) }}"
                                                        data-lightbox="image-1"
                                                        data-title="{{$fotod['name']}}">
-                                                        <img src="{{ asset($fotod['path_lower']) }}"
+                                                        <img src="{{ $fotod['thumbnail'] }}"
                                                              width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/></a>
-                                                @endforeach
-{{--                                                @foreach($fotos as $index=>$foto)--}}
-{{--                                                    <div>--}}
 {{--                                                        {{ $foto->file_name }}--}}
 {{--                                                        @if ($pragmatognomosini->id_diakrisi=='Π' || $pragmatognomosini->id_diakrisi=='ΠΕ')--}}
 {{--                                                            <a href="{{  URL('pragmatognomosines/'.$pragmatognomosini->id_ekthesis.'/edit_foto/'.$foto->id_foto) }}"--}}
@@ -2085,13 +2082,7 @@
 {{--                                                            <a href="{{  URL('ereunes/'.$pragmatognomosini->id_ekthesis.'/delete_foto/'.$foto->id_foto) }}"--}}
 {{--                                                               target=""><img src="/images/delete.jpg" width="25" height="25" alt="Διαγραφή" /></a>--}}
 {{--                                                        @endif--}}
-{{--                                                        <a href="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"--}}
-{{--                                                           data-lightbox="image-1"--}}
-{{--                                                           data-title="{{'Φωτογραφία:'.' '.$foto->file_name}}">--}}
-{{--                                                            <img src="{{ asset('/images/foto/'.$foto->id_ekthesis.'/'.$foto->file_name) }}"--}}
-{{--                                                                 width="400" height="400" alt="Επεξεργασία" class="img-thumbnail"/>{{ $foto->notes }}</a>--}}
-{{--                                                    </div>--}}
-{{--                                                @endforeach--}}
+                                              @endforeach
                                             </div>
                                         </div>
                                     </div>

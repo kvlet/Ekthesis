@@ -19,6 +19,7 @@
         "league/flysystem": "^1.0",
         "mpdf/mpdf": "^8.0",
         "nesbot/carbon": "^2.29",
+        "spatie/dropbox-api": "^1.17",
         "unisharp/laravel-filemanager": "~1.8"
     },
     "require-dev": {
