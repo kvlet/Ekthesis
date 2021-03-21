@@ -240,12 +240,11 @@ class PragmController extends Controller
             Dropbox::files()->createFolder($path);
         }
 
-        if(array_key_exists('entries', $fotosd)) {
+        if(!empty($fotosd)) {
             foreach ($fotosd['entries'] as $key => $file){
                 $extension = strtolower(explode('.', $file['name'])[1]);
                 if ($extension === 'jpeg' || $extension === 'jpg'){
-                    $thumbnail = $this->dropbox->getTemporaryLink($file['path_lower']);
-                    $fotosd['entries'][$key]['thumbnail'] = $thumbnail;
+                    $fotosd['entries'][$key]['thumbnail'] = $this->dropbox->getTemporaryLink($file['path_lower']);
                 }
             }
         }
