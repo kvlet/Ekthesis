@@ -232,25 +232,28 @@ class PragmController extends Controller
         $pragmatognomosini = Pragmatognomosini::with('keimena', 'praktoreia', 'synergeia', 'parts_of_ergasies', 'proiparxouses', 'status_of_ekth', 'expen_ekth', 'expen_ekth_partner')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
         $path = $pragmatognomosini->pragm_path();
-        $fotosd = Dropbox::files()->listContents($path);
+        $fotosd = array();
 
-        foreach ($fotosd['entries'] as $key => $file){
-            $extension = strtolower(explode('.', $file['name'])[1]);
-            if ($extension === 'jpeg' || $extension === 'jpg'){
-                $thumbnail = $this->dropbox->getTemporaryLink($file['path_lower']);
-                $fotosd['entries'][$key]['thumbnail'] = $thumbnail;
+        try {
+            $fotosd = Dropbox::files()->listContents($path);
+        }catch ( \Exception $e){
+            Dropbox::files()->createFolder($path);
+        }
+
+        if(array_key_exists('entries', $fotosd)) {
+            foreach ($fotosd['entries'] as $key => $file){
+                $extension = strtolower(explode('.', $file['name'])[1]);
+                if ($extension === 'jpeg' || $extension === 'jpg'){
+                    $thumbnail = $this->dropbox->getTemporaryLink($file['path_lower']);
+                    $fotosd['entries'][$key]['thumbnail'] = $thumbnail;
+                }
             }
         }
-//        dd($fotosd,$path);
+
          //calculate file position
         $pragmatognomosini->File_position = $pragmatognomosini->pragm_path();
         // create folder
 
-        try {
-            Dropbox::files()->createFolder($path);
-        }catch ( \Exception $e){
-            Log::info('Couldnt created folder in ' . $path);
-        }
 //        $dir = 'X:' . '\\' . $pragmatognomosini->File_position;
 //        if (is_dir($dir) === false) {
 //            File::makeDirectory($dir, $mode = 0777, true, true);
