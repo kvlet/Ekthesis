@@ -23,7 +23,7 @@ class StorageController extends Controller
     public function index($path=' '){
 
         $results = Dropbox::files()->listContents($path);
-//        dd($results);
+
         return view('files.index', compact('results'));
     }
 
