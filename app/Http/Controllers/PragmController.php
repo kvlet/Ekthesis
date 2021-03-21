@@ -57,7 +57,7 @@ class PragmController extends Controller
     {
         $this->middleware('auth');
 //        $this->dropbox = new Client([config('dropbox.clientId'), config('dropbox.clientSecret')]);
-        $this->dropbox = new Client('sl.AtYQhvEPRTjFTBsYMm1e_pSM5hgznuomZ1Va181xJn4TUXS40-HQ1B88JiUmnBa_Ss-G2IJJSfc5QbpuVke14x6XnmskWChtuHR0WoktbFJ8HFuHPZ1qbK8TbJq72og21k7y0gvP');
+        $this->dropbox = new Client([config('dropbox.clientId'), config('dropbox.clientSecret')]);
     }
 
     /**
@@ -240,7 +240,6 @@ class PragmController extends Controller
                 $thumbnail = $this->dropbox->getTemporaryLink($file['path_lower']);
                 $fotosd['entries'][$key]['thumbnail'] = $thumbnail;
             }
-
         }
 //        dd($fotosd,$path);
          //calculate file position
