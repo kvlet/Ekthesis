@@ -225,7 +225,7 @@ class PragmController extends Controller
         $pragmatognomosini = Pragmatognomosini::with('keimena', 'praktoreia', 'synergeia', 'parts_of_ergasies', 'proiparxouses', 'status_of_ekth', 'expen_ekth', 'expen_ekth_partner')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
         $path = '/apps/'.$pragmatognomosini->pragm_path();
-        $fotosd = Dropbox::files()->listContents($path);
+//        $fotosd = Dropbox::files()->listContents($path);
 //        dd($fotosd,$path);
          //calculate file position
         $pragmatognomosini->File_position = $pragmatognomosini->pragm_path();
