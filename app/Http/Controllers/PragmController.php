@@ -28,6 +28,7 @@ use App\User;
 use Dcblogdev\Dropbox\Facades\Dropbox;
 use Illuminate\Http\Request;
 use App\Http\Requests\PragmRequest;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Filesystem\Filesystem;
 use \Carbon\Carbon;
@@ -224,27 +225,33 @@ class PragmController extends Controller
         // many to many for pragmatognomosini
         $pragmatognomosini = Pragmatognomosini::with('keimena', 'praktoreia', 'synergeia', 'parts_of_ergasies', 'proiparxouses', 'status_of_ekth', 'expen_ekth', 'expen_ekth_partner')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
-        $path = '/apps/'.$pragmatognomosini->pragm_path();
+        $path = $pragmatognomosini->pragm_path();
         $fotosd = Dropbox::files()->listContents($path);
 //        dd($fotosd,$path);
          //calculate file position
         $pragmatognomosini->File_position = $pragmatognomosini->pragm_path();
         // create folder
-        $dir = 'X:' . '\\' . $pragmatognomosini->File_position;
-        if (is_dir($dir) === false) {
-            File::makeDirectory($dir, $mode = 0777, true, true);
+
+        try {
+            Dropbox::files()->createFolder($path);
+        }catch ( \Exception $e){
+            Log::info('Couldnt created folder in ' . $path);
         }
+//        $dir = 'X:' . '\\' . $pragmatognomosini->File_position;
+//        if (is_dir($dir) === false) {
+//            File::makeDirectory($dir, $mode = 0777, true, true);
+//        }
         //end create folder , end calculate file position
         $pragmatognomosini->update();
         //end calculate file position
 
         ///make windows dir
 
-        $newdir = new Filesystem();
-        $path = 'X:\\' . $pragmatognomosini->File_position;
-        if (!$newdir->isDirectory(storage_path($path))) {
-            $newdir->makeDirectory(storage_path($path), 755, true, true);
-        }
+//        $newdir = new Filesystem();
+//        $path = 'X:\\' . $pragmatognomosini->File_position;
+//        if (!$newdir->isDirectory(storage_path($path))) {
+//            $newdir->makeDirectory(storage_path($path), 755, true, true);
+//        }
 
         // end make windows dir
 
