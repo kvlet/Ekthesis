@@ -231,32 +231,32 @@ class PragmController extends Controller
         // many to many for pragmatognomosini
         $pragmatognomosini = Pragmatognomosini::with('keimena', 'praktoreia', 'synergeia', 'parts_of_ergasies', 'proiparxouses', 'status_of_ekth', 'expen_ekth', 'expen_ekth_partner')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
-        $path = $pragmatognomosini->pragm_path();
-        $fotosd = array();
-
-        try {
-            $fotosd = Dropbox::files()->listContents($path);
-        }catch ( \Exception $e){
-            Dropbox::files()->createFolder($path);
-        }
-
-        if(!empty($fotosd)) {
-            foreach ($fotosd['entries'] as $key => $file){
-                $extension = strtolower(explode('.', $file['name'])[1]);
-                if ($extension === 'jpeg' || $extension === 'jpg'){
-                    $fotosd['entries'][$key]['thumbnail'] = $this->dropbox->getTemporaryLink($file['path_lower']);
-                }
-            }
-        }
+//        $path = $pragmatognomosini->pragm_path();
+//        $fotosd = array();
+//
+//        try {
+//            $fotosd = Dropbox::files()->listContents($path);
+//        }catch ( \Exception $e){
+//            Dropbox::files()->createFolder($path);
+//        }
+//
+//        if(!empty($fotosd)) {
+//            foreach ($fotosd['entries'] as $key => $file){
+//                $extension = strtolower(explode('.', $file['name'])[1]);
+//                if ($extension === 'jpeg' || $extension === 'jpg'){
+//                    $fotosd['entries'][$key]['thumbnail'] = $this->dropbox->getTemporaryLink($file['path_lower']);
+//                }
+//            }
+//        }
 
          //calculate file position
         $pragmatognomosini->File_position = $pragmatognomosini->pragm_path();
         // create folder
 
-//        $dir = 'X:' . '\\' . $pragmatognomosini->File_position;
-//        if (is_dir($dir) === false) {
-//            File::makeDirectory($dir, $mode = 0777, true, true);
-//        }
+        $dir = 'X:' . '\\' . $pragmatognomosini->File_position;
+        if (is_dir($dir) === false) {
+            File::makeDirectory($dir, $mode = 0777, true, true);
+        }
         //end create folder , end calculate file position
         $pragmatognomosini->update();
         //end calculate file position
@@ -425,8 +425,8 @@ class PragmController extends Controller
             'provlepseis',
             'involv_cars',
             'expenses',
-            'fotos',
-            'fotosd'
+            'fotos'
+//            'fotosd'
         ]));
     }
 
