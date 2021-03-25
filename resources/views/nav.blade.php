@@ -31,7 +31,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown">Εταιρείες</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Εταιρεία &raquo</a>
+                    <li><a class="dropdown-item text-primary" href="#">Εταιρεία &raquo</a>
                         <ul class="submenu dropdown-menu">
                             <li><a class="dropdown-item text-primary" href="/company">Δημιουργία</a></li>
                             <li><a class="dropdown-item text-primary" href="/company/search">Αναζήτηση</a></li>
@@ -55,7 +55,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown">Οχήματα</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Όχημα &raquo</a>
+                    <li><a class="dropdown-item text-primary" href="#">Όχημα &raquo</a>
                         <ul class="submenu dropdown-menu">
                             <li><a class="dropdown-item text-primary" href="/oximata">Δημιουργία</a></li>
                             <li><a class="dropdown-item text-primary" href="/oximata/search">Αναζήτηση</a></li>
@@ -79,13 +79,27 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-danger" href="#" data-toggle="dropdown">Οικονομικά</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item text-primary" href="/timol_compl">Τιμολόγια Εταιρείας</a></li>
-                    <li><a class="dropdown-item text-primary" href="/eispr_compl">Είσπραξη Τιμολογίων Εταιρείας</a></li>
-                    <li><a class="dropdown-item text-primary" href="/cor_eispr_compl">Διόρθωση Είσπραξης Εταιρείας</a></li>
-                    <li><a class="dropdown-item text-primary" href="/timol_partner">Τιμολόγια Συνεργάτη</a></li>
-                    <li><a class="dropdown-item text-primary" href="/car_expen">Έξοδα Οχήματος</a></li>
-                    <li><a class="dropdown-item text-primary" href="/car_income">Έσοδα Οχήματος</a></li>
-                    <li><a class="dropdown-item text-primary" href="/expen_manage">Διαχείρισης Εξόδων</a></li>
+                    <li><a class="dropdown-item text-primary" href="#">Τιμολόγια &raquo</a>
+                        <ul class="submenu dropdown-menu">
+                            <li><a class="dropdown-item text-primary" href="/timol_compl">Δημιουργία Τιμολογίου Εταιρείας</a></li>
+                            <li><a class="dropdown-item text-primary" href="/timol_compl/search">Αναζήτηση Τιμολογίου Εταιρείας</a></li>
+                            <li><a class="dropdown-item text-primary" href="/eispr_compl">Είσπραξη Τιμολογίων Εταιρείας</a></li>
+                            <li><a class="dropdown-item text-primary" href="/cor_eispr_compl">Διόρθωση Είσπραξης Εταιρείας</a></li>
+                            <li><a class="dropdown-item text-primary" href="/timol_partner">Δημιουργία Τιμολογίου Συνεργάτη</a></li>
+                            <li><a class="dropdown-item text-primary" href="/timol_partner/search">Αναζήτηση Τιμολογίου Συνεργάτη</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dropdown-item text-primary" href="#">Έσοδα / Έξοδα &raquo</a>
+                        <ul class="submenu dropdown-menu">
+                            <li><a class="dropdown-item text-primary" href="/graf_expen">Δημιουργία Εξόδων Γραφείου</a></li>
+                            <li><a class="dropdown-item text-primary" href="/graf_expen/search">Αναζήτηση Εξόδων Γραφείου</a></li>
+                            <li><a class="dropdown-item text-primary" href="/car_expen">Δημιουργία Εξόδων Οχήματος</a></li>
+                            <li><a class="dropdown-item text-primary" href="/car_expen/search">Αναζήτηση Εξόδων Οχήματος</a></li>
+                            <li><a class="dropdown-item text-primary" href="/car_income">Δημιουργία Εσόδων Οχήματος</a></li>
+                            <li><a class="dropdown-item text-primary" href="/car_income/search">Αναζήτηση Εσόδων Οχήματος</a></li>
+                            <li><a class="dropdown-item text-primary" href="/expen_manage">Δημιουργία Εξόδων</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
 

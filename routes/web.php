@@ -353,6 +353,12 @@ Route::group(['middleware' => ['auth', 'subscribed']], function () {
     Route::post('expense_ajax', 'ExpenseController@store_ajax')->name('expense.store.ajax');
     Route::get('expense/{id}', 'ExpenseController@edit')->name('expense.edit');
     Route::put('expense/{id}', 'ExpenseController@update')->name('expense.update');
+
+    Route::get('expen_manage', 'ExpenOximaController@create')->name('expen_manage.create');
+    Route::post('expen_manage', 'ExpenOximaController@store')->name('expen_manage.store');
+    Route::post('expen_manage_ajax', 'ExpenOximaController@store_ajax')->name('expen_manage.store.ajax');
+    Route::get('expen_manage/{id}', 'ExpenOximaController@edit')->name('expen_manage.edit');
+    Route::put('expen_manage/{id}', 'ExpenOximaController@update')->name('expen_manage.update');
 // end routes for look up tables
 
     /*Route::get('/pragmatognomosines', 'PragmController@create');
