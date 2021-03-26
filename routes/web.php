@@ -361,6 +361,14 @@ Route::group(['middleware' => ['auth', 'subscribed']], function () {
     Route::put('expen_manage/{id}', 'ExpenOximaController@update')->name('expen_manage.update');
 // end routes for look up tables
 
+//   routes for exepense oxima
+    Route::get('car_expen', 'ExpensesOximaController@create')->name('car_expen.create');
+    Route::post('car_expen', 'ExpensesOximaController@store')->name('car_expen.store');
+    Route::get('car_expen/search', 'ExpensesOximaController@opensearch')->name('car_expen.opensearch');
+    Route::post('car_expen/search', 'ExpensesOximaController@search')->name('car_expen.search');
+    Route::get('car_expen/{id}', 'ExpensesOximaController@edit')->name('car_expen.edit');
+    Route::put('car_expen/{id}', 'ExpensesOximaController@update')->name('car_expen.update');
+//   end routes for exepense oxima
     /*Route::get('/pragmatognomosines', 'PragmController@create');
     Route::post('/pragmatognomosines', 'PragmController@store');
     Route::get('/pragmatognomosines/{id}', 'PragmController@edit');
