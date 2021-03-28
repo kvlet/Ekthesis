@@ -12,4 +12,9 @@ class ExpensesOxima extends Model
 
     public $timestamps = false;
     protected $primaryKey= 'id_expenses_oxima';
+
+    public function expen()
+    {
+        return $this->hasOne(ExpenOxima::class,'id_expen_oxima','id_expen_oxima');
+    }
 }

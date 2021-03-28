@@ -79,7 +79,7 @@
                             <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('lt') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="lt">{{ __('Λίτρα') }}</label>
-                                    <input type="number" name="lt" id="lt"
+                                    <input type="number" step="0.01" name="lt" id="lt"
                                            class="form-control form-input form-control-alternative{{ $errors->has('lt') ? ' is-invalid' : '' }}"
                                            value="{{ old('lt') }}" autofocus>
                                     @if ($errors->has('lt'))
@@ -92,7 +92,7 @@
                             <div class="col-md-4">
                                 <div class="form-label{{ $errors->has('value') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="value">{{ __('Αξία') }}<span style="color:red;font-weight:bold">*</span></label>
-                                    <input type="number" name="value" id="value"
+                                    <input type="number" step="0.01" name="value" id="value"
                                            class="form-control form-input form-control-alternative{{ $errors->has('value') ? ' is-invalid' : '' }}"
                                            value="{{ old('value') }}" autofocus required>
                                     @if ($errors->has('value'))
@@ -122,11 +122,11 @@
                                 <div class="form-label{{ $errors->has('note') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="note">{{ __(' Παρατηρήσεις ') }}</label>
                                     <input name="note" type="hidden">
-                                    <div id="editor_inv" style="height: 150px">
+                                    <div id="editor_expen_ox" style="height: 150px">
 {{--                                        <p> </p>--}}
                                     </div>
                                     <script>
-                                        var quill = new Quill('#editor_inv', {
+                                        var quill = new Quill('#editor_expen_ox', {
                                             modules: {
                                                 toolbar: [
                                                     [{ 'size': ['small', false, 'large', 'huge'] }],

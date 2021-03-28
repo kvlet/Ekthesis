@@ -88,10 +88,10 @@ class Pragmatognomosini extends Model
     }
 
     public function company_ypaitiou(){
-        return $this->hasOne(Company::class,'id_company_ypaitiou','id_company_ypaitiou');
+        return $this->hasOne(Company::class,'id_company','id_company_ypaitiou');
     }
     public function company_pathon_real(){
-        return $this->hasOne(Company::class,'id_company_pathon_real','id_company_pathon_real');
+        return $this->hasOne(Company::class,'id_company','id_company_pathon_real');
     }
     public function company_pathon(){
         return $this->hasOne(Company::class,'id_company','id_company_pathon');
