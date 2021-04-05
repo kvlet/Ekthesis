@@ -106,7 +106,7 @@
                                                 @endforeach
                                             </td>
                                             <td> {{ $esodaoxima->km }} </td>
-                                            <td> {{ $esodaoxima->value }} </td>
+                                            <td> {{ $esodaoxima->value.'€' }} </td>
                                             <td>
                                                 @foreach($companies as $comp)
                                                     @if($esodaoxima->id_company == $comp->id_company )

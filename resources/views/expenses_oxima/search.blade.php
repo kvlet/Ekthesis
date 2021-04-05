@@ -106,7 +106,7 @@
                                             </td>
                                             <td> {{ $expenoxima->km }} </td>
                                             <td> {{ $expenoxima->lt }} </td>
-                                            <td> {{ $expenoxima->value }} </td>
+                                            <td> {{ $expenoxima->value.'€' }} </td>
                                             <td> {{ $expenoxima->note }} </td>
                                             <td> {{ $expenoxima->mark_del }} </td>
                                             <td>

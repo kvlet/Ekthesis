@@ -379,6 +379,23 @@ Route::get('car_income/{id}', 'EsodaOximaController@edit')->name('car_income.edi
 Route::put('car_income/{id}', 'EsodaOximaController@update')->name('car_income.update');
 //   end routes for esoda oxima
 
+//   routes for esoda oxima
+    Route::get('car_income', 'EsodaOximaController@create')->name('car_income.create');
+    Route::post('car_income', 'EsodaOximaController@store')->name('car_income.store');
+    Route::get('car_income/search', 'EsodaOximaController@opensearch')->name('car_income.opensearch');
+    Route::post('car_income/search', 'EsodaOximaController@search')->name('car_income.search');
+    Route::get('car_income/{id}', 'EsodaOximaController@edit')->name('car_income.edit');
+    Route::put('car_income/{id}', 'EsodaOximaController@update')->name('car_income.update');
+//   end routes for esoda oxima
+
+//   routes for eksoda grafeiou
+    Route::get('graf_expen', 'ExpenGrafeiouController@create')->name('graf_expen.create');
+    Route::post('graf_expen', 'ExpenGrafeiouController@store')->name('graf_expen.store');
+    Route::get('graf_expen/search', 'ExpenGrafeiouController@opensearch')->name('graf_expen.opensearch');
+    Route::post('graf_expen/search', 'ExpenGrafeiouController@search')->name('graf_expen.search');
+    Route::get('graf_expen/{id}/{second_id}/{third_id}', 'ExpenGrafeiouController@edit')->name('graf_expen.edit');
+    Route::put('graf_expen', 'ExpenGrafeiouController@update')->name('graf_expen.update');
+//   end routes for eksoda grafeiou
     /*Route::get('/pragmatognomosines', 'PragmController@create');
     Route::post('/pragmatognomosines', 'PragmController@store');
     Route::get('/pragmatognomosines/{id}', 'PragmController@edit');
