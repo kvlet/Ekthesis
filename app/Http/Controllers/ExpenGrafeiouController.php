@@ -88,7 +88,7 @@ class ExpenGrafeiouController extends Controller
         $expen_graf = ExpenGrafeiou::where([['id_grafeio', $request->id_grafeio],
                                             ['id_expenses', $request->id_expenses],
                                             ['Date_expen', $request->Date_expen]])
-                                            ->first()->update(['Value_expen' => $request->Value_expen,'Note'=> $request->Note,'Flag'=>$request->Flag]);
+                                            ->first()->update(['Value_expen' => $request->Value_expen,'Note'=> $request->Note,'Flag'=>$request->Flag,'Valid'=>$request->Valid]);
         $tameio = Tameio::where([['id_grafeio', $request->id_grafeio], ['id_expenses', $request->id_expenses], ['Trans_date', $request->Date_expen]])->first();
 
         $tameio->id_grafeio=$request->id_grafeio;
