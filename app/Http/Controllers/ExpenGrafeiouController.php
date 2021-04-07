@@ -84,20 +84,12 @@ class ExpenGrafeiouController extends Controller
     public function update(Request $request)
     {
         $request->Date_expen = Carbon::createFromFormat('d-m-Y',  $request->Date_expen)->format('Y-m-d');
-
-        $expen_graf = ExpenGrafeiou::where([['id_grafeio', $request->id_grafeio], ['id_expenses', $request->id_expenses], ['Date_expen', $request->Date_expen]])->first();
-        $tameio = Tameio::where([['id_grafeio', $request->id_grafeio], ['id_expenses', $request->id_expenses], ['Trans_date', $request->Date_expen]])->first();
-//        dd($expen_graf);
         $request->Flag='1';
-
-        $expen_graf->Date_expen = $request->Date_expen;
-        $expen_graf->id_grafeio = $request->id_grafeio;
-        $expen_graf->id_expenses = $request->id_expenses;
-        $expen_graf->Value_expen = $request->Value_expen;
-        $expen_graf->Note = $request->Note;
-        $expen_graf->Valid = $request->Valid;
-        $expen_graf->Flag = $request->Flag;
-        $expen_graf->save();
+        $expen_graf = ExpenGrafeiou::where([['id_grafeio', $request->id_grafeio],
+                                            ['id_expenses', $request->id_expenses],
+                                            ['Date_expen', $request->Date_expen]])
+                                            ->first()->update(['Value_expen' => $request->Value_expen,'Note'=> $request->Note,'Flag'=>$request->Flag]);
+        $tameio = Tameio::where([['id_grafeio', $request->id_grafeio], ['id_expenses', $request->id_expenses], ['Trans_date', $request->Date_expen]])->first();
 
         $tameio->id_grafeio=$request->id_grafeio;
         $tameio->Trans_date=$request->Date_expen;
