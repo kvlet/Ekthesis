@@ -27,7 +27,7 @@
                                     <div class="col-md-5">
                                         <div class="form-label{{ $errors->has('id_expenses') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="id_expenses">{{ __('Έξοδο') }}<span style="color:red;font-weight:bold">*</span></label>
-                                            <select class="form-control form-select" id="id_expenses" name="id_expenses" required >
+                                            <select class="form-control form-select" id="id_expenses" name="id_expenses" required>
                                                 <option selected value value=-1>{{ " Επιλέξτε Έξοδο " }}</option>
                                                 @foreach($expenses as $expense)
                                                     <option value="{{$expense->id_expenses}}" @if(old('id_expenses') == $expense->id_expenses) selected @endif>{{ $expense->eksodo }}</option>
@@ -56,9 +56,9 @@
                                     <div class="col-md-5">
                                         <div class="form-label{{ $errors->has('price') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="price">{{ __('Τιμή') }} <span style="color:red;font-weight:bold">*</span></label>
-                                            <input type="number" name="price" id="price"
+                                            <input type="number" step="0.1" name="price" id="price"
                                                    class="form-control form-input form-control-alternative{{ $errors->has('price') ? ' is-invalid' : '' }}"
-                                                   value="{{  old('price')  }}" autofocus required>
+                                                   value="{{ old('price')  }}" autofocus required>
                                         </div>
                                     </div>
                                 </div>

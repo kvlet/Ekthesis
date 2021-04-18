@@ -593,14 +593,25 @@
                                                     <label class="form-control-label"
                                                            for="id">{{ __('Πραγματογνώμονας') }}<span
                                                             style="color:red;font-weight:bold">*</span></label>
-                                                    <select class="form-control form-select" id="id" name="id" required>
-                                                        <option selected value
-                                                                value=-1>{{ " Επιλέξτε Πραγματογνώμονα " }}</option>
-                                                        @foreach($pragmatognomones as $pragmatognomonas)
-                                                            <option value="{{$pragmatognomonas->id}}"
-                                                                    @if($pragmatognomosini->id == $pragmatognomonas->id) selected @endif>{{$pragmatognomonas->L_name.' '.$pragmatognomonas->F_name }}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    @if ($costEkthPartner==0)
+                                                        <select class="form-control form-select" id="id" name="id" required>
+                                                            <option selected value
+                                                                    value=-1>{{ " Επιλέξτε Πραγματογνώμονα " }}</option>
+                                                            @foreach($pragmatognomones as $pragmatognomonas)
+                                                                <option value="{{$pragmatognomonas->id}}"
+                                                                        @if($pragmatognomosini->id == $pragmatognomonas->id) selected @endif>{{$pragmatognomonas->L_name.' '.$pragmatognomonas->F_name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    @else
+                                                        <select class="form-control form-select" id="id" name="id" required disabled>
+                                                            <option selected value
+                                                                    value=-1>{{ " Επιλέξτε Πραγματογνώμονα " }}</option>
+                                                            @foreach($pragmatognomones as $pragmatognomonas)
+                                                                <option value="{{$pragmatognomonas->id}}"
+                                                                        @if($pragmatognomosini->id == $pragmatognomonas->id) selected @endif>{{$pragmatognomonas->L_name.' '.$pragmatognomonas->F_name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    @endif
                                                     @if ($errors->has('id'))
                                                         <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('id') }}</strong>
@@ -2585,6 +2596,18 @@
                                         <strong>{{ __('Λίστα Εξόδων'.' '.'('.$count.')') }}</strong>
                                     </h4>
                                 </div>
+                                <div>
+                                    <h6>
+                                        {{ __(' Καθαρή Αξία Εξόδων:')}}<strong>{{round($costEkth,2).('€')}}</strong>
+                                    </h6>
+                                    <h6>
+                                        {{ __(' Φ.Π.Α.:')}}<strong>{{round($fpaCostEkth,2).('€')}}</strong>
+                                    </h6>
+                                    <h5>
+                                        {{ __(' Σύνολο:')}}
+                                        <strong>{{round($costEkth,2)+round($fpaCostEkth,2).('€')}}</strong>
+                                    </h5>
+                                </div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -3215,8 +3238,20 @@
                                     @endforeach
                                     <h4 class="heading-small text-center text-muted">
                                         <strong>{{ __('Έκθεση:'.'  '.$pragmatognomosini->id_ekthesis) }}</strong>
-                                        <strong>{{ __('Λίστα Εξόδων'.' '.'('.$count.')') }}</strong>
+                                        <strong>{{ __('Λίστα Εξόδων Συνεργάτη'.' '.'('.$count.')') }}</strong>
                                     </h4>
+                                </div>
+                                <div>
+                                    <h6>
+                                        {{ __(' Καθαρή Αξία Εξόδων:')}}<strong>{{round($costEkthPartner,2).('€')}}</strong>
+                                    </h6>
+                                    <h6>
+                                        {{ __(' Φ.Π.Α.:')}}<strong>{{round($fpaCostEkthPartner,2).('€')}}</strong>
+                                    </h6>
+                                    <h5>
+                                        {{ __(' Σύνολο:')}}
+                                        <strong>{{round($costEkthPartner,2)+round($fpaCostEkthPartner,2).('€')}}</strong>
+                                    </h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">

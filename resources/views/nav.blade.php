@@ -75,7 +75,6 @@
                     </li>
                 </ul>
             </li>
-
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-danger" href="#" data-toggle="dropdown">Οικονομικά</a>
                 <ul class="dropdown-menu">
@@ -85,8 +84,8 @@
                             <li><a class="dropdown-item text-primary" href="/timol_compl/search">Αναζήτηση Τιμολογίου Εταιρείας</a></li>
                             <li><a class="dropdown-item text-primary" href="/eispr_compl">Είσπραξη Τιμολογίων Εταιρείας</a></li>
                             <li><a class="dropdown-item text-primary" href="/cor_eispr_compl">Διόρθωση Είσπραξης Εταιρείας</a></li>
-                            <li><a class="dropdown-item text-primary" href="/timol_partner">Δημιουργία Τιμολογίου Συνεργάτη</a></li>
-                            <li><a class="dropdown-item text-primary" href="/timol_partner/search">Αναζήτηση Τιμολογίου Συνεργάτη</a></li>
+                            <li><a class="dropdown-item text-primary" href="/timol_partner">Πληρωμή Τιμολογίου Συνεργάτη</a></li>
+                            <li><a class="dropdown-item text-primary" href="/timol_partner/search">Αναζήτηση Πληρωμής Τιμολογίου Συνεργάτη</a></li>
                         </ul>
                     </li>
                     <li><a class="dropdown-item text-primary" href="#"> Έξοδα Γραφείου &raquo</a>

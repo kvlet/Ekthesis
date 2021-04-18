@@ -19,7 +19,8 @@
                                 <input name="id_ekthesis" type="hidden" value="{{ $id_ekthesis }}">
                                 <input name="id_expenses" type="hidden" value="{{ $id_expenses }}">
                                 <input name="id_users" type="hidden" value="{{ $id_users }}">
-                                <input name="Value_fpa" type="hidden" value="{{ $expen_ekth_part->value_fpa }}">
+                                <input name="value_fpa" type="hidden" value="{{ $expen_ekth_part->value_fpa }}">
+                                <input name="value" type="hidden" value="{{ $expen_ekth_part->value }}">
                                 <div class="form-label{{ $errors->has('id_expenses') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="id_expenses">{{ __('Έξοδο') }}<span style="color:red;font-weight:bold">*</span></label>
                                     <select class="form-control form-select" id="id_expenses" name="id_expenses" required disabled >

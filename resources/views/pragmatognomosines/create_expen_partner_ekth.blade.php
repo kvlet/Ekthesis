@@ -15,7 +15,23 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
+                                <div class="form-label{{ $errors->has('id_users') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="id_users">{{ __('Συνεργάτης') }}<span style="color:red;font-weight:bold">*</span></label>
+                                    <select class="form-control form-select" id="id_users" name="id_users" required disabled>
+                                        @foreach($pragmatognomones as $pragm)
+                                            <option value="{{$pragm->id}}" @if($pragmatognomosini->id == $pragm->id) selected @endif>{{ $pragm->L_name.' '.$pragm->F_name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('id_users'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('id_users') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <input name="id_ekthesis" type="hidden" value="{{ $id_ekthesis }}">
+                                <input name="id_users" type="hidden" value="{{ $pragmatognomosini->id }}">
                                 <div class="form-label{{ $errors->has('id_expenses') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="id_expenses">{{ __('Έξοδο') }}<span style="color:red;font-weight:bold">*</span></label>
                                     <select class="form-control form-select" id="id_expenses" name="id_expenses" required >
@@ -27,22 +43,6 @@
                                     @if ($errors->has('id_expenses'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('id_expenses') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-label{{ $errors->has('id_users') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="id_users">{{ __('Συνεργάτης') }}<span style="color:red;font-weight:bold">*</span></label>
-                                    <select class="form-control form-select" id="id_users" name="id_users" required >
-                                        <option selected value value=-1>{{ " Επιλέξτε Συνεργάτη " }}</option>
-                                        @foreach($pragmatognomones as $pragm)
-                                            <option value="{{$pragm->id}}" @if(old('id_users') == $pragm->id) selected @endif>{{ $pragm->L_name.' '.$pragm->F_name }}</option>
-                                        @endforeach
-                                    </select>
-                                    @if ($errors->has('id_users'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('id_users') }}</strong>
                                         </span>
                                     @endif
                                 </div>

@@ -382,8 +382,29 @@ class PragmController extends Controller
             $costProiparx += $cost;
             $fpaProiparx += $cost * $proip->pivot->sint_fpa_job / 100;
         }
-        // end calculate proiparxouses costs
+        // end calculate proiparxouses costs expen_ekth_partner
 
+        // calculate expen_ekth
+        $costEkth = 0;
+        $fpaCostEkth = 0;
+        foreach ($pragmatognomosini->expen_ekth as $exp_ekth) {
+            $costEkth += $exp_ekth->pivot->Value;
+            if ($exp_ekth->pivot->id_expenses != 9) {
+                $fpaCostEkth += $exp_ekth->pivot->Value * $pragmatognomosini->Fpa / 100;
+            }
+        }
+        // end calculate proiparxouses costs expen_ekth
+
+        // calculate expen_ekth_partner
+        $costEkthPartner = 0;
+        $fpaCostEkthPartner = 0;
+        foreach ($pragmatognomosini->expen_ekth_partner as $exp_ekth_partn) {
+            $costEkthPartner += $exp_ekth_partn->pivot->value;
+            if ($exp_ekth_partn->pivot->id_expenses != 9){
+                $fpaCostEkthPartner += $exp_ekth_partn->pivot->value * $pragmatognomosini->Fpa / 100;
+            }
+        }
+        // end calculate proiparxouses costs expen_ekth_partner
 
         return view('pragmatognomosines.edit', compact([
             'pragmatognomosini',
@@ -425,7 +446,11 @@ class PragmController extends Controller
             'provlepseis',
             'involv_cars',
             'expenses',
-            'fotos'
+            'fotos',
+            'costEkth',
+            'fpaCostEkth',
+            'costEkthPartner',
+            'fpaCostEkthPartner'
 //            'fotosd'
         ]));
     }
@@ -1630,10 +1655,12 @@ class PragmController extends Controller
     {
 
         $pragmatognomosini = Pragmatognomosini::findOrFail($id_ekthesis);
+        $pragmatognomonas = User::where([['id',$request->id_users ]])->first();
+
         if ($request->id_expenses == 9) {
-            $Value_fpa = 0;
+            $value_fpa = 0;
         } else {
-            $Value_fpa = $request->value * $pragmatognomosini->Fpa / 100;
+            $value_fpa = $request->value * $pragmatognomosini->Fpa / 100;
         }
         if ($request->quan == null) {
             $request->quan = 1;
@@ -1644,9 +1671,11 @@ class PragmController extends Controller
         $expen_partner->id_users = $request->id_users;
         $expen_partner->quan = $request->quan;
         $expen_partner->value = $request->value;
-        $expen_partner->value_fpa = $Value_fpa;
-
+        $expen_partner->value_fpa = $value_fpa;
         $expen_partner->save();
+
+        $pragmatognomonas->Ypoloipo = $pragmatognomonas->Ypoloipo + $request->value + $value_fpa;
+        $pragmatognomonas->save();
 
         return redirect('pragmatognomosines/' . $request->id_ekthesis);
 
@@ -1659,6 +1688,10 @@ class PragmController extends Controller
         $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis', $id_ekthesis], ['id_expenses', $id_expenses], ['id_users', $id_users]])->first();
         $expenses = Expense::where([['Mark_del', 'Όχι'], ['Where_use', '=', 'Ε' or 'Where_use', '=', 'Ε/Γ']])->get();
         $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
+
+        $pragmatognomonas = User::where([['id',$id_users ]])->first();
+        $pragmatognomonas->Ypoloipo = $pragmatognomonas->Ypoloipo - $expen_ekth_part->value - $expen_ekth_part->value_fpa;
+        $pragmatognomonas->save();
 
         return view('pragmatognomosines.edit_expen_partner_ekth', compact([
             'expen_ekth_part',
@@ -1674,6 +1707,7 @@ class PragmController extends Controller
     {
         $pragmatognomosini = Pragmatognomosini::with('expen_ekth_partner')->findOrFail($request->id_ekthesis);
         $expen_ekth_part = ExpenEkthPartner::where([['id_ekthesis', $request->id_ekthesis], ['id_expenses', $request->id_expenses], ['id_users', $request->id_users]])->first();
+        $pragmatognomonas = User::where([['id',$request->id_users ]])->first();
 
         if ($request->id_expenses == 9) {
             $value_fpa = 0;
@@ -1691,8 +1725,10 @@ class PragmController extends Controller
         $expen_ekth_part->quan = $request->quan;
         $expen_ekth_part->value = $request->value;
         $expen_ekth_part->value_fpa = $value_fpa;
-
         $expen_ekth_part->save();
+
+        $pragmatognomonas->Ypoloipo = $pragmatognomonas->Ypoloipo + $request->value + $value_fpa;
+        $pragmatognomonas->save();
 //        $expen_partner = ExpenEkthPartner::where([['id_ekthesis',$request->id_ekthesis],['id_expenses',$request->id_expenses],['id_users',$request->id_users]])->update($request->except(['_token']));
 
         return redirect('pragmatognomosines/' . $request->id_ekthesis);
@@ -1719,15 +1755,19 @@ class PragmController extends Controller
         $pragmatognomosini = Pragmatognomosini::with('expen_ekth_partner')->findOrFail($request->id_ekthesis);
 
         if ($request->id_expenses == 9) {
-            $Value_fpa = 0;
+            $value_fpa = 0;
         } else {
-            $Value_fpa = $request->Value * $pragmatognomosini->Fpa / 100;
+            $value_fpa = $request->Value * $pragmatognomosini->Fpa / 100;
         }
         if ($request->Quan == null) {
             $request->Quan = 1;
         }
 
         $expen_partner = ExpenEkthPartner::where([['id_ekthesis', $request->id_ekthesis], ['id_expenses', $request->id_expenses], ['id_users', $request->id_users]])->delete($request->except(['_token']));
+
+        $pragmatognomonas = User::where([['id',$request->id_users ]])->first();
+        $pragmatognomonas->Ypoloipo = $pragmatognomonas->Ypoloipo - $request->value - $request->value_fpa;
+        $pragmatognomonas->save();
 
         return redirect('pragmatognomosines/' . $request->id_ekthesis);
 

@@ -396,6 +396,17 @@ Route::put('car_income/{id}', 'EsodaOximaController@update')->name('car_income.u
     Route::get('graf_expen/{id}/{second_id}/{third_id}', 'ExpenGrafeiouController@edit')->name('graf_expen.edit');
     Route::put('graf_expen', 'ExpenGrafeiouController@update')->name('graf_expen.update');
 //   end routes for eksoda grafeiou
+
+//   routes for pliromi timologiou partner
+    Route::get('timol_partner', 'PliromiTimolPartnerController@create')->name('timol_partner.create');
+    Route::post('timol_partner', 'PliromiTimolPartnerController@store')->name('timol_partner.store');
+    Route::get('timol_partner/update_ekth/{id}/{second_id}', 'PliromiTimolPartnerController@create_ekth_to_update')->name('timol_partner.create_ekth_to_update');
+    Route::post('timol_partner/update_ekth/{id}', 'PliromiTimolPartnerController@store_ekth')->name('timol_partner.store_ekth');
+    Route::get('timol_partner/search', 'PliromiTimolPartnerController@opensearch')->name('timol_partner.opensearch');
+    Route::post('timol_partner/search', 'PliromiTimolPartnerController@search')->name('timol_partner.search');
+    Route::get('timol_partner/{id}/{second_id}', 'PliromiTimolPartnerController@edit')->name('timol_partner.edit');
+    Route::put('timol_partner', 'PliromiTimolPartnerController@update')->name('timol_partner.update');
+//   end routes for pliromi timologiou partner
     /*Route::get('/pragmatognomosines', 'PragmController@create');
     Route::post('/pragmatognomosines', 'PragmController@store');
     Route::get('/pragmatognomosines/{id}', 'PragmController@edit');
