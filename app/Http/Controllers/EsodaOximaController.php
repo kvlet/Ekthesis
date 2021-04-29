@@ -108,12 +108,18 @@ class EsodaOximaController extends Controller
         $accedent_places = Accedent_place::where('Mark_del', 'Όχι')->orderBy('Place')->get();
         $companies = Company::where('Mark_del', 'Όχι')->orderBy('comp_name')->get();
 
-        if ($request->sexpen_date == null && $request->fexpen_date == null){
+        if ($request->sesod_date == null && $request->fesod_date == null){
             $esoda_oximatos=EsodaOxima::where('mark_del', 'Όχι')->orderBy('date_esoda')->get();
+        }elseif($request->sesod_date == null){
+            $fdate = Carbon::createFromFormat('d-m-Y', $request->fesod_date)->format('Y-m-d');
+            $esoda_oximatos = EsodaOxima::where([['mark_del','Όχι'],['date_esoda','<=',$fdate]])->orderBy('date_esoda')->get();
+        }elseif ($request->fesod_date == null){
+            $sdate = Carbon::createFromFormat('d-m-Y', $request->sesod_date)->format('Y-m-d');
+            $esoda_oximatos = EsodaOxima::where([['mark_del','Όχι'],['date_esoda','>=',$sdate]])->orderBy('date_esoda')->get();
         }else{
-            $sdate = Carbon::createFromFormat('d-m-Y', $request->sexpen_date)->format('Y-m-d');
-            $edate = Carbon::createFromFormat('d-m-Y', $request->fexpen_date)->format('Y-m-d');
-            $esoda_oximatos = EsodaOxima::where([['mark_del','Όχι'],['date_esoda','>=',$sdate],['date_esoda','<=',$edate]])->orderBy('date_esoda')->get();
+            $sdate = Carbon::createFromFormat('d-m-Y', $request->sesod_date)->format('Y-m-d');
+            $fdate = Carbon::createFromFormat('d-m-Y', $request->fesod_date)->format('Y-m-d');
+            $esoda_oximatos = EsodaOxima::where([['mark_del','Όχι'],['date_esoda','>=',$sdate],['date_esoda','<=',$fdate]])->orderBy('date_esoda')->get();
         }
         foreach ($esoda_oximatos as $esodox){
             $esodox->date_esoda = Carbon::createFromFormat('Y-m-d', $esodox->date_esoda)->format('d-m-Y');

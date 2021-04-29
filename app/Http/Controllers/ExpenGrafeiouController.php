@@ -125,6 +125,12 @@ class ExpenGrafeiouController extends Controller
 
         if ($request->sexpen_date == null && $request->fexpen_date == null){
             $expen_graf=ExpenGrafeiou::orderBy('Date_expen')->get();
+        }elseif($request->sexpen_date == null){
+            $edate = Carbon::createFromFormat('d-m-Y', $request->fexpen_date)->format('Y-m-d');
+            $expen_graf = ExpenGrafeiou::where([['Date_expen','<=',$edate]])->orderBy('Date_expen')->get();
+        }elseif ($request->fexpen_date == null){
+            $sdate = Carbon::createFromFormat('d-m-Y', $request->sexpen_date)->format('Y-m-d');
+            $expen_graf = ExpenGrafeiou::where([['Date_expen','>=',$sdate]])->orderBy('Date_expen')->get();
         }else{
             $sdate = Carbon::createFromFormat('d-m-Y', $request->sexpen_date)->format('Y-m-d');
             $edate = Carbon::createFromFormat('d-m-Y', $request->fexpen_date)->format('Y-m-d');

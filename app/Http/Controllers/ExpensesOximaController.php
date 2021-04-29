@@ -89,12 +89,18 @@ class ExpensesOximaController extends Controller
     public function search(Request $request){
         $expen = ExpenOxima::where([['mark_del','Όχι']])->get();
 //        dd($request);
-        if ($request->sexpen_date == null && $request->fexpen_date == null){
+        if ($request->sexpenox_date == null && $request->fexpenox_date == null){
             $expens_oxima = ExpensesOxima::where([['mark_del','Όχι']])->orderBy('expen_date')->get();
+        }elseif ($request->fexpenox_date == null){
+            $sdate = Carbon::createFromFormat('d-m-Y', $request->sexpenox_date)->format('Y-m-d');
+            $expens_oxima = ExpensesOxima::where([['mark_del','Όχι'],['expen_date','>=',$sdate]])->orderBy('expen_date')->get();
+        }elseif ($request->sexpenox_date == null){
+            $fdate = Carbon::createFromFormat('d-m-Y', $request->fexpenox_date)->format('Y-m-d');
+            $expens_oxima = ExpensesOxima::where([['mark_del','Όχι'],['expen_date','<=',$fdate]])->orderBy('expen_date')->get();
         }else{
-            $sdate = Carbon::createFromFormat('d-m-Y', $request->sexpen_date)->format('Y-m-d');
-            $edate = Carbon::createFromFormat('d-m-Y', $request->fexpen_date)->format('Y-m-d');
-            $expens_oxima = ExpensesOxima::where([['mark_del','Όχι'],['expen_date','>=',$sdate],['expen_date','<=',$edate]])->orderBy('expen_date')->get();
+            $sdate = Carbon::createFromFormat('d-m-Y', $request->sexpenox_date)->format('Y-m-d');
+            $fdate = Carbon::createFromFormat('d-m-Y', $request->fexpenox_date)->format('Y-m-d');
+            $expens_oxima = ExpensesOxima::where([['mark_del','Όχι'],['expen_date','>=',$sdate],['expen_date','<=',$fdate]])->orderBy('expen_date')->get();
         }
         foreach ($expens_oxima as $expenox){
             $expenox->expen_date = Carbon::createFromFormat('Y-m-d', $expenox->expen_date)->format('d-m-Y');

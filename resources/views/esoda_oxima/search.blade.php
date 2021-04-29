@@ -17,12 +17,12 @@
 
                             </div>
                             <div class="col-md-3">
-                                <div class="form-label{{ $errors->has('sexpen_date') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="sexpen_date">{{ __('Από') }}</label>
-                                    <input type="text" name="sexpen_date" id="sexpen_date" data-provide="datepicker" placeholder="HH-MM-YYYY"
-                                           class="form-control form-input form-control-alternative{{ $errors->has('sexpen_date') ? ' is-invalid' : '' }}" >
+                                <div class="form-label{{ $errors->has('sesod_date') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="sesod_date">{{ __('Από') }}</label>
+                                    <input type="text" name="sesod_date" id="sesod_date" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                           class="form-control form-input form-control-alternative{{ $errors->has('sesod_date') ? ' is-invalid' : '' }}" >
                                     <script type="text/javascript">
-                                        $('#sexpen_date').datepicker({
+                                        $('#sesod_date').datepicker({
                                             autoclose: true,
                                             format: 'dd-mm-yyyy',
                                             language: 'el',
@@ -32,12 +32,12 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="form-label{{ $errors->has('fexpen_date') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="fexpen_date">{{ __('Έως ') }}</label>
-                                    <input type="text" name="fexpen_date" id="fexpen_date" data-provide="datepicker" placeholder="HH-MM-YYYY"
-                                           class="form-control form-input form-control-alternative{{ $errors->has('fexpen_date') ? ' is-invalid' : '' }}" >
+                                <div class="form-label{{ $errors->has('fesod_date') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="fesod_date">{{ __('Έως ') }}</label>
+                                    <input type="text" name="fesod_date" id="fesod_date" data-provide="datepicker" placeholder="HH-MM-YYYY"
+                                           class="form-control form-input form-control-alternative{{ $errors->has('fesod_date') ? ' is-invalid' : '' }}" >
                                     <script type="text/javascript">
-                                        $('#fexpen_date').datepicker({
+                                        $('#fesod_date').datepicker({
                                             autoclose: true,
                                             format: 'dd-mm-yyyy',
                                             language: 'el',
