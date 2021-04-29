@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header-cust">
                         <h4 class="heading-small text-center text-muted">
-                            <strong>{{ __('Πληρωμή τιμολογίου συνεργάτη') }}</strong>
+                            <strong>{{ __('Πληρωμή Τιμολογίου Συνεργάτη') }}</strong>
                         </h4>
                     </div>
                     <div class="card-body">

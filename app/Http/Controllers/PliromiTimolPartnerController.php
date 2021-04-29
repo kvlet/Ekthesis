@@ -85,7 +85,6 @@ class PliromiTimolPartnerController extends Controller
     public function create_ekth_to_update($arTimol,$idPartner){
         $pliromiTimolPartner = PliromiTimolPartner::where([['Ar_timologio_partner',$arTimol],['id_partner',$idPartner]])->first();
         $pragma = Pragmatognomosini::where([['Ekkatharistike','Όχι'],['id',$idPartner]])->get();
-//        dd($pragma);
         $companies = Company::where('Mark_del', 'Όχι')->get();
         $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1']])->get();
         $oximata = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1']])->get();
@@ -108,12 +107,129 @@ class PliromiTimolPartnerController extends Controller
 
     public function store_ekth(Request $request,$idPartner){
         $pragma = Pragmatognomosini::where([['Ekkatharistike','Όχι'],['id',$idPartner]])->get();
+//        dd($request,$pragma);
+        if ($request->choice_all == null){
+            foreach ($pragma as $prag){
+                foreach ($request->input('choice') as $ekth => $value) {
+                    if ($prag->id_ekthesis == $ekth){
+                        $prag->Ekkatharistike='Ναι';
+                        $prag->Ar_timologio_partner=$request->Ar_timologio_partner;
+                        $prag->save();
+                    }
+                }
+            }
+        }else{
+            foreach ($pragma as $prag){
+                $prag->Ekkatharistike='Ναι';
+                $prag->Ar_timologio_partner=$request->Ar_timologio_partner;
+                $prag->save();
+            }
+        }
 
-//        foreach ($pragma as $prag){
-//            for ($i=0;$request->id_ekthesis.length();$i++){
-//
-//            }
-//        }
-        dd($request,$idPartner,$pragma);
+        return redirect('timol_partner/search');
+    }
+
+    public function edit($arTimol,$idPartner){
+        $pliromiTimolPartner = PliromiTimolPartner::where([['Ar_timologio_partner',$arTimol],['id_partner',$idPartner]])->first();
+        $grafeia = Grafeio::where('Mark_del', 'Όχι')->orderBy('Name')->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
+        $pliromiTimolPartner->Date_timol=Carbon::createFromFormat('Y-m-d', $pliromiTimolPartner->Date_timol)->format('d-m-Y');
+        $pragma = Pragmatognomosini::where([['Ar_timologio_partner',$arTimol],['id',$idPartner]])->get();
+        $companies = Company::where('Mark_del', 'Όχι')->get();
+        $pathontes = Person::where([['Mark_del', 'Όχι'], ['id_person', '>', '1']])->get();
+        $oximata = Oxima::where([['Mark_del', 'Όχι'], ['id_oximata', '>', '1']])->get();
+        foreach ($pragma as $prag) {
+            $prag->Date_atiximatos = Carbon::createFromFormat('Y-m-d', $prag->Date_atiximatos)->format('d-m-Y');
+        }
+
+        return view('pliromi_tim_partner.edit',compact([
+            'pliromiTimolPartner',
+            'grafeia',
+            'pragmatognomones',
+            'pragma',
+            'companies',
+            'pathontes',
+            'oximata'
+        ]));
+
+    }
+
+    public function update(Request $request){
+        if ($request->Valid == 'false'){
+            $pliromiTimolPartner = PliromiTimolPartner::where([['Ar_timologio_partner',$request->Ar_timologio_partner],['id_partner',$request->id_partner]])->first();
+            $tameio = Tameio::where([['id_timologio',$request->id_partner],['Document_num',$request->Ar_timologio_partner]])->first();
+            $pragma = Pragmatognomosini::where([['Ekkatharistike','Ναι'],['id',$request->id_partner]])->get();
+            $pragmatognomones = User::where([['id', $request->id_partner]])->first();
+
+            $pliromiTimolPartner->Valid = $request->Valid;
+            $pliromiTimolPartner->save();
+            $tameio->Valid = $request->Valid;
+            $tameio->save();
+
+            foreach ($pragma as $prag){
+                foreach ($request->input('ekthesis') as $ekth => $value) {
+                    if ($prag->id_ekthesis == $ekth){
+                        $prag->Ekkatharistike='Όχι';
+                        $prag->Ar_timologio_partner=' ';
+                        $prag->save();
+                    }
+                }
+            }
+            $pragmatognomones->Ypoloipo = $pragmatognomones->Ypoloipo + $request->Value_me_fpa;
+            $pragmatognomones->save();
+        }
+
+        $pliromiTimolPartner = PliromiTimolPartner::orderBy('Date_timol')->get();
+        $grafeia = Grafeio::where('Mark_del', 'Όχι')->orderBy('Name')->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
+        foreach ($pliromiTimolPartner as $pliTimol) {
+            $pliTimol->Date_timol = Carbon::createFromFormat('Y-m-d', $pliTimol->Date_timol)->format('d-m-Y');
+        }
+        return view('pliromi_tim_partner.search',compact([
+            'pliromiTimolPartner',
+            'grafeia',
+            'pragmatognomones'
+        ]));
+
+    }
+
+    public function opensearch(){
+        $pliromiTimolPartner = PliromiTimolPartner::orderBy('Date_timol')->get();
+        $grafeia = Grafeio::where('Mark_del', 'Όχι')->orderBy('Name')->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
+        foreach ($pliromiTimolPartner as $pliTimol){
+            $pliTimol->Date_timol = Carbon::createFromFormat('Y-m-d', $pliTimol->Date_timol)->format('d-m-Y');
+        }
+        return view('pliromi_tim_partner.search',compact([
+            'pliromiTimolPartner',
+            'grafeia',
+            'pragmatognomones'
+        ]));
+    }
+
+    public function search(Request $request){
+        $grafeia = Grafeio::where('Mark_del', 'Όχι')->orderBy('Name')->get();
+        $pragmatognomones = User::where([['thesi', 'LIKE', 'ΠΡΑΓ%'], ['Active', 'Ναι']])->get();
+        if ($request->stimol_date == null && $request->ftimol_date == null){
+            $pliromiTimolPartner = PliromiTimolPartner::orderBy('Date_timol')->get();
+        }elseif($request->ftimol_date == null){
+            $sdate = Carbon::createFromFormat('d-m-Y', $request->stimol_date)->format('Y-m-d');
+            $pliromiTimolPartner = PliromiTimolPartner::where([['Date_timol','>=',$sdate]])->orderBy('Date_timol')->get();
+        }elseif ($request->stimol_date == null){
+            $fdate = Carbon::createFromFormat('d-m-Y', $request->ftimol_date)->format('Y-m-d');
+            $pliromiTimolPartner = PliromiTimolPartner::where([['Date_timol','<=',$fdate]])->orderBy('Date_timol')->get();
+        }else{
+            $sdate = Carbon::createFromFormat('d-m-Y', $request->stimol_date)->format('Y-m-d');
+            $fdate = Carbon::createFromFormat('d-m-Y', $request->ftimol_date)->format('Y-m-d');
+            $pliromiTimolPartner = PliromiTimolPartner::where([['Date_timol','>=',$sdate],['Date_timol','<=',$fdate]])->orderBy('Date_timol')->get();
+        }
+        foreach ($pliromiTimolPartner as $pliTimol){
+            $pliTimol->Date_timol = Carbon::createFromFormat('Y-m-d', $pliTimol->Date_timol)->format('d-m-Y');
+        }
+        return view('pliromi_tim_partner.search',compact([
+            'pliromiTimolPartner',
+            'grafeia',
+            'pragmatognomones'
+        ]));
     }
 }

@@ -14,6 +14,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
+                                <input name="Ar_timologio_partner" type="hidden" value="{{ $pliromiTimolPartner->Ar_timologio_partner }}">
                                 <div class="form-label{{ $errors->has('Ar_timologio_partner') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="Ar_timologio_partner">{{ __('Αρ. Τιμολ. Συνεργάτη') }}<span style="color:red;font-weight:bold">*</span></label>
                                     <input type="text"  name="Ar_timologio_partner" id="Ar_timologio_partner"
@@ -296,11 +297,7 @@
                                                                         @endforeach
                                                                     </td>
                                                                     <td>
-                                                                        <input type="checkbox"  name="choice" id="choice">
-                                                                        <input name="id_ekthesis[]" type="hidden" id="ekthesis" class="form-control" value="{{ $pragm->id_ekthesis }}">
-                                                                        <script type="text/javascript">
-
-                                                                        </script>
+                                                                        <input type="checkbox" value="{{ $pragm->id_ekthesis }}" name="choice[{{ $pragm->id_ekthesis }}]">
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -316,7 +313,7 @@
                         </div>
                         <div class="row mt-4">
                             <div class="col d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Καταχώρηση</button>
+                                <button type="submit" id="btnSave" class="btn btn-primary">Καταχώρηση</button>
                             </div>
                             <div class="col d-flex justify-content-end">
                                 <a href="{{  URL('timol_partner/search') }}" class="btn btn-primary" role="button">Επιστροφή</a>
