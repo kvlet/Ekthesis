@@ -172,6 +172,8 @@
                                                 document.getElementById("Pososto_parakr").removeAttribute("required");
                                                 document.getElementById("Poso_parakr").disabled = true;
                                                 document.getElementById("Poso_parakr").required = false;
+                                                document.getElementById("Pososto_parakr").value="";
+                                                document.getElementById("Poso_parakr").value=""
                                             }
                                         }
                                     </script>
