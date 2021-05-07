@@ -76,7 +76,7 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-danger" href="#" data-toggle="dropdown">Οικονομικά</a>
+                <a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown">Οικονομικά</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item text-primary" href="#">Τιμολόγια &raquo</a>
                         <ul class="submenu dropdown-menu">
