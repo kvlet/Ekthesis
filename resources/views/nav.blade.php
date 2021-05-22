@@ -80,8 +80,8 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item text-primary" href="#">Τιμολόγια &raquo</a>
                         <ul class="submenu dropdown-menu">
-                            <li><a class="dropdown-item text-danger" href="/timol_compl">Δημιουργία Τιμολογίου Εταιρείας</a></li>
-                            <li><a class="dropdown-item text-danger" href="/timol_compl/search">Αναζήτηση Τιμολογίου Εταιρείας</a></li>
+                            <li><a class="dropdown-item text-primary" href="/timol_compl">Δημιουργία Τιμολογίου Εταιρείας</a></li>
+                            <li><a class="dropdown-item text-primary" href="/timol_compl/search">Αναζήτηση Τιμολογίου Εταιρείας</a></li>
                             <li><a class="dropdown-item text-danger" href="/eispr_compl">Είσπραξη Τιμολογίων Εταιρείας</a></li>
                             <li><a class="dropdown-item text-danger" href="/cor_eispr_compl">Διόρθωση Είσπραξης Εταιρείας</a></li>
                             <li><a class="dropdown-item text-primary" href="/timol_partner">Πληρωμή Τιμολογίου Συνεργάτη</a></li>

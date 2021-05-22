@@ -24,6 +24,7 @@ use App\Proiparxousa;
 use App\Provlepseis;
 use App\Status;
 use App\Synergeio;
+use App\TimologioCompany;
 use App\User;
 use Dcblogdev\Dropbox\Facades\Dropbox;
 use Illuminate\Http\Request;
@@ -228,6 +229,7 @@ class PragmController extends Controller
         $expenses = Expense::where([['Mark_del', 'Όχι']])->get();
         $fotos = Foto::where([['id_ekthesis', $id_ekthesis]])->orderBy('file_name')->get();
 
+
         // many to many for pragmatognomosini
         $pragmatognomosini = Pragmatognomosini::with('keimena', 'praktoreia', 'synergeia', 'parts_of_ergasies', 'proiparxouses', 'status_of_ekth', 'expen_ekth', 'expen_ekth_partner')->findOrFail($id_ekthesis);
         // end many to many for pragmatognomosini
@@ -248,7 +250,7 @@ class PragmController extends Controller
 //                }
 //            }
 //        }
-
+        $timComp = TimologioCompany::where([['id_timologio',$pragmatognomosini->id_timologio_etaireias ]])->first();
          //calculate file position
         $pragmatognomosini->File_position = $pragmatognomosini->pragm_path();
         // create folder
@@ -450,7 +452,8 @@ class PragmController extends Controller
             'costEkth',
             'fpaCostEkth',
             'costEkthPartner',
-            'fpaCostEkthPartner'
+            'fpaCostEkthPartner',
+            'timComp'
 //            'fotosd'
         ]));
     }

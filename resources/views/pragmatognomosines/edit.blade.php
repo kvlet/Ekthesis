@@ -556,11 +556,19 @@
                                                     class="form-label{{ $errors->has('id_timologio_etaireias') ? ' has-danger' : '' }}">
                                                     <label class="form-control-label"
                                                            for="id_timologio_etaireias">{{ __('Αρ. Τιμολογίου') }}</label>
-                                                    <input type="text" name="id_timologio_etaireias"
-                                                           id="id_timologio_etaireias"
-                                                           class="form-control form-input form-control-alternative{{ $errors->has('id_timologio_etaireias') ? ' is-invalid' : '' }}"
-                                                           value="{{ $pragmatognomosini->id_timologio_etaireias }}"
-                                                           disabled autofocus>
+                                                    @if (!empty($timComp))
+                                                        <input type="text" name="id_timologio_etaireias"
+                                                               id="id_timologio_etaireias"
+                                                               class="form-control form-input form-control-alternative{{ $errors->has('id_timologio_etaireias') ? ' is-invalid' : '' }}"
+                                                               value="{{ $timComp->Ar_timologiou }}"
+                                                               disabled autofocus>
+                                                    @else
+                                                        <input type="text" name="id_timologio_etaireias"
+                                                               id="id_timologio_etaireias"
+                                                               class="form-control form-input form-control-alternative{{ $errors->has('id_timologio_etaireias') ? ' is-invalid' : '' }}"
+                                                               value="{{ $pragmatognomosini->id_timologio_etaireias }}"
+                                                               disabled autofocus>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-md-5">
