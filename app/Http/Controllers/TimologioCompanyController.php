@@ -6,6 +6,7 @@ use App\Company;
 use App\Grafeio;
 use App\Oxima;
 use App\Person;
+use App\PliromiComp;
 use App\Pragmatognomosini;
 use App\TimologioCompany;
 use App\User;
@@ -241,14 +242,17 @@ class TimologioCompanyController extends Controller
         $timologio = TimologioCompany::orderBy('Date_ekdosis')->get();
         $company = Company::where('Mark_del', 'Όχι')->orderBy('comp_name')->get();
         $grafeia = Grafeio::where('Mark_del', 'Όχι')->orderBy('Name')->get();
+
+
         foreach ($timologio as $timol) {
             $timol->Date_ekdosis = Carbon::createFromFormat('Y-m-d', $timol->Date_ekdosis)->format('d-m-Y');
         }
 
+
         return view('timologio_comp.search',compact([
             'timologio',
             'company',
-            'grafeia'
+            'grafeia',
         ]));
     }
 
@@ -256,6 +260,7 @@ class TimologioCompanyController extends Controller
         $timologio = TimologioCompany::orderBy('Date_ekdosis')->get();
         $company = Company::where('Mark_del', 'Όχι')->orderBy('comp_name')->get();
         $grafeia = Grafeio::where('Mark_del', 'Όχι')->orderBy('Name')->get();
+
 
         if ($request->sdate_ekd == null && $request->fdate_ekd == null){
             $timologio = TimologioCompany::orderBy('Date_ekdosis')->get();
@@ -275,10 +280,11 @@ class TimologioCompanyController extends Controller
             $timol->Date_ekdosis = Carbon::createFromFormat('Y-m-d', $timol->Date_ekdosis)->format('d-m-Y');
         }
 
+
         return view('timologio_comp.search',compact([
             'timologio',
             'company',
-            'grafeia'
+            'grafeia',
         ]));
     }
 }
